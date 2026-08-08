@@ -363,12 +363,40 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Text gradient */
+/* Text gradient — für helle Hero-Flächen (kontakt/arbeiten/staedte/leistungen).
+   Beide Stops dunkel genug, um auf Weiß/Hellblau lesbar zu bleiben (Kontrast > 6:1). */
 .text-gradient {
-  background: linear-gradient(135deg, #1C5C99 0%, #6FB4EE 100%);
+  background: linear-gradient(135deg, #123F6B 0%, #1C5C99 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Text gradient — für die dunklen Hero-Sektionen (gradient-secondary-Hintergrund).
+   Theme-unabhängig helle Stops, da diese Heroes selbst nicht auf Light/Dark reagieren;
+   beide Stops behalten Kontrast > 4.5:1 gegen den gesamten Hero-Verlauf. */
+.text-gradient-hero {
+  background: linear-gradient(135deg, #FFFFFF 0%, #A9DBFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent text/icon color for content sitting directly on .gradient-secondary
+   (or any other theme-independent dark-navy surface). The regular `text-primary`
+   token is tuned for the light theme (#2773BE) and drops to ~1.4:1 contrast
+   against this background — use this class instead wherever text/icons render
+   straight on the dark gradient, not inside their own white/gray-900 card and
+   not as a solid-primary button fill. */
+.text-primary-on-dark {
+  color: #7CC4FF;
+}
+
+/* Same idea as .text-primary-on-dark but for small decorative fills (bullet
+   bars, pulse dots, icon backgrounds) that would otherwise vanish at ~1.4:1
+   against .gradient-secondary. */
+.bg-primary-on-dark {
+  background-color: #7CC4FF;
 }
 
 /* Button shimmer effect */

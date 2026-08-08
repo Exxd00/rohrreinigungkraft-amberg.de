@@ -90,7 +90,7 @@ export default function VideoShowcase() {
         <div className="container relative mx-auto px-4">
           {/* Header */}
           <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 text-primary font-semibold text-sm rounded-full mb-4 ring-1 ring-primary/30">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-primary/15 text-primary-on-dark font-semibold text-sm rounded-full mb-4 ring-1 ring-primary/30">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
@@ -98,9 +98,9 @@ export default function VideoShowcase() {
               Echte Einsätze auf Video
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Sehen Sie uns <span className="text-primary">bei der Arbeit</span>
+              Sehen Sie uns <span className="text-primary-on-dark">bei der Arbeit</span>
             </h2>
-            <p className="text-gray-300 md:text-lg">
+            <p className="text-white/85 md:text-lg">
               Keine Stockfotos. Echte Aufnahmen aus unseren Rohr- und
               Kanaleinsätzen – inklusive Live-Kamerabefahrung direkt aus der
               Leitung.
@@ -126,7 +126,7 @@ export default function VideoShowcase() {
               <h4 className="mt-3 text-base md:text-lg font-bold text-white">
                 Verstopfte Leitung
               </h4>
-              <p className="mt-1 text-sm text-gray-400 leading-relaxed">
+              <p className="mt-1 text-sm text-white/70 leading-relaxed">
                 Starke Ablagerungen und Schmutz verengen das Rohr – das Wasser
                 läuft kaum noch ab.
               </p>
@@ -149,7 +149,7 @@ export default function VideoShowcase() {
               <h4 className="mt-3 text-base md:text-lg font-bold text-white">
                 Saubere Leitung
               </h4>
-              <p className="mt-1 text-sm text-gray-400 leading-relaxed">
+              <p className="mt-1 text-sm text-white/70 leading-relaxed">
                 Nach unserer Reinigung ist das Rohr wieder komplett frei und
                 glatt.
               </p>
@@ -209,15 +209,15 @@ export default function VideoShowcase() {
               {/* Caption */}
               <div className="p-5 md:p-6 gradient-secondary border-t border-white/5">
                 <div className="flex items-center gap-2 mb-2">
-                  <Camera className="w-4 h-4 text-primary" />
-                  <span className="text-primary text-xs font-semibold uppercase tracking-wider">
+                  <Camera className="w-4 h-4 text-primary-on-dark" />
+                  <span className="text-primary-on-dark text-xs font-semibold uppercase tracking-wider">
                     {featured.category}
                   </span>
                 </div>
                 <h3 className="text-white text-lg md:text-2xl font-bold mb-2">
                   {featured.title}
                 </h3>
-                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                <p className="text-white/70 text-sm md:text-base leading-relaxed">
                   {featured.description}
                 </p>
               </div>
@@ -276,7 +276,7 @@ export default function VideoShowcase() {
 
           {/* CTA */}
           <div className="text-center mt-12 md:mt-16">
-            <p className="text-gray-300 mb-5">
+            <p className="text-white/85 mb-5">
               Ihr Rohr macht Probleme? Wir zeigen Ihnen per Kamera, was wirklich
               los ist.
             </p>

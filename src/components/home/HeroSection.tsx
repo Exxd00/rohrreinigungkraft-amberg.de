@@ -64,16 +64,16 @@ export default function HeroSection() {
             <div className="text-center mb-4 md:mb-6">
               {/* Location Badge - Prominent Amberg */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-3 md:mb-4 bg-white/10 border border-white/20 rounded-full">
-                <MapPin className="w-4 h-4 text-primary" />
+                <MapPin className="w-4 h-4 text-primary-on-dark" />
                 <span className="text-sm md:text-base font-semibold text-white">
-                  Rohrreinigung <span className="text-primary">Amberg</span> &
+                  Rohrreinigung <span className="text-primary-on-dark">Amberg</span> &
                   Oberpfalz
                 </span>
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight">
                 <span className="text-white">Festpreis </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                <span className="text-gradient-hero">
                   VOR
                 </span>
                 <span className="text-white"> dem ersten Handgriff.</span>
@@ -97,7 +97,7 @@ export default function HeroSection() {
                 </span>
               </div>
               <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-2 text-white/90 text-center md:text-left">
-                <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+                <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary-on-dark" />
                 <span className="text-[11px] leading-tight md:text-sm font-medium">
                   Festpreis vor Arbeit
                 </span>
@@ -162,7 +162,7 @@ export default function HeroSection() {
               {/* City list line: redundant with the location badge above the headline on
                   small screens, so it's desktop-only here to keep mobile compact */}
               <div className="hidden md:flex items-center gap-2 text-white/80">
-                <MapPin className="w-4 h-4 text-primary" />
+                <MapPin className="w-4 h-4 text-primary-on-dark" />
                 <span className="text-sm">
                   Amberg • Kümmersbruck • Sulzbach-Rosenberg • Umgebung
                 </span>

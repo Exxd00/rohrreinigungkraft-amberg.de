@@ -8,9 +8,11 @@ import {
   CheckCircle,
   AlertCircle,
   Loader2,
+  PhoneCall,
+  PhoneIncoming,
 } from "lucide-react";
 import { company } from "@/data/company";
-import { trackCallIntent, trackCallConfirmed } from "@/lib/tracking";
+import { trackCallIntent, trackCallConfirmed, trackFormConfirmed } from "@/lib/tracking";
 import { getTrackingData, getGclid } from "@/lib/gclid";
 
 interface CallConfirmModalProps {
@@ -19,19 +21,26 @@ interface CallConfirmModalProps {
   source: string;
 }
 
+type Step = "intent" | "confirm" | "callback" | "callback-success";
+
 export default function CallConfirmModal({
   isOpen,
   onClose,
   source,
 }: CallConfirmModalProps) {
-  const [step, setStep] = useState<"intent" | "confirm">("intent");
+  const [step, setStep] = useState<Step>("intent");
   const [isCallInProgress, setIsCallInProgress] = useState(false);
+  const [callbackNumber, setCallbackNumber] = useState("");
+  const [isSubmittingCallback, setIsSubmittingCallback] = useState(false);
+  const [callbackError, setCallbackError] = useState<string | null>(null);
 
   useEffect(() => {
     if (isOpen) {
       trackCallIntent(source);
       setStep("intent");
       setIsCallInProgress(false);
+      setCallbackNumber("");
+      setCallbackError(null);
     }
   }, [isOpen, source]);
 
@@ -87,8 +96,60 @@ export default function CallConfirmModal({
     }, 100);
   };
 
+  const handleCallbackSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (isSubmittingCallback) return;
+
+    const trimmedNumber = callbackNumber.trim();
+    if (trimmedNumber.length < 5) {
+      setCallbackError("Bitte geben Sie eine gültige Telefonnummer ein.");
+      return;
+    }
+
+    setCallbackError(null);
+    setIsSubmittingCallback(true);
+
+    const trackingData = getTrackingData();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Rückruf-Anfrage",
+          phone: trimmedNumber,
+          email: "",
+          city: "Nicht angegeben",
+          service: "Rückruf angefordert",
+          message: `Kunde hat nicht erreicht (${source}) und bittet um Rückruf unter ${trimmedNumber}.`,
+          gclid: trackingData.gclid,
+          source: trackingData.source,
+          medium: trackingData.medium,
+          campaign: trackingData.campaign,
+          landingPage: trackingData.landingPage,
+          currentPage: trackingData.currentPage,
+          referrer: trackingData.referrer,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      trackFormConfirmed({ service: "Rückruf angefordert" });
+      setStep("callback-success");
+    } catch (error) {
+      console.error("Callback request failed:", error);
+      setCallbackError(
+        `Das hat leider nicht geklappt. Bitte rufen Sie uns direkt an: ${company.contact.phoneDisplay}`,
+      );
+    } finally {
+      setIsSubmittingCallback(false);
+    }
+  };
+
   const handleClose = () => {
-    if (isCallInProgress) return;
+    if (isCallInProgress || isSubmittingCallback) return;
     onClose();
   };
 
@@ -107,17 +168,17 @@ export default function CallConfirmModal({
         {/* Close Button */}
         <button
           onClick={handleClose}
-          disabled={isCallInProgress}
+          disabled={isCallInProgress || isSubmittingCallback}
           className="absolute top-3 right-3 p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors z-10 disabled:opacity-50"
           aria-label="Schließen"
         >
           <X className="w-5 h-5" />
         </button>
 
-        {step === "intent" ? (
-          /* Step 1: Intent */
+        {step === "intent" && (
+          /* Step 1: Intent — choose direct call or callback request */
           <div className="p-5 text-center">
-            {/* Icon - smaller on mobile */}
+            {/* Icon */}
             <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
               <Phone className="w-7 h-7 text-primary" />
             </div>
@@ -149,20 +210,26 @@ export default function CallConfirmModal({
                 onClick={handleConfirmIntent}
                 className="w-full py-3.5 px-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2"
               >
-                <Phone className="w-5 h-5" />
-                Ja, jetzt anrufen
+                <PhoneCall className="w-5 h-5" />
+                Direkt anrufen
               </button>
 
               <button
-                onClick={handleClose}
-                className="w-full py-2.5 px-5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-xl transition-colors text-sm"
+                onClick={() => setStep("callback")}
+                className="w-full py-3.5 px-5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-xl transition-colors flex items-center justify-center gap-2"
               >
-                Später anrufen
+                <PhoneIncoming className="w-5 h-5" />
+                Rückruf anfordern
               </button>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                Falls wir gerade nicht rangehen, rufen wir Sie zurück
+              </p>
             </div>
           </div>
-        ) : (
-          /* Step 2: Confirm */
+        )}
+
+        {step === "confirm" && (
+          /* Step 2: Confirm direct call */
           <div className="p-5 text-center">
             {/* Header gradient */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent" />
@@ -225,6 +292,100 @@ export default function CallConfirmModal({
               className="mt-3 text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 disabled:opacity-50"
             >
               ← Zurück
+            </button>
+          </div>
+        )}
+
+        {step === "callback" && (
+          /* Step 3: Callback request — leave a number to be called back */
+          <form onSubmit={handleCallbackSubmit} className="p-5 text-center">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent" />
+
+            <div className="w-14 h-14 mx-auto mb-3 mt-2 rounded-full bg-primary/10 flex items-center justify-center">
+              <PhoneIncoming className="w-7 h-7 text-primary" />
+            </div>
+
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+              Rückruf anfordern
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Tragen Sie Ihre Nummer ein — falls wir nicht sofort rangehen,
+              rufen wir Sie zurück.
+            </p>
+
+            <label htmlFor="callback-phone" className="sr-only">
+              Ihre Telefonnummer
+            </label>
+            <input
+              id="callback-phone"
+              type="tel"
+              inputMode="tel"
+              autoFocus
+              placeholder="Ihre Telefonnummer"
+              value={callbackNumber}
+              onChange={(e) => {
+                setCallbackNumber(e.target.value);
+                if (callbackError) setCallbackError(null);
+              }}
+              className="w-full px-4 py-3.5 text-center text-lg font-semibold rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 placeholder:font-normal placeholder:text-base focus:outline-none focus:border-primary transition-colors mb-3"
+            />
+
+            {callbackError && (
+              <p className="text-sm text-red-600 dark:text-red-400 mb-3">
+                {callbackError}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={isSubmittingCallback}
+              className="w-full py-3.5 px-5 gradient-primary text-white font-bold rounded-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {isSubmittingCallback ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Wird gesendet...
+                </>
+              ) : (
+                <>
+                  <PhoneIncoming className="w-5 h-5" />
+                  Rückruf anfordern
+                </>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setStep("intent")}
+              disabled={isSubmittingCallback}
+              className="mt-3 text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 disabled:opacity-50"
+            >
+              ← Zurück
+            </button>
+          </form>
+        )}
+
+        {step === "callback-success" && (
+          /* Step 4: Confirmation */
+          <div className="p-6 text-center">
+            <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+              <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-400" />
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+              Alles klar!
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-5">
+              Wir rufen Sie unter{" "}
+              <span className="font-semibold text-gray-900 dark:text-white">
+                {callbackNumber}
+              </span>{" "}
+              schnellstmöglich zurück.
+            </p>
+            <button
+              onClick={handleClose}
+              className="w-full py-3 px-5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-semibold rounded-xl transition-colors"
+            >
+              Schließen
             </button>
           </div>
         )}

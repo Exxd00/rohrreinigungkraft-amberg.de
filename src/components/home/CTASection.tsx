@@ -46,9 +46,9 @@ export default function CTASection() {
 
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
                 Verstopfung?{" "}
-                <span className="text-primary">Rufen Sie jetzt an.</span>
+                <span className="text-primary-on-dark">Rufen Sie jetzt an.</span>
               </h2>
-              <p className="text-gray-300 text-lg max-w-xl mx-auto">
+              <p className="text-white/85 text-lg max-w-xl mx-auto">
                 Kostenlose Beratung. Kostenlose Diagnose vor Ort. Sie zahlen
                 erst, wenn Sie JA sagen.
               </p>
@@ -63,7 +63,7 @@ export default function CTASection() {
                 </span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
-                <Clock className="w-5 h-5 text-primary" />
+                <Clock className="w-5 h-5 text-primary-on-dark" />
                 <span className="text-sm font-medium">
                   {company.urgency.responseTimeDisplay} vor Ort
                 </span>
@@ -94,7 +94,7 @@ export default function CTASection() {
             </div>
 
             {/* Reassurance */}
-            <p className="text-center text-sm text-gray-400 mt-6">
+            <p className="text-center text-sm text-white/70 mt-6">
               24/7 erreichbar • Auch nachts & am Wochenende • Keine versteckten
               Kosten
             </p>

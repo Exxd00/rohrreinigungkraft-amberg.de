@@ -118,7 +118,7 @@ export default function PreisePage() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-1.5 text-xs text-white/50 mb-4">
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="hover:text-primary-on-dark">
                 Startseite
               </Link>
               <span>/</span>
@@ -128,7 +128,7 @@ export default function PreisePage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Was kostet Rohrreinigung?
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="text-gradient-hero">
                 Sie wissen es, BEVOR wir anfangen.
               </span>
             </h1>
@@ -144,7 +144,7 @@ export default function PreisePage() {
               <p className="text-sm text-white/60 mb-3">Unser Versprechen:</p>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-primary">0€</div>
+                  <div className="text-2xl font-bold text-primary-on-dark">0€</div>
                   <p className="text-xs text-white/70">Diagnose kostet</p>
                 </div>
                 <div>
@@ -169,7 +169,7 @@ export default function PreisePage() {
                 </span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
-                <Euro className="w-4 h-4 text-primary" />
+                <Euro className="w-4 h-4 text-primary-on-dark" />
                 <span className="text-sm font-medium">
                   Ab 79€ für einfache Fälle
                 </span>

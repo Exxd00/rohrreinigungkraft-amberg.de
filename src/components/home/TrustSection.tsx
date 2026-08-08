@@ -170,7 +170,7 @@ export default function TrustSection() {
                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                   {company.rating.displayText} auf Google
                 </h3>
-                <p className="text-gray-300 mb-4 max-w-md">
+                <p className="text-white/85 mb-4 max-w-md">
                   "{company.rating.reviewCount} Kunden bewerten uns mit 5
                   Sternen. Lesen Sie selbst, was echte Kunden über uns sagen."
                 </p>

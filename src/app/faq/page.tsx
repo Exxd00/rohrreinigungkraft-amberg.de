@@ -362,7 +362,7 @@ export default function FAQPage() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-1.5 text-xs text-white/50 mb-4">
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="hover:text-primary-on-dark">
                 Startseite
               </Link>
               <span>/</span>
@@ -371,7 +371,7 @@ export default function FAQPage() {
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Häufige Fragen zur{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="text-gradient-hero">
                 Rohrreinigung
               </span>
             </h1>

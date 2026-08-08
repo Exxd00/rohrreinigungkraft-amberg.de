@@ -81,7 +81,7 @@ export default function Footer() {
                   <p className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
                     {company.contact.phoneDisplay}
                   </p>
-                  <p className="text-gray-400 text-sm">Kostenlose Beratung</p>
+                  <p className="text-white/70 text-sm">Kostenlose Beratung</p>
                 </div>
               </button>
 
@@ -94,7 +94,7 @@ export default function Footer() {
                   <p className="font-semibold text-white">
                     {company.hours.regular}
                   </p>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-white/70 text-sm">
                     {company.hours.emergencyText}
                   </p>
                 </div>
@@ -112,10 +112,10 @@ export default function Footer() {
                 <AnimatedLogo size="md" />
                 <div>
                   <span className="text-lg font-bold">Rohrreinigung</span>
-                  <span className="text-primary font-semibold ml-1">Kraft</span>
+                  <span className="text-primary-on-dark font-semibold ml-1">Kraft</span>
                 </div>
               </Link>
-              <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+              <p className="text-white/70 text-sm mb-4 leading-relaxed">
                 Ihr Rohrreinigungspartner für Amberg und die Oberpfalz. Schnell,
                 fair und zuverlässig seit über 10 Jahren.
               </p>
@@ -130,7 +130,7 @@ export default function Footer() {
             {/* Services */}
             <div>
               <h4 className="text-sm font-bold mb-4 text-white flex items-center gap-2">
-                <div className="w-1 h-4 bg-primary rounded-full" />
+                <div className="w-1 h-4 bg-primary-on-dark rounded-full" />
                 Leistungen
               </h4>
               <ul className="space-y-2">
@@ -138,7 +138,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-primary transition-colors flex items-center gap-1 group"
+                      className="text-sm text-white/70 hover:text-primary-on-dark transition-colors flex items-center gap-1 group"
                     >
                       <ChevronRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                       {link.name}
@@ -151,7 +151,7 @@ export default function Footer() {
             {/* Cities */}
             <div>
               <h4 className="text-sm font-bold mb-4 text-white flex items-center gap-2">
-                <div className="w-1 h-4 bg-primary rounded-full" />
+                <div className="w-1 h-4 bg-primary-on-dark rounded-full" />
                 Einsatzgebiete
               </h4>
               <ul className="space-y-2">
@@ -159,7 +159,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-primary transition-colors flex items-center gap-1 group"
+                      className="text-sm text-white/70 hover:text-primary-on-dark transition-colors flex items-center gap-1 group"
                     >
                       <ChevronRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                       {link.name}
@@ -172,7 +172,7 @@ export default function Footer() {
             {/* Legal - Better Styled */}
             <div>
               <h4 className="text-sm font-bold mb-4 text-white flex items-center gap-2">
-                <div className="w-1 h-4 bg-primary rounded-full" />
+                <div className="w-1 h-4 bg-primary-on-dark rounded-full" />
                 Rechtliches
               </h4>
               <ul className="space-y-2">
@@ -180,9 +180,9 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
+                      className="text-sm text-white/70 hover:text-primary-on-dark transition-colors flex items-center gap-2 group"
                     >
-                      <span className="text-gray-500 group-hover:text-primary transition-colors">
+                      <span className="text-white/60 group-hover:text-primary-on-dark transition-colors">
                         {link.icon}
                       </span>
                       {link.name}
@@ -193,12 +193,12 @@ export default function Footer() {
 
               {/* Legal Info */}
               <div className="mt-4 pt-4 border-t border-gray-800 space-y-2">
-                <p className="text-xs text-gray-500">
-                  <span className="text-gray-400">Registergericht:</span>{" "}
+                <p className="text-xs text-white/60">
+                  <span className="text-white/70">Registergericht:</span>{" "}
                   {company.legal.registergericht}
                 </p>
-                <p className="text-xs text-gray-500">
-                  <span className="text-gray-400">USt-IdNr.:</span>{" "}
+                <p className="text-xs text-white/60">
+                  <span className="text-white/70">USt-IdNr.:</span>{" "}
                   {company.legal.ustIdNr}
                 </p>
               </div>
@@ -206,12 +206,12 @@ export default function Footer() {
               {/* Trust badges */}
               <div className="mt-4 pt-4 border-t border-gray-800">
                 <div className="flex flex-wrap gap-2">
-                  <div className="px-2 py-1 bg-white/10 rounded text-xs text-gray-300 flex items-center gap-1">
+                  <div className="px-2 py-1 bg-white/10 rounded text-xs text-white/85 flex items-center gap-1">
                     <Shield className="w-3 h-3 text-emerald-500" />
                     SSL gesichert
                   </div>
-                  <div className="px-2 py-1 bg-white/10 rounded text-xs text-gray-300 flex items-center gap-1">
-                    <FileText className="w-3 h-3 text-primary" />
+                  <div className="px-2 py-1 bg-white/10 rounded text-xs text-white/85 flex items-center gap-1">
+                    <FileText className="w-3 h-3 text-primary-on-dark" />
                     DSGVO konform
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export default function Footer() {
         <div className="border-t border-gray-800">
           <div className="container mx-auto px-4 py-5">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-gray-500 text-center md:text-left">
+              <p className="text-sm text-white/60 text-center md:text-left">
                 © {currentYear} {company.name}. Alle Rechte vorbehalten.
               </p>
               <div className="flex items-center gap-6">
@@ -232,13 +232,13 @@ export default function Footer() {
                   href={company.socialLinks.gelbeSeiten}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-500 hover:text-primary transition-colors"
+                  className="text-sm text-white/60 hover:text-primary-on-dark transition-colors"
                 >
                   Gelbe Seiten
                 </a>
                 <div className="flex items-center gap-2 text-sm">
-                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-primary font-medium">
+                  <span className="w-2 h-2 rounded-full bg-primary-on-dark animate-pulse" />
+                  <span className="text-primary-on-dark font-medium">
                     24/7 Erreichbar
                   </span>
                 </div>

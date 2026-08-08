@@ -191,11 +191,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="max-w-3xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-1.5 text-xs text-white/50 mb-4">
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="hover:text-primary-on-dark">
                 Startseite
               </Link>
               <span>/</span>
-              <Link href="/leistungen" className="hover:text-primary">
+              <Link href="/leistungen" className="hover:text-primary-on-dark">
                 Leistungen
               </Link>
               <span>/</span>
@@ -229,7 +229,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 <span className="text-sm font-medium">Diagnose kostenlos</span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
-                <Shield className="w-5 h-5 text-primary" />
+                <Shield className="w-5 h-5 text-primary-on-dark" />
                 <span className="text-sm font-medium">
                   Festpreis vor Arbeit
                 </span>
@@ -629,7 +629,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             {enhancedContent?.heroHeadline || `${service.name}?`}
           </h2>
-          <p className="text-gray-300 mb-6 max-w-xl mx-auto">
+          <p className="text-white/85 mb-6 max-w-xl mx-auto">
             Kostenlose Diagnose • Festpreis vor Arbeit • Kein Start ohne Ihr OK
           </p>
           <Link href={`tel:${company.contact.phone}`}>

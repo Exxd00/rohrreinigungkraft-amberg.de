@@ -77,11 +77,11 @@ export default function CityPageContent({
           <div className="max-w-3xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 text-sm text-white/60 mb-4">
-              <Link href="/" className="hover:text-primary transition-colors">
+              <Link href="/" className="hover:text-primary-on-dark transition-colors">
                 Startseite
               </Link>
               <span>/</span>
-              <span className="text-primary font-medium">{city.name}</span>
+              <span className="text-primary-on-dark font-medium">{city.name}</span>
             </div>
 
             {/* Urgency Badge */}
@@ -109,7 +109,7 @@ export default function CityPageContent({
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
               <span className="text-white">Rohrreinigung</span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="text-gradient-hero">
                 {city.name}
               </span>
             </h1>
@@ -117,7 +117,7 @@ export default function CityPageContent({
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-white/90 mb-6 font-medium">
               In{" "}
-              <span className="text-primary font-bold">
+              <span className="text-primary-on-dark font-bold">
                 {company.urgency.responseTime} Min
               </span>{" "}
               bei Ihnen •{" "}
@@ -161,7 +161,7 @@ export default function CityPageContent({
                 <span>Diagnose gratis</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">
-                <Shield className="w-4 h-4 text-primary" />
+                <Shield className="w-4 h-4 text-primary-on-dark" />
                 <span>Festpreis-Garantie</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">

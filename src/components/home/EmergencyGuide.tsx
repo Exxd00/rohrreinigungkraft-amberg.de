@@ -307,15 +307,15 @@ export default function EmergencyGuide() {
           <div className="max-w-3xl mx-auto mt-10">
             <div className="gradient-secondary rounded-2xl p-6 md:p-8 text-center">
               <div className="flex items-center justify-center gap-2 mb-4">
-                <Clock className="w-5 h-5 text-primary" />
-                <span className="text-primary font-semibold">
+                <Clock className="w-5 h-5 text-primary-on-dark" />
+                <span className="text-primary-on-dark font-semibold">
                   24/7 Notdienst verfügbar
                 </span>
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
                 Problem jetzt? Wir helfen sofort!
               </h3>
-              <p className="text-gray-300 mb-6 max-w-lg mx-auto">
+              <p className="text-white/85 mb-6 max-w-lg mx-auto">
                 Kostenlose Diagnose vor Ort. Festpreis vor Arbeitsbeginn. In{" "}
                 {company.urgency.responseTime} Min bei Ihnen.
               </p>

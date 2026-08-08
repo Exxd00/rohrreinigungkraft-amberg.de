@@ -181,7 +181,7 @@ export default function HausverwaltungPage() {
           <div className="max-w-4xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-1.5 text-xs text-white/50 mb-4">
-              <Link href="/" className="hover:text-primary">
+              <Link href="/" className="hover:text-primary-on-dark">
                 Startseite
               </Link>
               <span>/</span>
@@ -191,15 +191,15 @@ export default function HausverwaltungPage() {
             </div>
 
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 border border-primary/30 rounded-full mb-6">
-              <Building2 className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
+              <Building2 className="w-4 h-4 text-primary-on-dark" />
+              <span className="text-sm font-medium text-primary-on-dark">
                 B2B-Service für die Amberg-Region
               </span>
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Rohrreinigung für{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+              <span className="text-gradient-hero">
                 Geschäftskunden
               </span>
             </h1>
@@ -218,7 +218,7 @@ export default function HausverwaltungPage() {
                 <span className="text-sm font-medium">Rahmenverträge</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
-                <Clock className="w-4 h-4 text-primary" />
+                <Clock className="w-4 h-4 text-primary-on-dark" />
                 <span className="text-sm font-medium">
                   20-40 Min Reaktionszeit
                 </span>
@@ -576,7 +576,7 @@ export default function HausverwaltungPage() {
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Bereit für professionellen Service?
           </h2>
-          <p className="mb-8 text-gray-300 max-w-xl mx-auto">
+          <p className="mb-8 text-white/85 max-w-xl mx-auto">
             Sprechen Sie mit uns über Ihre Anforderungen. Unverbindliches
             Angebot innerhalb von 24 Stunden.
           </p>
