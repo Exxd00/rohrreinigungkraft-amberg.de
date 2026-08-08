@@ -6,72 +6,79 @@
 
 @layer base {
   :root {
-    /* الألوان الأساسية للوضع الفاتح */
-    --background: 210 50% 98%; /* #F8FBFF */
-    --foreground: 222 47% 11%;
+    /* الألوان الأساسية للوضع الفاتح — Palette "Klarwasser" (RK-5407) */
+    --background: 195 25% 97%; /* #F5F8F9 */
+    --foreground: 203 26% 16%; /* #1E2B33 */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 203 26% 16%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 203 26% 16%;
 
-    --primary: 212 55% 28%; /* #20456F - dunkles Marineblau */
+    --primary: 197 43% 32%; /* #2E5F73 - Blaugrün, klares Wasser */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 213 35% 38%; /* #3F5F83 */
+    --secondary: 197 36% 39%; /* #3F7286 */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 189 20% 93%; /* #EAF0F1 */
+    --muted-foreground: 199 11% 40%; /* #5C6B72 */
 
-    --accent: 24 95% 53%; /* #F97316 - Signal-Orange */
+    --accent: 20 65% 44%; /* #B95827 - Terrakotta, gedämpft für sicheren Weiß-Text-Kontrast */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 212 55% 28%;
+    --border: 190 21% 89%; /* #DCE6E8 */
+    --input: 190 21% 89%;
+    --ring: 197 43% 32%;
 
     --radius: 0.75rem;
 
-    --chart-1: 212 55% 28%;
-    --chart-2: 24 95% 53%;
-    --chart-3: 213 35% 38%;
-    --chart-4: 210 50% 70%;
-    --chart-5: 30 90% 70%;
+    --chart-1: 197 43% 32%;
+    --chart-2: 20 65% 44%;
+    --chart-3: 197 36% 39%;
+    --chart-4: 195 30% 75%;
+    --chart-5: 20 50% 70%;
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 210 50% 98%;
+    /* الوضع الداكن — Palette "Klarwasser" (RK-5407) */
+    --background: 198 22% 9%; /* #12191C */
+    --foreground: 193 23% 92%; /* #E7EEF0 */
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 50% 98%;
+    --card: 200 22% 14%; /* #1B252A */
+    --card-foreground: 193 23% 92%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 50% 98%;
+    --popover: 200 22% 14%;
+    --popover-foreground: 193 23% 92%;
 
-    --primary: 212 60% 58%; /* #5490D4 - helleres Marineblau für Kontrast auf Dunkel */
-    --primary-foreground: 222 47% 11%;
+    --primary: 191 40% 60%; /* #6FB3C2 - helleres Blaugrün für Kontrast auf Dunkel */
+    --primary-foreground: 198 22% 9%; /* dunkler Text, da der helle Primärton mit Weiß zu schwach kontrastiert */
 
-    --secondary: 213 35% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 193 30% 50%; /* #5B96A6 */
+    --secondary-foreground: 198 22% 9%;
 
-    --muted: 222 47% 15%;
-    --muted-foreground: 215 16% 65%;
+    --muted: 196 19% 15%; /* #202B2F */
+    --muted-foreground: 196 11% 62%; /* #93A3A9 */
 
-    --accent: 24 95% 53%;
+    --accent: 20 65% 44%; /* #B95827 - gleicher Terrakotta-Ton, hebt sich klar vom dunklen Grund ab */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 222 47% 20%;
-    --input: 222 47% 20%;
-    --ring: 212 60% 58%;
+    --border: 201 17% 19%; /* #29343A */
+    --input: 201 17% 19%;
+    --ring: 191 40% 60%;
+
+    --chart-1: 191 40% 60%;
+    --chart-2: 20 65% 44%;
+    --chart-3: 193 30% 50%;
+    --chart-4: 198 22% 25%;
+    --chart-5: 20 50% 55%;
   }
 }
 
@@ -319,17 +326,18 @@
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
 
-/* Gradient backgrounds */
+/* Gradient backgrounds — Palette "Klarwasser" (RK-5407) */
 .gradient-primary {
-  background: linear-gradient(135deg, #FF8A3D 0%, #F97316 100%);
+  /* CTA-Verlauf, unabhängig vom Theme — beide Stops behalten AA-Kontrast (>4.5:1) zu weißem Text */
+  background: linear-gradient(135deg, #B95827 0%, #A04C22 100%);
 }
 
 .gradient-secondary {
-  background: linear-gradient(135deg, #17324F 0%, #3F5F83 100%);
+  background: linear-gradient(135deg, #1F4653 0%, #3F7286 100%);
 }
 
 .gradient-radial {
-  background: radial-gradient(circle at center, #F97316 0%, transparent 70%);
+  background: radial-gradient(circle at center, #D97A4A 0%, transparent 70%);
 }
 
 /* Glass effect */
@@ -357,7 +365,7 @@
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #20456F 0%, #F97316 100%);
+  background: linear-gradient(135deg, #2E5F73 0%, #D97A4A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
