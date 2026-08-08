@@ -172,7 +172,7 @@ export default function AdminPage() {
   // Login Screen
   if (!isAuthenticated) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 px-4">
+      <main className="min-h-screen flex items-center justify-center gradient-secondary px-4">
         <div className="w-full max-w-md">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8">
             <div className="flex justify-center mb-6">

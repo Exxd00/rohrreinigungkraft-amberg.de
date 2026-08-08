@@ -155,7 +155,7 @@ export default function TrustSection() {
         </div>
 
         {/* Google Reviews Highlight */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12">
+        <div className="relative overflow-hidden gradient-secondary rounded-3xl p-8 md:p-12">
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-center md:text-left">

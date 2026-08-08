@@ -357,7 +357,7 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 md:pt-28 pb-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <section className="pt-24 md:pt-28 pb-12 gradient-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             {/* Breadcrumb */}

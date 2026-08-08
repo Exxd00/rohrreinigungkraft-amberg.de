@@ -31,7 +31,7 @@ export default function HeroSection() {
       {/* HERO SECTION */}
       <section className="relative pt-24 md:pt-28 pb-8 md:pb-16 overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+        <div className="absolute inset-0 gradient-secondary" />
 
         {/* Subtle pattern overlay */}
         <div

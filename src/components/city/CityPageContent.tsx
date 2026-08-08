@@ -70,7 +70,7 @@ export default function CityPageContent({
 
       {/* Hero Section - Emergency Style */}
       <section className="relative pt-24 md:pt-28 pb-10 md:pb-14 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+        <div className="absolute inset-0 gradient-secondary" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-primary to-red-500" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -547,7 +547,7 @@ export default function CityPageContent({
       )}
 
       {/* Final CTA Section */}
-      <section className="py-10 md:py-14 bg-gradient-to-r from-slate-900 to-slate-800 text-white">
+      <section className="py-10 md:py-14 gradient-secondary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">
             Verstopfung in {city.name}?

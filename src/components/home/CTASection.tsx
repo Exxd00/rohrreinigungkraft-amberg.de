@@ -20,7 +20,7 @@ export default function CTASection() {
         source="cta_section"
       />
 
-      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      <section className="py-12 md:py-16 gradient-secondary relative overflow-hidden">
         {/* Background pattern */}
         <div
           className="absolute inset-0 opacity-5"

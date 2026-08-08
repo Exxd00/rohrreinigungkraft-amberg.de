@@ -70,7 +70,7 @@ export default function VideoShowcase() {
     <>
       <section
         id="videos"
-        className="relative py-16 md:py-24 overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950"
+        className="relative py-16 md:py-24 overflow-hidden gradient-secondary"
       >
         {/* Ambient glow */}
         <div className="pointer-events-none absolute inset-0">
@@ -207,7 +207,7 @@ export default function VideoShowcase() {
               </div>
 
               {/* Caption */}
-              <div className="p-5 md:p-6 bg-gradient-to-b from-gray-900 to-gray-950 border-t border-white/5">
+              <div className="p-5 md:p-6 gradient-secondary border-t border-white/5">
                 <div className="flex items-center gap-2 mb-2">
                   <Camera className="w-4 h-4 text-primary" />
                   <span className="text-primary text-xs font-semibold uppercase tracking-wider">

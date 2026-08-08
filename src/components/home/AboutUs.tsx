@@ -157,7 +157,7 @@ export default function AboutUs() {
               </div>
 
               {/* Service area badge */}
-              <div className="absolute -bottom-4 -left-4 bg-gray-900 dark:bg-gray-700 text-white rounded-xl px-4 py-3 shadow-lg hidden md:flex items-center gap-2">
+              <div className="absolute -bottom-4 -left-4 bg-secondary text-white rounded-xl px-4 py-3 shadow-lg hidden md:flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium">
                   Amberg • Kümmersbruck • Sulzbach-Rosenberg

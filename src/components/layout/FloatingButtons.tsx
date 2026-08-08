@@ -30,7 +30,7 @@ export default function FloatingButtons() {
       {!isHomePage && (
         <Link
           href="/"
-          className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 bg-gray-700 hover:bg-gray-800 dark:bg-gray-600 rounded-full shadow-lg transition-colors"
+          className="fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 bg-secondary hover:opacity-90 rounded-full shadow-lg transition-opacity"
           aria-label="Zurück zur Startseite"
         >
           <Home className="w-6 h-6 text-white" />

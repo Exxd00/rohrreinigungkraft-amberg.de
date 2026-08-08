@@ -178,7 +178,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-28 pb-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <section className="relative pt-24 md:pt-28 pb-12 gradient-secondary text-white overflow-hidden">
         {/* Background pattern */}
         <div
           className="absolute inset-0 opacity-5"
@@ -624,7 +624,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       {/* Final CTA */}
-      <section className="py-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      <section className="py-12 gradient-secondary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             {enhancedContent?.heroHeadline || `${service.name}?`}

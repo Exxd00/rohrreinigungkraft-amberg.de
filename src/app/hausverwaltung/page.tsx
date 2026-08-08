@@ -176,7 +176,7 @@ export default function HausverwaltungPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 md:pt-28 pb-12 md:pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+      <section className="pt-24 md:pt-28 pb-12 md:pb-16 gradient-secondary text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Breadcrumb */}
@@ -571,7 +571,7 @@ export default function HausverwaltungPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      <section className="py-12 md:py-16 gradient-secondary text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Bereit für professionellen Service?

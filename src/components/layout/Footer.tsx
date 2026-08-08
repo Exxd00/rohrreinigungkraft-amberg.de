@@ -62,7 +62,7 @@ export default function Footer() {
         source="footer"
       />
 
-      <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
+      <footer className="gradient-secondary text-white">
         {/* Contact Section */}
         <div className="border-b border-gray-800">
           <div className="container mx-auto px-4 py-8">
@@ -72,7 +72,7 @@ export default function Footer() {
               {/* Phone */}
               <button
                 onClick={() => setIsCallModalOpen(true)}
-                className="flex items-start gap-3 p-3 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-colors group w-full text-left"
+                className="flex items-start gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/15 transition-colors group w-full text-left"
               >
                 <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-emerald-400" />
@@ -86,7 +86,7 @@ export default function Footer() {
               </button>
 
               {/* Hours */}
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-800/50">
+              <div className="flex items-start gap-3 p-3 rounded-xl bg-white/10">
                 <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
                   <Clock className="w-5 h-5 text-amber-400" />
                 </div>
@@ -206,11 +206,11 @@ export default function Footer() {
               {/* Trust badges */}
               <div className="mt-4 pt-4 border-t border-gray-800">
                 <div className="flex flex-wrap gap-2">
-                  <div className="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400 flex items-center gap-1">
+                  <div className="px-2 py-1 bg-white/10 rounded text-xs text-gray-300 flex items-center gap-1">
                     <Shield className="w-3 h-3 text-emerald-500" />
                     SSL gesichert
                   </div>
-                  <div className="px-2 py-1 bg-gray-800 rounded text-xs text-gray-400 flex items-center gap-1">
+                  <div className="px-2 py-1 bg-white/10 rounded text-xs text-gray-300 flex items-center gap-1">
                     <FileText className="w-3 h-3 text-primary" />
                     DSGVO konform
                   </div>

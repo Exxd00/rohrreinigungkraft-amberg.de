@@ -305,7 +305,7 @@ export default function EmergencyGuide() {
 
           {/* CTA Box */}
           <div className="max-w-3xl mx-auto mt-10">
-            <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 md:p-8 text-center">
+            <div className="gradient-secondary rounded-2xl p-6 md:p-8 text-center">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Clock className="w-5 h-5 text-primary" />
                 <span className="text-primary font-semibold">
