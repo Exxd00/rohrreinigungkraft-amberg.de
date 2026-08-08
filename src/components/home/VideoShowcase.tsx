@@ -107,52 +107,62 @@ export default function VideoShowcase() {
             </p>
           </div>
 
-          {/* Vorher / Nachher — echte YouTube-Aufnahmen unserer Rohrreinigung */}
-          <div className="max-w-2xl mx-auto mb-12 md:mb-16 space-y-6 md:space-y-8">
-            {/* Vorher */}
-            <div>
-              <div className="mb-3 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/15 px-3 py-1 text-sm font-bold text-orange-400 ring-1 ring-orange-500/30">
-                  <span className="h-2 w-2 rounded-full bg-orange-500" />
-                  Vorher
-                </span>
+          {/* Vorher / Nachher — echte YouTube-Aufnahmen unserer Rohrreinigung.
+              Mobil bleiben die Karten gestapelt (wie zuvor); ab md rücken sie
+              nebeneinander, verbunden durch einen Pfeil als visuelle Brücke. */}
+          <div className="max-w-5xl mx-auto mb-12 md:mb-16">
+            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              {/* Vorher */}
+              <div>
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-orange-500/15 px-3 py-1 text-sm font-bold text-orange-400 ring-1 ring-orange-500/30">
+                    <span className="h-2 w-2 rounded-full bg-orange-500" />
+                    Vorher
+                  </span>
+                </div>
+                <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+                  <YouTubeFacade
+                    videoId="VTKZqTzQyjs"
+                    title="Rohrreinigung – Vorher"
+                  />
+                </div>
+                <h4 className="mt-3 text-base md:text-lg font-bold text-white">
+                  Verstopfte Leitung
+                </h4>
+                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                  Starke Ablagerungen und Schmutz verengen das Rohr – das
+                  Wasser läuft kaum noch ab.
+                </p>
               </div>
-              <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-                <YouTubeFacade
-                  videoId="VTKZqTzQyjs"
-                  title="Rohrreinigung – Vorher"
-                />
-              </div>
-              <h4 className="mt-3 text-base md:text-lg font-bold text-white">
-                Verstopfte Leitung
-              </h4>
-              <p className="mt-1 text-sm text-white/70 leading-relaxed">
-                Starke Ablagerungen und Schmutz verengen das Rohr – das Wasser
-                läuft kaum noch ab.
-              </p>
-            </div>
 
-            {/* Nachher */}
-            <div>
-              <div className="mb-3 flex items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 px-3 py-1 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/30">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                  Nachher
-                </span>
+              {/* Nachher */}
+              <div>
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 px-3 py-1 text-sm font-bold text-emerald-400 ring-1 ring-emerald-500/30">
+                    <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                    Nachher
+                  </span>
+                </div>
+                <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+                  <YouTubeFacade
+                    videoId="mmDZeTvNOJo"
+                    title="Rohrreinigung – Nachher"
+                  />
+                </div>
+                <h4 className="mt-3 text-base md:text-lg font-bold text-white">
+                  Saubere Leitung
+                </h4>
+                <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                  Nach unserer Reinigung ist das Rohr wieder komplett frei und
+                  glatt.
+                </p>
               </div>
-              <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-                <YouTubeFacade
-                  videoId="mmDZeTvNOJo"
-                  title="Rohrreinigung – Nachher"
-                />
+
+              {/* Connector — nur Desktop: unterstreicht die Vorher/Nachher-Erzählung,
+                  wenn beide Videos nebeneinander statt untereinander stehen */}
+              <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-2xl md:flex">
+                <ArrowRight className="h-5 w-5 text-gray-900" />
               </div>
-              <h4 className="mt-3 text-base md:text-lg font-bold text-white">
-                Saubere Leitung
-              </h4>
-              <p className="mt-1 text-sm text-white/70 leading-relaxed">
-                Nach unserer Reinigung ist das Rohr wieder komplett frei und
-                glatt.
-              </p>
             </div>
           </div>
 

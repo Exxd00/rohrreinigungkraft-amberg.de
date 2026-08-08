@@ -7,6 +7,7 @@ import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { company } from "@/data/company";
+import { getAllCitySlugs } from "@/data/cities";
 import AnimatedLogo from "./AnimatedLogo";
 import ThemeToggle from "./ThemeToggle";
 import CallConfirmModal from "./CallConfirmModal";
@@ -29,17 +30,17 @@ const navigation = [
   { name: "Kontakt", href: "/kontakt" },
 ];
 
-// Pages with dark/gradient hero sections that need light text when not scrolled
-// Note: /staedte has a LIGHT hero, so not included here
-const darkHeroPages = [
-  "/",
-  "/kontakt",
-  "/leistungen",
-  "/service",
-  "/preise",
-  "/hausverwaltung",
-  "/faq",
-];
+// Pages with dark/gradient hero sections that need light text when not scrolled.
+// Every other page (incl. /staedte, /arbeiten, /kontakt, /leistungen) has a
+// LIGHT hero — keep this list in sync with the actual hero background of each
+// page, a mismatch here means invisible text (light-on-light or dark-on-dark).
+const darkHeroPages = ["/", "/service", "/preise", "/hausverwaltung", "/faq"];
+
+// Exact set of city slugs — city pages (/amberg, /kuemmersbruck, ...) also
+// have a dark hero. Built from the real city list instead of a path-shape
+// regex, since a "single lowercase segment" pattern would also match plain
+// pages like /kontakt or /leistungen and silently break their header contrast.
+const citySlugs = new Set(getAllCitySlugs());
 
 export default function Header() {
   const pathname = usePathname();
@@ -52,7 +53,7 @@ export default function Header() {
   const hasDarkHero =
     darkHeroPages.some((page) =>
       page === "/" ? pathname === "/" : pathname.startsWith(page),
-    ) || pathname.match(/^\/[a-z-]+$/); // City pages like /amberg
+    ) || citySlugs.has(pathname.slice(1));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,6 +89,16 @@ export default function Header() {
     return "text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary";
   };
 
+  // The brand-blue "Kraft" accent only needs the brighter on-dark tone while
+  // floating unscrolled over a dark hero — everywhere else the regular
+  // primary token already has safe contrast against its background.
+  const accentTextClass =
+    !isScrolled && hasDarkHero ? "text-primary-on-dark" : "text-primary";
+  const accentHoverClass =
+    !isScrolled && hasDarkHero
+      ? "group-hover:text-primary-on-dark"
+      : "group-hover:text-primary";
+
   return (
     <>
       {/* Call Confirmation Modal */}
@@ -102,7 +113,7 @@ export default function Header() {
           isScrolled
             ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg py-2"
             : hasDarkHero
-              ? "bg-black/10 backdrop-blur-sm py-4"
+              ? "bg-gradient-to-b from-black/50 to-black/20 backdrop-blur-md py-4"
               : "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm py-4"
         }`}
       >
@@ -113,11 +124,13 @@ export default function Header() {
               <AnimatedLogo />
               <div className="flex flex-col">
                 <span
-                  className={`text-lg md:text-xl font-bold transition-colors ${getTextColorClasses()} group-hover:text-primary`}
+                  className={`text-lg md:text-xl font-bold transition-colors ${getTextColorClasses()} ${accentHoverClass}`}
                 >
                   Rohrreinigung
                 </span>
-                <span className="text-sm font-semibold text-primary">
+                <span
+                  className={`text-sm font-semibold transition-colors ${accentTextClass}`}
+                >
                   Kraft
                 </span>
               </div>
