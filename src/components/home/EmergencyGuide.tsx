@@ -322,7 +322,7 @@ export default function EmergencyGuide() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={() => setIsCallModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-orange-500 text-white font-bold rounded-xl hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:opacity-90 transition-opacity"
                 >
                   <Phone className="w-5 h-5" />
                   {company.contact.phoneDisplay}

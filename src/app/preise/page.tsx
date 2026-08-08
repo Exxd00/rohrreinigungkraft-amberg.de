@@ -128,7 +128,7 @@ export default function PreisePage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               Was kostet Rohrreinigung?
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                 Sie wissen es, BEVOR wir anfangen.
               </span>
             </h1>
@@ -666,7 +666,7 @@ export default function PreisePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-10 bg-gradient-to-r from-primary to-orange-600 text-white">
+      <section className="py-10 bg-gradient-to-r from-primary to-accent text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">
             Bereit für Klarheit?

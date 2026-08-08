@@ -78,16 +78,22 @@ const brandColors = [
     tailwind: "green-500",
   },
   {
-    name: "Primary Teal (Klarwasser)",
-    hex: "#2E5F73",
-    rgb: "46, 95, 115",
+    name: "Primary Himmelsblau",
+    hex: "#2773BE",
+    rgb: "39, 115, 190",
     tailwind: "custom",
   },
   {
-    name: "Accent Terrakotta",
-    hex: "#B95827",
-    rgb: "185, 88, 39",
+    name: "Secondary Marineblau",
+    hex: "#1C5C99",
+    rgb: "28, 92, 153",
     tailwind: "custom",
+  },
+  {
+    name: "Call-Button Rot",
+    hex: "#DC2626",
+    rgb: "220, 38, 38",
+    tailwind: "red-600",
   },
   {
     name: "Dark Text",
@@ -97,8 +103,8 @@ const brandColors = [
   },
   {
     name: "Light Background",
-    hex: "#F8FBFF",
-    rgb: "248, 251, 255",
+    hex: "#F4F9FD",
+    rgb: "244, 249, 253",
     tailwind: "custom",
   },
   {

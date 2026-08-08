@@ -42,14 +42,14 @@ export default function ThankYouPage() {
   // Don't render anything while checking or if invalid
   if (!isValid) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#E8F4FF] to-[#F8FBFF] dark:from-gray-900 dark:to-gray-800">
+      <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#EBF1F7] to-[#F4F9FD] dark:from-gray-900 dark:to-gray-800">
         <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full" />
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#E8F4FF] to-[#F8FBFF] dark:from-gray-900 dark:to-gray-800 px-4 py-8 md:py-16">
+    <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#EBF1F7] to-[#F4F9FD] dark:from-gray-900 dark:to-gray-800 px-4 py-8 md:py-16">
       <div className="max-w-lg w-full">
         {/* Success Card */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden">
@@ -124,9 +124,9 @@ export default function ThankYouPage() {
             </div>
 
             {/* Urgent Call Box */}
-            <div className="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl p-4 mb-6">
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 mb-6">
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-white" />
                 </div>
                 <div className="flex-1">
@@ -139,7 +139,7 @@ export default function ThankYouPage() {
                   <a
                     href={`tel:${company.contact.phone}`}
                     onClick={handlePhoneClick}
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors text-sm"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors text-sm"
                   >
                     <Phone className="w-4 h-4" />
                     {company.contact.phoneDisplay}

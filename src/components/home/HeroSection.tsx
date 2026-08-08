@@ -73,7 +73,7 @@ export default function HeroSection() {
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight">
                 <span className="text-white">Festpreis </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                   VOR
                 </span>
                 <span className="text-white"> dem ersten Handgriff.</span>
@@ -114,7 +114,7 @@ export default function HeroSection() {
             <div className="max-w-md mx-auto mb-4 md:mb-8">
               <button
                 onClick={() => setIsCallModalOpen(true)}
-                className="w-full bg-gradient-to-r from-primary to-orange-500 rounded-2xl px-6 py-5 flex items-center justify-center gap-4 shadow-2xl shadow-primary/30 hover:shadow-primary/50 active:scale-[0.98] transition-all group"
+                className="w-full bg-gradient-to-r from-primary to-accent rounded-2xl px-6 py-5 flex items-center justify-center gap-4 shadow-2xl shadow-primary/30 hover:shadow-primary/50 active:scale-[0.98] transition-all group"
               >
                 <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Phone className="w-7 h-7 text-white" />

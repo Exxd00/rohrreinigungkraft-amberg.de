@@ -62,8 +62,7 @@ export default function Footer() {
         source="footer"
       />
 
-      {/* pb-16 on mobile reserves space so the fixed bottom call bar (FloatingButtons) never covers the last footer row */}
-      <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white pb-16 md:pb-0">
+      <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
         {/* Contact Section */}
         <div className="border-b border-gray-800">
           <div className="container mx-auto px-4 py-8">

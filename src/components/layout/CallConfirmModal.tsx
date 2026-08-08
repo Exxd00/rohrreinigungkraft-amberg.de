@@ -172,7 +172,7 @@ export default function CallConfirmModal({
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
                 Sie werden verbunden mit:
               </p>
-              <div className="text-2xl font-bold text-primary dark:text-[#5490D4]">
+              <div className="text-2xl font-bold text-primary dark:text-primary">
                 {company.contact.phoneDisplay}
               </div>
             </div>
@@ -192,7 +192,7 @@ export default function CallConfirmModal({
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-orange-500 shrink-0" />
+                <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
                 <span className="text-sm text-gray-700 dark:text-gray-300">
                   24/7 Notdienst
                 </span>

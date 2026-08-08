@@ -11,7 +11,7 @@ export default function KontaktPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-8 bg-gradient-to-br from-[#F8FBFF] via-white to-[#E8F4FF] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <section className="pt-32 pb-8 bg-gradient-to-br from-[#F4F9FD] via-white to-[#EBF1F7] dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
