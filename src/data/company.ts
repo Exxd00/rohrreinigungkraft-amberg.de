@@ -117,7 +117,7 @@ export const company = {
     responseTimeShort: "Meist 70-100 Min",
     responseTimeNote: "Genaue Zeit sagen wir Ihnen ehrlich am Telefon",
     callbackTime: "wenigen", // "Rückruf in wenigen Minuten"
-    availableTechnicians: "2-3",
+    totalTechnicians: 3, // Team-Gesamtgröße – fest. Angezeigt wird "X/3", X variiert pro Seitenaufruf.
     lastServiceCity: "Amberg",
     lastServiceTime: "vor 23 Min",
   },

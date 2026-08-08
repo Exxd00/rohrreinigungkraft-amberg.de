@@ -3,32 +3,32 @@
 import { useEffect, useState } from "react";
 import { company } from "@/data/company";
 
-const BASE_RANGE = company.urgency.availableTechnicians;
+const TOTAL = company.urgency.totalTechnicians;
+const DEFAULT_LABEL = `${TOTAL}/${TOTAL}`;
 
 // Cached per browser page load so every badge on the page agrees on the
 // same number instead of each picking its own random value independently.
-let cachedRange: string | null = null;
+let cachedLabel: string | null = null;
 
-function rollRange(): string {
-  if (cachedRange) return cachedRange;
-  const [low, high] = BASE_RANGE.split("-").map(Number);
-  const shift = Math.floor(Math.random() * 3) - 1; // -1, 0, or +1
-  cachedRange = `${low + shift}-${high + shift}`;
-  return cachedRange;
+function rollLabel(): string {
+  if (cachedLabel) return cachedLabel;
+  const available = Math.floor(Math.random() * TOTAL) + 1; // 1..TOTAL
+  cachedLabel = `${available}/${TOTAL}`;
+  return cachedLabel;
 }
 
 /**
- * Returns the "X-Y Techniker verfügbar" range, shifted by -1/0/+1 on each
- * fresh page load to feel live. Starts at the static BASE_RANGE on first
- * render (matches the prerendered HTML) and updates after mount to avoid
+ * Returns "X/3" (total team size fixed at 3, X varies 1-3) — random on each
+ * fresh page load to feel live. Starts at DEFAULT_LABEL on first render
+ * (matches the prerendered HTML) and updates after mount to avoid
  * hydration mismatches.
  */
 export function useAvailableTechnicians(): string {
-  const [range, setRange] = useState(BASE_RANGE);
+  const [label, setLabel] = useState(DEFAULT_LABEL);
 
   useEffect(() => {
-    setRange(rollRange());
+    setLabel(rollLabel());
   }, []);
 
-  return range;
+  return label;
 }
