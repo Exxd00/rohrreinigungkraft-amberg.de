@@ -97,20 +97,16 @@ export default function RootLayout({
                 "Professionelle Rohrreinigung & Kanalreinigung in der Region Amberg. 24/7 Notdienst.",
               url: "https://rohrreinigung-kraft-amberg.de",
               logo: "https://rohrreinigung-kraft-amberg.de/logo.png",
-              telephone: "+4991189218682",
+              telephone: "+491787401958",
               email: "Info@Rohrreinigung-kraft.de",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Ehemannstr. 9",
-                addressLocality: "Nürnberg",
-                addressRegion: "Bayern",
-                postalCode: "90478",
-                addressCountry: "DE",
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                latitude: "49.4521",
-                longitude: "11.0767",
+              areaServed: {
+                "@type": "GeoCircle",
+                geoMidpoint: {
+                  "@type": "GeoCoordinates",
+                  latitude: "49.4458",
+                  longitude: "11.8526",
+                },
+                geoRadius: "60000",
               },
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",

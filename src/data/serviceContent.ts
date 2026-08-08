@@ -165,8 +165,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
   "rohrreinigung-notdienst": {
     slug: "rohrreinigung-notdienst",
     heroHeadline: "Rohr-Notfall?",
-    heroSubheadline:
-      "24/7 für Sie da – Anfahrtszeit ehrlich am Telefon genannt.",
+    heroSubheadline: "24/7 für Sie da – in 20-40 Minuten vor Ort.",
     consequences: {
       title: "Warum jetzt handeln?",
       items: [
@@ -234,9 +233,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 2,
-          title: "Anfahrt",
-          description:
-            "Techniker ist schnellstmöglich bei Ihnen – Zeit wird ehrlich am Telefon genannt.",
+          title: "20-40 Min",
+          description: "Techniker ist schnellstmöglich bei Ihnen.",
         },
         {
           step: 3,
@@ -263,8 +261,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
       },
       {
         question: "Wie schnell können Sie da sein?",
-        answer:
-          "In Amberg und Umgebung in der Regel 70-100 Minuten. Wir nennen Ihnen die realistische Ankunftszeit bereits am Telefon.",
+        answer: "In Amberg und Umgebung in der Regel 20-40 Minuten.",
       },
       {
         question: "Zahlt meine Versicherung?",

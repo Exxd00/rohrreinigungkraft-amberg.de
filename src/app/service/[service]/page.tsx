@@ -103,14 +103,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       "@id": "https://rohrreinigung-kraft-amberg.de/#organization",
       name: company.name,
       telephone: company.contact.phone,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Ehemannstr. 9",
-        addressLocality: "Nürnberg",
-        postalCode: "90478",
-        addressRegion: "Bayern",
-        addressCountry: "DE",
-      },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5.0",
@@ -119,7 +111,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         ratingCount: "129",
       },
     },
-    // geoMidpoint zentriert auf Amberg (Servicegebiet dieser Seite), nicht auf den Firmensitz — siehe address oben
+    // geoMidpoint zentriert auf Amberg (Servicegebiet dieser Seite)
     areaServed: {
       "@type": "GeoCircle",
       geoMidpoint: {

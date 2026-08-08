@@ -188,7 +188,7 @@ export default function CallConfirmModal({
               <div className="flex items-center gap-2 mb-2">
                 <Clock className="w-4 h-4 text-primary shrink-0" />
                 <span className="text-sm text-gray-700 dark:text-gray-300">
-                  Anfahrtszeit ehrlich am Telefon
+                  Meist 20-40 Min vor Ort
                 </span>
               </div>
               <div className="flex items-center gap-2">

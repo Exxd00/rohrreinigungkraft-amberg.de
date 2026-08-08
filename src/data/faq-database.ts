@@ -95,9 +95,9 @@ export const kostenFAQ: FAQItem[] = [
     id: "kosten-4",
     question: "Was kostet die Anfahrt?",
     shortAnswer:
-      "In der gesamten Amberg-Region: 25€ Anfahrtspauschale, vorab am Telefon genannt.",
+      "In Amberg, Kümmersbruck und Ammerthal: im Preis inklusive. Außerhalb: +25€ pauschal.",
     fullAnswer:
-      "Da unser Fachbetrieb nicht direkt vor Ort in Amberg sitzt, berechnen wir für die Anfahrt in die Region eine Pauschale von 25€ – das sagen wir Ihnen aber bereits am Telefon, bevor wir losfahren. Keine versteckten Kosten.",
+      "Die Anfahrt in unserem Kerngebiet (Amberg, Kümmersbruck, Ammerthal) ist immer im Preis inbegriffen. Für Orte außerhalb berechnen wir eine Pauschale von 25€ – das sagen wir Ihnen aber bereits am Telefon, bevor wir losfahren.",
     category: "kosten",
     page: ["preise", "faq"],
     keywords: ["anfahrt kosten", "anfahrtskosten"],
@@ -257,9 +257,9 @@ export const ablaufFAQ: FAQItem[] = [
     id: "ablauf-1",
     question: "Wie läuft ein Einsatz ab?",
     shortAnswer:
-      "Anruf → Wir kommen (70-100 Min) → Kostenlose Diagnose → Festpreis nennen → Ihr OK → Arbeit → Fertig.",
+      "Anruf → Wir kommen (20-40 Min) → Kostenlose Diagnose → Festpreis nennen → Ihr OK → Arbeit → Fertig.",
     fullAnswer:
-      "1. Sie rufen an und schildern das Problem. 2. Wir kommen, meist innerhalb von 70-100 Min. 3. Vor Ort schauen wir uns das Problem an (kostenlos). 4. Wir erklären, was zu tun ist und nennen den Festpreis. 5. Sie entscheiden. 6. Bei OK arbeiten wir und hinterlassen alles sauber. 7. Sie zahlen, wir gehen.",
+      "1. Sie rufen an und schildern das Problem. 2. Wir kommen, meist innerhalb von 20-40 Min. 3. Vor Ort schauen wir uns das Problem an (kostenlos). 4. Wir erklären, was zu tun ist und nennen den Festpreis. 5. Sie entscheiden. 6. Bei OK arbeiten wir und hinterlassen alles sauber. 7. Sie zahlen, wir gehen.",
     category: "ablauf",
     page: ["homepage", "faq"],
     keywords: ["wie läuft ab", "einsatz ablauf"],
@@ -269,9 +269,9 @@ export const ablaufFAQ: FAQItem[] = [
   {
     id: "ablauf-2",
     question: "Wie schnell können Sie da sein?",
-    shortAnswer: "In Amberg und Umgebung meist in 70-100 Minuten.",
+    shortAnswer: "In Amberg und Umgebung meist in 20-40 Minuten.",
     fullAnswer:
-      "Wir sind ehrlich zu Ihnen: Da wir nicht direkt vor Ort sitzen, sind wir in Amberg und der näheren Umgebung meist in 70-100 Minuten vor Ort – das sagen wir Ihnen bereits am Telefon. Auch nachts und am Wochenende – unser 24/7 Notdienst ist immer einsatzbereit.",
+      "Dank unserer eigenen Filiale in Amberg sind wir schnell vor Ort: meist in 20-40 Minuten. Auch nachts und am Wochenende – unser 24/7 Notdienst ist immer einsatzbereit.",
     category: "ablauf",
     page: ["homepage", "city-amberg", "faq"],
     keywords: ["wie schnell", "anfahrtszeit", "reaktionszeit"],
@@ -391,9 +391,9 @@ export const notfallFAQ: FAQItem[] = [
     id: "notfall-1",
     question: "Was tun wenn die Toilette überläuft?",
     shortAnswer:
-      "1. Nicht mehr spülen. 2. Hauptwasserhahn zudrehen wenn möglich. 3. Rufen Sie uns an: 0911 89218682.",
+      "1. Nicht mehr spülen. 2. Hauptwasserhahn zudrehen wenn möglich. 3. Rufen Sie uns an: 0178 7401958.",
     fullAnswer:
-      "Bei überlaufender Toilette: Sofort aufhören zu spülen! Wenn möglich, drehen Sie den Eckventil an der Toilette oder den Hauptwasserhahn zu. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Rufen Sie uns an – wir nennen Ihnen die Anfahrtszeit ehrlich am Telefon.",
+      "Bei überlaufender Toilette: Sofort aufhören zu spülen! Wenn möglich, drehen Sie den Eckventil an der Toilette oder den Hauptwasserhahn zu. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Rufen Sie uns an – wir sind meist in 20-40 Minuten da.",
     category: "notfall",
     page: ["service-toilette", "service-notdienst", "faq"],
     keywords: ["toilette überläuft", "wc überläuft", "notfall toilette"],
@@ -442,9 +442,9 @@ export const notfallFAQ: FAQItem[] = [
   {
     id: "notfall-5",
     question: "Wie schnell sind Sie beim Notdienst da?",
-    shortAnswer: "In Amberg und Umgebung meist in 70-100 Minuten.",
+    shortAnswer: "In Amberg und Umgebung meist in 20-40 Minuten.",
     fullAnswer:
-      "Wir sind ehrlich zu Ihnen: Die Anfahrt nach Amberg und in die Region dauert meist 70-100 Minuten. Wir sagen Ihnen am Telefon eine realistische Zeit – keine falschen Versprechen, auch nicht im Notfall.",
+      "Dank unserer eigenen Filiale in Amberg sind wir schnell vor Ort: Die Anfahrt nach Amberg und in die nähere Region dauert meist 20-40 Minuten – auch im Notfall.",
     category: "notfall",
     page: ["service-notdienst", "city-amberg", "faq"],
     keywords: ["wie schnell notdienst", "anfahrt notdienst"],
@@ -528,7 +528,7 @@ export const b2bFAQ: FAQItem[] = [
     shortAnswer:
       "Ja. 10% Rabatt auf alles, Prioritäts-Notdienst, persönlicher Ansprechpartner, Sammelrechnung.",
     fullAnswer:
-      "Für Hausverwaltungen ab 5 Objekten bieten wir Rahmenverträge: 10% Rabatt auf alle Einsätze, Prioritäts-Notdienst (bevorzugte Einsatzplanung), persönlicher Ansprechpartner, monatliche Sammelrechnung, kostenlose jährliche Inspektion pro Objekt. Keine Mindestvertragsdauer.",
+      "Für Hausverwaltungen ab 5 Objekten bieten wir Rahmenverträge: 10% Rabatt auf alle Einsätze, Prioritäts-Notdienst (20-40 Min), persönlicher Ansprechpartner, monatliche Sammelrechnung, kostenlose jährliche Inspektion pro Objekt. Keine Mindestvertragsdauer.",
     category: "b2b",
     page: ["hausverwaltung", "faq"],
     keywords: ["rahmenvertrag hausverwaltung", "b2b rabatt"],
@@ -591,9 +591,9 @@ export const b2bFAQ: FAQItem[] = [
     id: "b2b-6",
     question: "Wie schnell sind Sie bei Notfällen für Geschäftskunden?",
     shortAnswer:
-      "Prioritäts-Service: bevorzugte Einsatzplanung für Vertragskunden, Anfahrtszeit ehrlich am Telefon.",
+      "Prioritäts-Service: 20-40 Min garantierte Reaktionszeit für Vertragskunden.",
     fullAnswer:
-      "Geschäftskunden mit Rahmen- oder Wartungsvertrag erhalten Prioritäts-Service: bevorzugte Einsatzplanung, auch bei hoher Auslastung. Ihre Notfälle werden zuerst eingeplant, die realistische Anfahrtszeit nennen wir Ihnen ehrlich am Telefon.",
+      "Geschäftskunden mit Rahmen- oder Wartungsvertrag erhalten Prioritäts-Service: Garantierte Reaktionszeit von 20-40 Minuten, auch bei hoher Auslastung. Ihre Notfälle werden bevorzugt behandelt.",
     category: "b2b",
     page: ["hausverwaltung", "faq"],
     keywords: ["priorität geschäftskunden", "schneller service b2b"],
@@ -675,9 +675,9 @@ export const regionFAQ: FAQItem[] = [
     id: "region-2",
     question: "Wo ist Ihr Standort?",
     shortAnswer:
-      "Unser Fachbetrieb ist in Nürnberg-Glockenhof registriert und bedient von dort aus auch die Amberg-Region.",
+      "Unsere Filiale ist in Amberg. Zentral gelegen für schnelle Anfahrt in der ganzen Region.",
     fullAnswer:
-      "Unser Firmensitz ist Ehemannstr. 9, 90478 Nürnberg-Glockenhof. Von dort aus bedienen wir auch Amberg und die Oberpfalz-Region – die Anfahrtszeit sagen wir Ihnen ehrlich am Telefon, damit Sie wissen, woran Sie sind.",
+      "Unsere Filiale ist in Amberg – ideal für schnelle Anfahrten in alle Teile der Oberpfalz-Region. Als lokaler Fachbetrieb kennen wir die Region wie unsere Westentasche.",
     category: "region",
     page: ["city-amberg", "faq"],
     keywords: ["standort", "adresse", "wo seid ihr"],
@@ -687,10 +687,9 @@ export const regionFAQ: FAQItem[] = [
   {
     id: "region-3",
     question: "Wie schnell sind Sie in Kümmersbruck?",
-    shortAnswer:
-      "Meist in 70-100 Minuten. Kümmersbruck liegt direkt neben Amberg.",
+    shortAnswer: "Meist in 20-40 Minuten. Kümmersbruck liegt direkt neben Amberg.",
     fullAnswer:
-      "Kümmersbruck erreichen wir mit der gleichen Anfahrtszeit wie Amberg selbst – meist 70-100 Minuten. Wir sagen Ihnen die voraussichtliche Ankunftszeit bereits am Telefon, bei gutem Verkehr auch schneller.",
+      "Kümmersbruck erreichen wir mit der gleichen Anfahrtszeit wie Amberg selbst – meist 20-40 Minuten, bei gutem Verkehr auch schneller.",
     category: "region",
     page: ["city-kuemmersbruck", "faq"],
     keywords: ["kümmersbruck anfahrt", "rohrreinigung kümmersbruck"],
@@ -700,9 +699,9 @@ export const regionFAQ: FAQItem[] = [
   {
     id: "region-4",
     question: "Wie schnell sind Sie in Sulzbach-Rosenberg?",
-    shortAnswer: "Meist in 80-110 Minuten.",
+    shortAnswer: "Meist in 25-45 Minuten.",
     fullAnswer:
-      "Sulzbach-Rosenberg gehört zu unserem erweiterten Servicegebiet: Anfahrt meist in 80-110 Minuten, plus 25€ Anfahrtspauschale. Wir kennen die Stadt gut – von der historischen Altstadt bis zu den Gewerbegebieten in Rosenberg.",
+      "Sulzbach-Rosenberg erreichen wir meist in 25-45 Minuten von unserer Filiale in Amberg aus. Wir kennen die Stadt gut – von der historischen Altstadt bis zu den Gewerbegebieten in Rosenberg.",
     category: "region",
     page: ["city-sulzbach-rosenberg", "faq"],
     keywords: [
@@ -715,10 +714,9 @@ export const regionFAQ: FAQItem[] = [
   {
     id: "region-5",
     question: "Kostet die Anfahrt nach Neumarkt in der Oberpfalz extra?",
-    shortAnswer:
-      "Nein, gleiche 25€ Anfahrtspauschale wie in der gesamten Region.",
+    shortAnswer: "+25€ Anfahrtspauschale. Anfahrtszeit ca. 45-65 Min.",
     fullAnswer:
-      "Für Neumarkt in der Oberpfalz und alle anderen Orte in unserem Servicegebiet berechnen wir die gleiche Anfahrtspauschale von 25€. Das sagen wir Ihnen bereits am Telefon, bevor wir losfahren – keine Überraschungen.",
+      "Für Neumarkt in der Oberpfalz und andere Orte außerhalb unseres Kerngebiets (Amberg, Kümmersbruck, Ammerthal) berechnen wir eine Pauschale von 25€ für die Anfahrt. Das sagen wir Ihnen bereits am Telefon, bevor wir losfahren – keine Überraschungen.",
     category: "region",
     page: ["faq"],
     keywords: ["neumarkt anfahrt", "außerhalb anfahrt"],
@@ -728,9 +726,9 @@ export const regionFAQ: FAQItem[] = [
   {
     id: "region-6",
     question: "Kommen Sie auch nach Regensburg?",
-    shortAnswer: "Ja, bis ca. 60 km Umkreis. Anfahrtszeit ca. 110-140 Min.",
+    shortAnswer: "Ja, bis ca. 60 km Umkreis. Anfahrtszeit ca. 55-75 Min.",
     fullAnswer:
-      "Ja, wir kommen auch nach Regensburg und Umgebung – das liegt am Rand unseres ca. 60 km Servicegebiets. Anfahrtspauschale: 25€ (vorab am Telefon genannt). Anfahrtszeit: ca. 110-140 Minuten. Für dringende Fälle sind wir auch dort einsatzbereit.",
+      "Ja, wir kommen auch nach Regensburg und Umgebung – das liegt am Rand unseres ca. 60 km Servicegebiets. Anfahrtspauschale: 25€ (vorab am Telefon genannt). Anfahrtszeit: ca. 55-75 Minuten.",
     category: "region",
     page: ["faq"],
     keywords: ["regensburg rohrreinigung"],

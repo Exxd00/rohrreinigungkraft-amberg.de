@@ -61,9 +61,9 @@ export default function HeroSection() {
             </div>
 
             {/* MAIN HEADLINE - Differentiating */}
-            <div className="text-center mb-6">
+            <div className="text-center mb-4 md:mb-6">
               {/* Location Badge - Prominent Amberg */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 bg-white/10 border border-white/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-3 md:mb-4 bg-white/10 border border-white/20 rounded-full">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="text-sm md:text-base font-semibold text-white">
                   Rohrreinigung <span className="text-primary">Amberg</span> &
@@ -71,7 +71,7 @@ export default function HeroSection() {
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-3 md:mb-4 leading-tight">
                 <span className="text-white">Festpreis </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
                   VOR
@@ -88,30 +88,30 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* TRUST GUARANTEES BAR */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-6">
-              <div className="flex items-center gap-2 text-white/90">
+            {/* TRUST GUARANTEES BAR - compact 3-up grid on mobile instead of wrapping lines */}
+            <div className="grid grid-cols-3 gap-2 md:flex md:flex-wrap md:justify-center md:gap-6 mb-6">
+              <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-2 text-white/90 text-center md:text-left">
                 <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
-                <span className="text-xs md:text-sm font-medium">
+                <span className="text-[11px] leading-tight md:text-sm font-medium">
                   Diagnose kostenlos
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-white/90">
+              <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-2 text-white/90 text-center md:text-left">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                <span className="text-xs md:text-sm font-medium">
+                <span className="text-[11px] leading-tight md:text-sm font-medium">
                   Festpreis vor Arbeit
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-white/90">
+              <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-2 text-white/90 text-center md:text-left">
                 <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
-                <span className="text-xs md:text-sm font-medium">
+                <span className="text-[11px] leading-tight md:text-sm font-medium">
                   Kein Start ohne OK
                 </span>
               </div>
             </div>
 
             {/* MAIN CTA */}
-            <div className="max-w-md mx-auto mb-8">
+            <div className="max-w-md mx-auto mb-4 md:mb-8">
               <button
                 onClick={() => setIsCallModalOpen(true)}
                 className="w-full bg-gradient-to-r from-primary to-cyan-500 rounded-2xl px-6 py-5 flex items-center justify-center gap-4 shadow-2xl shadow-primary/30 hover:shadow-primary/50 active:scale-[0.98] transition-all group"
@@ -129,8 +129,10 @@ export default function HeroSection() {
                 </div>
               </button>
 
-              {/* Secondary CTA */}
-              <Link href="/kontakt" className="block mt-3">
+              {/* Secondary CTA — hidden on mobile: the sticky bottom call bar already
+                  covers this action there, so we skip the duplicate button and keep
+                  the mobile hero shorter */}
+              <Link href="/kontakt" className="hidden md:block mt-3">
                 <div className="w-full h-12 bg-white/10 text-white border border-white/20 font-semibold rounded-xl flex items-center justify-center gap-2 text-sm hover:bg-white/20 transition-colors">
                   <Zap className="w-4 h-4 text-yellow-400" />
                   Rückruf in 5 Minuten anfordern
@@ -140,7 +142,7 @@ export default function HeroSection() {
             </div>
 
             {/* TRUST INDICATORS */}
-            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-3 md:gap-8 mb-2 md:mb-8">
               <div className="flex items-center gap-2">
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((star) => (
@@ -157,7 +159,9 @@ export default function HeroSection() {
                   ({company.rating.reviewCount} Bewertungen)
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-white/80">
+              {/* City list line: redundant with the location badge above the headline on
+                  small screens, so it's desktop-only here to keep mobile compact */}
+              <div className="hidden md:flex items-center gap-2 text-white/80">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="text-sm">
                   Amberg • Kümmersbruck • Sulzbach-Rosenberg • Umgebung

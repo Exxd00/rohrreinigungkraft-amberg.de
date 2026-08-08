@@ -7,7 +7,7 @@ import { company } from "@/data/company";
 
 export default function AboutUs() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <section className="py-10 md:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Main Content Grid */}
@@ -18,9 +18,9 @@ export default function AboutUs() {
                 Über uns
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Familienbetrieb aus Nürnberg.
+                Familienbetrieb mit Filiale in Amberg.
                 <br />
-                <span className="text-primary">Jetzt auch für Amberg da.</span>
+                <span className="text-primary">Ihr Nachbar vor Ort.</span>
               </h2>
 
               <div className="space-y-4 text-gray-600 dark:text-gray-400">
@@ -30,15 +30,14 @@ export default function AboutUs() {
                   <strong className="text-gray-900 dark:text-white">
                     Familienbetrieb
                   </strong>{" "}
-                  aus der Ehemannstraße in Nürnberg-Glockenhof.
+                  mit eigener Filiale in Amberg.
                 </p>
                 <p>
                   Wenn Sie uns anrufen, sprechen Sie mit einem erfahrenen Team –
                   keine anonyme Hotline. Wir wissen, dass Altbauten in der
                   Amberger Altstadt andere Rohrsysteme haben als Neubauten in
-                  Ammersricht. Seit über 10 Jahren im Handwerk unterwegs – jetzt
-                  auch für Amberg, Kümmersbruck, Sulzbach-Rosenberg und die
-                  Region.
+                  Ammersricht. Seit über 10 Jahren im Handwerk unterwegs – für
+                  Amberg, Kümmersbruck, Sulzbach-Rosenberg und die Region.
                 </p>
                 <p>
                   Mehr als{" "}
@@ -67,7 +66,7 @@ export default function AboutUs() {
                       Standort
                     </h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Ehemannstr. 9, 90478 Nürnberg
+                      Filiale in Amberg
                     </p>
                   </div>
                 </div>

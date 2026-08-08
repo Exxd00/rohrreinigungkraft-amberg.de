@@ -147,7 +147,7 @@ export default function Gallery() {
 
   return (
     <>
-      <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-800/50">
+      <section className="py-10 md:py-24 bg-gray-50 dark:bg-gray-800/50">
         <div className="container mx-auto px-4">
           {/* Header */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10 gap-4">

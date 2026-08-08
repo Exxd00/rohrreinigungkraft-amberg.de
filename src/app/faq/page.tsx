@@ -69,9 +69,9 @@ const faqCategories = [
       {
         question: "Kostet die Anfahrt extra?",
         answer:
-          "Für die gesamte Amberg-Region berechnen wir pauschal 25€ Anfahrt – das sagen wir Ihnen am Telefon, bevor wir kommen.",
+          "In Amberg, Kümmersbruck und Ammerthal ist die Anfahrt im Preis enthalten. Außerhalb unseres Kerngebiets berechnen wir pauschal 25€ Anfahrt – das sagen wir Ihnen am Telefon, bevor wir kommen.",
         shortAnswer:
-          "25€ Anfahrtspauschale, immer vorher am Telefon kommuniziert.",
+          "In Amberg/Kümmersbruck/Ammerthal inklusive. Außerhalb: +25€ pauschal (vorher kommuniziert).",
       },
       {
         question: "Wie kann ich bezahlen?",
@@ -98,8 +98,8 @@ const faqCategories = [
       {
         question: "Wie schnell können Sie da sein?",
         answer:
-          "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen. Wir geben Ihnen am Telefon eine realistische Zeitangabe.",
-        shortAnswer: "Meist 70-100 Minuten in Amberg und der Region.",
+          "In Amberg und der Region sind wir meist innerhalb von 20-40 Minuten bei Ihnen.",
+        shortAnswer: "Meist 20-40 Minuten in Amberg und der Region.",
       },
       {
         question: "Wie läuft ein Einsatz ab?",
@@ -340,9 +340,8 @@ const faqCategories = [
       {
         question: "Wo ist Ihr Firmensitz?",
         answer:
-          "Unser Firmensitz ist in der Ehemannstraße 9, 90478 Nürnberg-Glockenhof. Von dort aus bedienen wir auch Amberg und die Oberpfalz – ein echter Familienbetrieb, kein Call-Center, keine Franchise.",
-        shortAnswer:
-          "Ehemannstr. 9, 90478 Nürnberg-Glockenhof. Familienbetrieb, bedient auch die Amberg-Region.",
+          "Wir sitzen mit einer eigenen Filiale in Amberg – ein echter lokaler Familienbetrieb, kein Call-Center, keine Franchise.",
+        shortAnswer: "Filiale in Amberg. Lokaler Familienbetrieb.",
       },
       {
         question: "Wie lange gibt es Rohrreinigung Kraft schon?",

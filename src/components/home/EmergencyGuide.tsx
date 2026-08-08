@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   AlertTriangle,
   Phone,
@@ -82,7 +83,7 @@ const guideSteps: GuideStep[] = [
     iconBg: "bg-primary",
     description: "Was passiert nachdem Sie uns kontaktiert haben",
     dos: [
-      "Sie erhalten eine realistische Ankunftszeit (meist 70-100 Min)",
+      "Sie erhalten eine geschätzte Ankunftszeit (meist 20-40 Min)",
       "Bereiten Sie den Zugang zum betroffenen Bereich vor",
       "Räumen Sie den Bereich um den verstopften Abfluss frei",
       "Halten Sie ggf. Schlüssel für Keller oder Außenbereiche bereit",
@@ -326,15 +327,13 @@ export default function EmergencyGuide() {
                   <Phone className="w-5 h-5" />
                   {company.contact.phoneDisplay}
                 </button>
-                <a
-                  href={company.address.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/kontakt"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors border border-white/20"
                 >
                   <Wrench className="w-5 h-5" />
-                  Standort ansehen
-                </a>
+                  Rückruf anfordern
+                </Link>
               </div>
             </div>
           </div>

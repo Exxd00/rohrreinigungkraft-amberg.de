@@ -3,12 +3,10 @@
  * Focused on the Amberg region (Oberpfalz): Amberg, Kümmersbruck, Sulzbach-Rosenberg + 60km Umkreis
  *
  * ⚠️ WICHTIG: Alle Zeitangaben einheitlich halten!
- * Standard: "70-100 Min" (echte Anfahrtszeit ab dem Firmensitz Nürnberg-Glockenhof, ~65km entfernt —
- * NICHT die schnellere Nürnberg-Zeit wiederverwenden. Immer die realistische Zeit am Telefon nennen.)
+ * Standard: "20-40 Min" — echte Filiale vor Ort in Amberg, daher schnelle lokale Anfahrt.
  */
 
-// Firmenadresse - ECHT (von Gelbe Seiten verifiziert) — gleicher Fachbetrieb wie die Nürnberg-Seite,
-// bedient von dort aus zusätzlich die Amberg-Region
+// Firmenadresse — Anschrift folgt in Kürze (Platzhalter, siehe Impressum)
 export const company = {
   name: "Rohrreinigung Kraft",
   tagline: "Ihr Rohrreinigungsexperte für Amberg und die Oberpfalz",
@@ -19,22 +17,23 @@ export const company = {
   serviceRadius: 60, // km - Servicegebiet in der Oberpfalz
 
   contact: {
-    phone: "+49 911 89218682",
-    phoneDisplay: "0911 89218682",
+    phone: "+49 178 7401958",
+    phoneDisplay: "0178 7401958",
     email: "Info@Rohrreinigung-kraft.de",
-    whatsapp: "+4991189218682",
+    whatsapp: "+491787401958",
   },
 
-  // ✅ ECHTE ADRESSE (Gelbe Seiten verifiziert)
+  // ⚠️ PLATZHALTER — Anschrift der Amberg-Filiale wird in Kürze ergänzt.
+  // Bis dahin ist das Impressum nicht vollständig §5-TMG-konform.
   address: {
-    street: "Ehemannstr. 9",
-    zip: "90478",
-    city: "Nürnberg",
-    district: "Glockenhof",
+    street: "Anschrift folgt in Kürze",
+    zip: "",
+    city: "Amberg",
+    district: "",
     region: "Bayern",
     country: "Deutschland",
-    fullAddress: "Ehemannstr. 9, 90478 Nürnberg-Glockenhof",
-    googleMapsUrl: "https://maps.app.goo.gl/u8wZg2y4ERE86XtL6?g_st=ic",
+    fullAddress: "Anschrift folgt in Kürze – Amberg",
+    googleMapsUrl: "",
   },
 
   // ✅ RECHTLICHE INFORMATIONEN (Handelsregister & Steuernummer)
@@ -110,12 +109,12 @@ export const company = {
   },
 
   // ⚠️ EINHEITLICHE ZEITANGABEN
-  // Standard: 70-100 Min (echte Anfahrtszeit ab Nürnberg-Glockenhof)
+  // Standard: 20-40 Min (echte Filiale in Amberg vor Ort)
   urgency: {
-    responseTime: "70-100", // EINHEITLICH überall
-    responseTimeDisplay: "70-100 Min",
-    responseTimeShort: "Meist 70-100 Min",
-    responseTimeNote: "Genaue Zeit sagen wir Ihnen ehrlich am Telefon",
+    responseTime: "20-40", // EINHEITLICH überall
+    responseTimeDisplay: "20-40 Min",
+    responseTimeShort: "Meist 20-40 Min",
+    responseTimeNote: "In Amberg oft schneller",
     callbackTime: "wenigen", // "Rückruf in wenigen Minuten"
     totalTechnicians: 3, // Team-Gesamtgröße – fest. Angezeigt wird "X/3", X variiert pro Seitenaufruf.
     lastServiceCity: "Amberg",
@@ -123,9 +122,9 @@ export const company = {
   },
 
   stats: {
-    responseTime: "70-100 Min",
+    responseTime: "20-40 Min",
     availability: "24/7",
-    localTeam: "Etablierter Fachbetrieb",
+    localTeam: "Lokaler Fachbetrieb",
     region: "Oberpfalz",
     cities: "Amberg, Kümmersbruck, Sulzbach-Rosenberg",
     guarantee: "Festpreis vorab",
@@ -204,8 +203,8 @@ export const company = {
       icon: "clock",
     },
     {
-      title: "Meist 70-100 Min",
-      description: "Realistische Anfahrtszeit – ehrlich am Telefon genannt",
+      title: "Meist 20-40 Min",
+      description: "Schnelle Anfahrt – lokale Filiale in Amberg",
       icon: "truck",
     },
     {
@@ -224,9 +223,8 @@ export const company = {
       icon: "shield",
     },
     {
-      title: "Etablierter Fachbetrieb",
-      description:
-        "Seit 10+ Jahren im Handwerk – jetzt auch für die Amberg-Region",
+      title: "Lokaler Fachbetrieb",
+      description: "Mit eigener Filiale in Amberg – seit 10+ Jahren im Handwerk",
       icon: "home",
     },
   ],
@@ -234,7 +232,7 @@ export const company = {
   trustFactors: [
     "Über 10 Jahre Erfahrung im Handwerk",
     "Mehr als 2000 erfolgreiche Einsätze",
-    "Etablierter Fachbetrieb – jetzt auch für Amberg und die Oberpfalz",
+    "Lokaler Fachbetrieb mit Filiale in Amberg",
     "Modernste Hochdruck- & Kameratechnik",
     "98% Kundenzufriedenheit",
     "Empfohlen von Hausverwaltungen",
@@ -244,15 +242,15 @@ export const company = {
   cityContent: {
     amberg: {
       name: "Amberg",
-      headline: "Rohrreinigung Amberg – Zuverlässiger Fachbetrieb",
+      headline: "Rohrreinigung Amberg – Ihr lokaler Partner",
       subheadline:
-        "Service in allen Stadtteilen: Altstadt, Ammersricht, Raigering, Gailoh & mehr",
+        "Schnelle Hilfe in allen Stadtteilen: Altstadt, Ammersricht, Raigering, Gailoh & mehr",
       localFacts: [
-        "Regelmäßige Einsätze in Amberg und Umgebung",
+        "Eigene Filiale in Amberg",
+        "Kennen jede Ecke der Stadt",
         "Erfahrung mit der historischen Altstadt und Neubaugebieten",
-        "Realistische Ankunftszeit bereits am Telefon",
       ],
-      responseTime: "70-100 Min", // EINHEITLICH
+      responseTime: "20-40 Min", // EINHEITLICH
       commonProblems: [
         "Altbau-Rohrsysteme in der Altstadt",
         "Wurzeleinwuchs in Wohngebieten",
@@ -262,14 +260,13 @@ export const company = {
     kuemmersbruck: {
       name: "Kümmersbruck",
       headline: "Rohrreinigung Kümmersbruck – Direkt nebenan",
-      subheadline:
-        "Gleiche Anfahrtszeit wie Amberg – meist 70-100 Min bei Ihnen",
+      subheadline: "Schnelle Anfahrt von Amberg – meist 20-40 Min bei Ihnen",
       localFacts: [
-        "Direkte Nachbarschaft zu Amberg",
+        "Direkte Nachbarschaft zu unserer Filiale in Amberg",
         "Kurze Anfahrtswege innerhalb der Gemeinde",
         "Erfahrung mit Wohnsiedlungen",
       ],
-      responseTime: "70-100 Min", // EINHEITLICH
+      responseTime: "20-40 Min", // EINHEITLICH
       commonProblems: [
         "Ältere Anschlussleitungen",
         "Fettablagerungen in Küchenabflüssen",
@@ -278,14 +275,14 @@ export const company = {
     },
     "sulzbach-rosenberg": {
       name: "Sulzbach-Rosenberg",
-      headline: "Rohrreinigung Sulzbach-Rosenberg – Zuverlässig vor Ort",
+      headline: "Rohrreinigung Sulzbach-Rosenberg – Schnell & zuverlässig",
       subheadline: "Service für Privat, Gewerbe & Hausverwaltungen",
       localFacts: [
+        "Kurze Anfahrt von unserer Filiale in Amberg",
         "Erfahrung mit der historischen Sulzbacher Altstadt",
         "Service für Gewerbeflächen in Rosenberg",
-        "Zusammenarbeit mit lokalen Hausverwaltungen",
       ],
-      responseTime: "80-110 Min", // EINHEITLICH
+      responseTime: "25-45 Min", // EINHEITLICH
       commonProblems: [
         "Alte Rohrsysteme in der Altstadt",
         "Gewerbliche Anforderungen in Rosenberg",
@@ -304,7 +301,7 @@ export const company = {
       {
         question: "Wie schnell können Sie da sein?",
         answer:
-          "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen. Die genaue Zeit sagen wir Ihnen ehrlich bereits am Telefon.",
+          "In Amberg sind wir meist innerhalb von 20-40 Minuten bei Ihnen. In der näheren Umgebung oft ähnlich schnell.",
       },
       {
         question: "Arbeiten Sie auch am Wochenende?",
@@ -348,7 +345,7 @@ export const company = {
     defaultTitle:
       "Rohrreinigung Kraft | 24/7 Notdienst Amberg, Kümmersbruck, Sulzbach-Rosenberg",
     defaultDescription:
-      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 70-100 Min ✓ 24/7 Notdienst ✓ Kostenlose Diagnose ✓ Festpreis vorab. Jetzt anrufen: 0911 89218682",
+      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 20-40 Min ✓ 24/7 Notdienst ✓ Kostenlose Diagnose ✓ Festpreis vorab. Jetzt anrufen: 0178 7401958",
     keywords: [
       "Rohrreinigung Amberg",
       "Rohrreinigung Kümmersbruck",
@@ -553,9 +550,8 @@ export const howItWorks = [
   },
   {
     step: 2,
-    title: "Anfahrt",
-    description:
-      "Unser Fachteam ist meist innerhalb von 70-100 Minuten bei Ihnen vor Ort – die genaue Zeit sagen wir ehrlich am Telefon.",
+    title: "Schnelle Anfahrt",
+    description: "Unser Fachteam ist innerhalb von 20-40 Minuten bei Ihnen vor Ort.",
     icon: "truck",
   },
   {

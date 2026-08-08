@@ -4,10 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   Phone,
-  MapPin,
   Mail,
   Clock,
-  ExternalLink,
   ChevronRight,
   Shield,
   FileText,
@@ -64,102 +62,42 @@ export default function Footer() {
         source="footer"
       />
 
-      <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
-        {/* Map Section */}
+      {/* pb-16 on mobile reserves space so the fixed bottom call bar (FloatingButtons) never covers the last footer row */}
+      <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white pb-16 md:pb-0">
+        {/* Contact Section */}
         <div className="border-b border-gray-800">
           <div className="container mx-auto px-4 py-8">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Map Preview - Clickable */}
-              <a
-                href={company.address.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative group block rounded-2xl overflow-hidden shadow-2xl border border-gray-700 hover:border-primary transition-colors"
+            <div className="max-w-xl mx-auto md:mx-0 space-y-4">
+              <h3 className="text-xl font-bold text-white mb-4">Kontakt</h3>
+
+              {/* Phone */}
+              <button
+                onClick={() => setIsCallModalOpen(true)}
+                className="flex items-start gap-3 p-3 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-colors group w-full text-left"
               >
-                {/* Static Map Image */}
-                <div className="relative h-48 md:h-56 bg-gray-800 overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2589.4!2d11.0767!3d49.4521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDI3JzA3LjYiTiAxMcKwMDQnMzYuMSJF!5e0!3m2!1sde!2sde!4v1"
-                    className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-500 pointer-events-none"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent group-hover:from-gray-900/60 transition-all" />
-                  {/* Click indicator */}
-                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-                      <span className="text-white text-sm font-medium">
-                        Unser Standort
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                      <span>In Google Maps öffnen</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </div>
-                  </div>
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                  <Phone className="w-5 h-5 text-emerald-400" />
                 </div>
-              </a>
+                <div>
+                  <p className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
+                    {company.contact.phoneDisplay}
+                  </p>
+                  <p className="text-gray-400 text-sm">Kostenlose Beratung</p>
+                </div>
+              </button>
 
-              {/* Contact Info Card */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-white mb-4">
-                  Kontakt & Standort
-                </h3>
-
-                {/* Address */}
-                <a
-                  href={company.address.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-colors group"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white group-hover:text-primary transition-colors">
-                      {company.address.street}
-                    </p>
-                    <p className="text-gray-400 text-sm">
-                      {company.address.zip} {company.address.city}-
-                      {company.address.district}
-                    </p>
-                  </div>
-                </a>
-
-                {/* Phone */}
-                <button
-                  onClick={() => setIsCallModalOpen(true)}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-gray-800/50 hover:bg-gray-800 transition-colors group w-full text-left"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-emerald-400" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                      {company.contact.phoneDisplay}
-                    </p>
-                    <p className="text-gray-400 text-sm">Kostenlose Beratung</p>
-                  </div>
-                </button>
-
-                {/* Hours */}
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-800/50">
-                  <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-amber-400" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white">
-                      {company.hours.regular}
-                    </p>
-                    <p className="text-gray-400 text-sm">
-                      {company.hours.emergencyText}
-                    </p>
-                  </div>
+              {/* Hours */}
+              <div className="flex items-start gap-3 p-3 rounded-xl bg-gray-800/50">
+                <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center flex-shrink-0">
+                  <Clock className="w-5 h-5 text-amber-400" />
+                </div>
+                <div>
+                  <p className="font-semibold text-white">
+                    {company.hours.regular}
+                  </p>
+                  <p className="text-gray-400 text-sm">
+                    {company.hours.emergencyText}
+                  </p>
                 </div>
               </div>
             </div>

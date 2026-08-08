@@ -231,7 +231,7 @@ export default function ContactForm() {
                     value={formData.service}
                     onChange={handleChange}
                     required
-                    className="w-full h-11 md:h-12 px-3 md:px-4 rounded-lg md:rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-sm md:text-base"
+                    className="w-full h-11 md:h-12 px-3 md:px-4 rounded-lg md:rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-base"
                   >
                     <option value="">Bitte wählen...</option>
                     {services.map((service) => (
@@ -257,7 +257,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Ihr Name"
                     required
-                    className="h-11 md:h-12 rounded-lg md:rounded-xl text-sm md:text-base"
+                    className="h-11 md:h-12 rounded-lg md:rounded-xl text-base"
                   />
                 </div>
 
@@ -278,7 +278,7 @@ export default function ContactForm() {
                       onChange={handleChange}
                       placeholder="0176..."
                       required
-                      className="h-11 md:h-12 rounded-lg md:rounded-xl text-sm md:text-base"
+                      className="h-11 md:h-12 rounded-lg md:rounded-xl text-base"
                     />
                   </div>
                   <div className="space-y-1">
@@ -295,7 +295,7 @@ export default function ContactForm() {
                       onChange={handleChange}
                       placeholder="z.B. Amberg"
                       required
-                      className="h-11 md:h-12 rounded-lg md:rounded-xl text-sm md:text-base"
+                      className="h-11 md:h-12 rounded-lg md:rounded-xl text-base"
                     />
                   </div>
                 </div>
@@ -318,7 +318,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     placeholder="Beschreiben Sie kurz das Problem..."
                     rows={2}
-                    className="resize-none rounded-lg md:rounded-xl text-sm md:text-base min-h-[60px] md:min-h-[70px]"
+                    className="resize-none rounded-lg md:rounded-xl text-base min-h-[60px] md:min-h-[70px]"
                   />
                 </div>
 

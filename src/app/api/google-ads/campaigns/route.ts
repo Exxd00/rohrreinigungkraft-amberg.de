@@ -45,15 +45,15 @@ const CAMPAIGN_TEMPLATES = {
     headlines: [
       "Rohrreinigung {city}",
       "24/7 Notdienst Verfügbar",
-      "Anfahrtszeit ehrlich genannt",
+      "Schnelle Hilfe in 20-40 Min",
       "Festpreis Garantie",
-      "Anfahrt ab 25€ Pauschale",
+      "Keine Anfahrtskosten",
       "Professionelle Rohrreinigung",
-      "Termin nach Absprache",
+      "Sofort Termin Möglich",
       "Abfluss Verstopft? Wir Helfen!",
       "Faire Preise Ab €59",
       "Zufriedenheitsgarantie",
-      "Etablierter Fachbetrieb",
+      "Lokaler Fachbetrieb",
       "Über 1000 Zufriedene Kunden",
       "Modernste Technik",
       "Rohrreinigung vom Profi",
@@ -61,9 +61,9 @@ const CAMPAIGN_TEMPLATES = {
     ],
     descriptions: [
       "Professionelle Rohrreinigung in {city}. 24/7 Notdienst, faire Festpreise. Jetzt anrufen!",
-      "Abfluss verstopft? Wir nennen die Anfahrtszeit ehrlich am Telefon. Keine versteckten Kosten. Rufen Sie jetzt an!",
+      "Abfluss verstopft? Schnelle Hilfe in 20-40 Minuten. Keine versteckten Kosten. Rufen Sie jetzt an!",
       "Rohrreinigung zum Festpreis. Modernste Technik & erfahrene Techniker. Kostenlose Beratung.",
-      "Ihr Ansprechpartner für Rohrreinigung in {city}. Zuverlässig, günstig, 24/7 erreichbar.",
+      "Ihr lokaler Experte für Rohrreinigung in {city}. Schnell, zuverlässig, günstig. 24/7 erreichbar.",
     ],
   },
   notdienst: {
@@ -83,17 +83,17 @@ const CAMPAIGN_TEMPLATES = {
     headlines: [
       "24/7 Notdienst {city}",
       "Sofort Hilfe - Tag & Nacht",
-      "Anfahrtszeit ehrlich genannt",
+      "Notdienst in 20-40 Minuten",
       "Auch Am Wochenende",
       "Jetzt Sofort Anrufen",
-      "Termin nach Absprache",
+      "Keine Wartezeit",
       "Notfall Rohrreinigung",
       "Schnelle Notfall Hilfe",
       "24 Stunden Erreichbar",
       "Sofort Verfügbar",
     ],
     descriptions: [
-      "24/7 Notdienst Rohrreinigung in {city}. Wir nennen die Anfahrtszeit ehrlich am Telefon. Jetzt anrufen!",
+      "24/7 Notdienst Rohrreinigung in {city}. Wir sind in 20-40 Minuten bei Ihnen. Jetzt anrufen!",
       "Rohr verstopft? Sofort Hilfe - Tag & Nacht, 365 Tage im Jahr. Festpreis, keine versteckten Kosten.",
     ],
   },
@@ -205,8 +205,8 @@ export async function POST(request: NextRequest) {
           negativeKeywords: template.negativeKeywords,
           headlines,
           descriptions,
-          finalUrl: `https://rohrreinigung-kraft.de/${cityName.toLowerCase().replace("ü", "ue").replace("ä", "ae").replace("ö", "oe")}`,
-          phoneNumber: "+4991189218682",
+          finalUrl: `https://rohrreinigung-kraft-amberg.de/${cityName.toLowerCase().replace("ü", "ue").replace("ä", "ae").replace("ö", "oe")}`,
+          phoneNumber: "+491787401958",
         });
 
         return NextResponse.json(result);
@@ -223,7 +223,7 @@ export async function POST(request: NextRequest) {
           headlines: data.headlines || [],
           descriptions: data.descriptions || [],
           finalUrl: data.finalUrl,
-          phoneNumber: data.phoneNumber || "+4991189218682",
+          phoneNumber: data.phoneNumber || "+491787401958",
         });
 
         return NextResponse.json(result);
@@ -281,7 +281,7 @@ export async function POST(request: NextRequest) {
             descriptionCount: descriptions.length,
             descriptions: descriptions.slice(0, 2),
             negativeKeywords: template.negativeKeywords,
-            finalUrl: `https://rohrreinigung-kraft.de/${cityName.toLowerCase().replace("ü", "ue").replace("ä", "ae").replace("ö", "oe")}`,
+            finalUrl: `https://rohrreinigung-kraft-amberg.de/${cityName.toLowerCase().replace("ü", "ue").replace("ä", "ae").replace("ö", "oe")}`,
           },
         });
       }

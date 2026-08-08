@@ -2,13 +2,12 @@
 
 ## Übersicht
 - **Unternehmen:** Rohrreinigung Kraft
-- **Firmensitz:** Nürnberg-Glockenhof (~65km von Amberg entfernt)
+- **Filiale:** Amberg (eigener Standort vor Ort)
 - **Zielregion dieser Kampagne:** Amberg + 60km Umkreis (Oberpfalz)
 - **Ziel:** Lead-Generierung (Anrufe + Kontaktformulare)
 - **Budget-Empfehlung:** 30-50€/Tag
-- **Hinweis:** Da der Firmensitz nicht in Amberg liegt, nennen alle Anzeigen die
-  Anfahrtszeit ehrlich (ca. 70-100 Min) statt einer schnellen Vor-Ort-Zeit zu
-  versprechen.
+- **Hinweis:** Dank eigener Filiale in Amberg können alle Anzeigen mit
+  schneller, lokaler Anfahrt werben (ca. 20-40 Min in Amberg selbst).
 
 ---
 
@@ -38,18 +37,18 @@
 ```
 Überschrift 1: Rohrverstopfung? Sofort-Hilfe!
 Überschrift 2: 24/7 Notdienst Amberg
-Überschrift 3: Anfahrtszeit ehrlich am Telefon
+Überschrift 3: In 20-40 Min vor Ort
 Beschreibung 1: Professionelle Rohrreinigung rund um die Uhr. Faire Preise. Jetzt anrufen!
-Beschreibung 2: Etablierter Fachbetrieb ✓ Moderne Technik ✓ Keine versteckten Kosten ✓
+Beschreibung 2: Lokaler Fachbetrieb ✓ Moderne Technik ✓ Keine versteckten Kosten ✓
 Finale URL: https://rohrreinigung-kraft-amberg.de
-Anruf-Erweiterung: 0911 89218682
+Anruf-Erweiterung: 0178 7401958
 ```
 
 **Anzeige 2:**
 ```
 Überschrift 1: Abfluss verstopft? Wir helfen!
 Überschrift 2: Notdienst 24/7 - Amberg
-Überschrift 3: ☎ 0911 89218682
+Überschrift 3: ☎ 0178 7401958
 Beschreibung 1: Rohrreinigung Notdienst - Schnelle Hilfe bei Verstopfungen. Professionell & zuverlässig.
 Beschreibung 2: 10+ Jahre Erfahrung ✓ 2000+ Einsätze ✓ 98% Kundenzufriedenheit ✓
 Finale URL: https://rohrreinigung-kraft-amberg.de/service/rohrreinigung-notdienst
@@ -70,7 +69,7 @@ Finale URL: https://rohrreinigung-kraft-amberg.de/service/rohrreinigung-notdiens
 Überschrift 2: Schnelle Hilfe in Amberg
 Überschrift 3: 24/7 Notdienst
 Beschreibung 1: WC verstopft? Wir helfen professionell und ohne Schäden.
-Beschreibung 2: Faire Preise ✓ Anfahrtszeit ehrlich genannt ✓ Saubere Arbeit ✓
+Beschreibung 2: Faire Preise ✓ Keine Anfahrtskosten ✓ Saubere Arbeit ✓
 Finale URL: https://rohrreinigung-kraft-amberg.de/service/toilette-verstopft
 ```
 
@@ -102,7 +101,7 @@ Finale URL: https://rohrreinigung-kraft-amberg.de/service/toilette-verstopft
 Überschrift 2: Professionell & Fair
 Überschrift 3: Kostenlose Beratung
 Beschreibung 1: Rohrreinigung vom Fachbetrieb. Modernste Technik für alle Verstopfungen.
-Beschreibung 2: Termine nach Absprache ✓ Transparente Preise ✓ Etablierter Service ✓
+Beschreibung 2: Termine nach Absprache ✓ Transparente Preise ✓ Lokaler Service ✓
 Finale URL: https://rohrreinigung-kraft-amberg.de/service/rohrreinigung
 ```
 
@@ -170,7 +169,7 @@ Für jede Stadt eine separate Anzeigengruppe mit lokalen Keywords:
 Überschrift 1: Rohrreinigung Sulzbach-Rosenberg
 Überschrift 2: Zuverlässiger Service
 Überschrift 3: 24/7 erreichbar
-Beschreibung 1: Rohrreinigung in Sulzbach-Rosenberg & Umgebung. Etablierter Fachbetrieb.
+Beschreibung 1: Rohrreinigung in Sulzbach-Rosenberg & Umgebung. Lokaler Fachbetrieb.
 Beschreibung 2: Notdienst verfügbar ✓ Faire Preise ✓ Moderne Technik ✓
 Finale URL: https://rohrreinigung-kraft-amberg.de/sulzbach-rosenberg
 ```
@@ -186,20 +185,19 @@ Finale URL: https://rohrreinigung-kraft-amberg.de/sulzbach-rosenberg
 4. **Einsatzgebiete** → /staedte
 
 ### Anruf-Erweiterung
-- Telefon: 0911 89218682
+- Telefon: 0178 7401958
 - Anzeige: "Jetzt anrufen"
 
 ### Standort-Erweiterung
-- Amberg & 60km Umkreis (Geo-Mittelpunkt auf Amberg, nicht auf den Firmensitz —
-  siehe Hinweis oben)
+- Amberg & 60km Umkreis
 
 ### Snippet-Erweiterungen
 - **Services:** Rohrreinigung, Kanalreinigung, Notdienst, Kamera-Inspektion
-- **Vorteile:** 24/7 Erreichbar, Faire Preise, Ehrliche Anfahrtszeit, Etablierter Betrieb
+- **Vorteile:** 24/7 Erreichbar, Faire Preise, Schnelle Anfahrt, Lokaler Betrieb
 
 ### Callout-Erweiterungen
 - ✓ 24/7 Notdienst
-- ✓ Anfahrtszeit ehrlich am Telefon
+- ✓ In 20-40 Min vor Ort
 - ✓ Keine versteckten Kosten
 - ✓ 10+ Jahre Erfahrung
 - ✓ Kostenlose Beratung

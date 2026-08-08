@@ -57,7 +57,7 @@ export default async function CityPage({ params }: CityPageProps) {
     "@type": "Service",
     "@id": `https://rohrreinigung-kraft-amberg.de/${city.slug}`,
     name: `Rohrreinigung ${city.name}`,
-    description: `Professionelle Rohrreinigung und Kanalreinigung in ${city.name}. 24/7 Notdienst, realistische Anfahrtszeit vorab am Telefon. Kostenlose Diagnose & Festpreis vorab.`,
+    description: `Professionelle Rohrreinigung und Kanalreinigung in ${city.name}. 24/7 Notdienst, schnelle Anfahrt. Kostenlose Diagnose & Festpreis vorab.`,
     url: `https://rohrreinigung-kraft-amberg.de/${city.slug}`,
     provider: {
       "@type": "Plumber",
@@ -65,19 +65,6 @@ export default async function CityPage({ params }: CityPageProps) {
       name: company.name,
       telephone: company.contact.phone,
       email: company.contact.email,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Ehemannstr. 9",
-        addressLocality: "Nürnberg",
-        postalCode: "90478",
-        addressRegion: "Bayern",
-        addressCountry: "DE",
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 49.4521,
-        longitude: 11.0767,
-      },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5.0",

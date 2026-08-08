@@ -221,7 +221,7 @@ export default function Header() {
                                   key={subItem.name}
                                   href={subItem.href}
                                   onClick={() => setIsMobileMenuOpen(false)}
-                                  className="block px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                                  className="block px-4 py-2.5 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                                 >
                                   {subItem.name}
                                 </Link>

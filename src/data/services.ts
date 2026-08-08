@@ -65,7 +65,7 @@ export const services: Service[] = [
     "Rohrreinigung",
     "Schnelle Hilfe bei verstopfter Toilette",
     [
-      "Soforthilfe – Anfahrtszeit ehrlich am Telefon",
+      "Soforthilfe innerhalb von 20-40 Minuten",
       "Hygienische Arbeitsweise",
       "Professionelle Ausrüstung",
       "Keine Folgeschäden",

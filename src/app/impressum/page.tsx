@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { company } from "@/data/company";
 import {
-  MapPin,
   Phone,
   Mail,
   Building2,
@@ -56,8 +55,7 @@ export default function ImpressumPage() {
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
                       {company.address.street}
                       <br />
-                      {company.address.zip} {company.address.city}-
-                      {company.address.district}
+                      {company.address.city}
                       <br />
                       {company.address.country}
                     </p>
@@ -103,19 +101,6 @@ export default function ImpressumPage() {
               </div>
             </div>
 
-            {/* Map Link */}
-            <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
-              <a
-                href={company.address.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-sm font-medium"
-              >
-                <MapPin className="w-4 h-4" />
-                Standort auf Google Maps anzeigen
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
           </div>
 
           {/* Legal Content */}
@@ -176,7 +161,7 @@ export default function ImpressumPage() {
                     <br />
                     {company.address.street}
                     <br />
-                    {company.address.zip} {company.address.city}
+                    {company.address.city}
                   </p>
                 </div>
               </div>

@@ -107,7 +107,7 @@ export default function DatenschutzPage() {
             <br />
             {company.address.street}
             <br />
-            {company.address.zip} {company.address.city}
+            {company.address.city}
             <br />
             {company.address.region}, {company.address.country}
             <br />

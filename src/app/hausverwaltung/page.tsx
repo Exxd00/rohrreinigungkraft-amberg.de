@@ -36,7 +36,7 @@ const targetGroups = [
     description:
       "Schnelle Reaktion, professionelle Dokumentation, direkte Kommunikation",
     benefits: [
-      "Prioritäts-Notdienst 24/7 (bevorzugte Einsatzplanung)",
+      "Prioritäts-Notdienst 24/7 (20-40 Min)",
       "Dokumentation für WEG-Versammlungen",
       "Rahmenverträge mit Festkonditionen",
       "Direkte Techniker-Hotline",
@@ -220,7 +220,7 @@ export default function HausverwaltungPage() {
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
                 <Clock className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium">
-                  Anfahrtszeit ehrlich genannt
+                  20-40 Min Reaktionszeit
                 </span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">

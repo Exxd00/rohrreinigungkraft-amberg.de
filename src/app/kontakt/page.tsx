@@ -27,25 +27,6 @@ export default function KontaktPage() {
 
       {/* Contact Form Component */}
       <ContactForm />
-
-      {/* Map Placeholder */}
-      <section className="py-16 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-              Unser Einsatzgebiet
-            </h2>
-            <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl h-80 flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-gray-500 dark:text-gray-400 mb-2">
-                  Amberg & Umgebung
-                </p>
-                <p className="text-sm text-gray-400">Bayern - Oberpfalz</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -116,7 +116,7 @@ export default function ThankYouPage() {
                       Schnelle Hilfe vor Ort
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Anfahrtszeit ehrlich am Telefon - Festpreis vorab
+                      Meist 20-40 Min vor Ort - Festpreis vorab
                     </p>
                   </div>
                 </div>

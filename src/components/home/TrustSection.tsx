@@ -89,11 +89,11 @@ export default function TrustSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-white dark:bg-gray-900"
+      className="py-10 md:py-24 bg-white dark:bg-gray-900"
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <span className="inline-block px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 font-semibold text-sm rounded-full mb-4">
             Vertrauen, das man prüfen kann
           </span>
@@ -107,7 +107,7 @@ export default function TrustSection() {
         </div>
 
         {/* Trust Points Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
           {trustPoints.map((point, index) => {
             const Icon = point.icon;
             const colors =
@@ -254,7 +254,7 @@ export default function TrustSection() {
         </div>
 
         {/* Trust badges row */}
-        <div className="mt-12 flex flex-wrap justify-center gap-4">
+        <div className="mt-8 md:mt-12 flex flex-wrap justify-center gap-3 md:gap-4">
           <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
             <CheckCircle className="w-4 h-4 text-emerald-500" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -276,7 +276,7 @@ export default function TrustSection() {
           <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
             <CheckCircle className="w-4 h-4 text-emerald-500" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Etablierter Familienbetrieb
+              Lokaler Familienbetrieb
             </span>
           </div>
         </div>

@@ -91,7 +91,7 @@ export const packages: Package[] = [
     pricingNote: "Nachts +40€, Wochenende +30€ – wird AM TELEFON gesagt",
 
     includes: [
-      "Anfahrtszeit ehrlich am Telefon genannt",
+      "Anfahrt in 20-40 Min",
       "Sofortige Problemlösung",
       "Alle nötigen Werkzeuge dabei",
       "Saubere Arbeitsweise",
@@ -111,13 +111,13 @@ export const packages: Package[] = [
     },
 
     duration: "20-60 Min",
-    responseTime: "70-100 Min",
+    responseTime: "20-40 Min",
 
     popular: false,
     badge: "24/7",
     cta: {
       text: "Jetzt Notdienst rufen",
-      urgency: "Anfahrtszeit wird ehrlich am Telefon genannt",
+      urgency: "Techniker ist in 20-40 Min bei Ihnen",
     },
 
     linkedServices: [
@@ -417,7 +417,7 @@ export const packages: Package[] = [
     pricingNote: "Rahmenvertrag mit Festkonditionen",
 
     includes: [
-      "Prioritäts-Notdienst (bevorzugte Einsatzplanung)",
+      "Prioritäts-Notdienst (20-40 Min Reaktion)",
       "10% Rabatt auf alle Einsätze",
       "Persönlicher Ansprechpartner",
       "Dokumentation für WEG-Versammlungen",
@@ -435,7 +435,7 @@ export const packages: Package[] = [
     },
 
     duration: "Je nach Einsatz",
-    responseTime: "Priorisierte Anfahrt",
+    responseTime: "20-40 Min Priorität",
 
     popular: false,
     badge: "B2B",

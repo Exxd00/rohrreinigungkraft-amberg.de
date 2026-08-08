@@ -30,23 +30,9 @@ const jsonLd = {
   telephone: company.contact.phone,
   email: company.contact.email,
 
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: company.address.street,
-    addressLocality: company.address.city,
-    postalCode: company.address.zip,
-    addressRegion: company.address.region,
-    addressCountry: "DE",
-  },
-
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 49.4521,
-    longitude: 11.0767,
-  },
-
-  // Hinweis: geoMidpoint ist bewusst auf Amberg zentriert (nicht auf den Firmensitz Nürnberg) —
-  // das beschreibt das Servicegebiet DIESER Seite. Der echte Firmensitz bleibt unter "address"/"geo" oben.
+  // Hinweis: Genaue Anschrift/Geokoordinaten des Firmensitzes werden aktuell bewusst
+  // nicht ausgegeben (siehe company.ts). areaServed beschreibt nur das Servicegebiet,
+  // keine genaue Adresse.
   areaServed: [
     {
       "@type": "GeoCircle",
@@ -368,7 +354,7 @@ const faqSchema = {
       name: "Wie schnell können Sie bei einer Rohrverstopfung da sein?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen – die genaue Zeit sagen wir Ihnen ehrlich am Telefon. Unser 24/7 Notdienst ist rund um die Uhr verfügbar.",
+        text: "In Amberg und der Region sind wir meist innerhalb von 20-40 Minuten bei Ihnen. Unser 24/7 Notdienst ist rund um die Uhr verfügbar.",
       },
     },
     {
@@ -392,7 +378,7 @@ const faqSchema = {
       name: "Was soll ich tun, bis Sie bei mir ankommen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Drehen Sie wenn möglich den Hauptwasserhahn ab und vermeiden Sie weitere Wassernutzung. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Wir sind meist in 70-100 Minuten bei Ihnen.",
+        text: "Drehen Sie wenn möglich den Hauptwasserhahn ab und vermeiden Sie weitere Wassernutzung. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Wir sind meist in 20-40 Minuten bei Ihnen.",
       },
     },
     {

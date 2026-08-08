@@ -77,7 +77,7 @@
 - "Festpreis vor Arbeitsbeginn" (بدون رقم)
 - "Diagnose kostenlos"
 - "Garantie inklusive" (بدون مدة محددة)
-- "Etablierter Meisterbetrieb"
+- "Lokaler Meisterbetrieb"
 - "Ueber 100 Bewertungen"
 
 ### ❌ خطأ (تجنب):
@@ -107,10 +107,8 @@
 
 1. **الأسعار:** لا تذكر أسعار محددة - استخدم "Festpreis" فقط
 2. **الضمان:** قل "Garantie" بدون تحديد المدة
-3. **الوقت:** المقر الحقيقي للشركة في نورنبرغ (Nürnberg-Glockenhof)، على بعد
-   ~65 كم من Amberg. لذلك تم استبدال "45 Min" بـ "In 70-100 Min da" أو
-   "Anfahrtszeit ehrlich am Telefon genannt" (وقت وصول واقعي، لا نعد بسرعة
-   غير حقيقية).
+3. **الوقت:** يوجد الآن فرع حقيقي في Amberg، لذلك الوقت الحقيقي سريع محلياً:
+   "In 20-40 Min da" (وقت وصول واقعي وسريع بفضل الفرع المحلي).
 4. **التقييمات:** "Ueber 100" بدلاً من رقم دقيق
 5. **Location IDs:** معرّفات الاستهداف الجغرافي في
    `src/app/api/google-ads/campaigns/route.ts` لا تزال فارغة (TODO) — يجب
