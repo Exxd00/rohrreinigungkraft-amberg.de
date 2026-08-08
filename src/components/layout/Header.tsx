@@ -24,6 +24,7 @@ const navigation = [
       { name: "TV-Inspektion", href: "/service/kamera-inspektion" },
     ],
   },
+  { name: "Städte", href: "/staedte" },
   { name: "Preise", href: "/preise" },
   { name: "Für Gewerbe", href: "/hausverwaltung" },
   { name: "FAQ", href: "/faq" },
