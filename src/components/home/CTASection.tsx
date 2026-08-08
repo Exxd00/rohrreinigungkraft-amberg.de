@@ -6,9 +6,11 @@ import { Phone, MessageCircle, Shield, Clock, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company } from "@/data/company";
 import CallConfirmModal from "@/components/layout/CallConfirmModal";
+import { useAvailableTechnicians } from "@/lib/useAvailableTechnicians";
 
 export default function CTASection() {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
+  const availableTechnicians = useAvailableTechnicians();
 
   return (
     <>
@@ -37,7 +39,7 @@ export default function CTASection() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
                 <span className="text-sm font-medium text-emerald-300">
-                  {company.urgency.availableTechnicians} Techniker jetzt
+                  {availableTechnicians} Techniker jetzt
                   verfügbar
                 </span>
               </div>

@@ -31,6 +31,7 @@ import {
   trackCTAClick,
   getCompleteTrackingData,
 } from "@/lib/tracking";
+import { useAvailableTechnicians } from "@/lib/useAvailableTechnicians";
 
 interface FormData {
   name: string;
@@ -56,6 +57,7 @@ export default function ContactForm() {
   const [isCompressing, setIsCompressing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const availableTechnicians = useAvailableTechnicians();
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -198,7 +200,7 @@ export default function ContactForm() {
                     <span className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-primary"></span>
                   </span>
                   <span className="text-xs md:text-sm font-medium text-primary dark:text-[#3AB0FF]">
-                    {company.urgency.availableTechnicians} Fachkräfte verfügbar
+                    {availableTechnicians} Fachkräfte verfügbar
                   </span>
                 </div>
                 <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">
