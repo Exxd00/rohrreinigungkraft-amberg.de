@@ -199,7 +199,7 @@ export default function ContactForm() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/75 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 md:h-3 md:w-3 bg-primary"></span>
                   </span>
-                  <span className="text-xs md:text-sm font-medium text-primary dark:text-[#3AB0FF]">
+                  <span className="text-xs md:text-sm font-medium text-primary dark:text-[#5490D4]">
                     {availableTechnicians} Fachkräfte verfügbar
                   </span>
                 </div>

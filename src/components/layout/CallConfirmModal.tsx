@@ -172,7 +172,7 @@ export default function CallConfirmModal({
               <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
                 Sie werden verbunden mit:
               </p>
-              <div className="text-2xl font-bold text-primary dark:text-[#3AB0FF]">
+              <div className="text-2xl font-bold text-primary dark:text-[#5490D4]">
                 {company.contact.phoneDisplay}
               </div>
             </div>

@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 200 100% 62%; /* #3AB0FF */
+    --primary: 212 55% 28%; /* #20456F - dunkles Marineblau */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 222 47% 31%; /* #1E3A8A */
+    --secondary: 213 35% 38%; /* #3F5F83 */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 217 91% 60%; /* #2563EB */
+    --accent: 24 95% 53%; /* #F97316 - Signal-Orange */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -33,15 +33,15 @@
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 200 100% 62%;
+    --ring: 212 55% 28%;
 
     --radius: 0.75rem;
 
-    --chart-1: 200 100% 62%;
-    --chart-2: 217 91% 60%;
-    --chart-3: 222 47% 31%;
+    --chart-1: 212 55% 28%;
+    --chart-2: 24 95% 53%;
+    --chart-3: 213 35% 38%;
     --chart-4: 210 50% 70%;
-    --chart-5: 200 80% 80%;
+    --chart-5: 30 90% 70%;
   }
 
   .dark {
@@ -54,16 +54,16 @@
     --popover: 222 47% 11%;
     --popover-foreground: 210 50% 98%;
 
-    --primary: 200 100% 62%;
+    --primary: 212 60% 58%; /* #5490D4 - helleres Marineblau für Kontrast auf Dunkel */
     --primary-foreground: 222 47% 11%;
 
-    --secondary: 222 47% 45%;
+    --secondary: 213 35% 50%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 222 47% 15%;
     --muted-foreground: 215 16% 65%;
 
-    --accent: 217 91% 60%;
+    --accent: 24 95% 53%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 50%;
@@ -71,7 +71,7 @@
 
     --border: 222 47% 20%;
     --input: 222 47% 20%;
-    --ring: 200 100% 62%;
+    --ring: 212 60% 58%;
   }
 }
 
@@ -321,15 +321,15 @@
 
 /* Gradient backgrounds */
 .gradient-primary {
-  background: linear-gradient(135deg, #3AB0FF 0%, #2563EB 100%);
+  background: linear-gradient(135deg, #FF8A3D 0%, #F97316 100%);
 }
 
 .gradient-secondary {
-  background: linear-gradient(135deg, #1E3A8A 0%, #3AB0FF 100%);
+  background: linear-gradient(135deg, #17324F 0%, #3F5F83 100%);
 }
 
 .gradient-radial {
-  background: radial-gradient(circle at center, #3AB0FF 0%, transparent 70%);
+  background: radial-gradient(circle at center, #F97316 0%, transparent 70%);
 }
 
 /* Glass effect */
@@ -357,7 +357,7 @@
 
 /* Text gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #3AB0FF 0%, #2563EB 100%);
+  background: linear-gradient(135deg, #20456F 0%, #F97316 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

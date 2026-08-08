@@ -83,7 +83,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#3AB0FF" />
+        <meta name="theme-color" content="#20456F" />
         {/* Schema.org LocalBusiness Structured Data - Basic info only, detailed schema in page.tsx */}
         <script
           type="application/ld+json"

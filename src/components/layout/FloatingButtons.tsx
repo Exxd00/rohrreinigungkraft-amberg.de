@@ -99,7 +99,7 @@ export default function FloatingButtons() {
           <button
             type="button"
             onClick={handlePhoneClick}
-            className="flex items-center justify-center px-5 py-3 bg-[#3AB0FF] rounded-full shadow-lg shadow-[#3AB0FF]/30 transition-colors active:scale-95"
+            className="flex items-center justify-center px-5 py-3 bg-[#F97316] rounded-full shadow-lg shadow-[#F97316]/30 transition-colors active:scale-95"
             aria-label="Jetzt anrufen"
           >
             <Phone className="w-6 h-6 text-white" />

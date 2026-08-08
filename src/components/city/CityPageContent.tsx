@@ -109,7 +109,7 @@ export default function CityPageContent({
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
               <span className="text-white">Rohrreinigung</span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
                 {city.name}
               </span>
             </h1>
@@ -131,7 +131,7 @@ export default function CityPageContent({
                 className="w-full group relative"
               >
                 <div className="absolute inset-0 bg-primary blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
-                <div className="relative bg-gradient-to-r from-primary to-cyan-500 rounded-2xl px-6 py-5 flex items-center justify-center gap-4 transition-transform group-hover:scale-[1.02] shadow-2xl">
+                <div className="relative bg-gradient-to-r from-primary to-orange-500 rounded-2xl px-6 py-5 flex items-center justify-center gap-4 transition-transform group-hover:scale-[1.02] shadow-2xl">
                   <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
                     <Phone className="w-7 h-7 text-white" />
                   </div>

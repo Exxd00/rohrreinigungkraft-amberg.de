@@ -70,7 +70,7 @@ export default function DatenschutzPage() {
       id: "hosting",
       title: "Hosting",
       icon: <Server className="w-5 h-5" />,
-      iconBg: "bg-sky-100 dark:bg-sky-900/30 text-sky-600 dark:text-sky-400",
+      iconBg: "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400",
       content: (
         <div className="space-y-3">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">

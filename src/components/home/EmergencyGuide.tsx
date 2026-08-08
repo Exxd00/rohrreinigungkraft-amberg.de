@@ -100,7 +100,7 @@ const guideSteps: GuideStep[] = [
     id: "arrival",
     title: "Bei unserer Ankunft",
     icon: <Users className="w-6 h-6" />,
-    iconBg: "bg-sky-500",
+    iconBg: "bg-orange-500",
     description: "Was Sie bei unserem Einsatz erwarten können",
     dos: [
       "Unser Techniker analysiert zuerst das Problem – kostenlos",
@@ -155,7 +155,7 @@ export default function EmergencyGuide() {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Vertical line */}
-              <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-amber-500 via-primary to-sky-500 hidden sm:block" />
+              <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-amber-500 via-primary to-orange-500 hidden sm:block" />
 
               {guideSteps.map((step, index) => (
                 <div key={step.id} className="relative mb-6">
@@ -322,7 +322,7 @@ export default function EmergencyGuide() {
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   onClick={() => setIsCallModalOpen(true)}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-cyan-500 text-white font-bold rounded-xl hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-orange-500 text-white font-bold rounded-xl hover:opacity-90 transition-opacity"
                 >
                   <Phone className="w-5 h-5" />
                   {company.contact.phoneDisplay}

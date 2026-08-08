@@ -145,8 +145,8 @@ export default function ImpressumPage() {
 
               {/* Verantwortlich */}
               <div className="flex items-start gap-4 pb-6 border-b border-gray-100 dark:border-gray-700">
-                <div className="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-5 h-5 text-sky-600 dark:text-sky-400" />
+                <div className="w-10 h-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                 </div>
                 <div>
                   <h2 className="font-bold text-gray-900 dark:text-white mb-2">

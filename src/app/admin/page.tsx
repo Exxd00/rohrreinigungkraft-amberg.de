@@ -78,16 +78,16 @@ const brandColors = [
     tailwind: "green-500",
   },
   {
-    name: "Primary Blue",
-    hex: "#3AB0FF",
-    rgb: "58, 176, 255",
+    name: "Primary Navy",
+    hex: "#20456F",
+    rgb: "32, 69, 111",
     tailwind: "custom",
   },
   {
-    name: "Accent Blue",
-    hex: "#2563EB",
-    rgb: "37, 99, 235",
-    tailwind: "blue-600",
+    name: "Accent Orange",
+    hex: "#F97316",
+    rgb: "249, 115, 22",
+    tailwind: "orange-500",
   },
   {
     name: "Dark Text",

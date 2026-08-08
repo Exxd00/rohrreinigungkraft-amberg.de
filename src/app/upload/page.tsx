@@ -155,7 +155,7 @@ export default function UploadPage() {
           ) : result ? (
             <div className="flex flex-col items-center gap-3">
               <CheckCircle className="w-12 h-12 text-primary" />
-              <p className="text-primary dark:text-[#3AB0FF] font-semibold">
+              <p className="text-primary dark:text-[#5490D4] font-semibold">
                 Image compressed successfully!
               </p>
               <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
@@ -190,7 +190,7 @@ export default function UploadPage() {
               )}
 
               {!result.isProduction && (
-                <p className="font-medium mt-2 text-primary dark:text-[#3AB0FF]">
+                <p className="font-medium mt-2 text-primary dark:text-[#5490D4]">
                   ✓ Saved to: {result.savedTo}
                 </p>
               )}
