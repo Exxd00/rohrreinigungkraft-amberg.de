@@ -1,11 +1,25 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { company } from "@/data/company";
-import { Shield, Lock, Eye, Server, FileText, Mail, Scale, Database, UserCheck, Cookie, Phone, Building2 } from "lucide-react";
+import {
+  Shield,
+  Lock,
+  Eye,
+  Server,
+  FileText,
+  Mail,
+  Scale,
+  Database,
+  UserCheck,
+  Cookie,
+  Phone,
+  Building2,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Datenschutz | Rohrreinigung Kraft",
-  description: "Datenschutzerklärung von Rohrreinigung Kraft. Erfahren Sie, wie wir Ihre Daten schützen.",
+  description:
+    "Datenschutzerklärung von Rohrreinigung Kraft. Erfahren Sie, wie wir Ihre Daten schützen.",
 };
 
 interface PrivacySection {
@@ -26,16 +40,17 @@ export default function DatenschutzPage() {
       content: (
         <div className="space-y-4">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren
-            personenbezogenen Daten passiert, wenn Sie diese Website besuchen.
+            Die folgenden Hinweise geben einen einfachen Überblick darüber, was
+            mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website
+            besuchen.
           </p>
           <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
             <h4 className="font-semibold text-gray-900 dark:text-white text-sm mb-2">
               Wer ist verantwortlich?
             </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber.
-              Kontaktdaten finden Sie im Impressum.
+              Die Datenverarbeitung auf dieser Website erfolgt durch den
+              Websitebetreiber. Kontaktdaten finden Sie im Impressum.
             </p>
           </div>
           <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
@@ -43,8 +58,9 @@ export default function DatenschutzPage() {
               Wie erfassen wir Ihre Daten?
             </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Ihre Daten werden erhoben, wenn Sie uns diese mitteilen (z.B. Kontaktformular)
-              oder automatisch durch technische Systeme beim Websitebesuch.
+              Ihre Daten werden erhoben, wenn Sie uns diese mitteilen (z.B.
+              Kontaktformular) oder automatisch durch technische Systeme beim
+              Websitebesuch.
             </p>
           </div>
         </div>
@@ -62,8 +78,12 @@ export default function DatenschutzPage() {
           </p>
           <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
             <p className="text-gray-600 dark:text-gray-400 text-sm">
-              <strong className="text-gray-900 dark:text-white">Netlify Inc.</strong><br />
-              44 Montgomery Street, Suite 300<br />
+              <strong className="text-gray-900 dark:text-white">
+                Netlify Inc.
+              </strong>
+              <br />
+              44 Montgomery Street, Suite 300
+              <br />
               San Francisco, California 94104, USA
             </p>
           </div>
@@ -74,18 +94,28 @@ export default function DatenschutzPage() {
       id: "responsible",
       title: "Verantwortliche Stelle",
       icon: <Building2 className="w-5 h-5" />,
-      iconBg: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400",
+      iconBg:
+        "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400",
       content: (
         <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            <strong className="text-gray-900 dark:text-white">{company.name}</strong><br />
-            Inhaber: {company.legal.inhaber}<br />
-            {company.address.street}<br />
-            {company.address.zip} {company.address.city}<br />
-            {company.address.region}, {company.address.country}<br /><br />
+            <strong className="text-gray-900 dark:text-white">
+              {company.name}
+            </strong>
+            <br />
+            Inhaber: {company.legal.inhaber}
+            <br />
+            {company.address.street}
+            <br />
+            {company.address.zip} {company.address.city}
+            <br />
+            {company.address.region}, {company.address.country}
+            <br />
+            <br />
             <span className="inline-flex items-center gap-1">
               <Phone className="w-3 h-3" /> {company.contact.phoneDisplay}
-            </span><br />
+            </span>
+            <br />
             <span className="inline-flex items-center gap-1">
               <Mail className="w-3 h-3" /> {company.contact.email}
             </span>
@@ -97,7 +127,8 @@ export default function DatenschutzPage() {
       id: "data-collection",
       title: "Datenerfassung auf dieser Website",
       icon: <Database className="w-5 h-5" />,
-      iconBg: "bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400",
+      iconBg:
+        "bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400",
       content: (
         <div className="space-y-4">
           <div>
@@ -105,9 +136,10 @@ export default function DatenschutzPage() {
               Kontaktformular
             </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben
-              inklusive der Kontaktdaten zwecks Bearbeitung bei uns gespeichert.
-              Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden
+              Ihre Angaben inklusive der Kontaktdaten zwecks Bearbeitung bei uns
+              gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung
+              weiter.
             </p>
           </div>
           <div>
@@ -115,8 +147,9 @@ export default function DatenschutzPage() {
               Anfrage per E-Mail oder Telefon
             </h4>
             <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-              Bei Kontakt per E-Mail oder Telefon wird Ihre Anfrage inklusive aller
-              personenbezogenen Daten zum Zwecke der Bearbeitung gespeichert und verarbeitet.
+              Bei Kontakt per E-Mail oder Telefon wird Ihre Anfrage inklusive
+              aller personenbezogenen Daten zum Zwecke der Bearbeitung
+              gespeichert und verarbeitet.
             </p>
           </div>
         </div>
@@ -126,11 +159,13 @@ export default function DatenschutzPage() {
       id: "rights",
       title: "Ihre Rechte",
       icon: <UserCheck className="w-5 h-5" />,
-      iconBg: "bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400",
+      iconBg:
+        "bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400",
       content: (
         <div className="space-y-3">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Sie haben jederzeit folgende Rechte bezüglich Ihrer personenbezogenen Daten:
+            Sie haben jederzeit folgende Rechte bezüglich Ihrer
+            personenbezogenen Daten:
           </p>
           <ul className="space-y-2">
             {[
@@ -141,7 +176,10 @@ export default function DatenschutzPage() {
               "Einschränkung der Verarbeitung",
               "Datenübertragbarkeit",
             ].map((right, index) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <li
+                key={index}
+                className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                 {right}
               </li>
@@ -154,13 +192,14 @@ export default function DatenschutzPage() {
       id: "ssl",
       title: "SSL/TLS-Verschlüsselung",
       icon: <Lock className="w-5 h-5" />,
-      iconBg: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400",
+      iconBg:
+        "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400",
       content: (
         <div className="space-y-3">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung.
-            Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile
-            von „http://" auf „https://" wechselt.
+            Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw.
+            TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie
+            daran, dass die Adresszeile von „http://" auf „https://" wechselt.
           </p>
           <div className="inline-flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-200 dark:border-emerald-800">
             <Lock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -175,16 +214,18 @@ export default function DatenschutzPage() {
       id: "analytics",
       title: "Analyse-Tools und Tracking",
       icon: <Cookie className="w-5 h-5" />,
-      iconBg: "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400",
+      iconBg:
+        "bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400",
       content: (
         <div className="space-y-3">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Diese Website kann Analyse-Tools verwenden, um das Nutzerverhalten zu analysieren.
-            Details zu den verwendeten Tools und Ihren Opt-out-Möglichkeiten werden bei Bedarf ergänzt.
+            Diese Website kann Analyse-Tools verwenden, um das Nutzerverhalten
+            zu analysieren. Details zu den verwendeten Tools und Ihren
+            Opt-out-Möglichkeiten werden bei Bedarf ergänzt.
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Wir nutzen möglicherweise Google Analytics zur Websiteanalyse.
-            Sie können die Erfassung durch Google Analytics verhindern, indem Sie
+            Wir nutzen möglicherweise Google Analytics zur Websiteanalyse. Sie
+            können die Erfassung durch Google Analytics verhindern, indem Sie
             das Browser-Add-on zur Deaktivierung installieren.
           </p>
         </div>
@@ -214,15 +255,21 @@ export default function DatenschutzPage() {
           <div className="flex flex-wrap justify-center gap-3 mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
               <Lock className="w-4 h-4 text-emerald-500" />
-              <span className="text-sm text-gray-700 dark:text-gray-300">SSL-gesichert</span>
+              <span className="text-sm text-gray-700 dark:text-gray-300">
+                SSL-gesichert
+              </span>
             </div>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
               <Shield className="w-4 h-4 text-primary" />
-              <span className="text-sm text-gray-700 dark:text-gray-300">DSGVO-konform</span>
+              <span className="text-sm text-gray-700 dark:text-gray-300">
+                DSGVO-konform
+              </span>
             </div>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-sm border border-gray-100 dark:border-gray-700">
               <FileText className="w-4 h-4 text-amber-500" />
-              <span className="text-sm text-gray-700 dark:text-gray-300">Transparent</span>
+              <span className="text-sm text-gray-700 dark:text-gray-300">
+                Transparent
+              </span>
             </div>
           </div>
 
@@ -235,7 +282,9 @@ export default function DatenschutzPage() {
               >
                 <div className="p-6 md:p-8">
                   <div className="flex items-start gap-4">
-                    <div className={`w-10 h-10 rounded-lg ${section.iconBg} flex items-center justify-center flex-shrink-0`}>
+                    <div
+                      className={`w-10 h-10 rounded-lg ${section.iconBg} flex items-center justify-center flex-shrink-0`}
+                    >
                       {section.icon}
                     </div>
                     <div className="flex-1">

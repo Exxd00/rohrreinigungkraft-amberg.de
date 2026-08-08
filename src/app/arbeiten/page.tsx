@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, Camera, Wrench, AlertCircle, Search, Construction, ArrowRight } from "lucide-react";
+import {
+  Phone,
+  Camera,
+  Wrench,
+  AlertCircle,
+  Search,
+  Construction,
+  ArrowRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { gallery } from "@/data/company";
@@ -22,9 +30,10 @@ const categories = ["Alle", ...new Set(gallery.map((item) => item.category))];
 export default function ArbeitenPage() {
   const [selectedCategory, setSelectedCategory] = useState("Alle");
 
-  const filteredGallery = selectedCategory === "Alle"
-    ? gallery
-    : gallery.filter((item) => item.category === selectedCategory);
+  const filteredGallery =
+    selectedCategory === "Alle"
+      ? gallery
+      : gallery.filter((item) => item.category === selectedCategory);
 
   return (
     <>
@@ -36,8 +45,8 @@ export default function ArbeitenPage() {
               Unsere <span className="text-gradient">Arbeiten</span>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Einblicke in unsere professionellen Einsätze.
-              Überzeugen Sie sich von unserer Arbeit.
+              Einblicke in unsere professionellen Einsätze. Überzeugen Sie sich
+              von unserer Arbeit.
             </p>
           </div>
         </div>
@@ -125,7 +134,10 @@ export default function ArbeitenPage() {
               Kontaktieren Sie uns für eine kostenlose Beratung!
             </p>
             <Link href={`tel:${company.contact.phone}`}>
-              <Button size="lg" className="gradient-primary text-white h-14 px-8">
+              <Button
+                size="lg"
+                className="gradient-primary text-white h-14 px-8"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 {company.contact.phoneDisplay}
               </Button>

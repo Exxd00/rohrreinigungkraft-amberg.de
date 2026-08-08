@@ -79,11 +79,7 @@ const CAMPAIGN_TEMPLATES = {
       "rohrreinigung nachts {city}",
       "rohrreinigung wochenende {city}",
     ],
-    negativeKeywords: [
-      "selber machen",
-      "hausmittel",
-      "tipps",
-    ],
+    negativeKeywords: ["selber machen", "hausmittel", "tipps"],
     headlines: [
       "24/7 Notdienst {city}",
       "Sofort Hilfe - Tag & Nacht",
@@ -112,10 +108,7 @@ const CAMPAIGN_TEMPLATES = {
       "hochdruckreinigung kanal {city}",
       "kanalinspektion {city}",
     ],
-    negativeKeywords: [
-      "selber machen",
-      "hausmittel",
-    ],
+    negativeKeywords: ["selber machen", "hausmittel"],
     headlines: [
       "Kanalreinigung {city}",
       "Professionelle Kanalspülung",
@@ -139,16 +132,16 @@ const CAMPAIGN_TEMPLATES = {
 // Vor Nutzung bitte über GeoTargetConstantService.SuggestGeoTargetConstants (Google Ads API)
 // oder den Standort-Picker im Google Ads Editor nachschlagen und hier eintragen.
 const CITY_LOCATION_IDS: Record<string, string> = {
-  "amberg": "",
-  "kümmersbruck": "",
-  "kuemmersbruck": "",
-  "ammerthal": "",
+  amberg: "",
+  kümmersbruck: "",
+  kuemmersbruck: "",
+  ammerthal: "",
   "sulzbach-rosenberg": "",
-  "hahnbach": "",
-  "vilseck": "",
-  "hirschau": "",
+  hahnbach: "",
+  vilseck: "",
+  hirschau: "",
   "neumarkt in der oberpfalz": "",
-  "schwandorf": "",
+  schwandorf: "",
 };
 
 // Get campaigns
@@ -163,7 +156,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ success: true, data: campaigns });
   } catch (error) {
     console.error("[Campaigns API]", error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 },
+    );
   }
 }
 
@@ -179,14 +175,24 @@ export async function POST(request: NextRequest) {
       case "create-city-campaign": {
         // Create a campaign for a new city using templates
         const cityName = data.city?.toLowerCase() || "";
-        const cityNameCapitalized = cityName.charAt(0).toUpperCase() + cityName.slice(1);
-        const template = CAMPAIGN_TEMPLATES[data.template as keyof typeof CAMPAIGN_TEMPLATES] || CAMPAIGN_TEMPLATES.rohrreinigung;
+        const cityNameCapitalized =
+          cityName.charAt(0).toUpperCase() + cityName.slice(1);
+        const template =
+          CAMPAIGN_TEMPLATES[
+            data.template as keyof typeof CAMPAIGN_TEMPLATES
+          ] || CAMPAIGN_TEMPLATES.rohrreinigung;
         const dailyBudget = data.dailyBudget || 50;
 
         // Replace {city} placeholder in templates
-        const keywords = template.keywords.map(k => k.replace("{city}", cityNameCapitalized));
-        const headlines = template.headlines.map(h => h.replace("{city}", cityNameCapitalized));
-        const descriptions = template.descriptions.map(d => d.replace("{city}", cityNameCapitalized));
+        const keywords = template.keywords.map((k) =>
+          k.replace("{city}", cityNameCapitalized),
+        );
+        const headlines = template.headlines.map((h) =>
+          h.replace("{city}", cityNameCapitalized),
+        );
+        const descriptions = template.descriptions.map((d) =>
+          d.replace("{city}", cityNameCapitalized),
+        );
 
         // Get location ID
         const locationId = CITY_LOCATION_IDS[cityName] || "";
@@ -243,13 +249,23 @@ export async function POST(request: NextRequest) {
       case "preview": {
         // Preview what a campaign would look like without creating it
         const cityName = data.city?.toLowerCase() || "";
-        const cityNameCapitalized = cityName.charAt(0).toUpperCase() + cityName.slice(1);
-        const template = CAMPAIGN_TEMPLATES[data.template as keyof typeof CAMPAIGN_TEMPLATES] || CAMPAIGN_TEMPLATES.rohrreinigung;
+        const cityNameCapitalized =
+          cityName.charAt(0).toUpperCase() + cityName.slice(1);
+        const template =
+          CAMPAIGN_TEMPLATES[
+            data.template as keyof typeof CAMPAIGN_TEMPLATES
+          ] || CAMPAIGN_TEMPLATES.rohrreinigung;
         const dailyBudget = data.dailyBudget || 50;
 
-        const keywords = template.keywords.map(k => k.replace("{city}", cityNameCapitalized));
-        const headlines = template.headlines.map(h => h.replace("{city}", cityNameCapitalized));
-        const descriptions = template.descriptions.map(d => d.replace("{city}", cityNameCapitalized));
+        const keywords = template.keywords.map((k) =>
+          k.replace("{city}", cityNameCapitalized),
+        );
+        const headlines = template.headlines.map((h) =>
+          h.replace("{city}", cityNameCapitalized),
+        );
+        const descriptions = template.descriptions.map((d) =>
+          d.replace("{city}", cityNameCapitalized),
+        );
 
         return NextResponse.json({
           success: true,
@@ -271,14 +287,21 @@ export async function POST(request: NextRequest) {
       }
 
       default:
-        return NextResponse.json({
-          success: false,
-          error: "Unknown action. Use: create-city-campaign, create-custom, get-templates, get-locations, preview",
-        }, { status: 400 });
+        return NextResponse.json(
+          {
+            success: false,
+            error:
+              "Unknown action. Use: create-city-campaign, create-custom, get-templates, get-locations, preview",
+          },
+          { status: 400 },
+        );
     }
   } catch (error) {
     console.error("[Campaigns API]", error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 },
+    );
   }
 }
 

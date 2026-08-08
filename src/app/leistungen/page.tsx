@@ -15,9 +15,13 @@ export default function LeistungenPage() {
 
   const filteredServices = useMemo(() => {
     return services.filter((service) => {
-      const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        service.shortDescription.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = !selectedCategory || service.category === selectedCategory;
+      const matchesSearch =
+        service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        service.shortDescription
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+      const matchesCategory =
+        !selectedCategory || service.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
   }, [searchQuery, selectedCategory]);
@@ -32,8 +36,8 @@ export default function LeistungenPage() {
               Unsere <span className="text-gradient">Leistungen</span>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Professionelle Rohrreinigung, Kanalreinigung und mehr.
-              Finden Sie die passende Lösung für Ihr Problem.
+              Professionelle Rohrreinigung, Kanalreinigung und mehr. Finden Sie
+              die passende Lösung für Ihr Problem.
             </p>
           </div>
         </div>
@@ -69,7 +73,9 @@ export default function LeistungenPage() {
               {serviceCategories.map((category) => (
                 <Button
                   key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
+                  variant={
+                    selectedCategory === category ? "default" : "outline"
+                  }
                   size="sm"
                   onClick={() => setSelectedCategory(category)}
                   className="shrink-0"
@@ -99,7 +105,10 @@ export default function LeistungenPage() {
                   href={`/service/${service.slug}`}
                   className="group bg-white dark:bg-gray-800 rounded-lg sm:rounded-xl md:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-sm hover:shadow-lg transition-all hover-lift border border-gray-100 dark:border-gray-700"
                 >
-                  <Badge variant="secondary" className="mb-2 sm:mb-3 md:mb-4 text-xs">
+                  <Badge
+                    variant="secondary"
+                    className="mb-2 sm:mb-3 md:mb-4 text-xs"
+                  >
                     {service.category}
                   </Badge>
                   <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-900 dark:text-white mb-1 sm:mb-2 md:mb-3 group-hover:text-primary transition-colors line-clamp-2">
@@ -122,7 +131,12 @@ export default function LeistungenPage() {
                 <p className="text-gray-500 dark:text-gray-400 mb-4">
                   Keine Leistungen gefunden. Versuchen Sie eine andere Suche.
                 </p>
-                <Button onClick={() => { setSearchQuery(""); setSelectedCategory(null); }}>
+                <Button
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSelectedCategory(null);
+                  }}
+                >
                   Filter zurücksetzen
                 </Button>
               </div>
@@ -142,7 +156,10 @@ export default function LeistungenPage() {
               Rufen Sie uns an - wir beraten Sie kostenlos und unverbindlich!
             </p>
             <Link href={`tel:${company.contact.phone}`}>
-              <Button size="lg" className="gradient-primary text-white h-14 px-8">
+              <Button
+                size="lg"
+                className="gradient-primary text-white h-14 px-8"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 {company.contact.phoneDisplay}
               </Button>

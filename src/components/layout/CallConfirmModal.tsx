@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Phone, X, Clock, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import {
+  Phone,
+  X,
+  Clock,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
 import { company } from "@/data/company";
 import { trackCallIntent, trackCallConfirmed } from "@/lib/tracking";
 import { getTrackingData, getGclid } from "@/lib/gclid";
@@ -12,7 +19,11 @@ interface CallConfirmModalProps {
   source: string;
 }
 
-export default function CallConfirmModal({ isOpen, onClose, source }: CallConfirmModalProps) {
+export default function CallConfirmModal({
+  isOpen,
+  onClose,
+  source,
+}: CallConfirmModalProps) {
   const [step, setStep] = useState<"intent" | "confirm">("intent");
   const [isCallInProgress, setIsCallInProgress] = useState(false);
 
@@ -170,15 +181,21 @@ export default function CallConfirmModal({ isOpen, onClose, source }: CallConfir
             <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3 mb-4 text-left">
               <div className="flex items-center gap-2 mb-2">
                 <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">Kostenlose Beratung</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  Kostenlose Beratung
+                </span>
               </div>
               <div className="flex items-center gap-2 mb-2">
                 <Clock className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">Anfahrtszeit ehrlich am Telefon</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  Anfahrtszeit ehrlich am Telefon
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 text-orange-500 shrink-0" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">24/7 Notdienst</span>
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  24/7 Notdienst
+                </span>
               </div>
             </div>
 

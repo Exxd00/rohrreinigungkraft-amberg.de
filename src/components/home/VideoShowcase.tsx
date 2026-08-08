@@ -2,7 +2,15 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { X, Volume2, VolumeX, Camera, Phone, ArrowRight, Maximize2 } from "lucide-react";
+import {
+  X,
+  Volume2,
+  VolumeX,
+  Camera,
+  Phone,
+  ArrowRight,
+  Maximize2,
+} from "lucide-react";
 import { workVideos, company } from "@/data/company";
 import { Button } from "@/components/ui/button";
 import YouTubeFacade from "@/components/home/YouTubeFacade";
@@ -93,8 +101,9 @@ export default function VideoShowcase() {
               Sehen Sie uns <span className="text-primary">bei der Arbeit</span>
             </h2>
             <p className="text-gray-300 md:text-lg">
-              Keine Stockfotos. Echte Aufnahmen aus unseren Rohr- und Kanaleinsätzen –
-              inklusive Live-Kamerabefahrung direkt aus der Leitung.
+              Keine Stockfotos. Echte Aufnahmen aus unseren Rohr- und
+              Kanaleinsätzen – inklusive Live-Kamerabefahrung direkt aus der
+              Leitung.
             </p>
           </div>
 
@@ -109,13 +118,17 @@ export default function VideoShowcase() {
                 </span>
               </div>
               <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-                <YouTubeFacade videoId="VTKZqTzQyjs" title="Rohrreinigung – Vorher" />
+                <YouTubeFacade
+                  videoId="VTKZqTzQyjs"
+                  title="Rohrreinigung – Vorher"
+                />
               </div>
               <h4 className="mt-3 text-base md:text-lg font-bold text-white">
                 Verstopfte Leitung
               </h4>
               <p className="mt-1 text-sm text-gray-400 leading-relaxed">
-                Starke Ablagerungen und Schmutz verengen das Rohr – das Wasser läuft kaum noch ab.
+                Starke Ablagerungen und Schmutz verengen das Rohr – das Wasser
+                läuft kaum noch ab.
               </p>
             </div>
 
@@ -128,13 +141,17 @@ export default function VideoShowcase() {
                 </span>
               </div>
               <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-                <YouTubeFacade videoId="mmDZeTvNOJo" title="Rohrreinigung – Nachher" />
+                <YouTubeFacade
+                  videoId="mmDZeTvNOJo"
+                  title="Rohrreinigung – Nachher"
+                />
               </div>
               <h4 className="mt-3 text-base md:text-lg font-bold text-white">
                 Saubere Leitung
               </h4>
               <p className="mt-1 text-sm text-gray-400 leading-relaxed">
-                Nach unserer Reinigung ist das Rohr wieder komplett frei und glatt.
+                Nach unserer Reinigung ist das Rohr wieder komplett frei und
+                glatt.
               </p>
             </div>
           </div>
@@ -260,11 +277,15 @@ export default function VideoShowcase() {
           {/* CTA */}
           <div className="text-center mt-12 md:mt-16">
             <p className="text-gray-300 mb-5">
-              Ihr Rohr macht Probleme? Wir zeigen Ihnen per Kamera, was wirklich los ist.
+              Ihr Rohr macht Probleme? Wir zeigen Ihnen per Kamera, was wirklich
+              los ist.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href={`tel:${company.contact.phone}`}>
-                <Button size="lg" className="h-14 px-8 gradient-primary text-white w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="h-14 px-8 gradient-primary text-white w-full sm:w-auto"
+                >
                   <Phone className="w-5 h-5 mr-2" />
                   {company.contact.phoneDisplay}
                 </Button>
@@ -317,8 +338,12 @@ export default function VideoShowcase() {
               }
             />
             <div className="mt-4 text-center max-w-md">
-              <h3 className="text-white font-bold text-lg">{activeVideo.title}</h3>
-              <p className="text-gray-400 text-sm mt-1">{activeVideo.description}</p>
+              <h3 className="text-white font-bold text-lg">
+                {activeVideo.title}
+              </h3>
+              <p className="text-gray-400 text-sm mt-1">
+                {activeVideo.description}
+              </p>
             </div>
           </div>
         </div>

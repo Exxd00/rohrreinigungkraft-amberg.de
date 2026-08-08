@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { Upload, CheckCircle, Loader2, Download, AlertTriangle } from "lucide-react";
+import {
+  Upload,
+  CheckCircle,
+  Loader2,
+  Download,
+  AlertTriangle,
+} from "lucide-react";
 
 const targetOptions = [
   { value: "rohrreinigung-hero.jpg", label: "Rohrreinigung Hero Card" },
@@ -30,47 +36,53 @@ export default function UploadPage() {
   } | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const uploadFile = useCallback(async (file: File) => {
-    setIsUploading(true);
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("target", targetFile);
+  const uploadFile = useCallback(
+    async (file: File) => {
+      setIsUploading(true);
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("target", targetFile);
 
-      const response = await fetch("/api/upload", {
-        method: "POST",
-        body: formData,
-      });
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (data.success) {
-        setResult(data);
-      } else {
-        setError(data.error || "Upload failed");
+        if (data.success) {
+          setResult(data);
+        } else {
+          setError(data.error || "Upload failed");
+        }
+      } catch (err) {
+        setError("Failed to upload image");
+        console.error(err);
+      } finally {
+        setIsUploading(false);
       }
-    } catch (err) {
-      setError("Failed to upload image");
-      console.error(err);
-    } finally {
-      setIsUploading(false);
-    }
-  }, [targetFile]);
+    },
+    [targetFile],
+  );
 
-  const handleDrop = useCallback(async (e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDragging(false);
-    setError(null);
-    setResult(null);
+  const handleDrop = useCallback(
+    async (e: React.DragEvent) => {
+      e.preventDefault();
+      setIsDragging(false);
+      setError(null);
+      setResult(null);
 
-    const file = e.dataTransfer.files[0];
-    if (!file || !file.type.startsWith("image/")) {
-      setError("Please upload an image file");
-      return;
-    }
+      const file = e.dataTransfer.files[0];
+      if (!file || !file.type.startsWith("image/")) {
+        setError("Please upload an image file");
+        return;
+      }
 
-    await uploadFile(file);
-  }, [uploadFile]);
+      await uploadFile(file);
+    },
+    [uploadFile],
+  );
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -126,16 +138,19 @@ export default function UploadPage() {
           onDrop={handleDrop}
           className={`
             border-2 border-dashed rounded-xl p-12 text-center transition-all
-            ${isDragging
-              ? "border-primary bg-primary/10 dark:bg-primary/20"
-              : "border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
+            ${
+              isDragging
+                ? "border-primary bg-primary/10 dark:bg-primary/20"
+                : "border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800"
             }
           `}
         >
           {isUploading ? (
             <div className="flex flex-col items-center gap-3">
               <Loader2 className="w-12 h-12 text-primary animate-spin" />
-              <p className="text-gray-600 dark:text-gray-400">Compressing image...</p>
+              <p className="text-gray-600 dark:text-gray-400">
+                Compressing image...
+              </p>
             </div>
           ) : result ? (
             <div className="flex flex-col items-center gap-3">
@@ -145,7 +160,9 @@ export default function UploadPage() {
               </p>
               <div className="text-sm text-gray-600 dark:text-gray-400 space-y-1">
                 <p>Original: {(result.originalSize / 1024).toFixed(1)} KB</p>
-                <p>Compressed: {(result.compressedSize / 1024).toFixed(1)} KB</p>
+                <p>
+                  Compressed: {(result.compressedSize / 1024).toFixed(1)} KB
+                </p>
                 <p>Saved {result.compressionRatio} space</p>
               </div>
 
@@ -156,7 +173,11 @@ export default function UploadPage() {
                     <span className="text-sm font-medium">Production Mode</span>
                   </div>
                   <p className="text-xs text-amber-600 dark:text-amber-500 mb-3">
-                    Download the compressed image and add it to your project's <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">public/images/</code> folder manually.
+                    Download the compressed image and add it to your project's{" "}
+                    <code className="bg-amber-100 dark:bg-amber-900 px-1 rounded">
+                      public/images/
+                    </code>{" "}
+                    folder manually.
                   </p>
                   <button
                     onClick={handleDownload}
@@ -204,7 +225,8 @@ export default function UploadPage() {
                 Select Image
               </label>
               <p className="text-sm text-gray-500 mt-4">
-                Image will be compressed and saved as <strong>{targetFile}</strong>
+                Image will be compressed and saved as{" "}
+                <strong>{targetFile}</strong>
               </p>
             </>
           )}

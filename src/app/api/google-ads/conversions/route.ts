@@ -26,7 +26,10 @@ export async function GET() {
     return NextResponse.json({ success: true, data: conversions });
   } catch (error) {
     console.error("[Conversions API]", error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 },
+    );
   }
 }
 
@@ -45,7 +48,8 @@ export async function POST(request: NextRequest) {
           gclid: data.gclid,
           gbraid: data.gbraid,
           conversionActionName: data.conversionActionName || "call_confirmed",
-          conversionDateTime: data.conversionDateTime || new Date().toISOString(),
+          conversionDateTime:
+            data.conversionDateTime || new Date().toISOString(),
           conversionValue: data.conversionValue || 50,
           callerPhoneNumber: data.callerPhoneNumber,
         });
@@ -69,7 +73,8 @@ export async function POST(request: NextRequest) {
         const result = await uploadClickConversion(config, {
           gclid: data.gclid,
           conversionActionName: data.conversionActionName || "form_confirmed",
-          conversionDateTime: data.conversionDateTime || new Date().toISOString(),
+          conversionDateTime:
+            data.conversionDateTime || new Date().toISOString(),
           conversionValue: data.conversionValue || 50,
           orderId: data.orderId,
         });
@@ -82,7 +87,7 @@ export async function POST(request: NextRequest) {
         const result = await createCallConversionAction(
           config,
           data.name || "Calls from Ads",
-          data.defaultValue || 50
+          data.defaultValue || 50,
         );
 
         return NextResponse.json({ success: true, resourceName: result });
@@ -96,7 +101,8 @@ export async function POST(request: NextRequest) {
           if (conversion.type === "call") {
             result = await uploadCallConversion(config, {
               gclid: conversion.gclid,
-              conversionActionName: conversion.conversionActionName || "call_confirmed",
+              conversionActionName:
+                conversion.conversionActionName || "call_confirmed",
               conversionDateTime: conversion.conversionDateTime,
               conversionValue: conversion.conversionValue,
               callerPhoneNumber: conversion.callerPhoneNumber,
@@ -104,7 +110,8 @@ export async function POST(request: NextRequest) {
           } else {
             result = await uploadClickConversion(config, {
               gclid: conversion.gclid,
-              conversionActionName: conversion.conversionActionName || "form_confirmed",
+              conversionActionName:
+                conversion.conversionActionName || "form_confirmed",
               conversionDateTime: conversion.conversionDateTime,
               conversionValue: conversion.conversionValue,
             });
@@ -112,7 +119,7 @@ export async function POST(request: NextRequest) {
           results.push({ ...conversion, result });
         }
 
-        const successCount = results.filter(r => r.result.success).length;
+        const successCount = results.filter((r) => r.result.success).length;
         return NextResponse.json({
           success: true,
           uploaded: successCount,
@@ -122,14 +129,21 @@ export async function POST(request: NextRequest) {
       }
 
       default:
-        return NextResponse.json({
-          success: false,
-          error: "Unknown action. Use: upload-call, upload-click, create-call-conversion, bulk-upload"
-        }, { status: 400 });
+        return NextResponse.json(
+          {
+            success: false,
+            error:
+              "Unknown action. Use: upload-call, upload-click, create-call-conversion, bulk-upload",
+          },
+          { status: 400 },
+        );
     }
   } catch (error) {
     console.error("[Conversions API]", error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 },
+    );
   }
 }
 

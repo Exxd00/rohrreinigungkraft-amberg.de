@@ -32,10 +32,7 @@ export default function HowItWorks() {
               {howItWorks.map((step, index) => {
                 const Icon = iconMap[step.icon] || Phone;
                 return (
-                  <div
-                    key={step.step}
-                    className="relative text-center group"
-                  >
+                  <div key={step.step} className="relative text-center group">
                     {/* Step number */}
                     <div className="relative inline-flex items-center justify-center mb-3 sm:mb-6">
                       <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full gradient-primary flex items-center justify-center shadow-xl shadow-primary/30 group-hover:scale-110 transition-transform duration-300">

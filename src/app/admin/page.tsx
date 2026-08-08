@@ -2,36 +2,129 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Download, Image as ImageIcon, FileText, Palette, Lock, Eye, EyeOff, Map, Upload, ExternalLink } from "lucide-react";
+import {
+  Download,
+  Image as ImageIcon,
+  FileText,
+  Palette,
+  Lock,
+  Eye,
+  EyeOff,
+  Map,
+  Upload,
+  ExternalLink,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { gallery } from "@/data/company";
 
 const ADMIN_PASSWORD = "Leavemealone2003+";
 
 const brandAssets = [
-  { name: "Logo PNG", description: "Standard Logo", url: "/logo.png", type: "PNG" },
-  { name: "Logo PNG (Large)", description: "Hochauflösend", url: "/logo-lg.png", type: "PNG" },
-  { name: "Logo WebP", description: "Web optimiert", url: "/logo.webp", type: "WebP" },
-  { name: "Logo SVG", description: "Vektorgrafik", url: "/logo.svg", type: "SVG" },
-  { name: "Favicon ICO", description: "Browser Icon", url: "/favicon.ico", type: "ICO" },
-  { name: "Apple Touch Icon", description: "iOS Icon", url: "/apple-touch-icon.png", type: "PNG" },
-  { name: "Android Icon 192", description: "Android Icon", url: "/android-chrome-192x192.png", type: "PNG" },
-  { name: "Android Icon 512", description: "Android Icon HD", url: "/android-chrome-512x512.png", type: "PNG" },
+  {
+    name: "Logo PNG",
+    description: "Standard Logo",
+    url: "/logo.png",
+    type: "PNG",
+  },
+  {
+    name: "Logo PNG (Large)",
+    description: "Hochauflösend",
+    url: "/logo-lg.png",
+    type: "PNG",
+  },
+  {
+    name: "Logo WebP",
+    description: "Web optimiert",
+    url: "/logo.webp",
+    type: "WebP",
+  },
+  {
+    name: "Logo SVG",
+    description: "Vektorgrafik",
+    url: "/logo.svg",
+    type: "SVG",
+  },
+  {
+    name: "Favicon ICO",
+    description: "Browser Icon",
+    url: "/favicon.ico",
+    type: "ICO",
+  },
+  {
+    name: "Apple Touch Icon",
+    description: "iOS Icon",
+    url: "/apple-touch-icon.png",
+    type: "PNG",
+  },
+  {
+    name: "Android Icon 192",
+    description: "Android Icon",
+    url: "/android-chrome-192x192.png",
+    type: "PNG",
+  },
+  {
+    name: "Android Icon 512",
+    description: "Android Icon HD",
+    url: "/android-chrome-512x512.png",
+    type: "PNG",
+  },
 ];
 
 const brandColors = [
-  { name: "Primary Green", hex: "#22c55e", rgb: "34, 197, 94", tailwind: "green-500" },
-  { name: "Primary Blue", hex: "#3AB0FF", rgb: "58, 176, 255", tailwind: "custom" },
-  { name: "Accent Blue", hex: "#2563EB", rgb: "37, 99, 235", tailwind: "blue-600" },
-  { name: "Dark Text", hex: "#1f2937", rgb: "31, 41, 55", tailwind: "gray-800" },
-  { name: "Light Background", hex: "#F8FBFF", rgb: "248, 251, 255", tailwind: "custom" },
-  { name: "Dark Background", hex: "#111827", rgb: "17, 24, 39", tailwind: "gray-900" },
+  {
+    name: "Primary Green",
+    hex: "#22c55e",
+    rgb: "34, 197, 94",
+    tailwind: "green-500",
+  },
+  {
+    name: "Primary Blue",
+    hex: "#3AB0FF",
+    rgb: "58, 176, 255",
+    tailwind: "custom",
+  },
+  {
+    name: "Accent Blue",
+    hex: "#2563EB",
+    rgb: "37, 99, 235",
+    tailwind: "blue-600",
+  },
+  {
+    name: "Dark Text",
+    hex: "#1f2937",
+    rgb: "31, 41, 55",
+    tailwind: "gray-800",
+  },
+  {
+    name: "Light Background",
+    hex: "#F8FBFF",
+    rgb: "248, 251, 255",
+    tailwind: "custom",
+  },
+  {
+    name: "Dark Background",
+    hex: "#111827",
+    rgb: "17, 24, 39",
+    tailwind: "gray-900",
+  },
 ];
 
 const sitemapLinks = [
-  { name: "Sitemap XML", url: "/sitemap.xml", description: "Hauptsitemap für Google" },
-  { name: "Robots.txt", url: "/robots.txt", description: "Crawler Anweisungen" },
-  { name: "Web Manifest", url: "/site.webmanifest", description: "PWA Manifest" },
+  {
+    name: "Sitemap XML",
+    url: "/sitemap.xml",
+    description: "Hauptsitemap für Google",
+  },
+  {
+    name: "Robots.txt",
+    url: "/robots.txt",
+    description: "Crawler Anweisungen",
+  },
+  {
+    name: "Web Manifest",
+    url: "/site.webmanifest",
+    description: "PWA Manifest",
+  },
 ];
 
 export default function AdminPage() {
@@ -103,7 +196,11 @@ export default function AdminPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
 
@@ -111,7 +208,10 @@ export default function AdminPage() {
                 <p className="text-red-500 text-sm text-center mb-4">{error}</p>
               )}
 
-              <Button type="submit" className="w-full gradient-primary text-white h-12">
+              <Button
+                type="submit"
+                className="w-full gradient-primary text-white h-12"
+              >
                 Anmelden
               </Button>
             </form>
@@ -132,7 +232,9 @@ export default function AdminPage() {
               <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
                 Admin Dashboard
               </h1>
-              <p className="text-gray-500">Rohrreinigung Kraft - Brand Assets</p>
+              <p className="text-gray-500">
+                Rohrreinigung Kraft - Brand Assets
+              </p>
             </div>
             <Button
               variant="outline"
@@ -156,7 +258,9 @@ export default function AdminPage() {
               <Upload className="w-6 h-6 text-primary" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-white">Bilder hochladen</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white">
+                Bilder hochladen
+              </h3>
               <p className="text-sm text-gray-500">Neue Bilder komprimieren</p>
             </div>
           </Link>
@@ -170,7 +274,9 @@ export default function AdminPage() {
               <ExternalLink className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-white">Website</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white">
+                Website
+              </h3>
               <p className="text-sm text-gray-500">Zur Startseite</p>
             </div>
           </Link>
@@ -185,7 +291,9 @@ export default function AdminPage() {
               <Map className="w-6 h-6 text-purple-600" />
             </div>
             <div>
-              <h3 className="font-semibold text-gray-900 dark:text-white">Sitemap</h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white">
+                Sitemap
+              </h3>
               <p className="text-sm text-gray-500">XML Sitemap ansehen</p>
             </div>
           </a>
@@ -197,20 +305,34 @@ export default function AdminPage() {
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <FileText className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Logo & Icons</h2>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              Logo & Icons
+            </h2>
           </div>
 
           {/* Logo Preview */}
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center">
               <p className="text-sm text-gray-500 mb-3">Heller Hintergrund</p>
-              <img src="/logo.png" alt="Logo" className="w-24 h-24 object-contain mb-2" />
-              <p className="font-bold text-gray-900">Rohrreinigung <span className="text-primary">Kraft</span></p>
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="w-24 h-24 object-contain mb-2"
+              />
+              <p className="font-bold text-gray-900">
+                Rohrreinigung <span className="text-primary">Kraft</span>
+              </p>
             </div>
             <div className="bg-gray-900 border border-gray-700 rounded-xl p-6 flex flex-col items-center">
               <p className="text-sm text-gray-400 mb-3">Dunkler Hintergrund</p>
-              <img src="/logo.png" alt="Logo" className="w-24 h-24 object-contain mb-2" />
-              <p className="font-bold text-white">Rohrreinigung <span className="text-primary">Kraft</span></p>
+              <img
+                src="/logo.png"
+                alt="Logo"
+                className="w-24 h-24 object-contain mb-2"
+              />
+              <p className="font-bold text-white">
+                Rohrreinigung <span className="text-primary">Kraft</span>
+              </p>
             </div>
           </div>
 
@@ -219,12 +341,21 @@ export default function AdminPage() {
             {brandAssets.map((asset) => (
               <button
                 key={asset.name}
-                onClick={() => downloadAsset(asset.url, asset.name.toLowerCase().replace(/ /g, "-") + "." + asset.type.toLowerCase())}
+                onClick={() =>
+                  downloadAsset(
+                    asset.url,
+                    asset.name.toLowerCase().replace(/ /g, "-") +
+                      "." +
+                      asset.type.toLowerCase(),
+                  )
+                }
                 className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors text-left"
               >
                 <Download className="w-4 h-4 text-primary shrink-0" />
                 <div className="min-w-0">
-                  <p className="font-medium text-gray-900 dark:text-white text-sm truncate">{asset.name}</p>
+                  <p className="font-medium text-gray-900 dark:text-white text-sm truncate">
+                    {asset.name}
+                  </p>
                   <p className="text-xs text-gray-500">{asset.type}</p>
                 </div>
               </button>
@@ -238,7 +369,9 @@ export default function AdminPage() {
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Palette className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Markenfarben</h2>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              Markenfarben
+            </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -249,7 +382,9 @@ export default function AdminPage() {
               >
                 <div className="h-16" style={{ backgroundColor: color.hex }} />
                 <div className="p-4">
-                  <p className="font-medium text-gray-900 dark:text-white mb-2">{color.name}</p>
+                  <p className="font-medium text-gray-900 dark:text-white mb-2">
+                    {color.name}
+                  </p>
                   <div className="space-y-1">
                     <button
                       onClick={() => copyToClipboard(color.hex)}
@@ -263,7 +398,9 @@ export default function AdminPage() {
                     >
                       RGB: {color.rgb}
                     </button>
-                    <p className="text-xs text-gray-400 px-2">Tailwind: {color.tailwind}</p>
+                    <p className="text-xs text-gray-400 px-2">
+                      Tailwind: {color.tailwind}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -277,7 +414,9 @@ export default function AdminPage() {
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Map className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Sitemap & Dateien</h2>
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              Sitemap & Dateien
+            </h2>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-4">
@@ -291,7 +430,9 @@ export default function AdminPage() {
               >
                 <ExternalLink className="w-4 h-4 text-primary shrink-0" />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-white text-sm">{link.name}</p>
+                  <p className="font-medium text-gray-900 dark:text-white text-sm">
+                    {link.name}
+                  </p>
                   <p className="text-xs text-gray-500">{link.description}</p>
                 </div>
               </a>
@@ -327,7 +468,9 @@ export default function AdminPage() {
                 >
                   <Download className="w-6 h-6 text-white" />
                 </a>
-                <p className="text-xs text-gray-500 mt-1 truncate">{item.title}</p>
+                <p className="text-xs text-gray-500 mt-1 truncate">
+                  {item.title}
+                </p>
               </div>
             ))}
           </div>

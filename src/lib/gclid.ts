@@ -3,9 +3,9 @@
  * Captures Google Click ID from URL and stores for conversion tracking
  */
 
-const GCLID_KEY = 'rk_gclid';
-const GCLID_TIMESTAMP_KEY = 'rk_gclid_ts';
-const SESSION_DATA_KEY = 'rk_session';
+const GCLID_KEY = "rk_gclid";
+const GCLID_TIMESTAMP_KEY = "rk_gclid_ts";
+const SESSION_DATA_KEY = "rk_session";
 const GCLID_EXPIRY_DAYS = 90; // Google Ads attribution window
 
 export interface SessionData {
@@ -25,11 +25,11 @@ export interface SessionData {
  * Initialize GCLID tracking - call on page load
  */
 export function initGclidTracking(): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
   // Capture GCLID from URL
   const urlParams = new URLSearchParams(window.location.search);
-  const gclid = urlParams.get('gclid');
+  const gclid = urlParams.get("gclid");
 
   // Always save GCLID if present (even if session exists)
   if (gclid) {
@@ -40,11 +40,11 @@ export function initGclidTracking(): void {
   const sessionData = getSessionData();
 
   // Update UTM parameters if present in URL (might be a new campaign)
-  const utmSource = urlParams.get('utm_source');
-  const utmMedium = urlParams.get('utm_medium');
-  const utmCampaign = urlParams.get('utm_campaign');
-  const utmContent = urlParams.get('utm_content');
-  const utmTerm = urlParams.get('utm_term');
+  const utmSource = urlParams.get("utm_source");
+  const utmMedium = urlParams.get("utm_medium");
+  const utmCampaign = urlParams.get("utm_campaign");
+  const utmContent = urlParams.get("utm_content");
+  const utmTerm = urlParams.get("utm_term");
 
   // If this is the first visit OR we have new UTM/GCLID parameters
   const hasNewTrackingParams = gclid || utmSource || utmMedium || utmCampaign;
@@ -53,8 +53,10 @@ export function initGclidTracking(): void {
     saveSessionData({
       // Keep existing data unless we have new params
       firstPage: sessionData.firstPage || window.location.pathname,
-      landingPage: hasNewTrackingParams ? window.location.href : (sessionData.landingPage || window.location.href),
-      referrer: sessionData.referrer || document.referrer || 'direct',
+      landingPage: hasNewTrackingParams
+        ? window.location.href
+        : sessionData.landingPage || window.location.href,
+      referrer: sessionData.referrer || document.referrer || "direct",
       // Update UTM params if new ones are present
       utmSource: utmSource || sessionData.utmSource,
       utmMedium: utmMedium || sessionData.utmMedium,
@@ -69,7 +71,7 @@ export function initGclidTracking(): void {
  * Save GCLID to localStorage
  */
 export function saveGclid(gclid: string): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
   try {
     localStorage.setItem(GCLID_KEY, gclid);
@@ -83,7 +85,7 @@ export function saveGclid(gclid: string): void {
       gclidTimestamp: Date.now(),
     });
   } catch (e) {
-    console.warn('Failed to save GCLID:', e);
+    console.warn("Failed to save GCLID:", e);
   }
 }
 
@@ -91,7 +93,7 @@ export function saveGclid(gclid: string): void {
  * Get stored GCLID (if not expired)
  */
 export function getGclid(): string | null {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === "undefined") return null;
 
   try {
     const gclid = localStorage.getItem(GCLID_KEY);
@@ -116,7 +118,7 @@ export function getGclid(): string | null {
  * Clear stored GCLID
  */
 export function clearGclid(): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
   try {
     localStorage.removeItem(GCLID_KEY);
@@ -130,13 +132,13 @@ export function clearGclid(): void {
  * Get session data
  */
 export function getSessionData(): SessionData {
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return {
       gclid: null,
       gclidTimestamp: null,
-      firstPage: '',
-      landingPage: '',
-      referrer: '',
+      firstPage: "",
+      landingPage: "",
+      referrer: "",
       utmSource: null,
       utmMedium: null,
       utmCampaign: null,
@@ -162,9 +164,9 @@ export function getSessionData(): SessionData {
   return {
     gclid: getGclid(),
     gclidTimestamp: null,
-    firstPage: '',
-    landingPage: '',
-    referrer: '',
+    firstPage: "",
+    landingPage: "",
+    referrer: "",
     utmSource: null,
     utmMedium: null,
     utmCampaign: null,
@@ -177,7 +179,7 @@ export function getSessionData(): SessionData {
  * Save session data
  */
 export function saveSessionData(data: Partial<SessionData>): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === "undefined") return;
 
   try {
     const existing = getSessionData();
@@ -189,7 +191,7 @@ export function saveSessionData(data: Partial<SessionData>): void {
     };
     localStorage.setItem(SESSION_DATA_KEY, JSON.stringify(updated));
   } catch (e) {
-    console.warn('Failed to save session data:', e);
+    console.warn("Failed to save session data:", e);
   }
 }
 
@@ -209,35 +211,38 @@ export function getTrackingData(): {
   const currentGclid = getGclid(); // Always get fresh GCLID
 
   // Determine source - use UTM if available, otherwise check GCLID
-  let source = 'direct';
-  let medium = 'none';
+  let source = "direct";
+  let medium = "none";
 
   if (session.utmSource) {
     source = session.utmSource;
-    medium = session.utmMedium || 'none';
+    medium = session.utmMedium || "none";
   } else if (currentGclid) {
-    source = 'google';
-    medium = 'cpc';
-  } else if (session.referrer && session.referrer !== 'direct') {
+    source = "google";
+    medium = "cpc";
+  } else if (session.referrer && session.referrer !== "direct") {
     // Try to determine source from referrer
     try {
       const refUrl = new URL(session.referrer);
-      if (refUrl.hostname.includes('google')) {
-        source = 'google';
-        medium = 'organic';
-      } else if (refUrl.hostname.includes('facebook') || refUrl.hostname.includes('fb.')) {
-        source = 'facebook';
-        medium = 'social';
-      } else if (refUrl.hostname.includes('instagram')) {
-        source = 'instagram';
-        medium = 'social';
+      if (refUrl.hostname.includes("google")) {
+        source = "google";
+        medium = "organic";
+      } else if (
+        refUrl.hostname.includes("facebook") ||
+        refUrl.hostname.includes("fb.")
+      ) {
+        source = "facebook";
+        medium = "social";
+      } else if (refUrl.hostname.includes("instagram")) {
+        source = "instagram";
+        medium = "social";
       } else {
         source = refUrl.hostname;
-        medium = 'referral';
+        medium = "referral";
       }
     } catch (e) {
-      source = 'referral';
-      medium = 'referral';
+      source = "referral";
+      medium = "referral";
     }
   }
 
@@ -245,10 +250,10 @@ export function getTrackingData(): {
     gclid: currentGclid,
     source,
     medium,
-    campaign: session.utmCampaign || '',
-    landingPage: session.landingPage || '',
-    currentPage: typeof window !== 'undefined' ? window.location.href : '',
-    referrer: session.referrer || '',
+    campaign: session.utmCampaign || "",
+    landingPage: session.landingPage || "",
+    currentPage: typeof window !== "undefined" ? window.location.href : "",
+    referrer: session.referrer || "",
   };
 }
 

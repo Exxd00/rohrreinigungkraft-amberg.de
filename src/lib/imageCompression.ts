@@ -20,7 +20,7 @@ export async function compressImage(file: File): Promise<CompressedImage> {
       const img = new Image();
 
       img.onload = () => {
-        const canvas = document.createElement('canvas');
+        const canvas = document.createElement("canvas");
         let { width, height } = img;
 
         // Scale down if needed
@@ -37,30 +37,30 @@ export async function compressImage(file: File): Promise<CompressedImage> {
         canvas.width = width;
         canvas.height = height;
 
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext("2d");
         if (!ctx) {
-          reject(new Error('Could not get canvas context'));
+          reject(new Error("Could not get canvas context"));
           return;
         }
 
         // Draw image with white background (for transparency)
-        ctx.fillStyle = '#FFFFFF';
+        ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(0, 0, width, height);
         ctx.drawImage(img, 0, 0, width, height);
 
         // Try different quality levels to get under max size
         let quality = JPEG_QUALITY;
-        let dataUrl = canvas.toDataURL('image/jpeg', quality);
+        let dataUrl = canvas.toDataURL("image/jpeg", quality);
 
         // Reduce quality until under max size
         while (dataUrl.length * 0.75 > MAX_FILE_SIZE && quality > 0.1) {
           quality -= 0.1;
-          dataUrl = canvas.toDataURL('image/jpeg', quality);
+          dataUrl = canvas.toDataURL("image/jpeg", quality);
         }
 
         // Convert data URL to File
-        const byteString = atob(dataUrl.split(',')[1]);
-        const mimeType = 'image/jpeg';
+        const byteString = atob(dataUrl.split(",")[1]);
+        const mimeType = "image/jpeg";
         const ab = new ArrayBuffer(byteString.length);
         const ia = new Uint8Array(ab);
 
@@ -69,10 +69,14 @@ export async function compressImage(file: File): Promise<CompressedImage> {
         }
 
         const blob = new Blob([ab], { type: mimeType });
-        const compressedFile = new File([blob], file.name.replace(/\.[^/.]+$/, '.jpg'), {
-          type: mimeType,
-          lastModified: Date.now(),
-        });
+        const compressedFile = new File(
+          [blob],
+          file.name.replace(/\.[^/.]+$/, ".jpg"),
+          {
+            type: mimeType,
+            lastModified: Date.now(),
+          },
+        );
 
         resolve({
           file: compressedFile,
@@ -82,16 +86,18 @@ export async function compressImage(file: File): Promise<CompressedImage> {
         });
       };
 
-      img.onerror = () => reject(new Error('Could not load image'));
+      img.onerror = () => reject(new Error("Could not load image"));
       img.src = e.target?.result as string;
     };
 
-    reader.onerror = () => reject(new Error('Could not read file'));
+    reader.onerror = () => reject(new Error("Could not read file"));
     reader.readAsDataURL(file);
   });
 }
 
-export async function compressImages(files: File[]): Promise<CompressedImage[]> {
+export async function compressImages(
+  files: File[],
+): Promise<CompressedImage[]> {
   const compressedImages: CompressedImage[] = [];
 
   for (const file of files) {
@@ -99,7 +105,7 @@ export async function compressImages(files: File[]): Promise<CompressedImage[]> 
       const compressed = await compressImage(file);
       compressedImages.push(compressed);
     } catch (error) {
-      console.error('Error compressing image:', error);
+      console.error("Error compressing image:", error);
     }
   }
 

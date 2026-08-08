@@ -5,13 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: [
-        "/api/",
-        "/thank-you",
-        "/admin",
-        "/upload",
-        "/assets",
-      ],
+      disallow: ["/api/", "/thank-you", "/admin", "/upload", "/assets"],
     },
     sitemap: "https://rohrreinigung-kraft-amberg.de/sitemap.xml",
   };

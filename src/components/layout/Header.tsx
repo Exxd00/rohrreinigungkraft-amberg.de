@@ -21,7 +21,7 @@ const navigation = [
       { name: "Abflussreinigung", href: "/service/abflussreinigung" },
       { name: "Notdienst 24/7", href: "/service/rohrreinigung-notdienst" },
       { name: "TV-Inspektion", href: "/service/kamera-inspektion" },
-    ]
+    ],
   },
   { name: "Preise", href: "/preise" },
   { name: "Für Gewerbe", href: "/hausverwaltung" },
@@ -31,7 +31,15 @@ const navigation = [
 
 // Pages with dark/gradient hero sections that need light text when not scrolled
 // Note: /staedte has a LIGHT hero, so not included here
-const darkHeroPages = ["/", "/kontakt", "/leistungen", "/service", "/preise", "/hausverwaltung", "/faq"];
+const darkHeroPages = [
+  "/",
+  "/kontakt",
+  "/leistungen",
+  "/service",
+  "/preise",
+  "/hausverwaltung",
+  "/faq",
+];
 
 export default function Header() {
   const pathname = usePathname();
@@ -41,9 +49,10 @@ export default function Header() {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
 
   // Check if current page has a dark hero
-  const hasDarkHero = darkHeroPages.some(page =>
-    page === "/" ? pathname === "/" : pathname.startsWith(page)
-  ) || pathname.match(/^\/[a-z-]+$/); // City pages like /amberg
+  const hasDarkHero =
+    darkHeroPages.some((page) =>
+      page === "/" ? pathname === "/" : pathname.startsWith(page),
+    ) || pathname.match(/^\/[a-z-]+$/); // City pages like /amberg
 
   useEffect(() => {
     const handleScroll = () => {
@@ -103,10 +112,14 @@ export default function Header() {
             <Link href="/" className="flex items-center gap-3 group">
               <AnimatedLogo />
               <div className="flex flex-col">
-                <span className={`text-lg md:text-xl font-bold transition-colors ${getTextColorClasses()} group-hover:text-primary`}>
+                <span
+                  className={`text-lg md:text-xl font-bold transition-colors ${getTextColorClasses()} group-hover:text-primary`}
+                >
                   Rohrreinigung
                 </span>
-                <span className="text-sm font-semibold text-primary">Kraft</span>
+                <span className="text-sm font-semibold text-primary">
+                  Kraft
+                </span>
               </div>
             </Link>
 
@@ -116,7 +129,9 @@ export default function Header() {
                 <div
                   key={item.name}
                   className="relative"
-                  onMouseEnter={() => item.submenu && setActiveSubmenu(item.name)}
+                  onMouseEnter={() =>
+                    item.submenu && setActiveSubmenu(item.name)
+                  }
                   onMouseLeave={() => setActiveSubmenu(null)}
                 >
                   <Link
@@ -176,9 +191,15 @@ export default function Header() {
                   <div className="flex flex-col h-full">
                     {/* Mobile Header */}
                     <div className="flex items-center justify-between p-4 border-b">
-                      <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+                      <Link
+                        href="/"
+                        className="flex items-center gap-2"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
                         <AnimatedLogo size="sm" />
-                        <span className="font-bold text-gray-900 dark:text-white">Rohrreinigung Kraft</span>
+                        <span className="font-bold text-gray-900 dark:text-white">
+                          Rohrreinigung Kraft
+                        </span>
                       </Link>
                     </div>
 

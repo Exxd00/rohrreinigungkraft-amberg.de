@@ -10,7 +10,10 @@ export default function ThemeToggle() {
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light";
     const initialTheme = savedTheme || systemTheme;
     setTheme(initialTheme);
     document.documentElement.classList.toggle("dark", initialTheme === "dark");
@@ -38,7 +41,9 @@ export default function ThemeToggle() {
     <button
       onClick={toggleTheme}
       className="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-white/10 dark:hover:bg-white/10 transition-colors"
-      aria-label={theme === "light" ? "Dunkelmodus aktivieren" : "Hellmodus aktivieren"}
+      aria-label={
+        theme === "light" ? "Dunkelmodus aktivieren" : "Hellmodus aktivieren"
+      }
     >
       {theme === "light" ? (
         <Moon className="w-4 h-4 text-gray-700 dark:text-white/70 hover:text-primary transition-colors" />

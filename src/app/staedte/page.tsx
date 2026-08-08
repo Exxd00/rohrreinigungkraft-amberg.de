@@ -14,11 +14,15 @@ export default function StaedtePage() {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
 
   const filteredCities = useMemo(() => {
-    return cities.filter((city) => {
-      const matchesSearch = city.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesRegion = !selectedRegion || city.region === selectedRegion;
-      return matchesSearch && matchesRegion;
-    }).sort((a, b) => a.name.localeCompare(b.name, 'de'));
+    return cities
+      .filter((city) => {
+        const matchesSearch = city.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+        const matchesRegion = !selectedRegion || city.region === selectedRegion;
+        return matchesSearch && matchesRegion;
+      })
+      .sort((a, b) => a.name.localeCompare(b.name, "de"));
   }, [searchQuery, selectedRegion]);
 
   return (
@@ -123,7 +127,12 @@ export default function StaedtePage() {
                 <p className="text-gray-500 dark:text-gray-400 mb-4">
                   Keine Städte gefunden. Versuchen Sie eine andere Suche.
                 </p>
-                <Button onClick={() => { setSearchQuery(""); setSelectedRegion(null); }}>
+                <Button
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSelectedRegion(null);
+                  }}
+                >
                   Filter zurücksetzen
                 </Button>
               </div>
@@ -140,11 +149,14 @@ export default function StaedtePage() {
               Ihre Stadt nicht gefunden?
             </h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Wir sind in der gesamten Amberg-Region (60 km Umkreis von Amberg) tätig.
-              Rufen Sie uns an - wir kommen auch zu Ihnen!
+              Wir sind in der gesamten Amberg-Region (60 km Umkreis von Amberg)
+              tätig. Rufen Sie uns an - wir kommen auch zu Ihnen!
             </p>
             <Link href={`tel:${company.contact.phone}`}>
-              <Button size="lg" className="gradient-primary text-white h-14 px-8">
+              <Button
+                size="lg"
+                className="gradient-primary text-white h-14 px-8"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 {company.contact.phoneDisplay}
               </Button>

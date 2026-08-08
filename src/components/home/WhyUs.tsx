@@ -7,51 +7,57 @@ import {
   FileCheck,
   ThumbsUp,
   Camera,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 
 const differentiators = [
   {
     icon: Euro,
     title: "Preis VOR dem Handgriff",
-    description: "Wir nennen den Festpreis bevor wir anfangen. Nicht erst auf der Rechnung.",
+    description:
+      "Wir nennen den Festpreis bevor wir anfangen. Nicht erst auf der Rechnung.",
     proof: "Andere sagen 'ab 79€'. Wir sagen genau, was SIE zahlen.",
-    color: "emerald"
+    color: "emerald",
   },
   {
     icon: Eye,
     title: "Wir zeigen, statt zu erzählen",
-    description: "Mit der Kamera sehen SIE das Problem. Keine Vermutungen, keine Geheimnisse.",
+    description:
+      "Mit der Kamera sehen SIE das Problem. Keine Vermutungen, keine Geheimnisse.",
     proof: "Sie verstehen, was wir tun – und warum.",
-    color: "primary"
+    color: "primary",
   },
   {
     icon: FileCheck,
     title: "Diagnose kostenlos. Immer.",
-    description: "Wir kommen, prüfen und erklären. Sie zahlen erst, wenn Sie JA sagen.",
+    description:
+      "Wir kommen, prüfen und erklären. Sie zahlen erst, wenn Sie JA sagen.",
     proof: "Kein OK von Ihnen = Keine Kosten für Sie.",
-    color: "amber"
+    color: "amber",
   },
   {
     icon: Shield,
     title: "Kein Druck. Ihre Entscheidung.",
-    description: "Wir empfehlen, was nötig ist. Nicht mehr. Sie entscheiden in Ruhe.",
+    description:
+      "Wir empfehlen, was nötig ist. Nicht mehr. Sie entscheiden in Ruhe.",
     proof: "Wir verdienen mit Vertrauen, nicht mit Tricks.",
-    color: "blue"
+    color: "blue",
   },
   {
     icon: Camera,
     title: "Dokumentation inklusive",
-    description: "Vorher-Nachher-Fotos, Befundbericht – alles, was Sie für Versicherung oder Vermieter brauchen.",
+    description:
+      "Vorher-Nachher-Fotos, Befundbericht – alles, was Sie für Versicherung oder Vermieter brauchen.",
     proof: "Bei anderen? Aufpreis. Bei uns? Standard.",
-    color: "purple"
+    color: "purple",
   },
   {
     icon: ThumbsUp,
     title: "24h Nachbetreuung",
-    description: "Problem nach der Arbeit? Anruf genügt. Wir schauen nochmal nach – kostenlos.",
+    description:
+      "Problem nach der Arbeit? Anruf genügt. Wir schauen nochmal nach – kostenlos.",
     proof: "Weil wir für unsere Arbeit einstehen.",
-    color: "rose"
+    color: "rose",
   },
 ];
 
@@ -60,37 +66,40 @@ const colorClasses = {
     bg: "bg-emerald-50 dark:bg-emerald-900/20",
     icon: "bg-emerald-100 dark:bg-emerald-900/40",
     iconColor: "text-emerald-600 dark:text-emerald-400",
-    proof: "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30"
+    proof:
+      "text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30",
   },
   primary: {
     bg: "bg-primary/5 dark:bg-primary/10",
     icon: "bg-primary/20 dark:bg-primary/30",
     iconColor: "text-primary",
-    proof: "text-primary bg-primary/10 dark:bg-primary/20"
+    proof: "text-primary bg-primary/10 dark:bg-primary/20",
   },
   amber: {
     bg: "bg-amber-50 dark:bg-amber-900/20",
     icon: "bg-amber-100 dark:bg-amber-900/40",
     iconColor: "text-amber-600 dark:text-amber-400",
-    proof: "text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30"
+    proof:
+      "text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30",
   },
   blue: {
     bg: "bg-blue-50 dark:bg-blue-900/20",
     icon: "bg-blue-100 dark:bg-blue-900/40",
     iconColor: "text-blue-600 dark:text-blue-400",
-    proof: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30"
+    proof: "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30",
   },
   purple: {
     bg: "bg-purple-50 dark:bg-purple-900/20",
     icon: "bg-purple-100 dark:bg-purple-900/40",
     iconColor: "text-purple-600 dark:text-purple-400",
-    proof: "text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30"
+    proof:
+      "text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/30",
   },
   rose: {
     bg: "bg-rose-50 dark:bg-rose-900/20",
     icon: "bg-rose-100 dark:bg-rose-900/40",
     iconColor: "text-rose-600 dark:text-rose-400",
-    proof: "text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30"
+    proof: "text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-900/30",
   },
 };
 
@@ -106,14 +115,18 @@ export default function WhyUs() {
             Warum Kunden <span className="text-primary">uns</span> wählen
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Jeder sagt "schnell" und "günstig". Wir sagen: <strong className="text-gray-900 dark:text-white">Klarheit vor dem ersten Handgriff.</strong>
+            Jeder sagt "schnell" und "günstig". Wir sagen:{" "}
+            <strong className="text-gray-900 dark:text-white">
+              Klarheit vor dem ersten Handgriff.
+            </strong>
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {differentiators.map((item, index) => {
             const Icon = item.icon;
-            const colors = colorClasses[item.color as keyof typeof colorClasses];
+            const colors =
+              colorClasses[item.color as keyof typeof colorClasses];
             return (
               <div
                 key={item.title}
@@ -121,7 +134,9 @@ export default function WhyUs() {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon */}
-                <div className={`w-12 h-12 ${colors.icon} rounded-xl flex items-center justify-center mb-4`}>
+                <div
+                  className={`w-12 h-12 ${colors.icon} rounded-xl flex items-center justify-center mb-4`}
+                >
                   <Icon className={`w-6 h-6 ${colors.iconColor}`} />
                 </div>
 
@@ -134,7 +149,9 @@ export default function WhyUs() {
                 </p>
 
                 {/* Proof statement */}
-                <div className={`flex items-start gap-2 ${colors.proof} rounded-lg px-3 py-2 text-xs font-medium`}>
+                <div
+                  className={`flex items-start gap-2 ${colors.proof} rounded-lg px-3 py-2 text-xs font-medium`}
+                >
                   <CheckCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
                   <span>{item.proof}</span>
                 </div>
@@ -150,7 +167,9 @@ export default function WhyUs() {
               <Shield className="w-5 h-5 text-primary" />
             </div>
             <p className="text-gray-700 dark:text-gray-300 font-medium">
-              Das nennen wir <span className="text-primary font-bold">Klarheit</span>. Keine Tricks. Kein Kleingedrucktes.
+              Das nennen wir{" "}
+              <span className="text-primary font-bold">Klarheit</span>. Keine
+              Tricks. Kein Kleingedrucktes.
             </p>
           </div>
         </div>

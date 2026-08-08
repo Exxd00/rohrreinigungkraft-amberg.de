@@ -43,7 +43,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
   "toilette-verstopft": {
     slug: "toilette-verstopft",
     heroHeadline: "Toilette verstopft?",
-    heroSubheadline: "Wir lösen das Problem – Sie wissen vorher, was es kostet.",
+    heroSubheadline:
+      "Wir lösen das Problem – Sie wissen vorher, was es kostet.",
     consequences: {
       title: "Was passiert, wenn Sie warten?",
       items: [
@@ -53,7 +54,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Verstopfung kann tiefer wandern und teurer werden",
         "Bei Mehrfamilienhaus: Nachbarn betroffen",
       ],
-      urgentWarning: "Bei drohendem Überlauf: Sofort handeln! Wasserschäden kosten ein Vielfaches der Reinigung."
+      urgentWarning:
+        "Bei drohendem Überlauf: Sofort handeln! Wasserschäden kosten ein Vielfaches der Reinigung.",
     },
     whenSerious: {
       title: "Wann ist es ernst?",
@@ -68,17 +70,29 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Braunes Wasser kommt aus der Toilette",
         "Mehrere Abflüsse gleichzeitig verstopft",
         "Abwasser drückt aus Bodenablauf",
-      ]
+      ],
     },
     causes: {
       title: "Typische Ursachen",
       common: [
-        { cause: "Feuchttücher (auch 'spülbare'!)", solution: "Nie ins WC – immer in den Mülleimer" },
-        { cause: "Zu viel Toilettenpapier", solution: "Weniger auf einmal, mehrmals spülen" },
+        {
+          cause: "Feuchttücher (auch 'spülbare'!)",
+          solution: "Nie ins WC – immer in den Mülleimer",
+        },
+        {
+          cause: "Zu viel Toilettenpapier",
+          solution: "Weniger auf einmal, mehrmals spülen",
+        },
         { cause: "Hygieneartikel/Binden", solution: "Gehören in den Restmüll" },
-        { cause: "Kinderspielzeug/Fremdkörper", solution: "WC-Deckel immer schließen" },
-        { cause: "Kalk- und Urinstein", solution: "Regelmäßige Reinigung, bei Bedarf Entkalkung" },
-      ]
+        {
+          cause: "Kinderspielzeug/Fremdkörper",
+          solution: "WC-Deckel immer schließen",
+        },
+        {
+          cause: "Kalk- und Urinstein",
+          solution: "Regelmäßige Reinigung, bei Bedarf Entkalkung",
+        },
+      ],
     },
     diyTips: {
       title: "Was können Sie selbst versuchen?",
@@ -92,38 +106,67 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "NICHT mit Draht oder spitzen Gegenständen stochern",
         "NICHT weiter spülen wenn Wasser steigt",
       ],
-      callWhen: "Wenn der Pümpel nach 3-4 Versuchen nicht hilft oder das Problem wiederkehrt – rufen Sie uns an."
+      callWhen:
+        "Wenn der Pümpel nach 3-4 Versuchen nicht hilft oder das Problem wiederkehrt – rufen Sie uns an.",
     },
     process: {
       title: "So läuft unser Einsatz ab",
       steps: [
-        { step: 1, title: "Anruf", description: "Sie schildern das Problem. Wir nennen die voraussichtliche Ankunftszeit." },
-        { step: 2, title: "Diagnose", description: "Vor Ort prüfen wir die Situation – kostenlos." },
-        { step: 3, title: "Festpreis", description: "Wir nennen den genauen Preis. Erst dann entscheiden Sie." },
-        { step: 4, title: "Reinigung", description: "Mit Spirale oder Hochdruck beseitigen wir die Verstopfung." },
-        { step: 5, title: "Prüfung", description: "Funktionstest – erst wenn alles läuft, sind wir fertig." },
-      ]
+        {
+          step: 1,
+          title: "Anruf",
+          description:
+            "Sie schildern das Problem. Wir nennen die voraussichtliche Ankunftszeit.",
+        },
+        {
+          step: 2,
+          title: "Diagnose",
+          description: "Vor Ort prüfen wir die Situation – kostenlos.",
+        },
+        {
+          step: 3,
+          title: "Festpreis",
+          description:
+            "Wir nennen den genauen Preis. Erst dann entscheiden Sie.",
+        },
+        {
+          step: 4,
+          title: "Reinigung",
+          description:
+            "Mit Spirale oder Hochdruck beseitigen wir die Verstopfung.",
+        },
+        {
+          step: 5,
+          title: "Prüfung",
+          description:
+            "Funktionstest – erst wenn alles läuft, sind wir fertig.",
+        },
+      ],
     },
     faq: [
       {
         question: "Wie lange dauert die Entstopfung einer Toilette?",
-        answer: "Eine normale Toilettenverstopfung ist in 15-30 Minuten behoben. Bei tiefsitzenden Problemen kann es bis zu einer Stunde dauern."
+        answer:
+          "Eine normale Toilettenverstopfung ist in 15-30 Minuten behoben. Bei tiefsitzenden Problemen kann es bis zu einer Stunde dauern.",
       },
       {
         question: "Kann die Verstopfung wiederkommen?",
-        answer: "Wenn die Ursache beseitigt ist, nicht. Bei wiederkehrenden Verstopfungen empfehlen wir eine Kamera-Inspektion, um das tiefere Problem zu finden."
+        answer:
+          "Wenn die Ursache beseitigt ist, nicht. Bei wiederkehrenden Verstopfungen empfehlen wir eine Kamera-Inspektion, um das tiefere Problem zu finden.",
       },
       {
         question: "Machen Sie auch am Sonntag Toiletten frei?",
-        answer: "Ja, unser 24/7 Notdienst ist auch sonntags und an Feiertagen erreichbar. Notdienst-Zuschläge werden vorher kommuniziert."
+        answer:
+          "Ja, unser 24/7 Notdienst ist auch sonntags und an Feiertagen erreichbar. Notdienst-Zuschläge werden vorher kommuniziert.",
       },
-    ]
+    ],
   },
 
   "rohrreinigung-notdienst": {
     slug: "rohrreinigung-notdienst",
     heroHeadline: "Rohr-Notfall?",
-    heroSubheadline: "24/7 für Sie da – Anfahrtszeit ehrlich am Telefon genannt.",
+    heroSubheadline:
+      "24/7 für Sie da – Anfahrtszeit ehrlich am Telefon genannt.",
     consequences: {
       title: "Warum jetzt handeln?",
       items: [
@@ -133,7 +176,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Bei Mehrfamilienhäusern: Haftung gegenüber Nachbarn",
         "Versicherungen zahlen nur bei schnellem Handeln",
       ],
-      urgentWarning: "Jede Minute zählt! Wasserschäden können 10x teurer sein als die Rohrreinigung."
+      urgentWarning:
+        "Jede Minute zählt! Wasserschäden können 10x teurer sein als die Rohrreinigung.",
     },
     whenSerious: {
       title: "Das ist ein Notfall:",
@@ -148,7 +192,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Starker Abwassergeruch",
         "Geräusche aus den Rohren (Gluckern, Blubbern)",
         "Feuchte Stellen an Wänden erscheinen plötzlich",
-      ]
+      ],
     },
     causes: {
       title: "Häufige Notfall-Ursachen",
@@ -157,8 +201,11 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         { cause: "Wurzeleinwuchs", solution: "Wurzelfräse + Inspektion" },
         { cause: "Rohrbruch", solution: "Lokalisierung + Reparatur" },
         { cause: "Fremdkörper im System", solution: "Kamera + Bergung" },
-        { cause: "Fettablagerungen (Gewerbe)", solution: "Fettlöser + Hochdruck" },
-      ]
+        {
+          cause: "Fettablagerungen (Gewerbe)",
+          solution: "Fettlöser + Hochdruck",
+        },
+      ],
     },
     diyTips: {
       title: "Sofortmaßnahmen bis wir da sind",
@@ -174,38 +221,64 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Keine elektrischen Geräte im Wasser betreiben",
         "Nicht selbst an Rohren herumschrauben",
       ],
-      callWhen: "Bei jedem Anzeichen von Überlauf oder Rückstau – sofort anrufen!"
+      callWhen:
+        "Bei jedem Anzeichen von Überlauf oder Rückstau – sofort anrufen!",
     },
     process: {
       title: "Unser Notdienst-Ablauf",
       steps: [
-        { step: 1, title: "Sofort-Annahme", description: "24/7 persönlich erreichbar – kein Callcenter." },
-        { step: 2, title: "Anfahrt", description: "Techniker ist schnellstmöglich bei Ihnen – Zeit wird ehrlich am Telefon genannt." },
-        { step: 3, title: "Schadenbegrenzung", description: "Erst das Wasser stoppen, dann Ursache finden." },
-        { step: 4, title: "Festpreis", description: "Auch im Notfall: Preis vor Arbeitsbeginn." },
-        { step: 5, title: "Dokumentation", description: "Fotos und Bericht für Ihre Versicherung." },
-      ]
+        {
+          step: 1,
+          title: "Sofort-Annahme",
+          description: "24/7 persönlich erreichbar – kein Callcenter.",
+        },
+        {
+          step: 2,
+          title: "Anfahrt",
+          description:
+            "Techniker ist schnellstmöglich bei Ihnen – Zeit wird ehrlich am Telefon genannt.",
+        },
+        {
+          step: 3,
+          title: "Schadenbegrenzung",
+          description: "Erst das Wasser stoppen, dann Ursache finden.",
+        },
+        {
+          step: 4,
+          title: "Festpreis",
+          description: "Auch im Notfall: Preis vor Arbeitsbeginn.",
+        },
+        {
+          step: 5,
+          title: "Dokumentation",
+          description: "Fotos und Bericht für Ihre Versicherung.",
+        },
+      ],
     },
     faq: [
       {
         question: "Ist der Notdienst nachts teurer?",
-        answer: "Die Grundpreise bleiben gleich. Nachts (22-6 Uhr) +40€, Wochenende +30€, Abends +20€. Diese Zuschläge nennen wir VORHER am Telefon."
+        answer:
+          "Die Grundpreise bleiben gleich. Nachts (22-6 Uhr) +40€, Wochenende +30€, Abends +20€. Diese Zuschläge nennen wir VORHER am Telefon.",
       },
       {
         question: "Wie schnell können Sie da sein?",
-        answer: "In Amberg und Umgebung in der Regel 70-100 Minuten. Wir nennen Ihnen die realistische Ankunftszeit bereits am Telefon."
+        answer:
+          "In Amberg und Umgebung in der Regel 70-100 Minuten. Wir nennen Ihnen die realistische Ankunftszeit bereits am Telefon.",
       },
       {
         question: "Zahlt meine Versicherung?",
-        answer: "Das hängt von Ihrer Police ab. Wir erstellen eine detaillierte Dokumentation, die Sie bei Ihrer Versicherung einreichen können."
+        answer:
+          "Das hängt von Ihrer Police ab. Wir erstellen eine detaillierte Dokumentation, die Sie bei Ihrer Versicherung einreichen können.",
       },
-    ]
+    ],
   },
 
-  "kanalreinigung": {
+  kanalreinigung: {
     slug: "kanalreinigung",
     heroHeadline: "Kanal verstopft?",
-    heroSubheadline: "Professionelle Kanalreinigung mit Hochdruck – Festpreis vor Arbeitsbeginn.",
+    heroSubheadline:
+      "Professionelle Kanalreinigung mit Hochdruck – Festpreis vor Arbeitsbeginn.",
     consequences: {
       title: "Was passiert bei verstopftem Kanal?",
       items: [
@@ -215,7 +288,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Gesundheitsrisiko durch Bakterien und Keime",
         "Geruchsbelästigung in der gesamten Umgebung",
       ],
-      urgentWarning: "Ein verstopfter Kanal betrifft oft das ganze Haus. Schnelles Handeln verhindert teure Folgeschäden."
+      urgentWarning:
+        "Ein verstopfter Kanal betrifft oft das ganze Haus. Schnelles Handeln verhindert teure Folgeschäden.",
     },
     whenSerious: {
       title: "Anzeichen für Kanalprobleme",
@@ -230,17 +304,23 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Toilette im Erdgeschoss blubbert",
         "Wasser steht im Revisionsschacht",
         "Mehrere Wohnungen gleichzeitig betroffen",
-      ]
+      ],
     },
     causes: {
       title: "Typische Kanalverstopfungen",
       common: [
         { cause: "Wurzeleinwuchs", solution: "Wurzelfräse, danach Inspektion" },
-        { cause: "Fett- und Seifenablagerungen", solution: "Hochdruck-Spülung" },
+        {
+          cause: "Fett- und Seifenablagerungen",
+          solution: "Hochdruck-Spülung",
+        },
         { cause: "Fremdkörper", solution: "Kamera-Ortung und Bergung" },
         { cause: "Rohrversatz/Bruch", solution: "Inspektion, ggf. Sanierung" },
-        { cause: "Sedimente und Schlamm", solution: "Regelmäßige Wartungsspülung" },
-      ]
+        {
+          cause: "Sedimente und Schlamm",
+          solution: "Regelmäßige Wartungsspülung",
+        },
+      ],
     },
     diyTips: {
       title: "Können Sie selbst etwas tun?",
@@ -254,32 +334,56 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Keine chemischen Reiniger in den Kanal schütten",
         "Nicht mit Gartenschlauch versuchen zu spülen",
       ],
-      callWhen: "Bei Kanalverstopfungen ist professionelles Equipment erforderlich. Rufen Sie uns an."
+      callWhen:
+        "Bei Kanalverstopfungen ist professionelles Equipment erforderlich. Rufen Sie uns an.",
     },
     process: {
       title: "Ablauf der Kanalreinigung",
       steps: [
-        { step: 1, title: "Bestandsaufnahme", description: "Wir prüfen Schächte und Zugänge." },
-        { step: 2, title: "Kamera (optional)", description: "Bei Bedarf Inspektion zur Ursachenfindung." },
-        { step: 3, title: "Festpreis", description: "Sie wissen den Preis, bevor wir starten." },
-        { step: 4, title: "Hochdruck-Spülung", description: "Bis 200 bar – löst alle Ablagerungen." },
-        { step: 5, title: "Kontrolle", description: "Abschließende Prüfung des Abflusses." },
-      ]
+        {
+          step: 1,
+          title: "Bestandsaufnahme",
+          description: "Wir prüfen Schächte und Zugänge.",
+        },
+        {
+          step: 2,
+          title: "Kamera (optional)",
+          description: "Bei Bedarf Inspektion zur Ursachenfindung.",
+        },
+        {
+          step: 3,
+          title: "Festpreis",
+          description: "Sie wissen den Preis, bevor wir starten.",
+        },
+        {
+          step: 4,
+          title: "Hochdruck-Spülung",
+          description: "Bis 200 bar – löst alle Ablagerungen.",
+        },
+        {
+          step: 5,
+          title: "Kontrolle",
+          description: "Abschließende Prüfung des Abflusses.",
+        },
+      ],
     },
     faq: [
       {
         question: "Wie oft sollte der Kanal gereinigt werden?",
-        answer: "Bei Wohnhäusern empfehlen wir alle 2-3 Jahre eine präventive Reinigung. Bei Gastronomie/Gewerbe: häufiger je nach Nutzung."
+        answer:
+          "Bei Wohnhäusern empfehlen wir alle 2-3 Jahre eine präventive Reinigung. Bei Gastronomie/Gewerbe: häufiger je nach Nutzung.",
       },
       {
         question: "Kann Hochdruck meine Rohre beschädigen?",
-        answer: "Nein, wenn professionell durchgeführt. Wir passen den Druck an den Rohrzustand an."
+        answer:
+          "Nein, wenn professionell durchgeführt. Wir passen den Druck an den Rohrzustand an.",
       },
       {
         question: "Reinigen Sie auch bei Wohnungseigentümergemeinschaften?",
-        answer: "Ja, wir arbeiten regelmäßig mit WEGs und Hausverwaltungen. Wir bieten auch Wartungsverträge an."
+        answer:
+          "Ja, wir arbeiten regelmäßig mit WEGs und Hausverwaltungen. Wir bieten auch Wartungsverträge an.",
       },
-    ]
+    ],
   },
 
   "kamera-inspektion": {
@@ -295,7 +399,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Früherkennung von Schäden spart Kosten",
         "Wichtig vor Hauskauf oder Sanierung",
       ],
-      urgentWarning: "Bei wiederkehrenden Verstopfungen ist eine Inspektion Pflicht – sonst behandeln Sie nur Symptome."
+      urgentWarning:
+        "Bei wiederkehrenden Verstopfungen ist eine Inspektion Pflicht – sonst behandeln Sie nur Symptome.",
     },
     whenSerious: {
       title: "Wann eine Inspektion empfohlen wird",
@@ -310,17 +415,23 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Verdacht auf Rohrbruch",
         "Unerklärlicher Wasserverlust",
         "Geruch ohne erkennbare Ursache",
-      ]
+      ],
     },
     causes: {
       title: "Was die Kamera findet",
       common: [
-        { cause: "Wurzeleinwuchs", solution: "Sichtbar machen, dann gezielt entfernen" },
+        {
+          cause: "Wurzeleinwuchs",
+          solution: "Sichtbar machen, dann gezielt entfernen",
+        },
         { cause: "Rohrversatz", solution: "Exakte Position für Reparatur" },
-        { cause: "Risse und Brüche", solution: "Dokumentation für Sanierungsplanung" },
+        {
+          cause: "Risse und Brüche",
+          solution: "Dokumentation für Sanierungsplanung",
+        },
         { cause: "Ablagerungen", solution: "Art und Umfang erkennen" },
         { cause: "Fremdkörper", solution: "Lokalisieren und bergen" },
-      ]
+      ],
     },
     diyTips: {
       title: "Kann ich das selbst prüfen?",
@@ -334,38 +445,63 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Nicht blind Chemie in Rohre schütten",
         "Nicht raten – eine Inspektion kostet weniger als eine falsche Reparatur",
       ],
-      callWhen: "Für eine professionelle Inspektion mit HD-Kamera und Dokumentation."
+      callWhen:
+        "Für eine professionelle Inspektion mit HD-Kamera und Dokumentation.",
     },
     process: {
       title: "Ablauf der Kamera-Inspektion",
       steps: [
-        { step: 1, title: "Vorbereitung", description: "Wir verschaffen uns Zugang zum Rohrsystem." },
-        { step: 2, title: "Kamerafahrt", description: "HD-Kamera zeigt live, was im Rohr ist." },
-        { step: 3, title: "Dokumentation", description: "Fotos und Video der relevanten Stellen." },
-        { step: 4, title: "Auswertung", description: "Wir erklären Ihnen, was wir gefunden haben." },
-        { step: 5, title: "Empfehlung", description: "Schriftlicher Bericht mit Handlungsoptionen." },
-      ]
+        {
+          step: 1,
+          title: "Vorbereitung",
+          description: "Wir verschaffen uns Zugang zum Rohrsystem.",
+        },
+        {
+          step: 2,
+          title: "Kamerafahrt",
+          description: "HD-Kamera zeigt live, was im Rohr ist.",
+        },
+        {
+          step: 3,
+          title: "Dokumentation",
+          description: "Fotos und Video der relevanten Stellen.",
+        },
+        {
+          step: 4,
+          title: "Auswertung",
+          description: "Wir erklären Ihnen, was wir gefunden haben.",
+        },
+        {
+          step: 5,
+          title: "Empfehlung",
+          description: "Schriftlicher Bericht mit Handlungsoptionen.",
+        },
+      ],
     },
     faq: [
       {
         question: "Was kostet eine Kamera-Inspektion?",
-        answer: "Die Inspektion kostet pauschal 149€ inklusive Dokumentation. Bei kombinierter Reinigung kann sie günstiger werden."
+        answer:
+          "Die Inspektion kostet pauschal 149€ inklusive Dokumentation. Bei kombinierter Reinigung kann sie günstiger werden.",
       },
       {
         question: "Bekomme ich die Aufnahmen?",
-        answer: "Ja, Sie erhalten Fotos, Video und einen schriftlichen Befundbericht."
+        answer:
+          "Ja, Sie erhalten Fotos, Video und einen schriftlichen Befundbericht.",
       },
       {
         question: "Wie weit kann die Kamera ins Rohr?",
-        answer: "Unsere Kamerasysteme können bis zu 60 Meter ins Rohrsystem fahren."
+        answer:
+          "Unsere Kamerasysteme können bis zu 60 Meter ins Rohrsystem fahren.",
       },
-    ]
+    ],
   },
 
-  "abflussreinigung": {
+  abflussreinigung: {
     slug: "abflussreinigung",
     heroHeadline: "Abfluss verstopft?",
-    heroSubheadline: "Schnelle Hilfe für Küche, Bad und Dusche – Festpreis nach Diagnose.",
+    heroSubheadline:
+      "Schnelle Hilfe für Küche, Bad und Dusche – Festpreis nach Diagnose.",
     consequences: {
       title: "Was passiert bei verstopftem Abfluss?",
       items: [
@@ -375,7 +511,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Bei Küche: Hygieneproblem mit Lebensmitteln",
         "Verstopfung wandert tiefer – wird teurer",
       ],
-      urgentWarning: "Je länger Sie warten, desto weiter wandert die Verstopfung ins System."
+      urgentWarning:
+        "Je länger Sie warten, desto weiter wandert die Verstopfung ins System.",
     },
     whenSerious: {
       title: "Wann sollten Sie handeln?",
@@ -390,17 +527,32 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Abfluss 'blubbert' zurück",
         "Übler Geruch trotz Reinigung",
         "Mehrere Abflüsse gleichzeitig betroffen",
-      ]
+      ],
     },
     causes: {
       title: "Typische Ursachen nach Ort",
       common: [
-        { cause: "Bad: Haare und Seifenreste", solution: "Spirale oder Hochdruck" },
-        { cause: "Küche: Fett und Speisereste", solution: "Fettlösung + Spülung" },
-        { cause: "Dusche: Haare in der Ablaufrinne", solution: "Reinigung + Sieb empfohlen" },
-        { cause: "Waschbecken: Zahnpasta-Ablagerungen", solution: "Siphonreinigung" },
-        { cause: "Alle: Zu kleine Fallrohre (Altbau)", solution: "Regelmäßige Wartung" },
-      ]
+        {
+          cause: "Bad: Haare und Seifenreste",
+          solution: "Spirale oder Hochdruck",
+        },
+        {
+          cause: "Küche: Fett und Speisereste",
+          solution: "Fettlösung + Spülung",
+        },
+        {
+          cause: "Dusche: Haare in der Ablaufrinne",
+          solution: "Reinigung + Sieb empfohlen",
+        },
+        {
+          cause: "Waschbecken: Zahnpasta-Ablagerungen",
+          solution: "Siphonreinigung",
+        },
+        {
+          cause: "Alle: Zu kleine Fallrohre (Altbau)",
+          solution: "Regelmäßige Wartung",
+        },
+      ],
     },
     diyTips: {
       title: "Erste Hilfe für leichte Fälle",
@@ -415,38 +567,63 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "KEIN kochendes Wasser bei Kunststoffrohren",
         "NICHT mit Draht stochern – kann Rohre beschädigen",
       ],
-      callWhen: "Wenn der Pümpel nicht hilft oder das Problem immer wiederkommt."
+      callWhen:
+        "Wenn der Pümpel nicht hilft oder das Problem immer wiederkommt.",
     },
     process: {
       title: "So reinigen wir Ihren Abfluss",
       steps: [
-        { step: 1, title: "Diagnose", description: "Wir finden heraus, wo und was verstopft." },
-        { step: 2, title: "Festpreis", description: "Sie erfahren den Preis vor der Arbeit." },
-        { step: 3, title: "Reinigung", description: "Mit Spirale oder Hochdruck – je nach Bedarf." },
-        { step: 4, title: "Test", description: "Wir prüfen, ob alles wieder frei abläuft." },
-        { step: 5, title: "Tipps", description: "Wir zeigen, wie Sie vorbeugen können." },
-      ]
+        {
+          step: 1,
+          title: "Diagnose",
+          description: "Wir finden heraus, wo und was verstopft.",
+        },
+        {
+          step: 2,
+          title: "Festpreis",
+          description: "Sie erfahren den Preis vor der Arbeit.",
+        },
+        {
+          step: 3,
+          title: "Reinigung",
+          description: "Mit Spirale oder Hochdruck – je nach Bedarf.",
+        },
+        {
+          step: 4,
+          title: "Test",
+          description: "Wir prüfen, ob alles wieder frei abläuft.",
+        },
+        {
+          step: 5,
+          title: "Tipps",
+          description: "Wir zeigen, wie Sie vorbeugen können.",
+        },
+      ],
     },
     faq: [
       {
         question: "Muss der ganze Abfluss freigelegt werden?",
-        answer: "Nein, in den meisten Fällen reicht eine Reinigung über den bestehenden Zugang. Wir beschädigen nichts."
+        answer:
+          "Nein, in den meisten Fällen reicht eine Reinigung über den bestehenden Zugang. Wir beschädigen nichts.",
       },
       {
         question: "Hilft ein chemischer Rohrreiniger?",
-        answer: "Kurzfristig vielleicht, langfristig schädigt er Ihre Rohre und die Umwelt. Wir raten davon ab."
+        answer:
+          "Kurzfristig vielleicht, langfristig schädigt er Ihre Rohre und die Umwelt. Wir raten davon ab.",
       },
       {
         question: "Wie kann ich Verstopfungen vorbeugen?",
-        answer: "Haarsiebe verwenden, kein Fett in den Abfluss, regelmäßig heißes Wasser durchlaufen lassen."
+        answer:
+          "Haarsiebe verwenden, kein Fett in den Abfluss, regelmäßig heißes Wasser durchlaufen lassen.",
       },
-    ]
+    ],
   },
 
-  "rohrreinigung": {
+  rohrreinigung: {
     slug: "rohrreinigung",
     heroHeadline: "Rohr verstopft?",
-    heroSubheadline: "Professionelle Rohrreinigung – Sie wissen den Preis, bevor wir anfangen.",
+    heroSubheadline:
+      "Professionelle Rohrreinigung – Sie wissen den Preis, bevor wir anfangen.",
     consequences: {
       title: "Was passiert bei verstopften Rohren?",
       items: [
@@ -456,7 +633,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Ohne Behandlung: Rohrschäden möglich",
         "Hygienische Probleme für die ganze Familie",
       ],
-      urgentWarning: "Je länger Sie warten, desto komplizierter wird die Reinigung. Früh handeln spart Geld."
+      urgentWarning:
+        "Je länger Sie warten, desto komplizierter wird die Reinigung. Früh handeln spart Geld.",
     },
     whenSerious: {
       title: "Wann ist professionelle Hilfe nötig?",
@@ -471,17 +649,29 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Mehrere Abflüsse gleichzeitig verstopft",
         "Rückstau aus Bodenabläufen",
         "Die einzige Toilette ist unbenutzbar",
-      ]
+      ],
     },
     causes: {
       title: "Häufige Ursachen für Verstopfungen",
       common: [
         { cause: "Haare und Seifenreste (Bad)", solution: "Spiralreinigung" },
-        { cause: "Fett und Essensreste (Küche)", solution: "Hochdruck + Fettlöser" },
-        { cause: "Feuchttücher und Hygieneartikel", solution: "Mechanische Entfernung" },
-        { cause: "Kalk und Ablagerungen (Altbau)", solution: "Regelmäßige Wartung" },
-        { cause: "Wurzeleinwuchs (Hauptleitung)", solution: "Wurzelfräse + Inspektion" },
-      ]
+        {
+          cause: "Fett und Essensreste (Küche)",
+          solution: "Hochdruck + Fettlöser",
+        },
+        {
+          cause: "Feuchttücher und Hygieneartikel",
+          solution: "Mechanische Entfernung",
+        },
+        {
+          cause: "Kalk und Ablagerungen (Altbau)",
+          solution: "Regelmäßige Wartung",
+        },
+        {
+          cause: "Wurzeleinwuchs (Hauptleitung)",
+          solution: "Wurzelfräse + Inspektion",
+        },
+      ],
     },
     diyTips: {
       title: "Was Sie selbst versuchen können",
@@ -496,32 +686,52 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "NICHT mit Draht oder spitzen Gegenständen stochern",
         "NICHT bei tiefen Verstopfungen selbst probieren",
       ],
-      callWhen: "Wenn der Pümpel nicht hilft oder die Verstopfung tiefer sitzt."
+      callWhen:
+        "Wenn der Pümpel nicht hilft oder die Verstopfung tiefer sitzt.",
     },
     process: {
       title: "So läuft die Rohrreinigung ab",
       steps: [
-        { step: 1, title: "Anruf", description: "Sie schildern das Problem kurz." },
-        { step: 2, title: "Diagnose", description: "Wir prüfen vor Ort – kostenlos." },
-        { step: 3, title: "Festpreis", description: "Sie kennen den Preis, bevor wir starten." },
-        { step: 4, title: "Reinigung", description: "Mit Spirale oder Hochdruck." },
+        {
+          step: 1,
+          title: "Anruf",
+          description: "Sie schildern das Problem kurz.",
+        },
+        {
+          step: 2,
+          title: "Diagnose",
+          description: "Wir prüfen vor Ort – kostenlos.",
+        },
+        {
+          step: 3,
+          title: "Festpreis",
+          description: "Sie kennen den Preis, bevor wir starten.",
+        },
+        {
+          step: 4,
+          title: "Reinigung",
+          description: "Mit Spirale oder Hochdruck.",
+        },
         { step: 5, title: "Prüfung", description: "Alles muss frei ablaufen." },
-      ]
+      ],
     },
     faq: [
       {
         question: "Was kostet eine Rohrreinigung?",
-        answer: "Einfache Verstopfungen ab 79€. Der genaue Preis wird nach kostenloser Diagnose vor Ort genannt."
+        answer:
+          "Einfache Verstopfungen ab 79€. Der genaue Preis wird nach kostenloser Diagnose vor Ort genannt.",
       },
       {
         question: "Wie lange dauert eine Rohrreinigung?",
-        answer: "Die meisten Verstopfungen sind in 15-45 Minuten behoben. Komplexe Fälle bis zu 2 Stunden."
+        answer:
+          "Die meisten Verstopfungen sind in 15-45 Minuten behoben. Komplexe Fälle bis zu 2 Stunden.",
       },
       {
         question: "Kann ich die Verstopfung selbst lösen?",
-        answer: "Bei leichten Verstopfungen können Sie einen Pümpel versuchen. Bei tieferen Problemen lieber uns anrufen."
+        answer:
+          "Bei leichten Verstopfungen können Sie einen Pümpel versuchen. Bei tieferen Problemen lieber uns anrufen.",
       },
-    ]
+    ],
   },
 
   "dusche-verstopft": {
@@ -537,7 +747,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Dusche wird unbenutzbar",
         "Verstopfung kann sich verschlimmern",
       ],
-      urgentWarning: "Stehende Feuchtigkeit fördert Schimmelbildung – das ist ein Gesundheitsrisiko."
+      urgentWarning:
+        "Stehende Feuchtigkeit fördert Schimmelbildung – das ist ein Gesundheitsrisiko.",
     },
     whenSerious: {
       title: "Wann sollten Sie handeln?",
@@ -552,17 +763,23 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Wasser drückt aus dem Abfluss zurück",
         "Verstopfung trotz Pümpel",
         "Problem kommt immer wieder",
-      ]
+      ],
     },
     causes: {
       title: "Warum ist die Dusche verstopft?",
       common: [
-        { cause: "Haare – die #1 Ursache!", solution: "Spirale + Haarsieb empfohlen" },
+        {
+          cause: "Haare – die #1 Ursache!",
+          solution: "Spirale + Haarsieb empfohlen",
+        },
         { cause: "Seifenreste und Shampoo", solution: "Hochdruck-Spülung" },
         { cause: "Kalkablagerungen", solution: "Mechanische Reinigung" },
         { cause: "Verstopfte Ablaufrinne", solution: "Rinne reinigen" },
-        { cause: "Tiefere Verstopfung im Rohr", solution: "Professionelle Rohrreinigung" },
-      ]
+        {
+          cause: "Tiefere Verstopfung im Rohr",
+          solution: "Professionelle Rohrreinigung",
+        },
+      ],
     },
     diyTips: {
       title: "Das können Sie versuchen",
@@ -577,32 +794,50 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "NICHT mit Draht stochern – kann Rohr beschädigen",
         "NICHT ignorieren – wird nur schlimmer",
       ],
-      callWhen: "Wenn Haare entfernen und Pümpel nicht helfen."
+      callWhen: "Wenn Haare entfernen und Pümpel nicht helfen.",
     },
     process: {
       title: "So reinigen wir Ihre Dusche",
       steps: [
-        { step: 1, title: "Diagnose", description: "Wir prüfen, wo die Verstopfung sitzt." },
-        { step: 2, title: "Festpreis", description: "Sie wissen den Preis vor Arbeitsbeginn." },
-        { step: 3, title: "Reinigung", description: "Mit Spirale oder Mini-Hochdruck." },
-        { step: 4, title: "Test", description: "Wasser muss schnell ablaufen." },
+        {
+          step: 1,
+          title: "Diagnose",
+          description: "Wir prüfen, wo die Verstopfung sitzt.",
+        },
+        {
+          step: 2,
+          title: "Festpreis",
+          description: "Sie wissen den Preis vor Arbeitsbeginn.",
+        },
+        {
+          step: 3,
+          title: "Reinigung",
+          description: "Mit Spirale oder Mini-Hochdruck.",
+        },
+        {
+          step: 4,
+          title: "Test",
+          description: "Wasser muss schnell ablaufen.",
+        },
         { step: 5, title: "Tipp", description: "Wir empfehlen ein Haarsieb." },
-      ]
+      ],
     },
     faq: [
       {
         question: "Wie oft sollte ich die Dusche reinigen lassen?",
-        answer: "Bei normaler Nutzung reicht eine professionelle Reinigung bei Bedarf. Mit Haarsieb selten nötig."
+        answer:
+          "Bei normaler Nutzung reicht eine professionelle Reinigung bei Bedarf. Mit Haarsieb selten nötig.",
       },
       {
         question: "Kann ich einen Abflussreiniger benutzen?",
-        answer: "Wir raten davon ab. Chemie schädigt Rohre und Umwelt. Besser uns anrufen."
+        answer:
+          "Wir raten davon ab. Chemie schädigt Rohre und Umwelt. Besser uns anrufen.",
       },
       {
         question: "Was kostet die Duschreinigung?",
-        answer: "Ab 79€. Der genaue Preis nach kostenloser Diagnose vor Ort."
+        answer: "Ab 79€. Der genaue Preis nach kostenloser Diagnose vor Ort.",
       },
-    ]
+    ],
   },
 
   "bodenablauf-verstopft": {
@@ -618,7 +853,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Schimmel durch stehende Feuchtigkeit",
         "Schäden an Bodenbelag und Wänden",
       ],
-      urgentWarning: "Ein verstopfter Bodenablauf im Keller kann bei Starkregen zu Überschwemmung führen!"
+      urgentWarning:
+        "Ein verstopfter Bodenablauf im Keller kann bei Starkregen zu Überschwemmung führen!",
     },
     whenSerious: {
       title: "Warnsignale erkennen",
@@ -633,7 +869,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Abwassergeruch im Keller",
         "Mehrere Bodenabläufe betroffen",
         "Starkregen und kein Ablauf",
-      ]
+      ],
     },
     causes: {
       title: "Typische Ursachen",
@@ -642,8 +878,11 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         { cause: "Haare (im Bad)", solution: "Spiralreinigung" },
         { cause: "Sedimente und Sand", solution: "Hochdruck-Spülung" },
         { cause: "Fett (in Küchen)", solution: "Fettlöser + Spülung" },
-        { cause: "Defekter Geruchsverschluss", solution: "Austausch des Siphons" },
-      ]
+        {
+          cause: "Defekter Geruchsverschluss",
+          solution: "Austausch des Siphons",
+        },
+      ],
     },
     diyTips: {
       title: "Erste Hilfe",
@@ -658,32 +897,56 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "KEINE Chemie in den Bodenablauf",
         "NICHT ignorieren – kann schlimmer werden",
       ],
-      callWhen: "Wenn Reinigen des Gitters nicht hilft oder Wasser zurückdrückt."
+      callWhen:
+        "Wenn Reinigen des Gitters nicht hilft oder Wasser zurückdrückt.",
     },
     process: {
       title: "So reinigen wir Bodenabläufe",
       steps: [
-        { step: 1, title: "Diagnose", description: "Wir prüfen Ablauf und Anbindung." },
-        { step: 2, title: "Festpreis", description: "Sie erfahren den Preis vor der Arbeit." },
-        { step: 3, title: "Reinigung", description: "Spirale oder Hochdruck je nach Bedarf." },
-        { step: 4, title: "Siphon", description: "Geruchsverschluss prüfen und reinigen." },
-        { step: 5, title: "Test", description: "Wassertest – muss schnell ablaufen." },
-      ]
+        {
+          step: 1,
+          title: "Diagnose",
+          description: "Wir prüfen Ablauf und Anbindung.",
+        },
+        {
+          step: 2,
+          title: "Festpreis",
+          description: "Sie erfahren den Preis vor der Arbeit.",
+        },
+        {
+          step: 3,
+          title: "Reinigung",
+          description: "Spirale oder Hochdruck je nach Bedarf.",
+        },
+        {
+          step: 4,
+          title: "Siphon",
+          description: "Geruchsverschluss prüfen und reinigen.",
+        },
+        {
+          step: 5,
+          title: "Test",
+          description: "Wassertest – muss schnell ablaufen.",
+        },
+      ],
     },
     faq: [
       {
         question: "Warum stinkt der Bodenablauf?",
-        answer: "Meist ist der Siphon ausgetrocknet oder verstopft. Regelmäßig Wasser nachgießen hilft."
+        answer:
+          "Meist ist der Siphon ausgetrocknet oder verstopft. Regelmäßig Wasser nachgießen hilft.",
       },
       {
         question: "Braucht der Keller einen Rückstauschutz?",
-        answer: "In überschwemmungsgefährdeten Gebieten ja. Wir beraten Sie gerne."
+        answer:
+          "In überschwemmungsgefährdeten Gebieten ja. Wir beraten Sie gerne.",
       },
       {
         question: "Reinigen Sie auch in Tiefgaragen?",
-        answer: "Ja, wir reinigen alle Arten von Bodenabläufen – Keller, Garage, Bad, Gewerbe."
+        answer:
+          "Ja, wir reinigen alle Arten von Bodenabläufen – Keller, Garage, Bad, Gewerbe.",
       },
-    ]
+    ],
   },
 
   "waschbecken-verstopft": {
@@ -699,7 +962,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Bakterien vermehren sich im stehenden Wasser",
         "Verstopfung kann tiefer wandern",
       ],
-      urgentWarning: "Je länger Sie warten, desto weiter wandert die Verstopfung ins Rohrsystem."
+      urgentWarning:
+        "Je länger Sie warten, desto weiter wandert die Verstopfung ins Rohrsystem.",
     },
     whenSerious: {
       title: "Wann brauchen Sie Hilfe?",
@@ -714,17 +978,23 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "Siphon-Reinigung hat nicht geholfen",
         "Problem kommt nach kurzer Zeit wieder",
         "Mehrere Abflüsse betroffen",
-      ]
+      ],
     },
     causes: {
       title: "Häufige Ursachen",
       common: [
         { cause: "Haare – besonders im Bad", solution: "Spiralreinigung" },
         { cause: "Seife und Zahnpasta", solution: "Heißwasser-Spülung" },
-        { cause: "Verstopfter Siphon", solution: "Siphon reinigen/austauschen" },
+        {
+          cause: "Verstopfter Siphon",
+          solution: "Siphon reinigen/austauschen",
+        },
         { cause: "Ablagerungen im Rohr", solution: "Professionelle Reinigung" },
-        { cause: "Zu kleines Fallrohr (Altbau)", solution: "Regelmäßige Wartung" },
-      ]
+        {
+          cause: "Zu kleines Fallrohr (Altbau)",
+          solution: "Regelmäßige Wartung",
+        },
+      ],
     },
     diyTips: {
       title: "Das können Sie selbst versuchen",
@@ -739,37 +1009,61 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         "KEIN kochendes Wasser bei Kunststoffrohren",
         "NICHT mit Draht stochern",
       ],
-      callWhen: "Wenn Siphon-Reinigung und Pümpel nicht helfen."
+      callWhen: "Wenn Siphon-Reinigung und Pümpel nicht helfen.",
     },
     process: {
       title: "So reinigen wir Ihr Waschbecken",
       steps: [
-        { step: 1, title: "Diagnose", description: "Siphon oder tiefere Verstopfung?" },
-        { step: 2, title: "Festpreis", description: "Sie wissen den Preis vor der Arbeit." },
-        { step: 3, title: "Reinigung", description: "Spirale oder Hochdruck je nach Lage." },
-        { step: 4, title: "Siphon", description: "Bei Bedarf Siphon reinigen oder tauschen." },
-        { step: 5, title: "Test", description: "Wasser muss schnell ablaufen." },
-      ]
+        {
+          step: 1,
+          title: "Diagnose",
+          description: "Siphon oder tiefere Verstopfung?",
+        },
+        {
+          step: 2,
+          title: "Festpreis",
+          description: "Sie wissen den Preis vor der Arbeit.",
+        },
+        {
+          step: 3,
+          title: "Reinigung",
+          description: "Spirale oder Hochdruck je nach Lage.",
+        },
+        {
+          step: 4,
+          title: "Siphon",
+          description: "Bei Bedarf Siphon reinigen oder tauschen.",
+        },
+        {
+          step: 5,
+          title: "Test",
+          description: "Wasser muss schnell ablaufen.",
+        },
+      ],
     },
     faq: [
       {
         question: "Kann ich den Siphon selbst reinigen?",
-        answer: "Ja, mit einer Schüssel darunter abschrauben, reinigen und wieder anschrauben. Wenn das nicht hilft, rufen Sie uns."
+        answer:
+          "Ja, mit einer Schüssel darunter abschrauben, reinigen und wieder anschrauben. Wenn das nicht hilft, rufen Sie uns.",
       },
       {
         question: "Warum riecht es aus dem Waschbecken?",
-        answer: "Meist Ablagerungen im Siphon oder Rohr. Regelmäßig heißes Wasser durchlaufen lassen hilft vorbeugen."
+        answer:
+          "Meist Ablagerungen im Siphon oder Rohr. Regelmäßig heißes Wasser durchlaufen lassen hilft vorbeugen.",
       },
       {
         question: "Was kostet die Reinigung?",
-        answer: "Ab 79€. Der genaue Preis nach kostenloser Diagnose vor Ort."
+        answer: "Ab 79€. Der genaue Preis nach kostenloser Diagnose vor Ort.",
       },
-    ]
+    ],
   },
 };
 
 // Helper function to get enhanced content
-export function getEnhancedServiceContent(slug: string): EnhancedServiceContent | null {
+export function getEnhancedServiceContent(
+  slug: string,
+): EnhancedServiceContent | null {
   return enhancedServiceContent[slug] || null;
 }
 

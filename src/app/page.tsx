@@ -25,7 +25,7 @@ const jsonLd = {
   logo: "https://rohrreinigung-kraft-amberg.de/logo.png",
   image: [
     "https://rohrreinigung-kraft-amberg.de/og-image.jpg",
-    "https://rohrreinigung-kraft-amberg.de/logo.png"
+    "https://rohrreinigung-kraft-amberg.de/logo.png",
   ],
   telephone: company.contact.phone,
   email: company.contact.email,
@@ -60,31 +60,39 @@ const jsonLd = {
     {
       "@type": "City",
       name: "Amberg",
-      sameAs: "https://de.wikipedia.org/wiki/Amberg"
+      sameAs: "https://de.wikipedia.org/wiki/Amberg",
     },
     {
       "@type": "City",
       name: "Kümmersbruck",
-      sameAs: "https://de.wikipedia.org/wiki/K%C3%BCmmersbruck"
+      sameAs: "https://de.wikipedia.org/wiki/K%C3%BCmmersbruck",
     },
     {
       "@type": "City",
       name: "Sulzbach-Rosenberg",
-      sameAs: "https://de.wikipedia.org/wiki/Sulzbach-Rosenberg"
+      sameAs: "https://de.wikipedia.org/wiki/Sulzbach-Rosenberg",
     },
     {
       "@type": "AdministrativeArea",
-      name: "Oberpfalz"
-    }
+      name: "Oberpfalz",
+    },
   ],
 
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
       opens: "00:00",
       closes: "23:59",
-    }
+    },
   ],
 
   // ⭐ Bewertungen - EINZIGE aggregateRating für diese Entität
@@ -94,7 +102,7 @@ const jsonLd = {
     bestRating: "5",
     worstRating: "1",
     ratingCount: "129",
-    reviewCount: "129"
+    reviewCount: "129",
   },
 
   // Einzelne Reviews - OHNE itemReviewed (da bereits in LocalBusiness)
@@ -103,77 +111,82 @@ const jsonLd = {
       "@type": "Review",
       author: {
         "@type": "Person",
-        name: "Thomas M."
+        name: "Thomas M.",
       },
       datePublished: "2024-11-15",
-      reviewBody: "Schnelle Hilfe am Sonntagmorgen! Die Toilette war komplett verstopft und innerhalb von 45 Minuten war das Team vor Ort. Sehr professionell und faire Preise.",
+      reviewBody:
+        "Schnelle Hilfe am Sonntagmorgen! Die Toilette war komplett verstopft und innerhalb von 45 Minuten war das Team vor Ort. Sehr professionell und faire Preise.",
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
         bestRating: "5",
-        worstRating: "1"
-      }
+        worstRating: "1",
+      },
     },
     {
       "@type": "Review",
       author: {
         "@type": "Person",
-        name: "Sandra K."
+        name: "Sandra K.",
       },
       datePublished: "2024-10-22",
-      reviewBody: "Nach einem Rohrbruch im Keller waren sie blitzschnell da. Die Mitarbeiter waren freundlich, kompetent und haben alles sauber hinterlassen. Klare Empfehlung!",
+      reviewBody:
+        "Nach einem Rohrbruch im Keller waren sie blitzschnell da. Die Mitarbeiter waren freundlich, kompetent und haben alles sauber hinterlassen. Klare Empfehlung!",
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
         bestRating: "5",
-        worstRating: "1"
-      }
+        worstRating: "1",
+      },
     },
     {
       "@type": "Review",
       author: {
         "@type": "Person",
-        name: "Michael B."
+        name: "Michael B.",
       },
       datePublished: "2024-09-18",
-      reviewBody: "Unser Küchenabfluss war seit Wochen problematisch. Die Rohrreinigung Kraft hat das Problem schnell gefunden und nachhaltig beseitigt. Top Service!",
+      reviewBody:
+        "Unser Küchenabfluss war seit Wochen problematisch. Die Rohrreinigung Kraft hat das Problem schnell gefunden und nachhaltig beseitigt. Top Service!",
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
         bestRating: "5",
-        worstRating: "1"
-      }
+        worstRating: "1",
+      },
     },
     {
       "@type": "Review",
       author: {
         "@type": "Person",
-        name: "Anna W."
+        name: "Anna W.",
       },
       datePublished: "2024-08-05",
-      reviewBody: "Super Service! Abfluss in der Dusche war komplett zu. Techniker kam nach 35 Minuten und hatte das Problem in 20 Minuten gelöst. Sehr zu empfehlen!",
+      reviewBody:
+        "Super Service! Abfluss in der Dusche war komplett zu. Techniker kam nach 35 Minuten und hatte das Problem in 20 Minuten gelöst. Sehr zu empfehlen!",
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
         bestRating: "5",
-        worstRating: "1"
-      }
+        worstRating: "1",
+      },
     },
     {
       "@type": "Review",
       author: {
         "@type": "Person",
-        name: "Peter H."
+        name: "Peter H.",
       },
       datePublished: "2024-07-12",
-      reviewBody: "Als Hausverwalter arbeite ich seit 2 Jahren mit Rohrreinigung Kraft zusammen. Immer zuverlässig, faire Preise und die Dokumentation ist top. Klare Empfehlung für Hausverwaltungen!",
+      reviewBody:
+        "Als Hausverwalter arbeite ich seit 2 Jahren mit Rohrreinigung Kraft zusammen. Immer zuverlässig, faire Preise und die Dokumentation ist top. Klare Empfehlung für Hausverwaltungen!",
       reviewRating: {
         "@type": "Rating",
         ratingValue: "5",
         bestRating: "5",
-        worstRating: "1"
-      }
-    }
+        worstRating: "1",
+      },
+    },
   ],
 
   priceRange: "€€",
@@ -191,23 +204,31 @@ const jsonLd = {
       availableLanguage: ["German", "English"],
       hoursAvailable: {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
         opens: "00:00",
-        closes: "23:59"
-      }
+        closes: "23:59",
+      },
     },
     {
       "@type": "ContactPoint",
       telephone: company.contact.phone,
       contactType: "emergency",
       areaServed: "DE",
-      availableLanguage: ["German", "English"]
-    }
+      availableLanguage: ["German", "English"],
+    },
   ],
 
   sameAs: [
     "https://g.page/rohrreinigung-kraft",
-    "https://www.gelbeseiten.de/gsbiz/57c4739e-9c15-49d8-9a90-eca1cb4fdc82"
+    "https://www.gelbeseiten.de/gsbiz/57c4739e-9c15-49d8-9a90-eca1cb4fdc82",
   ],
 
   hasOfferCatalog: {
@@ -219,28 +240,30 @@ const jsonLd = {
         itemOffered: {
           "@type": "Service",
           name: "Rohrreinigung",
-          description: "Professionelle Beseitigung von Rohrverstopfungen aller Art",
-          url: "https://rohrreinigung-kraft-amberg.de/service/rohrreinigung"
+          description:
+            "Professionelle Beseitigung von Rohrverstopfungen aller Art",
+          url: "https://rohrreinigung-kraft-amberg.de/service/rohrreinigung",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
           priceCurrency: "EUR",
-          minPrice: "89"
-        }
+          minPrice: "89",
+        },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           name: "Kanalreinigung",
-          description: "Komplette Reinigung von Kanalsystemen mit Hochdruck-Spültechnik",
-          url: "https://rohrreinigung-kraft-amberg.de/service/kanalreinigung"
+          description:
+            "Komplette Reinigung von Kanalsystemen mit Hochdruck-Spültechnik",
+          url: "https://rohrreinigung-kraft-amberg.de/service/kanalreinigung",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
           priceCurrency: "EUR",
-          minPrice: "149"
-        }
+          minPrice: "149",
+        },
       },
       {
         "@type": "Offer",
@@ -248,27 +271,28 @@ const jsonLd = {
           "@type": "Service",
           name: "Toilette verstopft",
           description: "Schnelle Soforthilfe bei verstopfter Toilette",
-          url: "https://rohrreinigung-kraft-amberg.de/service/toilette-verstopft"
+          url: "https://rohrreinigung-kraft-amberg.de/service/toilette-verstopft",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
           priceCurrency: "EUR",
-          minPrice: "79"
-        }
+          minPrice: "79",
+        },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
           name: "Notdienst 24/7",
-          description: "Rund um die Uhr erreichbar für Notfälle - auch nachts und am Wochenende",
-          url: "https://rohrreinigung-kraft-amberg.de/service/rohrreinigung-notdienst"
+          description:
+            "Rund um die Uhr erreichbar für Notfälle - auch nachts und am Wochenende",
+          url: "https://rohrreinigung-kraft-amberg.de/service/rohrreinigung-notdienst",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
           priceCurrency: "EUR",
-          minPrice: "99"
-        }
+          minPrice: "99",
+        },
       },
       {
         "@type": "Offer",
@@ -276,13 +300,13 @@ const jsonLd = {
           "@type": "Service",
           name: "TV-Kamerainspektion",
           description: "Professionelle Rohrinspektion mit HD-Kamera",
-          url: "https://rohrreinigung-kraft-amberg.de/service/kamera-inspektion"
+          url: "https://rohrreinigung-kraft-amberg.de/service/kamera-inspektion",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
           priceCurrency: "EUR",
-          minPrice: "129"
-        }
+          minPrice: "129",
+        },
       },
       {
         "@type": "Offer",
@@ -290,25 +314,26 @@ const jsonLd = {
           "@type": "Service",
           name: "Abflussreinigung",
           description: "Reinigung von Abflüssen in Küche, Bad und Dusche",
-          url: "https://rohrreinigung-kraft-amberg.de/service/abflussreinigung"
+          url: "https://rohrreinigung-kraft-amberg.de/service/abflussreinigung",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
           priceCurrency: "EUR",
-          minPrice: "69"
-        }
-      }
+          minPrice: "69",
+        },
+      },
     ],
   },
 
-  slogan: "Ihr Rohrreinigungsexperte für Amberg und die Oberpfalz - 24/7 Notdienst",
+  slogan:
+    "Ihr Rohrreinigungsexperte für Amberg und die Oberpfalz - 24/7 Notdienst",
 
   foundingDate: "2014",
 
   numberOfEmployees: {
     "@type": "QuantitativeValue",
     minValue: "2",
-    maxValue: "5"
+    maxValue: "5",
   },
 
   isPartOf: {
@@ -319,10 +344,10 @@ const jsonLd = {
       name: "Bayern",
       containedInPlace: {
         "@type": "Country",
-        name: "Deutschland"
-      }
-    }
-  }
+        name: "Deutschland",
+      },
+    },
+  },
 };
 
 // FAQ Schema - للظهور في Google مع الأسئلة والأجوبة
@@ -335,58 +360,58 @@ const faqSchema = {
       name: "Was kostet eine Rohrreinigung in Amberg?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Die Kosten hängen vom Umfang der Verstopfung ab. Wir bieten eine kostenlose Diagnose vor Ort und nennen Ihnen dann einen Festpreis – ohne versteckte Kosten. Einfache Verstopfungen starten ab 79€, Rohrreinigung ab 89€, Kanalreinigung ab 149€."
-      }
+        text: "Die Kosten hängen vom Umfang der Verstopfung ab. Wir bieten eine kostenlose Diagnose vor Ort und nennen Ihnen dann einen Festpreis – ohne versteckte Kosten. Einfache Verstopfungen starten ab 79€, Rohrreinigung ab 89€, Kanalreinigung ab 149€.",
+      },
     },
     {
       "@type": "Question",
       name: "Wie schnell können Sie bei einer Rohrverstopfung da sein?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen – die genaue Zeit sagen wir Ihnen ehrlich am Telefon. Unser 24/7 Notdienst ist rund um die Uhr verfügbar."
-      }
+        text: "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen – die genaue Zeit sagen wir Ihnen ehrlich am Telefon. Unser 24/7 Notdienst ist rund um die Uhr verfügbar.",
+      },
     },
     {
       "@type": "Question",
       name: "Arbeiten Sie auch am Wochenende und nachts?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja, unser 24/7 Notdienst ist rund um die Uhr verfügbar – auch nachts, am Wochenende und an Feiertagen. Bei Notfällen sind wir immer für Sie da."
-      }
+        text: "Ja, unser 24/7 Notdienst ist rund um die Uhr verfügbar – auch nachts, am Wochenende und an Feiertagen. Bei Notfällen sind wir immer für Sie da.",
+      },
     },
     {
       "@type": "Question",
       name: "Muss ich im Voraus bezahlen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Nein. Wir stellen erst nach erfolgreicher Arbeit eine Rechnung. Sie können bar, mit Karte oder auf Rechnung bezahlen. Wir nennen Ihnen immer einen Festpreis vor Arbeitsbeginn."
-      }
+        text: "Nein. Wir stellen erst nach erfolgreicher Arbeit eine Rechnung. Sie können bar, mit Karte oder auf Rechnung bezahlen. Wir nennen Ihnen immer einen Festpreis vor Arbeitsbeginn.",
+      },
     },
     {
       "@type": "Question",
       name: "Was soll ich tun, bis Sie bei mir ankommen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Drehen Sie wenn möglich den Hauptwasserhahn ab und vermeiden Sie weitere Wassernutzung. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Wir sind meist in 70-100 Minuten bei Ihnen."
-      }
+        text: "Drehen Sie wenn möglich den Hauptwasserhahn ab und vermeiden Sie weitere Wassernutzung. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Wir sind meist in 70-100 Minuten bei Ihnen.",
+      },
     },
     {
       "@type": "Question",
       name: "Bieten Sie Wartungsverträge für Hausverwaltungen an?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ja, besonders für Hausverwaltungen und Gewerbebetriebe bieten wir regelmäßige Wartungsverträge mit Prioritäts-Service an. Inklusive Dokumentation, Sammelrechnung und persönlichem Ansprechpartner."
-      }
+        text: "Ja, besonders für Hausverwaltungen und Gewerbebetriebe bieten wir regelmäßige Wartungsverträge mit Prioritäts-Service an. Inklusive Dokumentation, Sammelrechnung und persönlichem Ansprechpartner.",
+      },
     },
     {
       "@type": "Question",
       name: "In welchen Städten bieten Sie Rohrreinigung an?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Wir bieten Rohrreinigung in der ganzen Amberg-Region an: Amberg, Kümmersbruck, Ammerthal, Sulzbach-Rosenberg, Hahnbach, Vilseck, Hirschau, Neumarkt in der Oberpfalz, Schwandorf und alle Orte im Umkreis von 60km um Amberg."
-      }
-    }
-  ]
+        text: "Wir bieten Rohrreinigung in der ganzen Amberg-Region an: Amberg, Kümmersbruck, Ammerthal, Sulzbach-Rosenberg, Hahnbach, Vilseck, Hirschau, Neumarkt in der Oberpfalz, Schwandorf und alle Orte im Umkreis von 60km um Amberg.",
+      },
+    },
+  ],
 };
 
 export default function Home() {

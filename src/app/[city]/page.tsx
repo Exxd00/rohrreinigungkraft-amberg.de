@@ -16,7 +16,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: CityPageProps): Promise<Metadata> {
   const { city: citySlug } = await params;
   const city = getCityBySlug(citySlug);
 
@@ -69,50 +71,71 @@ export default async function CityPage({ params }: CityPageProps) {
         addressLocality: "Nürnberg",
         postalCode: "90478",
         addressRegion: "Bayern",
-        addressCountry: "DE"
+        addressCountry: "DE",
       },
       geo: {
         "@type": "GeoCoordinates",
         latitude: 49.4521,
-        longitude: 11.0767
+        longitude: 11.0767,
       },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5.0",
         bestRating: "5",
         worstRating: "1",
-        ratingCount: "129"
+        ratingCount: "129",
       },
       priceRange: "€€",
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
         opens: "00:00",
-        closes: "23:59"
-      }
+        closes: "23:59",
+      },
     },
     areaServed: {
       "@type": "City",
       name: city.name,
       containedInPlace: {
         "@type": "AdministrativeArea",
-        name: "Oberpfalz"
-      }
+        name: "Oberpfalz",
+      },
     },
-    serviceType: ["Rohrreinigung", "Kanalreinigung", "Abflussreinigung", "Notdienst"],
+    serviceType: [
+      "Rohrreinigung",
+      "Kanalreinigung",
+      "Abflussreinigung",
+      "Notdienst",
+    ],
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "EUR",
       lowPrice: "69",
       highPrice: "299",
-      offerCount: "6"
+      offerCount: "6",
     },
     hoursAvailable: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
       opens: "00:00",
-      closes: "23:59"
-    }
+      closes: "23:59",
+    },
   };
 
   const enhancedContent = getEnhancedCityContent(citySlug);

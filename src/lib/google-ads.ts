@@ -109,18 +109,21 @@ export async function googleAdsRequest(
   config: GoogleAdsConfig,
   endpoint: string,
   method: "GET" | "POST" = "GET",
-  body?: unknown
+  body?: unknown,
 ): Promise<unknown> {
   const accessToken = await getAccessToken(config);
 
   // Use loginCustomerId (MCC account) for authentication if provided
   // Otherwise fall back to customerId
-  const loginId = (config.loginCustomerId || config.customerId).replace(/-/g, "");
+  const loginId = (config.loginCustomerId || config.customerId).replace(
+    /-/g,
+    "",
+  );
 
   const response = await fetch(`${GOOGLE_ADS_API_URL}${endpoint}`, {
     method,
     headers: {
-      "Authorization": `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`,
       "developer-token": config.developerToken,
       "Content-Type": "application/json",
       "login-customer-id": loginId,
@@ -142,7 +145,7 @@ export async function googleAdsRequest(
 export async function searchGoogleAds(
   config: GoogleAdsConfig,
   query: string,
-  pageSize = 1000
+  pageSize = 1000,
 ): Promise<unknown[]> {
   const customerId = config.customerId.replace(/-/g, "");
   const endpoint = `/${GOOGLE_ADS_API_VERSION}/customers/${customerId}/googleAds:search`;
@@ -162,7 +165,9 @@ export async function searchGoogleAds(
 /**
  * Get all conversion actions
  */
-export async function getConversionActions(config: GoogleAdsConfig): Promise<ConversionAction[]> {
+export async function getConversionActions(
+  config: GoogleAdsConfig,
+): Promise<ConversionAction[]> {
   const query = `
     SELECT
       conversion_action.id,
@@ -189,9 +194,15 @@ export async function getConversionActions(config: GoogleAdsConfig): Promise<Con
       status: r.conversionAction.status as "ENABLED" | "DISABLED" | "REMOVED",
       type: r.conversionAction.type as string,
       countingType: r.conversionAction.countingType as string,
-      attributionModelSettings: r.conversionAction.attributionModelSettings as { attributionModel: string } | undefined,
-      valueSettings: r.conversionAction.valueSettings as { defaultValue: number; alwaysUseDefaultValue: boolean } | undefined,
-      phoneCallDurationSeconds: r.conversionAction.phoneCallDurationSeconds as number | undefined,
+      attributionModelSettings: r.conversionAction.attributionModelSettings as
+        | { attributionModel: string }
+        | undefined,
+      valueSettings: r.conversionAction.valueSettings as
+        | { defaultValue: number; alwaysUseDefaultValue: boolean }
+        | undefined,
+      phoneCallDurationSeconds: r.conversionAction.phoneCallDurationSeconds as
+        | number
+        | undefined,
     };
   });
 }
@@ -201,10 +212,10 @@ export async function getConversionActions(config: GoogleAdsConfig): Promise<Con
  */
 export async function getConversionActionByName(
   config: GoogleAdsConfig,
-  name: string
+  name: string,
 ): Promise<ConversionAction | null> {
   const actions = await getConversionActions(config);
-  return actions.find(a => a.name === name) || null;
+  return actions.find((a) => a.name === name) || null;
 }
 
 /**
@@ -213,7 +224,7 @@ export async function getConversionActionByName(
 export async function createCallConversionAction(
   config: GoogleAdsConfig,
   name: string,
-  defaultValue = 50
+  defaultValue = 50,
 ): Promise<string> {
   const customerId = config.customerId.replace(/-/g, "");
   const endpoint = `/${GOOGLE_ADS_API_VERSION}/customers/${customerId}/conversionActions:mutate`;
@@ -261,25 +272,33 @@ export async function uploadCallConversion(
     conversionDateTime: string;
     conversionValue?: number;
     callerPhoneNumber?: string;
-  }
+  },
 ): Promise<{ success: boolean; error?: string }> {
   const customerId = config.customerId.replace(/-/g, "");
 
   // First, get the conversion action resource name
-  const conversionAction = await getConversionActionByName(config, data.conversionActionName);
+  const conversionAction = await getConversionActionByName(
+    config,
+    data.conversionActionName,
+  );
   if (!conversionAction) {
-    return { success: false, error: `Conversion action '${data.conversionActionName}' not found` };
+    return {
+      success: false,
+      error: `Conversion action '${data.conversionActionName}' not found`,
+    };
   }
 
   const endpoint = `/${GOOGLE_ADS_API_VERSION}/customers/${customerId}/conversionUploads:uploadCallConversions`;
 
   try {
-    const conversions: Array<Record<string, unknown>> = [{
-      conversionAction: `customers/${customerId}/conversionActions/${conversionAction.id}`,
-      conversionDateTime: data.conversionDateTime,
-      conversionValue: data.conversionValue || 50,
-      currencyCode: "EUR",
-    }];
+    const conversions: Array<Record<string, unknown>> = [
+      {
+        conversionAction: `customers/${customerId}/conversionActions/${conversionAction.id}`,
+        conversionDateTime: data.conversionDateTime,
+        conversionValue: data.conversionValue || 50,
+        currencyCode: "EUR",
+      },
+    ];
 
     // Add either gclid or caller phone number
     if (data.gclid) {
@@ -310,27 +329,35 @@ export async function uploadClickConversion(
     conversionDateTime: string;
     conversionValue?: number;
     orderId?: string;
-  }
+  },
 ): Promise<{ success: boolean; error?: string }> {
   const customerId = config.customerId.replace(/-/g, "");
 
-  const conversionAction = await getConversionActionByName(config, data.conversionActionName);
+  const conversionAction = await getConversionActionByName(
+    config,
+    data.conversionActionName,
+  );
   if (!conversionAction) {
-    return { success: false, error: `Conversion action '${data.conversionActionName}' not found` };
+    return {
+      success: false,
+      error: `Conversion action '${data.conversionActionName}' not found`,
+    };
   }
 
   const endpoint = `/${GOOGLE_ADS_API_VERSION}/customers/${customerId}/conversionUploads:uploadClickConversions`;
 
   try {
     await googleAdsRequest(config, endpoint, "POST", {
-      conversions: [{
-        gclid: data.gclid,
-        conversionAction: `customers/${customerId}/conversionActions/${conversionAction.id}`,
-        conversionDateTime: data.conversionDateTime,
-        conversionValue: data.conversionValue || 50,
-        currencyCode: "EUR",
-        orderId: data.orderId,
-      }],
+      conversions: [
+        {
+          gclid: data.gclid,
+          conversionAction: `customers/${customerId}/conversionActions/${conversionAction.id}`,
+          conversionDateTime: data.conversionDateTime,
+          conversionValue: data.conversionValue || 50,
+          currencyCode: "EUR",
+          orderId: data.orderId,
+        },
+      ],
       partialFailure: true,
     });
 
@@ -349,7 +376,7 @@ export async function uploadClickConversion(
  */
 export async function getCampaigns(
   config: GoogleAdsConfig,
-  dateRange: { startDate: string; endDate: string }
+  dateRange: { startDate: string; endDate: string },
 ): Promise<CampaignData[]> {
   const query = `
     SELECT
@@ -380,7 +407,7 @@ export async function getCampaigns(
  */
 export async function getCampaignPerformanceByCity(
   config: GoogleAdsConfig,
-  dateRange: { startDate: string; endDate: string }
+  dateRange: { startDate: string; endDate: string },
 ): Promise<unknown[]> {
   const query = `
     SELECT
@@ -409,7 +436,7 @@ export async function getCampaignPerformanceByCity(
  */
 export async function getPerformanceReport(
   config: GoogleAdsConfig,
-  dateRange: { startDate: string; endDate: string }
+  dateRange: { startDate: string; endDate: string },
 ): Promise<unknown[]> {
   const query = `
     SELECT
@@ -435,7 +462,7 @@ export async function getPerformanceReport(
  */
 export async function getKeywordReport(
   config: GoogleAdsConfig,
-  dateRange: { startDate: string; endDate: string }
+  dateRange: { startDate: string; endDate: string },
 ): Promise<unknown[]> {
   const query = `
     SELECT
@@ -464,7 +491,7 @@ export async function getKeywordReport(
  */
 export async function getConversionReport(
   config: GoogleAdsConfig,
-  dateRange: { startDate: string; endDate: string }
+  dateRange: { startDate: string; endDate: string },
 ): Promise<unknown[]> {
   const query = `
     SELECT
@@ -489,7 +516,7 @@ export async function getConversionReport(
  */
 export async function getCallExtensionReport(
   config: GoogleAdsConfig,
-  dateRange: { startDate: string; endDate: string }
+  dateRange: { startDate: string; endDate: string },
 ): Promise<unknown[]> {
   const query = `
     SELECT
@@ -531,41 +558,58 @@ interface NewCampaignParams {
  */
 export async function createCampaign(
   config: GoogleAdsConfig,
-  params: NewCampaignParams
+  params: NewCampaignParams,
 ): Promise<{ success: boolean; campaignId?: string; error?: string }> {
   const customerId = config.customerId.replace(/-/g, "");
 
   try {
     // Step 1: Create budget
     const budgetEndpoint = `/customers/${customerId}/campaignBudgets:mutate`;
-    const budgetResult = await googleAdsRequest(config, budgetEndpoint, "POST", {
-      operations: [{
-        create: {
-          name: `Budget for ${params.name}`,
-          amountMicros: params.dailyBudgetMicros,
-          deliveryMethod: "STANDARD",
-        },
-      }],
-    }) as { results: Array<{ resourceName: string }> };
+    const budgetResult = (await googleAdsRequest(
+      config,
+      budgetEndpoint,
+      "POST",
+      {
+        operations: [
+          {
+            create: {
+              name: `Budget for ${params.name}`,
+              amountMicros: params.dailyBudgetMicros,
+              deliveryMethod: "STANDARD",
+            },
+          },
+        ],
+      },
+    )) as { results: Array<{ resourceName: string }> };
     const budgetResourceName = budgetResult.results[0].resourceName;
 
     // Step 2: Create campaign
     const campaignEndpoint = `/customers/${customerId}/campaigns:mutate`;
-    const campaignResult = await googleAdsRequest(config, campaignEndpoint, "POST", {
-      operations: [{
-        create: {
-          name: params.name,
-          advertisingChannelType: "SEARCH",
-          status: "PAUSED", // Start paused for review
-          campaignBudget: budgetResourceName,
-          networkSettings: {
-            targetGoogleSearch: true,
-            targetSearchNetwork: true,
+    const campaignResult = (await googleAdsRequest(
+      config,
+      campaignEndpoint,
+      "POST",
+      {
+        operations: [
+          {
+            create: {
+              name: params.name,
+              advertisingChannelType: "SEARCH",
+              status: "PAUSED", // Start paused for review
+              campaignBudget: budgetResourceName,
+              networkSettings: {
+                targetGoogleSearch: true,
+                targetSearchNetwork: true,
+              },
+              startDate: new Date()
+                .toISOString()
+                .split("T")[0]
+                .replace(/-/g, ""),
+            },
           },
-          startDate: new Date().toISOString().split("T")[0].replace(/-/g, ""),
-        },
-      }],
-    }) as { results: Array<{ resourceName: string }> };
+        ],
+      },
+    )) as { results: Array<{ resourceName: string }> };
     const campaignResourceName = campaignResult.results[0].resourceName;
 
     // Step 3: Add location targeting
@@ -620,7 +664,9 @@ export function formatDateForAPI(date: Date): string {
 /**
  * Test API connection
  */
-export async function testConnection(config: GoogleAdsConfig): Promise<{ success: boolean; error?: string }> {
+export async function testConnection(
+  config: GoogleAdsConfig,
+): Promise<{ success: boolean; error?: string }> {
   try {
     await getAccessToken(config);
     // Try a simple query to verify access

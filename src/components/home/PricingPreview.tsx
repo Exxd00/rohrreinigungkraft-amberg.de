@@ -71,7 +71,9 @@ export default function PricingPreview() {
                       Häufig
                     </span>
                   )}
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{item.service}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                    {item.service}
+                  </p>
                   <p className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                     ab {item.price}€
                   </p>

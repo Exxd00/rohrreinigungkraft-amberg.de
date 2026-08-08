@@ -2,7 +2,14 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, ZoomIn, X, ChevronLeft, ChevronRight, MoveHorizontal } from "lucide-react";
+import {
+  ArrowRight,
+  ZoomIn,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  MoveHorizontal,
+} from "lucide-react";
 import { beforeAfterGallery, gallery } from "@/data/company";
 import { Button } from "@/components/ui/button";
 
@@ -11,11 +18,14 @@ const photoItems = gallery
   .filter(
     (g) =>
       g.image !== "/work/kanalreinigung-vorher.jpg" &&
-      g.image !== "/work/kanalreinigung-nachher.jpg"
+      g.image !== "/work/kanalreinigung-nachher.jpg",
   )
   .slice(0, 6);
 
-function InlineBeforeAfter({ before, after }: { before: string; after: string }) {
+function InlineBeforeAfter({
+  before,
+  after,
+}: { before: string; after: string }) {
   const [pos, setPos] = useState(50);
   const [dragging, setDragging] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -67,7 +77,10 @@ function InlineBeforeAfter({ before, after }: { before: string; after: string })
         draggable={false}
       />
       {/* Before (clipped) */}
-      <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
+      <div
+        className="absolute inset-0 overflow-hidden"
+        style={{ width: `${pos}%` }}
+      >
         <img
           src={before}
           alt="Vorher"
@@ -106,9 +119,13 @@ export default function Gallery() {
 
   const close = () => setLightbox(null);
   const prev = () =>
-    setLightbox((p) => (p === null ? p : p === 0 ? photoItems.length - 1 : p - 1));
+    setLightbox((p) =>
+      p === null ? p : p === 0 ? photoItems.length - 1 : p - 1,
+    );
   const next = () =>
-    setLightbox((p) => (p === null ? p : p === photoItems.length - 1 ? 0 : p + 1));
+    setLightbox((p) =>
+      p === null ? p : p === photoItems.length - 1 ? 0 : p + 1,
+    );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -157,12 +174,17 @@ export default function Gallery() {
           <div className="grid lg:grid-cols-2 gap-6 items-start">
             {/* Featured before/after */}
             <div className="bg-white dark:bg-gray-900 rounded-3xl p-3 shadow-lg">
-              <InlineBeforeAfter before={pair.beforeImage} after={pair.afterImage} />
+              <InlineBeforeAfter
+                before={pair.beforeImage}
+                after={pair.afterImage}
+              />
               <div className="p-4">
                 <span className="px-2 py-1 bg-primary/10 text-primary text-xs font-medium rounded">
                   {pair.category}
                 </span>
-                <h3 className="font-bold text-gray-900 dark:text-white mt-2">{pair.title}</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white mt-2">
+                  {pair.title}
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                   {pair.description}
                 </p>
@@ -240,7 +262,10 @@ export default function Gallery() {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-          <div className="max-w-3xl w-full" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="max-w-3xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img
               src={active.image}
               alt={active.title}
@@ -250,7 +275,9 @@ export default function Gallery() {
               <span className="px-2 py-1 bg-primary text-white text-xs font-medium rounded">
                 {active.category}
               </span>
-              <h3 className="text-white font-bold text-lg mt-2">{active.title}</h3>
+              <h3 className="text-white font-bold text-lg mt-2">
+                {active.title}
+              </h3>
               <p className="text-gray-400 text-sm mt-1">{active.description}</p>
             </div>
           </div>

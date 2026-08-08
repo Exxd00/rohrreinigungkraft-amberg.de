@@ -21,7 +21,10 @@ function getConfig(): GoogleAdsConfig {
   };
 }
 
-function getDateRange(searchParams: URLSearchParams): { startDate: string; endDate: string } {
+function getDateRange(searchParams: URLSearchParams): {
+  startDate: string;
+  endDate: string;
+} {
   const today = new Date();
   const range = searchParams.get("range") || "30d";
 
@@ -107,31 +110,38 @@ export async function GET(request: NextRequest) {
 
       case "complete":
         // Generate a complete report with all data
-        const [performance, keywords, conversions, calls, campaigns] = await Promise.all([
-          getPerformanceReport(config, dateRange),
-          getKeywordReport(config, dateRange),
-          getConversionReport(config, dateRange),
-          getCallExtensionReport(config, dateRange).catch(() => []),
-          getCampaigns(config, dateRange),
-        ]);
+        const [performance, keywords, conversions, calls, campaigns] =
+          await Promise.all([
+            getPerformanceReport(config, dateRange),
+            getKeywordReport(config, dateRange),
+            getConversionReport(config, dateRange),
+            getCallExtensionReport(config, dateRange).catch(() => []),
+            getCampaigns(config, dateRange),
+          ]);
 
-        data = [{
-          dateRange,
-          performance,
-          keywords,
-          conversions,
-          calls,
-          campaigns,
-          summary: calculateSummary(performance),
-        }];
+        data = [
+          {
+            dateRange,
+            performance,
+            keywords,
+            conversions,
+            calls,
+            campaigns,
+            summary: calculateSummary(performance),
+          },
+        ];
         reportName = "complete_report";
         break;
 
       default:
-        return NextResponse.json({
-          success: false,
-          error: "Unknown report type. Use: performance, keywords, conversions, calls, cities, campaigns, complete"
-        }, { status: 400 });
+        return NextResponse.json(
+          {
+            success: false,
+            error:
+              "Unknown report type. Use: performance, keywords, conversions, calls, cities, campaigns, complete",
+          },
+          { status: 400 },
+        );
     }
 
     // Format response
@@ -151,10 +161,12 @@ export async function GET(request: NextRequest) {
       dateRange,
       data,
     });
-
   } catch (error) {
     console.error("[Reports API]", error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 },
+    );
   }
 }
 
@@ -198,7 +210,8 @@ function calculateSummary(data: unknown[]): Record<string, number> {
     totalConversionValue,
     avgCPC: totalClicks > 0 ? totalCost / totalClicks : 0,
     avgCTR: totalImpressions > 0 ? (totalClicks / totalImpressions) * 100 : 0,
-    avgCostPerConversion: totalConversions > 0 ? totalCost / totalConversions : 0,
+    avgCostPerConversion:
+      totalConversions > 0 ? totalCost / totalConversions : 0,
   };
 }
 
@@ -209,7 +222,10 @@ function convertToCSV(data: unknown[]): string {
   }
 
   // Flatten nested objects
-  const flattenObject = (obj: unknown, prefix = ""): Record<string, unknown> => {
+  const flattenObject = (
+    obj: unknown,
+    prefix = "",
+  ): Record<string, unknown> => {
     const flattened: Record<string, unknown> = {};
 
     for (const [key, value] of Object.entries(obj as Record<string, unknown>)) {
@@ -225,27 +241,29 @@ function convertToCSV(data: unknown[]): string {
     return flattened;
   };
 
-  const flatData = data.map(row => flattenObject(row));
+  const flatData = data.map((row) => flattenObject(row));
 
   // Get all unique headers
   const headers = new Set<string>();
-  flatData.forEach(row => {
-    Object.keys(row).forEach(key => headers.add(key));
+  flatData.forEach((row) => {
+    Object.keys(row).forEach((key) => headers.add(key));
   });
   const headerArray = Array.from(headers);
 
   // Create CSV
   const csvRows = [
     headerArray.join(","),
-    ...flatData.map(row =>
-      headerArray.map(header => {
-        const value = row[header];
-        if (value === null || value === undefined) return "";
-        if (typeof value === "string" && value.includes(",")) {
-          return `"${value.replace(/"/g, '""')}"`;
-        }
-        return String(value);
-      }).join(",")
+    ...flatData.map((row) =>
+      headerArray
+        .map((header) => {
+          const value = row[header];
+          if (value === null || value === undefined) return "";
+          if (typeof value === "string" && value.includes(",")) {
+            return `"${value.replace(/"/g, '""')}"`;
+          }
+          return String(value);
+        })
+        .join(","),
     ),
   ];
 

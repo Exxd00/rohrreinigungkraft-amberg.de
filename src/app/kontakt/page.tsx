@@ -18,8 +18,8 @@ export default function KontaktPage() {
               <span className="text-gradient">Kontakt</span>
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Haben Sie Fragen oder benötigen Sie schnelle Hilfe?
-              Kontaktieren Sie uns - wir sind 24/7 für Sie da!
+              Haben Sie Fragen oder benötigen Sie schnelle Hilfe? Kontaktieren
+              Sie uns - wir sind 24/7 für Sie da!
             </p>
           </div>
         </div>
@@ -40,9 +40,7 @@ export default function KontaktPage() {
                 <p className="text-gray-500 dark:text-gray-400 mb-2">
                   Amberg & Umgebung
                 </p>
-                <p className="text-sm text-gray-400">
-                  Bayern - Oberpfalz
-                </p>
+                <p className="text-sm text-gray-400">Bayern - Oberpfalz</p>
               </div>
             </div>
           </div>

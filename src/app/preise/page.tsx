@@ -21,17 +21,24 @@ import {
   Store,
   Eye,
   FileText,
-  MessageSquare
+  MessageSquare,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company } from "@/data/company";
 import { packages, getPrivatePackages, getB2BPackages } from "@/data/packages";
-import { guaranteesBefore, guaranteesDuring, guaranteesAfter, guaranteeSummary } from "@/data/guarantees";
+import {
+  guaranteesBefore,
+  guaranteesDuring,
+  guaranteesAfter,
+  guaranteeSummary,
+} from "@/data/guarantees";
 import { getFAQForPage } from "@/data/faq-database";
 
 export const metadata: Metadata = {
-  title: "Rohrreinigung Preise | Festpreis BEVOR wir anfangen | Keine Überraschungen",
-  description: "Was kostet Rohrreinigung? Ab 79€. Der EXAKTE Preis nach kostenloser Diagnose – BEVOR die Arbeit beginnt. Lehnen Sie ab? Kostet nichts. Jetzt informieren!",
+  title:
+    "Rohrreinigung Preise | Festpreis BEVOR wir anfangen | Keine Überraschungen",
+  description:
+    "Was kostet Rohrreinigung? Ab 79€. Der EXAKTE Preis nach kostenloser Diagnose – BEVOR die Arbeit beginnt. Lehnen Sie ab? Kostet nichts. Jetzt informieren!",
 };
 
 // Icon mapping for packages
@@ -48,20 +55,52 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 // Color mapping for packages
 const colorMap: Record<string, { bg: string; text: string; border: string }> = {
-  red: { bg: "bg-red-100 dark:bg-red-900/30", text: "text-red-600", border: "border-red-500" },
-  amber: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-600", border: "border-amber-500" },
-  blue: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-600", border: "border-blue-500" },
-  emerald: { bg: "bg-emerald-100 dark:bg-emerald-900/30", text: "text-emerald-600", border: "border-emerald-500" },
-  purple: { bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-600", border: "border-purple-500" },
-  slate: { bg: "bg-slate-100 dark:bg-slate-900/30", text: "text-slate-600", border: "border-slate-500" },
-  cyan: { bg: "bg-cyan-100 dark:bg-cyan-900/30", text: "text-cyan-600", border: "border-cyan-500" },
-  orange: { bg: "bg-orange-100 dark:bg-orange-900/30", text: "text-orange-600", border: "border-orange-500" },
+  red: {
+    bg: "bg-red-100 dark:bg-red-900/30",
+    text: "text-red-600",
+    border: "border-red-500",
+  },
+  amber: {
+    bg: "bg-amber-100 dark:bg-amber-900/30",
+    text: "text-amber-600",
+    border: "border-amber-500",
+  },
+  blue: {
+    bg: "bg-blue-100 dark:bg-blue-900/30",
+    text: "text-blue-600",
+    border: "border-blue-500",
+  },
+  emerald: {
+    bg: "bg-emerald-100 dark:bg-emerald-900/30",
+    text: "text-emerald-600",
+    border: "border-emerald-500",
+  },
+  purple: {
+    bg: "bg-purple-100 dark:bg-purple-900/30",
+    text: "text-purple-600",
+    border: "border-purple-500",
+  },
+  slate: {
+    bg: "bg-slate-100 dark:bg-slate-900/30",
+    text: "text-slate-600",
+    border: "border-slate-500",
+  },
+  cyan: {
+    bg: "bg-cyan-100 dark:bg-cyan-900/30",
+    text: "text-cyan-600",
+    border: "border-cyan-500",
+  },
+  orange: {
+    bg: "bg-orange-100 dark:bg-orange-900/30",
+    text: "text-orange-600",
+    border: "border-orange-500",
+  },
 };
 
 const emergencyPricing = {
   evening: { time: "18-22 Uhr", surcharge: 20 },
   night: { time: "22-6 Uhr", surcharge: 40 },
-  weekend: { time: "Wochenende/Feiertag", surcharge: 30 }
+  weekend: { time: "Wochenende/Feiertag", surcharge: 30 },
 };
 
 // Get FAQs for this page
@@ -79,7 +118,9 @@ export default function PreisePage() {
           <div className="max-w-3xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-1.5 text-xs text-white/50 mb-4">
-              <Link href="/" className="hover:text-primary">Startseite</Link>
+              <Link href="/" className="hover:text-primary">
+                Startseite
+              </Link>
               <span>/</span>
               <span className="text-white/70">Preise</span>
             </div>
@@ -92,9 +133,10 @@ export default function PreisePage() {
               </span>
             </h1>
             <p className="text-lg text-white/80 mb-6 max-w-2xl mx-auto">
-              Jede Verstopfung ist anders. Deshalb: Wir kommen, schauen kostenlos nach,
-              nennen Ihnen den <strong className="text-white">EXAKTEN Festpreis</strong> – und Sie entscheiden.
-              Kein Start ohne Ihr OK.
+              Jede Verstopfung ist anders. Deshalb: Wir kommen, schauen
+              kostenlos nach, nennen Ihnen den{" "}
+              <strong className="text-white">EXAKTEN Festpreis</strong> – und
+              Sie entscheiden. Kein Start ohne Ihr OK.
             </p>
 
             {/* The Promise */}
@@ -106,7 +148,9 @@ export default function PreisePage() {
                   <p className="text-xs text-white/70">Diagnose kostet</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-emerald-400">100%</div>
+                  <div className="text-2xl font-bold text-emerald-400">
+                    100%
+                  </div>
                   <p className="text-xs text-white/70">Festpreis vorab</p>
                 </div>
                 <div>
@@ -120,11 +164,15 @@ export default function PreisePage() {
             <div className="flex flex-wrap justify-center gap-3">
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
                 <CheckCircle className="w-4 h-4 text-emerald-400" />
-                <span className="text-sm font-medium">Lehnen Sie ab? Kostet nichts.</span>
+                <span className="text-sm font-medium">
+                  Lehnen Sie ab? Kostet nichts.
+                </span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
                 <Euro className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium">Ab 79€ für einfache Fälle</span>
+                <span className="text-sm font-medium">
+                  Ab 79€ für einfache Fälle
+                </span>
               </div>
             </div>
           </div>
@@ -137,23 +185,39 @@ export default function PreisePage() {
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-4 gap-4 text-center">
               <div className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">1</div>
-                <p className="text-sm font-medium text-gray-900 dark:text-white">Sie rufen an</p>
+                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">
+                  1
+                </div>
+                <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  Sie rufen an
+                </p>
                 <p className="text-xs text-gray-500">Schildern das Problem</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">2</div>
-                <p className="text-sm font-medium text-gray-900 dark:text-white">Wir kommen</p>
+                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">
+                  2
+                </div>
+                <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  Wir kommen
+                </p>
                 <p className="text-xs text-gray-500">Zeit ehrlich am Telefon</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">3</div>
-                <p className="text-sm font-medium text-gray-900 dark:text-white">Festpreis</p>
+                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">
+                  3
+                </div>
+                <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  Festpreis
+                </p>
                 <p className="text-xs text-gray-500">BEVOR wir starten</p>
               </div>
               <div className="flex flex-col items-center">
-                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">4</div>
-                <p className="text-sm font-medium text-gray-900 dark:text-white">Sie entscheiden</p>
+                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">
+                  4
+                </div>
+                <p className="text-sm font-medium text-gray-900 dark:text-white">
+                  Sie entscheiden
+                </p>
                 <p className="text-xs text-gray-500">OK = Wir arbeiten</p>
               </div>
             </div>
@@ -170,7 +234,8 @@ export default function PreisePage() {
                 Welches Paket passt zu Ihrer Situation?
               </h2>
               <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Wählen Sie nach Ihrem Bedarf. Der finale Festpreis wird nach der kostenlosen Diagnose genannt.
+                Wählen Sie nach Ihrem Bedarf. Der finale Festpreis wird nach der
+                kostenlosen Diagnose genannt.
               </p>
             </div>
 
@@ -184,23 +249,29 @@ export default function PreisePage() {
                     className={`relative bg-white dark:bg-gray-800 rounded-2xl p-6 border-2 transition-all hover:shadow-xl ${
                       pkg.popular
                         ? `${colors.border} shadow-lg`
-                        : 'border-gray-100 dark:border-gray-700 hover:border-primary/50'
+                        : "border-gray-100 dark:border-gray-700 hover:border-primary/50"
                     }`}
                   >
                     {pkg.popular && (
-                      <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full flex items-center gap-1`}>
+                      <div
+                        className={`absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-emerald-500 text-white text-xs font-bold rounded-full flex items-center gap-1`}
+                      >
                         <Star className="w-3 h-3 fill-white" />
                         {pkg.badge}
                       </div>
                     )}
 
                     {pkg.badge && !pkg.popular && (
-                      <div className={`absolute -top-3 left-4 px-3 py-1 ${colors.bg} ${colors.text} text-xs font-bold rounded-full`}>
+                      <div
+                        className={`absolute -top-3 left-4 px-3 py-1 ${colors.bg} ${colors.text} text-xs font-bold rounded-full`}
+                      >
                         {pkg.badge}
                       </div>
                     )}
 
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${colors.bg}`}>
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${colors.bg}`}
+                    >
                       <Icon className={`w-6 h-6 ${colors.text}`} />
                     </div>
 
@@ -219,7 +290,9 @@ export default function PreisePage() {
                     <div className="mb-4">
                       <div className="flex items-baseline gap-1">
                         <span className="text-sm text-gray-500">ab</span>
-                        <span className="text-3xl font-black text-gray-900 dark:text-white">{pkg.priceFrom}€</span>
+                        <span className="text-3xl font-black text-gray-900 dark:text-white">
+                          {pkg.priceFrom}€
+                        </span>
                       </div>
                       <p className="text-xs text-gray-500">
                         Typisch: {pkg.priceTypical}€
@@ -228,15 +301,22 @@ export default function PreisePage() {
 
                     <div className="space-y-2 mb-4">
                       {pkg.includes.slice(0, 4).map((item) => (
-                        <div key={item} className="flex items-start gap-2 text-sm">
+                        <div
+                          key={item}
+                          className="flex items-start gap-2 text-sm"
+                        >
                           <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                          <span className="text-gray-700 dark:text-gray-300">
+                            {item}
+                          </span>
                         </div>
                       ))}
                     </div>
 
                     {/* Guarantee */}
-                    <div className={`flex items-center gap-2 text-xs p-2 rounded-lg mb-4 ${colors.bg}`}>
+                    <div
+                      className={`flex items-center gap-2 text-xs p-2 rounded-lg mb-4 ${colors.bg}`}
+                    >
                       <Shield className={`w-3 h-3 ${colors.text}`} />
                       <span className={`font-medium ${colors.text}`}>
                         {pkg.guarantee.duration} Garantie
@@ -249,16 +329,20 @@ export default function PreisePage() {
                     </div>
 
                     <Link href={`tel:${company.contact.phone}`}>
-                      <Button className={`w-full ${
-                        pkg.popular
-                          ? 'bg-emerald-600 hover:bg-emerald-700'
-                          : 'gradient-primary'
-                      } text-white`}>
+                      <Button
+                        className={`w-full ${
+                          pkg.popular
+                            ? "bg-emerald-600 hover:bg-emerald-700"
+                            : "gradient-primary"
+                        } text-white`}
+                      >
                         <Phone className="w-4 h-4 mr-2" />
                         {pkg.cta.text}
                       </Button>
                     </Link>
-                    <p className="text-xs text-center text-gray-500 mt-2">{pkg.cta.urgency}</p>
+                    <p className="text-xs text-center text-gray-500 mt-2">
+                      {pkg.cta.urgency}
+                    </p>
                   </div>
                 );
               })}
@@ -280,23 +364,42 @@ export default function PreisePage() {
                   Notdienst-Zuschläge – AM TELEFON genannt
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                  Nachts oder am Wochenende? Der Zuschlag wird VOR der Anfahrt am Telefon genannt – keine Überraschung vor Ort.
+                  Nachts oder am Wochenende? Der Zuschlag wird VOR der Anfahrt
+                  am Telefon genannt – keine Überraschung vor Ort.
                 </p>
                 <div className="grid grid-cols-3 gap-3">
                   <div className="text-center p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Abend</p>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">{emergencyPricing.evening.time}</p>
-                    <p className="text-lg font-bold text-amber-600">+{emergencyPricing.evening.surcharge}€</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Abend
+                    </p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      {emergencyPricing.evening.time}
+                    </p>
+                    <p className="text-lg font-bold text-amber-600">
+                      +{emergencyPricing.evening.surcharge}€
+                    </p>
                   </div>
                   <div className="text-center p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Nacht</p>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">{emergencyPricing.night.time}</p>
-                    <p className="text-lg font-bold text-amber-600">+{emergencyPricing.night.surcharge}€</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Nacht
+                    </p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      {emergencyPricing.night.time}
+                    </p>
+                    <p className="text-lg font-bold text-amber-600">
+                      +{emergencyPricing.night.surcharge}€
+                    </p>
                   </div>
                   <div className="text-center p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Wochenende</p>
-                    <p className="text-sm font-medium text-gray-900 dark:text-white">{emergencyPricing.weekend.time}</p>
-                    <p className="text-lg font-bold text-amber-600">+{emergencyPricing.weekend.surcharge}€</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Wochenende
+                    </p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">
+                      {emergencyPricing.weekend.time}
+                    </p>
+                    <p className="text-lg font-bold text-amber-600">
+                      +{emergencyPricing.weekend.surcharge}€
+                    </p>
                   </div>
                 </div>
               </div>
@@ -327,14 +430,20 @@ export default function PreisePage() {
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                   {guaranteeSummary.before.title}
                 </h3>
-                <p className="text-sm text-gray-500 mb-4">{guaranteeSummary.before.subtitle}</p>
+                <p className="text-sm text-gray-500 mb-4">
+                  {guaranteeSummary.before.subtitle}
+                </p>
                 <div className="space-y-3">
                   {guaranteesBefore.slice(0, 4).map((g) => (
                     <div key={g.id} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">{g.name}</p>
-                        <p className="text-xs text-gray-500">{g.shortDescription}</p>
+                        <p className="text-sm font-medium text-gray-900 dark:text-white">
+                          {g.name}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {g.shortDescription}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -349,14 +458,20 @@ export default function PreisePage() {
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                   {guaranteeSummary.during.title}
                 </h3>
-                <p className="text-sm text-gray-500 mb-4">{guaranteeSummary.during.subtitle}</p>
+                <p className="text-sm text-gray-500 mb-4">
+                  {guaranteeSummary.during.subtitle}
+                </p>
                 <div className="space-y-3">
                   {guaranteesDuring.map((g) => (
                     <div key={g.id} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">{g.name}</p>
-                        <p className="text-xs text-gray-500">{g.shortDescription}</p>
+                        <p className="text-sm font-medium text-gray-900 dark:text-white">
+                          {g.name}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {g.shortDescription}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -371,14 +486,20 @@ export default function PreisePage() {
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
                   {guaranteeSummary.after.title}
                 </h3>
-                <p className="text-sm text-gray-500 mb-4">{guaranteeSummary.after.subtitle}</p>
+                <p className="text-sm text-gray-500 mb-4">
+                  {guaranteeSummary.after.subtitle}
+                </p>
                 <div className="space-y-3">
                   {guaranteesAfter.slice(0, 4).map((g) => (
                     <div key={g.id} className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                       <div>
-                        <p className="text-sm font-medium text-gray-900 dark:text-white">{g.name}</p>
-                        <p className="text-xs text-gray-500">{g.shortDescription}</p>
+                        <p className="text-sm font-medium text-gray-900 dark:text-white">
+                          {g.name}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {g.shortDescription}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -403,21 +524,27 @@ export default function PreisePage() {
                     Warum kein fixer Preis auf der Website?
                   </h2>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Weil jede Verstopfung anders ist – und wir Sie nicht belügen wollen.
+                    Weil jede Verstopfung anders ist – und wir Sie nicht belügen
+                    wollen.
                   </p>
                 </div>
               </div>
 
               <div className="space-y-4 text-gray-700 dark:text-gray-300">
                 <p>
-                  <strong>Beispiel 1:</strong> Eine Toilette mit Feuchttuch-Problem ist in <strong>15 Minuten</strong> gelöst. Kosten: ca. 85€.
+                  <strong>Beispiel 1:</strong> Eine Toilette mit
+                  Feuchttuch-Problem ist in <strong>15 Minuten</strong> gelöst.
+                  Kosten: ca. 85€.
                 </p>
                 <p>
-                  <strong>Beispiel 2:</strong> Eine tiefsitzende Wurzelverstopfung braucht Spezialequipment und <strong>2 Stunden</strong>. Kosten: ca. 380€.
+                  <strong>Beispiel 2:</strong> Eine tiefsitzende
+                  Wurzelverstopfung braucht Spezialequipment und{" "}
+                  <strong>2 Stunden</strong>. Kosten: ca. 380€.
                 </p>
                 <p>
-                  Einen fixen Preis zu nennen wäre entweder <strong>zu teuer für Sie</strong> (bei einfachen Fällen)
-                  oder <strong>unrealistisch für uns</strong> (bei komplexen).
+                  Einen fixen Preis zu nennen wäre entweder{" "}
+                  <strong>zu teuer für Sie</strong> (bei einfachen Fällen) oder{" "}
+                  <strong>unrealistisch für uns</strong> (bei komplexen).
                 </p>
 
                 <div className="bg-emerald-50 dark:bg-emerald-900/20 p-4 rounded-xl border border-emerald-200 dark:border-emerald-800 mt-6">
@@ -427,19 +554,31 @@ export default function PreisePage() {
                   <ol className="space-y-2 text-emerald-700 dark:text-emerald-400">
                     <li className="flex items-start gap-2">
                       <span className="font-bold">1.</span>
-                      <span>Wir kommen und schauen uns das Problem an <strong>(kostet Sie: 0€)</strong></span>
+                      <span>
+                        Wir kommen und schauen uns das Problem an{" "}
+                        <strong>(kostet Sie: 0€)</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-bold">2.</span>
-                      <span>Wir erklären, was wir tun müssen <strong>(Sie verstehen es)</strong></span>
+                      <span>
+                        Wir erklären, was wir tun müssen{" "}
+                        <strong>(Sie verstehen es)</strong>
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-bold">3.</span>
-                      <span>Wir nennen den <strong>EXAKTEN Festpreis</strong> (nicht "ab" oder "ca.")</span>
+                      <span>
+                        Wir nennen den <strong>EXAKTEN Festpreis</strong> (nicht
+                        "ab" oder "ca.")
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-bold">4.</span>
-                      <span>Sie entscheiden <strong>(Nein = wir gehen, kostet nichts)</strong></span>
+                      <span>
+                        Sie entscheiden{" "}
+                        <strong>(Nein = wir gehen, kostet nichts)</strong>
+                      </span>
                     </li>
                   </ol>
                 </div>
@@ -462,12 +601,16 @@ export default function PreisePage() {
                   Hausverwaltung, WEG oder Gewerbe?
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Rahmenverträge mit 10% Rabatt, Prioritäts-Notdienst, Sammelrechnung.
-                  Wartung ab 29€/Einheit/Monat → bis zu 80% weniger Notfälle.
+                  Rahmenverträge mit 10% Rabatt, Prioritäts-Notdienst,
+                  Sammelrechnung. Wartung ab 29€/Einheit/Monat → bis zu 80%
+                  weniger Notfälle.
                 </p>
               </div>
               <Link href="/hausverwaltung">
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                <Button
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary/10"
+                >
                   B2B-Konditionen
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -509,7 +652,10 @@ export default function PreisePage() {
 
             <div className="text-center mt-8">
               <Link href="/faq">
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10">
+                <Button
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary/10"
+                >
                   Alle Fragen ansehen
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -526,8 +672,9 @@ export default function PreisePage() {
             Bereit für Klarheit?
           </h2>
           <p className="mb-6 opacity-90 max-w-xl mx-auto">
-            Rufen Sie an. Wir kommen, prüfen <strong>kostenlos</strong> und nennen den <strong>Festpreis</strong> – bevor wir starten.
-            Lehnen Sie ab? Kostet nichts.
+            Rufen Sie an. Wir kommen, prüfen <strong>kostenlos</strong> und
+            nennen den <strong>Festpreis</strong> – bevor wir starten. Lehnen
+            Sie ab? Kostet nichts.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href={`tel:${company.contact.phone}`}>
@@ -553,15 +700,17 @@ export default function PreisePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": pageFAQ.filter(faq => faq.schema).map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.fullAnswer
-              }
-            }))
-          })
+            mainEntity: pageFAQ
+              .filter((faq) => faq.schema)
+              .map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.fullAnswer,
+                },
+              })),
+          }),
         }}
       />
     </>

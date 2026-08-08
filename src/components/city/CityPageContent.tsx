@@ -2,7 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, Clock, ArrowRight, CheckCircle, Zap, Users, Shield, Star, AlertTriangle, Wrench, MapPin, Quote, ChevronDown, HelpCircle } from "lucide-react";
+import {
+  Phone,
+  Clock,
+  ArrowRight,
+  CheckCircle,
+  Zap,
+  Users,
+  Shield,
+  Star,
+  AlertTriangle,
+  Wrench,
+  MapPin,
+  Quote,
+  ChevronDown,
+  HelpCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { company } from "@/data/company";
 import CallConfirmModal from "@/components/layout/CallConfirmModal";
@@ -27,7 +42,12 @@ interface CityPageContentProps {
   enhancedContent: EnhancedCityContent | null;
 }
 
-export default function CityPageContent({ city, mainServices, nearbyCities, enhancedContent }: CityPageContentProps) {
+export default function CityPageContent({
+  city,
+  mainServices,
+  nearbyCities,
+  enhancedContent,
+}: CityPageContentProps) {
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
 
   const commonProblems = [
@@ -57,7 +77,9 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
           <div className="max-w-3xl mx-auto text-center">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 text-sm text-white/60 mb-4">
-              <Link href="/" className="hover:text-primary transition-colors">Startseite</Link>
+              <Link href="/" className="hover:text-primary transition-colors">
+                Startseite
+              </Link>
               <span>/</span>
               <span className="text-primary font-medium">{city.name}</span>
             </div>
@@ -65,7 +87,9 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
             {/* Urgency Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 border border-red-500/30 rounded-full mb-4">
               <AlertTriangle className="w-4 h-4 text-red-400" />
-              <span className="text-sm font-semibold text-red-300">Notfall in {city.name}? Sofort-Hilfe!</span>
+              <span className="text-sm font-semibold text-red-300">
+                Notfall in {city.name}? Sofort-Hilfe!
+              </span>
             </div>
 
             {/* Availability Badge */}
@@ -92,7 +116,11 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
 
             {/* Subheadline */}
             <p className="text-lg md:text-xl text-white/90 mb-6 font-medium">
-              In <span className="text-primary font-bold">{company.urgency.responseTime} Min</span> bei Ihnen •{" "}
+              In{" "}
+              <span className="text-primary font-bold">
+                {company.urgency.responseTime} Min
+              </span>{" "}
+              bei Ihnen •{" "}
               <span className="text-green-400">Festpreis vorab</span> • 24/7
             </p>
 
@@ -108,7 +136,9 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                     <Phone className="w-7 h-7 text-white" />
                   </div>
                   <div className="text-left">
-                    <p className="text-white/90 text-sm font-medium">Jetzt kostenlos anrufen</p>
+                    <p className="text-white/90 text-sm font-medium">
+                      Jetzt kostenlos anrufen
+                    </p>
                     <p className="text-white text-2xl md:text-3xl font-black">
                       {company.contact.phoneDisplay}
                     </p>
@@ -143,8 +173,17 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
         </div>
 
         <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-            <path d="M0 30L60 27C120 24 240 18 360 18C480 18 600 24 720 30C840 36 960 42 1080 39C1200 36 1320 24 1380 18L1440 12V60H0V30Z" fill="white" className="dark:fill-gray-900"/>
+          <svg
+            viewBox="0 0 1440 60"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full"
+          >
+            <path
+              d="M0 30L60 27C120 24 240 18 360 18C480 18 600 24 720 30C840 36 960 42 1080 39C1200 36 1320 24 1380 18L1440 12V60H0V30Z"
+              fill="white"
+              className="dark:fill-gray-900"
+            />
           </svg>
         </div>
       </section>
@@ -179,11 +218,18 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
             {mainServices.map((service) => {
-              const priceKey = service.slug === "rohrreinigung" ? "rohrreinigung"
-                : service.slug === "kanalreinigung" ? "kanalreinigung"
-                : service.slug === "abflussreinigung" ? "abflussreinigung"
-                : "notdienst";
-              const price = company.pricing.services[priceKey as keyof typeof company.pricing.services];
+              const priceKey =
+                service.slug === "rohrreinigung"
+                  ? "rohrreinigung"
+                  : service.slug === "kanalreinigung"
+                    ? "kanalreinigung"
+                    : service.slug === "abflussreinigung"
+                      ? "abflussreinigung"
+                      : "notdienst";
+              const price =
+                company.pricing.services[
+                  priceKey as keyof typeof company.pricing.services
+                ];
 
               return (
                 <Link
@@ -198,7 +244,9 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                     {service.shortDescription}
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-primary font-bold text-lg">ab {price.from}€</span>
+                    <span className="text-primary font-bold text-lg">
+                      ab {price.from}€
+                    </span>
                     <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 </Link>
@@ -221,7 +269,9 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 <div className="w-14 h-14 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                   <Clock className="w-7 h-7 text-primary" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">{company.urgency.responseTime} Min</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {company.urgency.responseTime} Min
+                </p>
                 <p className="text-sm text-gray-500">Anfahrt</p>
               </div>
 
@@ -229,7 +279,9 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 <div className="w-14 h-14 mx-auto rounded-xl bg-green-500/10 flex items-center justify-center mb-3">
                   <Shield className="w-7 h-7 text-green-500" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">Festpreis</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  Festpreis
+                </p>
                 <p className="text-sm text-gray-500">Garantie</p>
               </div>
 
@@ -237,7 +289,9 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 <div className="w-14 h-14 mx-auto rounded-xl bg-amber-500/10 flex items-center justify-center mb-3">
                   <Star className="w-7 h-7 text-amber-500" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">{company.rating.score}</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {company.rating.score}
+                </p>
                 <p className="text-sm text-gray-500">Google Rating</p>
               </div>
 
@@ -245,24 +299,32 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 <div className="w-14 h-14 mx-auto rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                   <Users className="w-7 h-7 text-primary" />
                 </div>
-                <p className="text-2xl font-bold text-gray-900 dark:text-white">{company.stats.projectsCompleted}</p>
+                <p className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {company.stats.projectsCompleted}
+                </p>
                 <p className="text-sm text-gray-500">Kunden</p>
               </div>
             </div>
 
             <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 md:p-8">
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-                Als Ihr Rohrreinigungsdienst für <strong>{city.name}</strong> sind wir rund um die Uhr für Sie da.
-                Egal ob verstopfte Toilette, blockierter Abfluss oder Kanalprobleme – unser erfahrenes Team löst Ihr Problem schnell und zuverlässig.
+                Als Ihr Rohrreinigungsdienst für <strong>{city.name}</strong>{" "}
+                sind wir rund um die Uhr für Sie da. Egal ob verstopfte
+                Toilette, blockierter Abfluss oder Kanalprobleme – unser
+                erfahrenes Team löst Ihr Problem schnell und zuverlässig.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                  <span>Kostenlose Diagnose vor Ort – Sie entscheiden erst danach</span>
+                  <span>
+                    Kostenlose Diagnose vor Ort – Sie entscheiden erst danach
+                  </span>
                 </li>
                 <li className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
-                  <span>Festpreis vor Arbeitsbeginn – keine Überraschungen</span>
+                  <span>
+                    Festpreis vor Arbeitsbeginn – keine Überraschungen
+                  </span>
                 </li>
                 <li className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
@@ -295,9 +357,14 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 </div>
                 <ul className="grid md:grid-cols-2 gap-3">
                   {enhancedContent.localExpertise.points.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl">
+                    <li
+                      key={index}
+                      className="flex items-start gap-3 bg-white dark:bg-gray-800 p-4 rounded-xl"
+                    >
                       <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                      <span className="text-gray-700 dark:text-gray-300">{point}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {point}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -310,15 +377,21 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                   </h3>
                   <div className="grid sm:grid-cols-3 gap-4 text-center">
                     <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl">
-                      <p className="text-2xl font-bold text-primary">{enhancedContent.responseInfo.typical}</p>
+                      <p className="text-2xl font-bold text-primary">
+                        {enhancedContent.responseInfo.typical}
+                      </p>
                       <p className="text-xs text-gray-500">Typisch</p>
                     </div>
                     <div className="p-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl">
-                      <p className="text-2xl font-bold text-emerald-600">{enhancedContent.responseInfo.fastest}</p>
+                      <p className="text-2xl font-bold text-emerald-600">
+                        {enhancedContent.responseInfo.fastest}
+                      </p>
                       <p className="text-xs text-gray-500">Am schnellsten</p>
                     </div>
                     <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl flex items-center justify-center">
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{enhancedContent.responseInfo.note}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {enhancedContent.responseInfo.note}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -338,10 +411,17 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {enhancedContent.neighborhoods.map((neighborhood) => (
-                    <div key={neighborhood.name} className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 hover:shadow-md transition-shadow">
-                      <p className="font-semibold text-gray-900 dark:text-white">{neighborhood.name}</p>
+                    <div
+                      key={neighborhood.name}
+                      className="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 hover:shadow-md transition-shadow"
+                    >
+                      <p className="font-semibold text-gray-900 dark:text-white">
+                        {neighborhood.name}
+                      </p>
                       {neighborhood.description && (
-                        <p className="text-xs text-gray-500 mt-1">{neighborhood.description}</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {neighborhood.description}
+                        </p>
                       )}
                     </div>
                   ))}
@@ -359,11 +439,18 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 </h2>
                 <div className="space-y-4">
                   {enhancedContent.localProblems.problems.map((item, index) => (
-                    <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700">
+                    <div
+                      key={index}
+                      className="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700"
+                    >
                       <div className="flex flex-col md:flex-row md:items-center gap-4">
                         <div className="flex-1">
-                          <p className="font-semibold text-gray-900 dark:text-white">{item.problem}</p>
-                          <p className="text-sm text-gray-500 mt-1">Betrifft: {item.areas}</p>
+                          <p className="font-semibold text-gray-900 dark:text-white">
+                            {item.problem}
+                          </p>
+                          <p className="text-sm text-gray-500 mt-1">
+                            Betrifft: {item.areas}
+                          </p>
                         </div>
                         <div className="md:text-right">
                           <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
@@ -392,7 +479,8 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                       {enhancedContent.localTestimonial.name}
                     </p>
                     <p className="text-sm text-gray-500">
-                      {enhancedContent.localTestimonial.neighborhood} • {enhancedContent.localTestimonial.service}
+                      {enhancedContent.localTestimonial.neighborhood} •{" "}
+                      {enhancedContent.localTestimonial.service}
                     </p>
                   </div>
                 </div>
@@ -412,13 +500,20 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
                 </div>
                 <div className="space-y-4">
                   {enhancedContent.faq.map((faq, index) => (
-                    <details key={index} className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <details
+                      key={index}
+                      className="group bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 overflow-hidden"
+                    >
                       <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors list-none">
-                        <h3 className="font-semibold text-gray-900 dark:text-white pr-4">{faq.question}</h3>
+                        <h3 className="font-semibold text-gray-900 dark:text-white pr-4">
+                          {faq.question}
+                        </h3>
                         <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0" />
                       </summary>
                       <div className="px-5 pb-5 pt-2">
-                        <p className="text-gray-600 dark:text-gray-400">{faq.answer}</p>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          {faq.answer}
+                        </p>
                       </div>
                     </details>
                   ))}
@@ -458,7 +553,8 @@ export default function CityPageContent({ city, mainServices, nearbyCities, enha
             Verstopfung in {city.name}?
           </h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto">
-            Wir sind in {company.urgency.responseTime} Minuten bei Ihnen. Kostenlose Diagnose, Festpreis vorab.
+            Wir sind in {company.urgency.responseTime} Minuten bei Ihnen.
+            Kostenlose Diagnose, Festpreis vorab.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <button

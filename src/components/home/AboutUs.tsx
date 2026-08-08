@@ -25,20 +25,34 @@ export default function AboutUs() {
 
               <div className="space-y-4 text-gray-600 dark:text-gray-400">
                 <p className="text-lg">
-                  Wir sind kein anonymes Call-Center. Keine Franchise-Kette.
-                  Wir sind ein <strong className="text-gray-900 dark:text-white">Familienbetrieb</strong> aus
-                  der Ehemannstraße in Nürnberg-Glockenhof.
+                  Wir sind kein anonymes Call-Center. Keine Franchise-Kette. Wir
+                  sind ein{" "}
+                  <strong className="text-gray-900 dark:text-white">
+                    Familienbetrieb
+                  </strong>{" "}
+                  aus der Ehemannstraße in Nürnberg-Glockenhof.
                 </p>
                 <p>
-                  Wenn Sie uns anrufen, sprechen Sie mit einem erfahrenen Team – keine anonyme Hotline.
-                  Wir wissen, dass Altbauten in der Amberger Altstadt andere Rohrsysteme haben als
-                  Neubauten in Ammersricht. Seit über 10 Jahren im Handwerk unterwegs –
-                  jetzt auch für Amberg, Kümmersbruck, Sulzbach-Rosenberg und die Region.
+                  Wenn Sie uns anrufen, sprechen Sie mit einem erfahrenen Team –
+                  keine anonyme Hotline. Wir wissen, dass Altbauten in der
+                  Amberger Altstadt andere Rohrsysteme haben als Neubauten in
+                  Ammersricht. Seit über 10 Jahren im Handwerk unterwegs – jetzt
+                  auch für Amberg, Kümmersbruck, Sulzbach-Rosenberg und die
+                  Region.
                 </p>
                 <p>
-                  Mehr als <strong className="text-gray-900 dark:text-white">{company.stats.projectsCompleted}</strong> Einsätze
-                  haben wir erfolgreich abgeschlossen. {company.rating.reviewCount} Kunden bewerten uns mit 5 Sternen.
-                  Nicht, weil wir die günstigsten sind. Sondern weil wir <strong className="text-gray-900 dark:text-white">ehrlich</strong> sind.
+                  Mehr als{" "}
+                  <strong className="text-gray-900 dark:text-white">
+                    {company.stats.projectsCompleted}
+                  </strong>{" "}
+                  Einsätze haben wir erfolgreich abgeschlossen.{" "}
+                  {company.rating.reviewCount} Kunden bewerten uns mit 5
+                  Sternen. Nicht, weil wir die günstigsten sind. Sondern weil
+                  wir{" "}
+                  <strong className="text-gray-900 dark:text-white">
+                    ehrlich
+                  </strong>{" "}
+                  sind.
                 </p>
               </div>
 
@@ -49,7 +63,9 @@ export default function AboutUs() {
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Standort</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      Standort
+                    </h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       Ehemannstr. 9, 90478 Nürnberg
                     </p>
@@ -61,7 +77,9 @@ export default function AboutUs() {
                     <Calendar className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Seit 2014</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      Seit 2014
+                    </h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       Über 10 Jahre Handwerks-Erfahrung
                     </p>
@@ -73,7 +91,9 @@ export default function AboutUs() {
                     <Users className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Familienbetrieb</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      Familienbetrieb
+                    </h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       Persönlicher Service, keine Hotline
                     </p>
@@ -85,7 +105,9 @@ export default function AboutUs() {
                     <Heart className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">{company.stats.satisfactionRate}</h4>
+                    <h4 className="font-semibold text-gray-900 dark:text-white text-sm">
+                      {company.stats.satisfactionRate}
+                    </h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       Kundenzufriedenheit
                     </p>
@@ -110,7 +132,9 @@ export default function AboutUs() {
                   <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur rounded-xl p-4 shadow-lg">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Unser Versprechen</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Unser Versprechen
+                        </p>
                         <p className="font-bold text-gray-900 dark:text-white">
                           Klarheit vor dem ersten Handgriff.
                         </p>
@@ -125,14 +149,20 @@ export default function AboutUs() {
 
               {/* Floating stats card */}
               <div className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-xl border border-gray-100 dark:border-gray-700 hidden md:block">
-                <p className="text-4xl font-black text-primary mb-1">{company.stats.projectsCompleted}</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">erfolgreiche Einsätze</p>
+                <p className="text-4xl font-black text-primary mb-1">
+                  {company.stats.projectsCompleted}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  erfolgreiche Einsätze
+                </p>
               </div>
 
               {/* Service area badge */}
               <div className="absolute -bottom-4 -left-4 bg-gray-900 dark:bg-gray-700 text-white rounded-xl px-4 py-3 shadow-lg hidden md:flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium">Amberg • Kümmersbruck • Sulzbach-Rosenberg</span>
+                <span className="text-sm font-medium">
+                  Amberg • Kümmersbruck • Sulzbach-Rosenberg
+                </span>
               </div>
             </div>
           </div>

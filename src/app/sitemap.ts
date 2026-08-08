@@ -1,5 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getOberpfalzCitySlugs, priorityOneCities, priorityTwoCities } from "@/data/oberpfalz-cities";
+import {
+  getOberpfalzCitySlugs,
+  priorityOneCities,
+  priorityTwoCities,
+} from "@/data/oberpfalz-cities";
 
 // TODO: Platzhalter-Domain — durch die echte Domain ersetzen, sobald registriert
 const baseUrl = "https://rohrreinigung-kraft-amberg.de";
@@ -49,7 +53,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const allCitySlugs = getOberpfalzCitySlugs();
 
   // Priority cities for city+service combinations
-  const topCitySlugs = [...priorityOneCities, ...priorityTwoCities.slice(0, 5)].map(c => c.slug);
+  const topCitySlugs = [
+    ...priorityOneCities,
+    ...priorityTwoCities.slice(0, 5),
+  ].map((c) => c.slug);
 
   // صفحات ثابتة
   const staticPages: MetadataRoute.Sitemap = [
@@ -128,12 +135,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
   // صفحات الخدمات المهمة
-  const servicePages: MetadataRoute.Sitemap = importantServices.map((service) => ({
-    url: `${baseUrl}/service/${service.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: service.priority,
-  }));
+  const servicePages: MetadataRoute.Sitemap = importantServices.map(
+    (service) => ({
+      url: `${baseUrl}/service/${service.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: service.priority,
+    }),
+  );
 
   return [...staticPages, ...cityPages, ...servicePages];
 }

@@ -21,12 +21,18 @@ export async function POST(request: NextRequest) {
 
     if (!GOOGLE_SHEETS_WEBHOOK_URL) {
       console.log("[Call Event] GOOGLE_SHEETS_WEBHOOK_URL not configured");
-      return NextResponse.json({ success: true, message: "Webhook not configured" });
+      return NextResponse.json({
+        success: true,
+        message: "Webhook not configured",
+      });
     }
 
     // Only log confirmed calls (actual phone clicks)
     if (body.eventType !== "call_confirmed") {
-      return NextResponse.json({ success: true, message: "Only confirmed calls are logged" });
+      return NextResponse.json({
+        success: true,
+        message: "Only confirmed calls are logged",
+      });
     }
 
     // Build source info
@@ -58,7 +64,10 @@ export async function POST(request: NextRequest) {
       eventType: "call",
     };
 
-    console.log("[Call Event] Sending to Google Sheets:", JSON.stringify(payload));
+    console.log(
+      "[Call Event] Sending to Google Sheets:",
+      JSON.stringify(payload),
+    );
 
     const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
       method: "POST",
@@ -74,13 +83,16 @@ export async function POST(request: NextRequest) {
     if (response.ok) {
       return NextResponse.json({ success: true });
     } else {
-      return NextResponse.json({ success: false, error: responseText }, { status: 500 });
+      return NextResponse.json(
+        { success: false, error: responseText },
+        { status: 500 },
+      );
     }
   } catch (error) {
     console.error("[Call Event] Error:", error);
     return NextResponse.json(
       { success: false, error: String(error) },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

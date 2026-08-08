@@ -4,13 +4,14 @@ import { writeFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 
 // Check if running on Vercel (production) or locally
-const isVercel = process.env.VERCEL === "1" || process.env.VERCEL_ENV !== undefined;
+const isVercel =
+  process.env.VERCEL === "1" || process.env.VERCEL_ENV !== undefined;
 
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData();
     const file = formData.get("file") as File;
-    const targetName = formData.get("target") as string || "team-service.jpg";
+    const targetName = (formData.get("target") as string) || "team-service.jpg";
 
     if (!file) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
@@ -67,8 +68,11 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Upload error:", error);
     return NextResponse.json(
-      { error: "Failed to process image", details: error instanceof Error ? error.message : "Unknown error" },
-      { status: 500 }
+      {
+        error: "Failed to process image",
+        details: error instanceof Error ? error.message : "Unknown error",
+      },
+      { status: 500 },
     );
   }
 }

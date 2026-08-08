@@ -1,9 +1,25 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Lock, Eye, EyeOff, Download, Loader2, Phone, FileText, TrendingUp, Calendar } from "lucide-react";
+import {
+  Lock,
+  Eye,
+  EyeOff,
+  Download,
+  Loader2,
+  Phone,
+  FileText,
+  TrendingUp,
+  Calendar,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -38,9 +54,11 @@ export default function GoogleAdsPage() {
   const [startDate, setStartDate] = useState(() => {
     const d = new Date();
     d.setDate(d.getDate() - 7);
-    return d.toISOString().split('T')[0];
+    return d.toISOString().split("T")[0];
   });
-  const [endDate, setEndDate] = useState(() => new Date().toISOString().split('T')[0]);
+  const [endDate, setEndDate] = useState(
+    () => new Date().toISOString().split("T")[0],
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [reportData, setReportData] = useState<ReportData | null>(null);
   const [reportType, setReportType] = useState<string>("performance");
@@ -70,7 +88,7 @@ export default function GoogleAdsPage() {
 
     try {
       const response = await fetch(
-        `/api/google-ads/reports?type=${reportType}&startDate=${startDate}&endDate=${endDate}`
+        `/api/google-ads/reports?type=${reportType}&startDate=${startDate}&endDate=${endDate}`,
       );
       const data = await response.json();
 
@@ -89,7 +107,7 @@ export default function GoogleAdsPage() {
   const downloadCSV = async () => {
     window.open(
       `/api/google-ads/reports?type=${reportType}&startDate=${startDate}&endDate=${endDate}&format=csv`,
-      '_blank'
+      "_blank",
     );
   };
 
@@ -129,13 +147,19 @@ export default function GoogleAdsPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"
                 >
-                  {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
                 </button>
               </div>
               {authError && (
                 <p className="text-red-500 text-sm text-center">{authError}</p>
               )}
-              <Button type="submit" className="w-full">دخول</Button>
+              <Button type="submit" className="w-full">
+                دخول
+              </Button>
             </form>
           </CardContent>
         </Card>
@@ -145,9 +169,11 @@ export default function GoogleAdsPage() {
 
   // Main dashboard
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8" dir="rtl">
+    <div
+      className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 md:p-8"
+      dir="rtl"
+    >
       <div className="max-w-4xl mx-auto space-y-6">
-
         {/* Header */}
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -215,11 +241,20 @@ export default function GoogleAdsPage() {
 
             {/* Buttons */}
             <div className="flex gap-3">
-              <Button onClick={fetchReport} disabled={isLoading} className="flex-1">
+              <Button
+                onClick={fetchReport}
+                disabled={isLoading}
+                className="flex-1"
+              >
                 {isLoading ? (
-                  <><Loader2 className="w-4 h-4 animate-spin ml-2" /> جاري الجلب...</>
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin ml-2" /> جاري
+                    الجلب...
+                  </>
                 ) : (
-                  <><TrendingUp className="w-4 h-4 ml-2" /> جلب التقرير</>
+                  <>
+                    <TrendingUp className="w-4 h-4 ml-2" /> جلب التقرير
+                  </>
                 )}
               </Button>
               <Button onClick={downloadCSV} variant="outline">
@@ -251,37 +286,45 @@ export default function GoogleAdsPage() {
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => {
-            setReportType("conversions");
-            fetchReport();
-          }}>
+          <Card
+            className="cursor-pointer hover:shadow-lg transition-shadow"
+            onClick={() => {
+              setReportType("conversions");
+              fetchReport();
+            }}
+          >
             <CardContent className="p-6 text-center">
               <Phone className="w-8 h-8 mx-auto mb-2 text-green-600" />
               <h3 className="font-semibold">تقرير التحويلات</h3>
             </CardContent>
           </Card>
 
-          <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => {
-            setReportType("campaigns");
-            fetchReport();
-          }}>
+          <Card
+            className="cursor-pointer hover:shadow-lg transition-shadow"
+            onClick={() => {
+              setReportType("campaigns");
+              fetchReport();
+            }}
+          >
             <CardContent className="p-6 text-center">
               <TrendingUp className="w-8 h-8 mx-auto mb-2 text-blue-600" />
               <h3 className="font-semibold">تقرير الحملات</h3>
             </CardContent>
           </Card>
 
-          <Card className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => {
-            setReportType("complete");
-            fetchReport();
-          }}>
+          <Card
+            className="cursor-pointer hover:shadow-lg transition-shadow"
+            onClick={() => {
+              setReportType("complete");
+              fetchReport();
+            }}
+          >
             <CardContent className="p-6 text-center">
               <FileText className="w-8 h-8 mx-auto mb-2 text-purple-600" />
               <h3 className="font-semibold">تقرير شامل</h3>
             </CardContent>
           </Card>
         </div>
-
       </div>
     </div>
   );

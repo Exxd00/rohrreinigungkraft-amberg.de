@@ -2,7 +2,17 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, MapPin, Mail, Clock, ExternalLink, ChevronRight, Shield, FileText, Scale } from "lucide-react";
+import {
+  Phone,
+  MapPin,
+  Mail,
+  Clock,
+  ExternalLink,
+  ChevronRight,
+  Shield,
+  FileText,
+  Scale,
+} from "lucide-react";
 import { company } from "@/data/company";
 import AnimatedLogo from "./AnimatedLogo";
 import CallConfirmModal from "./CallConfirmModal";
@@ -28,8 +38,16 @@ const footerLinks = {
     { name: "Alle Städte", href: "/staedte" },
   ],
   legal: [
-    { name: "Impressum", href: "/impressum", icon: <Scale className="w-4 h-4" /> },
-    { name: "Datenschutz", href: "/datenschutz", icon: <Shield className="w-4 h-4" /> },
+    {
+      name: "Impressum",
+      href: "/impressum",
+      icon: <Scale className="w-4 h-4" />,
+    },
+    {
+      name: "Datenschutz",
+      href: "/datenschutz",
+      icon: <Shield className="w-4 h-4" />,
+    },
     { name: "Kontakt", href: "/kontakt", icon: <Mail className="w-4 h-4" /> },
   ],
 };
@@ -74,7 +92,9 @@ export default function Footer() {
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
-                      <span className="text-white text-sm font-medium">Unser Standort</span>
+                      <span className="text-white text-sm font-medium">
+                        Unser Standort
+                      </span>
                     </div>
                     <div className="flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
                       <span>In Google Maps öffnen</span>
@@ -86,7 +106,9 @@ export default function Footer() {
 
               {/* Contact Info Card */}
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-white mb-4">Kontakt & Standort</h3>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Kontakt & Standort
+                </h3>
 
                 {/* Address */}
                 <a
@@ -103,7 +125,8 @@ export default function Footer() {
                       {company.address.street}
                     </p>
                     <p className="text-gray-400 text-sm">
-                      {company.address.zip} {company.address.city}-{company.address.district}
+                      {company.address.zip} {company.address.city}-
+                      {company.address.district}
                     </p>
                   </div>
                 </a>
@@ -130,8 +153,12 @@ export default function Footer() {
                     <Clock className="w-5 h-5 text-amber-400" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white">{company.hours.regular}</p>
-                    <p className="text-gray-400 text-sm">{company.hours.emergencyText}</p>
+                    <p className="font-semibold text-white">
+                      {company.hours.regular}
+                    </p>
+                    <p className="text-gray-400 text-sm">
+                      {company.hours.emergencyText}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -152,12 +179,14 @@ export default function Footer() {
                 </div>
               </Link>
               <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                Ihr Rohrreinigungspartner für Amberg und die Oberpfalz.
-                Schnell, fair und zuverlässig seit über 10 Jahren.
+                Ihr Rohrreinigungspartner für Amberg und die Oberpfalz. Schnell,
+                fair und zuverlässig seit über 10 Jahren.
               </p>
               <div className="flex items-center gap-2 text-sm">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="text-emerald-400 font-medium">Jetzt erreichbar</span>
+                <span className="text-emerald-400 font-medium">
+                  Jetzt erreichbar
+                </span>
               </div>
             </div>
 
@@ -228,10 +257,12 @@ export default function Footer() {
               {/* Legal Info */}
               <div className="mt-4 pt-4 border-t border-gray-800 space-y-2">
                 <p className="text-xs text-gray-500">
-                  <span className="text-gray-400">Registergericht:</span> {company.legal.registergericht}
+                  <span className="text-gray-400">Registergericht:</span>{" "}
+                  {company.legal.registergericht}
                 </p>
                 <p className="text-xs text-gray-500">
-                  <span className="text-gray-400">USt-IdNr.:</span> {company.legal.ustIdNr}
+                  <span className="text-gray-400">USt-IdNr.:</span>{" "}
+                  {company.legal.ustIdNr}
                 </p>
               </div>
 
@@ -270,7 +301,9 @@ export default function Footer() {
                 </a>
                 <div className="flex items-center gap-2 text-sm">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-primary font-medium">24/7 Erreichbar</span>
+                  <span className="text-primary font-medium">
+                    24/7 Erreichbar
+                  </span>
                 </div>
               </div>
             </div>

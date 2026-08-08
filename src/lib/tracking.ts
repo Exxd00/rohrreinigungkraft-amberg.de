@@ -13,7 +13,7 @@
 //
 // =====================================================
 
-import { getGclid, getTrackingData } from './gclid';
+import { getGclid, getTrackingData } from "./gclid";
 
 declare global {
   interface Window {
@@ -25,8 +25,11 @@ declare global {
 /**
  * Base event tracking function
  */
-export const trackEvent = (eventName: string, eventParams?: Record<string, unknown>) => {
-  if (typeof window === 'undefined') return;
+export const trackEvent = (
+  eventName: string,
+  eventParams?: Record<string, unknown>,
+) => {
+  if (typeof window === "undefined") return;
 
   const trackingData = getTrackingData();
 
@@ -48,11 +51,11 @@ export const trackEvent = (eventName: string, eventParams?: Record<string, unkno
 
   // Direct gtag call for GA4
   if (window.gtag) {
-    window.gtag('event', eventName, enrichedParams);
+    window.gtag("event", eventName, enrichedParams);
   }
 
   // Console log for debugging
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === "development") {
     console.log(`[Tracking] ${eventName}`, enrichedParams);
   }
 };
@@ -64,17 +67,17 @@ export const trackEvent = (eventName: string, eventParams?: Record<string, unkno
 export const trackCallConfirmed = (source: string) => {
   const gclid = getGclid();
 
-  trackEvent('call_confirmed', {
-    event_category: 'conversion',
+  trackEvent("call_confirmed", {
+    event_category: "conversion",
     event_label: source,
-    contact_method: 'phone',
-    currency: 'EUR',
+    contact_method: "phone",
+    currency: "EUR",
     value: 25,
     has_gclid: !!gclid,
   });
 
   // Also trigger generate_lead
-  trackGenerateLead('phone_call', source);
+  trackGenerateLead("phone_call", source);
 };
 
 // =====================================================
@@ -84,17 +87,17 @@ export const trackCallConfirmed = (source: string) => {
 export const trackEmailConfirmed = (source: string) => {
   const gclid = getGclid();
 
-  trackEvent('email_confirmed', {
-    event_category: 'conversion',
+  trackEvent("email_confirmed", {
+    event_category: "conversion",
     event_label: source,
-    contact_method: 'email',
-    currency: 'EUR',
+    contact_method: "email",
+    currency: "EUR",
     value: 25,
     has_gclid: !!gclid,
   });
 
   // Also trigger generate_lead
-  trackGenerateLead('email_click', source);
+  trackGenerateLead("email_click", source);
 };
 
 // =====================================================
@@ -110,15 +113,15 @@ export const trackFormConfirmed = (formData: {
   const gclid = getGclid();
   const trackingData = getTrackingData();
 
-  trackEvent('form_confirmed', {
-    event_category: 'conversion',
-    event_label: 'contact_form',
-    contact_method: 'form',
-    currency: 'EUR',
+  trackEvent("form_confirmed", {
+    event_category: "conversion",
+    event_label: "contact_form",
+    contact_method: "form",
+    currency: "EUR",
     value: 50,
     has_gclid: !!gclid,
-    service_type: formData.service || 'unknown',
-    city: formData.city || 'unknown',
+    service_type: formData.service || "unknown",
+    city: formData.city || "unknown",
     has_images: formData.hasImages || false,
     image_count: formData.imageCount || 0,
     landing_page: trackingData.landingPage,
@@ -126,7 +129,7 @@ export const trackFormConfirmed = (formData: {
   });
 
   // Also trigger generate_lead
-  trackGenerateLead('contact_form', formData.city);
+  trackGenerateLead("contact_form", formData.city);
 };
 
 // =====================================================
@@ -137,10 +140,10 @@ export const trackThankYouPage = () => {
   const gclid = getGclid();
   const trackingData = getTrackingData();
 
-  trackEvent('thank_you_page', {
-    event_category: 'conversion',
-    event_label: 'form_success',
-    currency: 'EUR',
+  trackEvent("thank_you_page", {
+    event_category: "conversion",
+    event_label: "form_success",
+    currency: "EUR",
     value: 50,
     has_gclid: !!gclid,
     source: trackingData.source,
@@ -155,11 +158,11 @@ export const trackThankYouPage = () => {
 export const trackGenerateLead = (leadSource: string, location?: string) => {
   const gclid = getGclid();
 
-  trackEvent('generate_lead', {
-    event_category: 'conversion',
+  trackEvent("generate_lead", {
+    event_category: "conversion",
     lead_source: leadSource,
-    location: location || 'unknown',
-    currency: 'EUR',
+    location: location || "unknown",
+    currency: "EUR",
     value: 50,
     has_gclid: !!gclid,
   });
@@ -171,24 +174,24 @@ export const trackGenerateLead = (leadSource: string, location?: string) => {
 
 // Call intent - when call modal opens
 export const trackCallIntent = (source: string) => {
-  trackEvent('call_intent', {
-    event_category: 'engagement',
+  trackEvent("call_intent", {
+    event_category: "engagement",
     event_label: source,
   });
 };
 
 // Email intent - when email modal opens
 export const trackEmailIntent = (source: string) => {
-  trackEvent('email_intent', {
-    event_category: 'engagement',
+  trackEvent("email_intent", {
+    event_category: "engagement",
     event_label: source,
   });
 };
 
 // City page view - track which cities users visit
 export const trackCityView = (cityName: string, citySlug: string) => {
-  trackEvent('city_view', {
-    event_category: 'engagement',
+  trackEvent("city_view", {
+    event_category: "engagement",
     city_name: cityName,
     city_slug: citySlug,
   });
@@ -196,8 +199,8 @@ export const trackCityView = (cityName: string, citySlug: string) => {
 
 // Service page view
 export const trackServiceView = (serviceName: string, serviceSlug: string) => {
-  trackEvent('service_view', {
-    event_category: 'engagement',
+  trackEvent("service_view", {
+    event_category: "engagement",
     service_name: serviceName,
     service_slug: serviceSlug,
   });
@@ -205,26 +208,26 @@ export const trackServiceView = (serviceName: string, serviceSlug: string) => {
 
 // Phone click - general phone clicks (without modal)
 export const trackPhoneClick = (source: string) => {
-  trackEvent('phone_click', {
-    event_category: 'engagement',
+  trackEvent("phone_click", {
+    event_category: "engagement",
     event_label: source,
-    contact_method: 'phone',
+    contact_method: "phone",
   });
 };
 
 // WhatsApp click
 export const trackWhatsAppClick = (source: string) => {
-  trackEvent('whatsapp_click', {
-    event_category: 'engagement',
+  trackEvent("whatsapp_click", {
+    event_category: "engagement",
     event_label: source,
-    contact_method: 'whatsapp',
+    contact_method: "whatsapp",
   });
 };
 
 // CTA click
 export const trackCTAClick = (ctaName: string, location?: string) => {
-  trackEvent('cta_click', {
-    event_category: 'engagement',
+  trackEvent("cta_click", {
+    event_category: "engagement",
     event_label: ctaName,
     cta_location: location,
   });
@@ -235,7 +238,10 @@ export const trackCTAClick = (ctaName: string, location?: string) => {
 // =====================================================
 export const trackFormSubmit = trackFormConfirmed;
 export const trackLead = (data?: Record<string, unknown>) => {
-  trackGenerateLead(data?.lead_source as string || 'unknown', data?.city as string);
+  trackGenerateLead(
+    (data?.lead_source as string) || "unknown",
+    data?.city as string,
+  );
 };
 
 // Get complete tracking data

@@ -1,11 +1,21 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { company } from "@/data/company";
-import { MapPin, Phone, Mail, Building2, FileText, Scale, Shield, ExternalLink } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Building2,
+  FileText,
+  Scale,
+  Shield,
+  ExternalLink,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Impressum | Rohrreinigung Kraft",
-  description: "Impressum und rechtliche Informationen von Rohrreinigung Kraft - Ihr Rohrreinigungsservice für Amberg und die Oberpfalz.",
+  description:
+    "Impressum und rechtliche Informationen von Rohrreinigung Kraft - Ihr Rohrreinigungsservice für Amberg und die Oberpfalz.",
 };
 
 export default function ImpressumPage() {
@@ -44,8 +54,11 @@ export default function ImpressumPage() {
                       Inhaber: {company.legal.inhaber}
                     </p>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">
-                      {company.address.street}<br />
-                      {company.address.zip} {company.address.city}-{company.address.district}<br />
+                      {company.address.street}
+                      <br />
+                      {company.address.zip} {company.address.city}-
+                      {company.address.district}
+                      <br />
                       {company.address.country}
                     </p>
                   </div>
@@ -62,7 +75,9 @@ export default function ImpressumPage() {
                     <Phone className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">Telefon</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Telefon
+                    </p>
                     <p className="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                       {company.contact.phoneDisplay}
                     </p>
@@ -77,7 +92,9 @@ export default function ImpressumPage() {
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">E-Mail</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      E-Mail
+                    </p>
                     <p className="font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                       {company.contact.email}
                     </p>
@@ -104,16 +121,19 @@ export default function ImpressumPage() {
           {/* Legal Content */}
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
             <div className="p-6 md:p-8 space-y-8">
-
               {/* Registergericht */}
               <div className="flex items-start gap-4 pb-6 border-b border-gray-100 dark:border-gray-700">
                 <div className="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center flex-shrink-0">
                   <Building2 className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <h2 className="font-bold text-gray-900 dark:text-white mb-2">Registergericht</h2>
+                  <h2 className="font-bold text-gray-900 dark:text-white mb-2">
+                    Registergericht
+                  </h2>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    <span className="font-semibold text-gray-900 dark:text-white">Amtsgericht Nürnberg</span>
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      Amtsgericht Nürnberg
+                    </span>
                   </p>
                 </div>
               </div>
@@ -124,10 +144,16 @@ export default function ImpressumPage() {
                   <FileText className="w-5 h-5 text-amber-600 dark:text-amber-400" />
                 </div>
                 <div>
-                  <h2 className="font-bold text-gray-900 dark:text-white mb-2">Umsatzsteuer-ID</h2>
+                  <h2 className="font-bold text-gray-900 dark:text-white mb-2">
+                    Umsatzsteuer-ID
+                  </h2>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                    <span className="font-semibold text-gray-900 dark:text-white">DE362340841</span>
+                    Umsatzsteuer-Identifikationsnummer gemäß § 27 a
+                    Umsatzsteuergesetz:
+                    <br />
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      DE362340841
+                    </span>
                   </p>
                 </div>
               </div>
@@ -142,9 +168,14 @@ export default function ImpressumPage() {
                     Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
                   </h2>
                   <p className="text-gray-600 dark:text-gray-400 text-sm">
-                    <span className="font-semibold text-gray-900 dark:text-white">{company.legal.inhaber}</span><br />
-                    {company.name}<br />
-                    {company.address.street}<br />
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {company.legal.inhaber}
+                    </span>
+                    <br />
+                    {company.name}
+                    <br />
+                    {company.address.street}
+                    <br />
                     {company.address.zip} {company.address.city}
                   </p>
                 </div>
@@ -158,7 +189,8 @@ export default function ImpressumPage() {
                 </h2>
                 <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4 mb-4">
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+                    Die Europäische Kommission stellt eine Plattform zur
+                    Online-Streitbeilegung (OS) bereit:{" "}
                     <a
                       href="https://ec.europa.eu/consumers/odr/"
                       target="_blank"
@@ -171,45 +203,63 @@ export default function ImpressumPage() {
                   </p>
                 </div>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  <strong className="text-gray-900 dark:text-white">Verbraucherstreitbeilegung:</strong><br />
-                  Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                  <strong className="text-gray-900 dark:text-white">
+                    Verbraucherstreitbeilegung:
+                  </strong>
+                  <br />
+                  Wir sind nicht bereit oder verpflichtet, an
+                  Streitbeilegungsverfahren vor einer
                   Verbraucherschlichtungsstelle teilzunehmen.
                 </p>
               </div>
 
               {/* Haftung */}
               <div className="pt-6 border-t border-gray-100 dark:border-gray-700">
-                <h2 className="font-bold text-gray-900 dark:text-white mb-4">Haftungshinweise</h2>
+                <h2 className="font-bold text-gray-900 dark:text-white mb-4">
+                  Haftungshinweise
+                </h2>
 
                 <div className="space-y-4 text-sm text-gray-600 dark:text-gray-400">
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Haftung für Inhalte</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      Haftung für Inhalte
+                    </h3>
                     <p className="leading-relaxed">
-                      Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten
-                      nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
-                      Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
-                      Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige
+                      Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für
+                      eigene Inhalte auf diesen Seiten nach den allgemeinen
+                      Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als
+                      Diensteanbieter jedoch nicht verpflichtet, übermittelte
+                      oder gespeicherte fremde Informationen zu überwachen oder
+                      nach Umständen zu forschen, die auf eine rechtswidrige
                       Tätigkeit hinweisen.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Haftung für Links</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      Haftung für Links
+                    </h3>
                     <p className="leading-relaxed">
-                      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
-                      Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
-                      Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
-                      Seiten verantwortlich.
+                      Unser Angebot enthält Links zu externen Websites Dritter,
+                      auf deren Inhalte wir keinen Einfluss haben. Deshalb
+                      können wir für diese fremden Inhalte auch keine Gewähr
+                      übernehmen. Für die Inhalte der verlinkten Seiten ist
+                      stets der jeweilige Anbieter oder Betreiber der Seiten
+                      verantwortlich.
                     </p>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Urheberrecht</h3>
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+                      Urheberrecht
+                    </h3>
                     <p className="leading-relaxed">
-                      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
-                      dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
-                      der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
-                      Zustimmung des jeweiligen Autors bzw. Erstellers.
+                      Die durch die Seitenbetreiber erstellten Inhalte und Werke
+                      auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+                      Die Vervielfältigung, Bearbeitung, Verbreitung und jede
+                      Art der Verwertung außerhalb der Grenzen des
+                      Urheberrechtes bedürfen der schriftlichen Zustimmung des
+                      jeweiligen Autors bzw. Erstellers.
                     </p>
                   </div>
                 </div>

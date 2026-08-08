@@ -145,8 +145,8 @@ export default function EmergencyGuide() {
               Was tun bei Rohrverstopfung?
             </h2>
             <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Unser Expertenleitfaden: Von der Vorbeugung bis zur professionellen Lösung.
-              So handeln Sie richtig in jeder Situation.
+              Unser Expertenleitfaden: Von der Vorbeugung bis zur
+              professionellen Lösung. So handeln Sie richtig in jeder Situation.
             </p>
           </div>
 
@@ -163,9 +163,10 @@ export default function EmergencyGuide() {
                     className={`
                       relative sm:ml-16 md:ml-20 bg-white dark:bg-gray-800 rounded-2xl shadow-lg
                       border-2 transition-all duration-300 overflow-hidden
-                      ${expandedStep === step.id
-                        ? "border-primary shadow-xl shadow-primary/10"
-                        : "border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600"
+                      ${
+                        expandedStep === step.id
+                          ? "border-primary shadow-xl shadow-primary/10"
+                          : "border-gray-100 dark:border-gray-700 hover:border-gray-200 dark:hover:border-gray-600"
                       }
                     `}
                   >
@@ -209,13 +210,16 @@ export default function EmergencyGuide() {
                           </p>
                         </div>
                       </div>
-                      <div className={`
+                      <div
+                        className={`
                         w-8 h-8 rounded-full flex items-center justify-center transition-all
-                        ${expandedStep === step.id
-                          ? "bg-primary text-white rotate-180"
-                          : "bg-gray-100 dark:bg-gray-700 text-gray-500"
+                        ${
+                          expandedStep === step.id
+                            ? "bg-primary text-white rotate-180"
+                            : "bg-gray-100 dark:bg-gray-700 text-gray-500"
                         }
-                      `}>
+                      `}
+                      >
                         <ChevronDown className="w-5 h-5" />
                       </div>
                     </button>
@@ -241,7 +245,10 @@ export default function EmergencyGuide() {
                             </div>
                             <ul className="space-y-2">
                               {step.dos.map((item, i) => (
-                                <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300"
+                                >
                                   <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
                                   <span>{item}</span>
                                 </li>
@@ -261,7 +268,10 @@ export default function EmergencyGuide() {
                             </div>
                             <ul className="space-y-2">
                               {step.donts.map((item, i) => (
-                                <li key={i} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
+                                <li
+                                  key={i}
+                                  className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300"
+                                >
                                   <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
                                   <span>{item}</span>
                                 </li>
@@ -276,7 +286,10 @@ export default function EmergencyGuide() {
                             <div className="flex items-start gap-3">
                               <Lightbulb className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                               <p className="text-sm text-gray-700 dark:text-gray-300">
-                                <span className="font-semibold text-primary">Profi-Tipp:</span> {step.tip}
+                                <span className="font-semibold text-primary">
+                                  Profi-Tipp:
+                                </span>{" "}
+                                {step.tip}
                               </p>
                             </div>
                           </div>
@@ -294,14 +307,16 @@ export default function EmergencyGuide() {
             <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 md:p-8 text-center">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <Clock className="w-5 h-5 text-primary" />
-                <span className="text-primary font-semibold">24/7 Notdienst verfügbar</span>
+                <span className="text-primary font-semibold">
+                  24/7 Notdienst verfügbar
+                </span>
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
                 Problem jetzt? Wir helfen sofort!
               </h3>
               <p className="text-gray-300 mb-6 max-w-lg mx-auto">
-                Kostenlose Diagnose vor Ort. Festpreis vor Arbeitsbeginn.
-                In {company.urgency.responseTime} Min bei Ihnen.
+                Kostenlose Diagnose vor Ort. Festpreis vor Arbeitsbeginn. In{" "}
+                {company.urgency.responseTime} Min bei Ihnen.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <button

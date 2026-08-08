@@ -22,43 +22,43 @@ const problemCards = [
     icon: Droplets,
     title: "Toilette verstopft",
     href: "/service/toilette-verstopft",
-    urgent: true
+    urgent: true,
   },
   {
     icon: Droplets,
     title: "Dusche/Bad verstopft",
     href: "/service/dusche-verstopft",
-    urgent: false
+    urgent: false,
   },
   {
     icon: Wrench,
     title: "Küche verstopft",
     href: "/service/kueche-abfluss-verstopft",
-    urgent: false
+    urgent: false,
   },
   {
     icon: Home,
     title: "Keller/Bodenablauf",
     href: "/service/bodenablauf-verstopft",
-    urgent: false
+    urgent: false,
   },
   {
     icon: Camera,
     title: "Wiederkehrende Verstopfung",
     href: "/service/kamera-inspektion",
-    urgent: false
+    urgent: false,
   },
   {
     icon: AlertTriangle,
     title: "Notfall/Überlauf",
     href: "/service/rohrreinigung-notdienst",
-    urgent: true
+    urgent: true,
   },
   {
     icon: Building2,
     title: "Hausverwaltung/Gewerbe",
     href: "/hausverwaltung",
-    urgent: false
+    urgent: false,
   },
 ];
 
@@ -90,8 +90,8 @@ export default function ProblemProcess() {
                     href={card.href}
                     className={`relative group p-4 md:p-5 rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1 ${
                       card.urgent
-                        ? 'border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/30 hover:border-red-400'
-                        : 'border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 hover:border-primary'
+                        ? "border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/30 hover:border-red-400"
+                        : "border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 hover:border-primary"
                     }`}
                   >
                     {card.urgent && (
@@ -99,14 +99,18 @@ export default function ProblemProcess() {
                         Dringend
                       </span>
                     )}
-                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-3 ${
-                      card.urgent
-                        ? 'bg-red-100 dark:bg-red-900/50'
-                        : 'bg-primary/10 dark:bg-primary/20'
-                    }`}>
-                      <Icon className={`w-5 h-5 md:w-6 md:h-6 ${
-                        card.urgent ? 'text-red-500' : 'text-primary'
-                      }`} />
+                    <div
+                      className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-3 ${
+                        card.urgent
+                          ? "bg-red-100 dark:bg-red-900/50"
+                          : "bg-primary/10 dark:bg-primary/20"
+                      }`}
+                    >
+                      <Icon
+                        className={`w-5 h-5 md:w-6 md:h-6 ${
+                          card.urgent ? "text-red-500" : "text-primary"
+                        }`}
+                      />
                     </div>
                     <h3 className="font-semibold text-sm md:text-base text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                       {card.title}
@@ -126,7 +130,8 @@ export default function ProblemProcess() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                So wissen Sie <span className="text-primary">VORHER</span>, was es kostet
+                So wissen Sie <span className="text-primary">VORHER</span>, was
+                es kostet
               </h2>
               <p className="text-gray-600 dark:text-gray-400">
                 Kein Rätselraten. Keine Überraschungen. So läuft es bei uns.
@@ -142,9 +147,12 @@ export default function ProblemProcess() {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Anruf</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                  Anruf
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Sie schildern das Problem. Wir schätzen grob ein und sagen, wann wir da sind.
+                  Sie schildern das Problem. Wir schätzen grob ein und sagen,
+                  wann wir da sind.
                 </p>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-medium">
                   → Keine Verpflichtung
@@ -159,9 +167,12 @@ export default function ProblemProcess() {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <Camera className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Diagnose</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                  Diagnose
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Wir kommen, schauen uns alles an und erklären, was das Problem ist.
+                  Wir kommen, schauen uns alles an und erklären, was das Problem
+                  ist.
                 </p>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-medium">
                   → Kostenlos. Immer.
@@ -176,9 +187,12 @@ export default function ProblemProcess() {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Festpreis</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                  Festpreis
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Wir nennen den genauen Preis. Sie wissen was kommt, bevor wir anfangen.
+                  Wir nennen den genauen Preis. Sie wissen was kommt, bevor wir
+                  anfangen.
                 </p>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-medium">
                   → Der Preis steht. Punkt.
@@ -193,9 +207,12 @@ export default function ProblemProcess() {
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
                   <CheckCircle className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Entscheidung</h3>
+                <h3 className="font-bold text-gray-900 dark:text-white mb-2">
+                  Entscheidung
+                </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Sie sagen JA → Wir legen los. Sie sagen NEIN → Wir gehen. Keine Kosten.
+                  Sie sagen JA → Wir legen los. Sie sagen NEIN → Wir gehen.
+                  Keine Kosten.
                 </p>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-medium">
                   → Sie haben die Kontrolle.

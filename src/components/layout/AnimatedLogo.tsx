@@ -16,7 +16,9 @@ export default function AnimatedLogo({ size = "md" }: AnimatedLogoProps) {
   const currentSize = sizeClasses[size];
 
   return (
-    <div className={`relative ${currentSize.container} flex items-center justify-center`}>
+    <div
+      className={`relative ${currentSize.container} flex items-center justify-center`}
+    >
       <Image
         src="/logo.png"
         alt="Rohrreinigung Kraft Logo"

@@ -10,12 +10,16 @@ import {
 // Get config from environment or request
 function getConfig(body?: Partial<GoogleAdsConfig>): GoogleAdsConfig {
   return {
-    developerToken: body?.developerToken || process.env.GOOGLE_ADS_DEVELOPER_TOKEN || "",
+    developerToken:
+      body?.developerToken || process.env.GOOGLE_ADS_DEVELOPER_TOKEN || "",
     clientId: body?.clientId || process.env.GOOGLE_ADS_CLIENT_ID || "",
-    clientSecret: body?.clientSecret || process.env.GOOGLE_ADS_CLIENT_SECRET || "",
-    refreshToken: body?.refreshToken || process.env.GOOGLE_ADS_REFRESH_TOKEN || "",
+    clientSecret:
+      body?.clientSecret || process.env.GOOGLE_ADS_CLIENT_SECRET || "",
+    refreshToken:
+      body?.refreshToken || process.env.GOOGLE_ADS_REFRESH_TOKEN || "",
     customerId: body?.customerId || process.env.GOOGLE_ADS_CUSTOMER_ID || "", // Client account (789-424-2096)
-    loginCustomerId: body?.loginCustomerId || process.env.GOOGLE_ADS_LOGIN_CUSTOMER_ID || "", // MCC account (476-210-5656)
+    loginCustomerId:
+      body?.loginCustomerId || process.env.GOOGLE_ADS_LOGIN_CUSTOMER_ID || "", // MCC account (476-210-5656)
   };
 }
 
@@ -37,26 +41,38 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ success: true, data: conversions });
 
       case "campaigns":
-        const startDate = searchParams.get("startDate") || getDefaultStartDate();
+        const startDate =
+          searchParams.get("startDate") || getDefaultStartDate();
         const endDate = searchParams.get("endDate") || getDefaultEndDate();
         const campaigns = await getCampaigns(config, { startDate, endDate });
         return NextResponse.json({ success: true, data: campaigns });
 
       case "performance":
-        const perfStartDate = searchParams.get("startDate") || getDefaultStartDate();
+        const perfStartDate =
+          searchParams.get("startDate") || getDefaultStartDate();
         const perfEndDate = searchParams.get("endDate") || getDefaultEndDate();
-        const performance = await getPerformanceReport(config, { startDate: perfStartDate, endDate: perfEndDate });
+        const performance = await getPerformanceReport(config, {
+          startDate: perfStartDate,
+          endDate: perfEndDate,
+        });
         return NextResponse.json({ success: true, data: performance });
 
       default:
-        return NextResponse.json({
-          success: false,
-          error: "Unknown action. Use: test, conversions, campaigns, performance"
-        }, { status: 400 });
+        return NextResponse.json(
+          {
+            success: false,
+            error:
+              "Unknown action. Use: test, conversions, campaigns, performance",
+          },
+          { status: 400 },
+        );
     }
   } catch (error) {
     console.error("[Google Ads API]", error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 },
+    );
   }
 }
 
@@ -79,20 +95,29 @@ export async function POST(request: NextRequest) {
         const testResult = await testConnection(testConfig);
         if (testResult.success) {
           // Would save to database here
-          return NextResponse.json({ success: true, message: "Settings validated successfully" });
+          return NextResponse.json({
+            success: true,
+            message: "Settings validated successfully",
+          });
         } else {
           return NextResponse.json({ success: false, error: testResult.error });
         }
 
       default:
-        return NextResponse.json({
-          success: false,
-          error: "Unknown action"
-        }, { status: 400 });
+        return NextResponse.json(
+          {
+            success: false,
+            error: "Unknown action",
+          },
+          { status: 400 },
+        );
     }
   } catch (error) {
     console.error("[Google Ads API]", error);
-    return NextResponse.json({ success: false, error: String(error) }, { status: 500 });
+    return NextResponse.json(
+      { success: false, error: String(error) },
+      { status: 500 },
+    );
   }
 }
 

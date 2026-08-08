@@ -92,42 +92,43 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "@id": "https://rohrreinigung-kraft-amberg.de/#organization",
-              "name": "Rohrreinigung Kraft",
-              "description": "Professionelle Rohrreinigung & Kanalreinigung in der Region Amberg. 24/7 Notdienst.",
-              "url": "https://rohrreinigung-kraft-amberg.de",
-              "logo": "https://rohrreinigung-kraft-amberg.de/logo.png",
-              "telephone": "+4991189218682",
-              "email": "Info@Rohrreinigung-kraft.de",
-              "address": {
+              name: "Rohrreinigung Kraft",
+              description:
+                "Professionelle Rohrreinigung & Kanalreinigung in der Region Amberg. 24/7 Notdienst.",
+              url: "https://rohrreinigung-kraft-amberg.de",
+              logo: "https://rohrreinigung-kraft-amberg.de/logo.png",
+              telephone: "+4991189218682",
+              email: "Info@Rohrreinigung-kraft.de",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress": "Ehemannstr. 9",
-                "addressLocality": "Nürnberg",
-                "addressRegion": "Bayern",
-                "postalCode": "90478",
-                "addressCountry": "DE"
+                streetAddress: "Ehemannstr. 9",
+                addressLocality: "Nürnberg",
+                addressRegion: "Bayern",
+                postalCode: "90478",
+                addressCountry: "DE",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": "49.4521",
-                "longitude": "11.0767"
+                latitude: "49.4521",
+                longitude: "11.0767",
               },
-              "openingHoursSpecification": {
+              openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
+                dayOfWeek: [
                   "Monday",
                   "Tuesday",
                   "Wednesday",
                   "Thursday",
                   "Friday",
                   "Saturday",
-                  "Sunday"
+                  "Sunday",
                 ],
-                "opens": "00:00",
-                "closes": "23:59"
+                opens: "00:00",
+                closes: "23:59",
               },
-              "taxID": "DE362340841",
-              "legalName": "Rohrreinigung Kraft"
-            })
+              taxID: "DE362340841",
+              legalName: "Rohrreinigung Kraft",
+            }),
           }}
         />
       </head>
@@ -150,9 +151,7 @@ export default function RootLayout({
         {/* Initialize GCLID and UTM tracking */}
         <TrackingInit />
         <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
         <FloatingButtons />
       </body>

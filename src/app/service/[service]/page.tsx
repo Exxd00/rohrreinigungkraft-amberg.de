@@ -13,10 +13,15 @@ import {
   HelpCircle,
   ChevronDown,
   Shield,
-  Wrench
+  Wrench,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { services, getServiceBySlug, getAllServiceSlugs, getServicesByCategory } from "@/data/services";
+import {
+  services,
+  getServiceBySlug,
+  getAllServiceSlugs,
+  getServicesByCategory,
+} from "@/data/services";
 import { cities, getNearbyCities } from "@/data/cities";
 import { company } from "@/data/company";
 import { getEnhancedServiceContent } from "@/data/serviceContent";
@@ -33,9 +38,9 @@ export async function generateStaticParams() {
 
 function getServicePrice(slug: string): number {
   const priceMap: Record<string, number> = {
-    "rohrreinigung": company.pricing.services.rohrreinigung.from,
-    "kanalreinigung": company.pricing.services.kanalreinigung.from,
-    "abflussreinigung": company.pricing.services.abflussreinigung.from,
+    rohrreinigung: company.pricing.services.rohrreinigung.from,
+    kanalreinigung: company.pricing.services.kanalreinigung.from,
+    abflussreinigung: company.pricing.services.abflussreinigung.from,
     "toilette-verstopft": company.pricing.services.toiletteVerstopft.from,
     "rohrreinigung-notdienst": company.pricing.services.notdienst.from,
     "kamera-inspektion": company.pricing.services.kameraInspektion.from,
@@ -43,7 +48,9 @@ function getServicePrice(slug: string): number {
   return priceMap[slug] || company.pricing.services.rohrreinigung.from;
 }
 
-export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: ServicePageProps): Promise<Metadata> {
   const { service: serviceSlug } = await params;
   const service = getServiceBySlug(serviceSlug);
   const enhancedContent = getEnhancedServiceContent(serviceSlug);
@@ -102,15 +109,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
         addressLocality: "Nürnberg",
         postalCode: "90478",
         addressRegion: "Bayern",
-        addressCountry: "DE"
+        addressCountry: "DE",
       },
       aggregateRating: {
         "@type": "AggregateRating",
         ratingValue: "5.0",
         bestRating: "5",
         worstRating: "1",
-        ratingCount: "129"
-      }
+        ratingCount: "129",
+      },
     },
     // geoMidpoint zentriert auf Amberg (Servicegebiet dieser Seite), nicht auf den Firmensitz — siehe address oben
     areaServed: {
@@ -135,25 +142,35 @@ export default async function ServicePage({ params }: ServicePageProps) {
     termsOfService: "Festpreis nach kostenloser Diagnose vor Ort",
     hoursAvailable: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
       opens: "00:00",
-      closes: "23:59"
-    }
+      closes: "23:59",
+    },
   };
 
   // FAQ Schema if enhanced content exists
-  const faqSchema = enhancedContent ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": enhancedContent.faq.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
+  const faqSchema = enhancedContent
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: enhancedContent.faq.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
       }
-    }))
-  } : null;
+    : null;
 
   return (
     <>
@@ -171,18 +188,24 @@ export default async function ServicePage({ params }: ServicePageProps) {
       {/* Hero Section */}
       <section className="relative pt-24 md:pt-28 pb-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
         {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-1.5 text-xs text-white/50 mb-4">
-              <Link href="/" className="hover:text-primary">Startseite</Link>
+              <Link href="/" className="hover:text-primary">
+                Startseite
+              </Link>
               <span>/</span>
-              <Link href="/leistungen" className="hover:text-primary">Leistungen</Link>
+              <Link href="/leistungen" className="hover:text-primary">
+                Leistungen
+              </Link>
               <span>/</span>
               <span className="text-white/70">{service.name}</span>
             </div>
@@ -203,7 +226,8 @@ export default async function ServicePage({ params }: ServicePageProps) {
               {enhancedContent?.heroHeadline || `${service.name}?`}
             </h1>
             <p className="text-lg md:text-xl text-white/80 mb-6 max-w-xl mx-auto">
-              {enhancedContent?.heroSubheadline || `24/7 Notdienst – In ${company.urgency.responseTime} Min vor Ort`}
+              {enhancedContent?.heroSubheadline ||
+                `24/7 Notdienst – In ${company.urgency.responseTime} Min vor Ort`}
             </p>
 
             {/* Trust Points */}
@@ -214,11 +238,15 @@ export default async function ServicePage({ params }: ServicePageProps) {
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <Shield className="w-5 h-5 text-primary" />
-                <span className="text-sm font-medium">Festpreis vor Arbeit</span>
+                <span className="text-sm font-medium">
+                  Festpreis vor Arbeit
+                </span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <Clock className="w-5 h-5 text-amber-400" />
-                <span className="text-sm font-medium">{company.urgency.responseTimeDisplay} vor Ort</span>
+                <span className="text-sm font-medium">
+                  {company.urgency.responseTimeDisplay} vor Ort
+                </span>
               </div>
             </div>
 
@@ -241,9 +269,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </Button>
               </Link>
               <Link href="/kontakt" className="flex-1">
-                <button
-                  className="w-full h-14 text-lg font-semibold border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center"
-                >
+                <button className="w-full h-14 text-lg font-semibold border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center">
                   Rückruf anfordern
                 </button>
               </Link>
@@ -253,11 +279,18 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <div className="flex items-center justify-center gap-2 mt-6">
               <div className="flex">
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                  <Star
+                    key={star}
+                    className="w-5 h-5 fill-amber-400 text-amber-400"
+                  />
                 ))}
               </div>
-              <span className="text-white/90 font-medium">{company.rating.displayText}</span>
-              <span className="text-white/60">({company.rating.reviewCount} Bewertungen)</span>
+              <span className="text-white/90 font-medium">
+                {company.rating.displayText}
+              </span>
+              <span className="text-white/60">
+                ({company.rating.reviewCount} Bewertungen)
+              </span>
             </div>
           </div>
         </div>
@@ -283,7 +316,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   {enhancedContent.consequences.items.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <XCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-                      <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                      <span className="text-gray-700 dark:text-gray-300">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -313,7 +348,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     </h3>
                     <ul className="space-y-2">
                       {enhancedContent.whenSerious.signs.map((sign, index) => (
-                        <li key={index} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                        <li
+                          key={index}
+                          className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                        >
                           <span className="text-amber-500">•</span>
                           {sign}
                         </li>
@@ -327,12 +365,17 @@ export default async function ServicePage({ params }: ServicePageProps) {
                       Sofort anrufen bei:
                     </h3>
                     <ul className="space-y-2">
-                      {enhancedContent.whenSerious.callImmediately.map((item, index) => (
-                        <li key={index} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
-                          <span className="text-red-500 font-bold">!</span>
-                          {item}
-                        </li>
-                      ))}
+                      {enhancedContent.whenSerious.callImmediately.map(
+                        (item, index) => (
+                          <li
+                            key={index}
+                            className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                          >
+                            <span className="text-red-500 font-bold">!</span>
+                            {item}
+                          </li>
+                        ),
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -350,12 +393,20 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
                 <div className="space-y-4">
                   {enhancedContent.causes.common.map((item, index) => (
-                    <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700">
+                    <div
+                      key={index}
+                      className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-100 dark:border-gray-700"
+                    >
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <p className="font-semibold text-gray-900 dark:text-white">{item.cause}</p>
+                          <p className="font-semibold text-gray-900 dark:text-white">
+                            {item.cause}
+                          </p>
                           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                            <span className="text-primary font-medium">Lösung:</span> {item.solution}
+                            <span className="text-primary font-medium">
+                              Lösung:
+                            </span>{" "}
+                            {item.solution}
                           </p>
                         </div>
                         <Wrench className="w-5 h-5 text-gray-400 shrink-0" />
@@ -387,7 +438,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     </h3>
                     <ul className="space-y-2">
                       {enhancedContent.diyTips.canTry.map((tip, index) => (
-                        <li key={index} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                        <li
+                          key={index}
+                          className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                        >
                           <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                           {tip}
                         </li>
@@ -401,7 +455,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     </h3>
                     <ul className="space-y-2">
                       {enhancedContent.diyTips.dontDo.map((tip, index) => (
-                        <li key={index} className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2">
+                        <li
+                          key={index}
+                          className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                        >
                           <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
                           {tip}
                         </li>
@@ -412,7 +469,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
                 <div className="bg-primary/10 rounded-xl p-4 text-center">
                   <p className="text-gray-700 dark:text-gray-300">
-                    <strong className="text-primary">{enhancedContent.diyTips.callWhen}</strong>
+                    <strong className="text-primary">
+                      {enhancedContent.diyTips.callWhen}
+                    </strong>
                   </p>
                 </div>
               </div>
@@ -438,8 +497,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
                           {step.step}
                         </div>
                         <div className="flex-1 pt-2">
-                          <h3 className="font-bold text-gray-900 dark:text-white mb-1">{step.title}</h3>
-                          <p className="text-gray-600 dark:text-gray-400">{step.description}</p>
+                          <h3 className="font-bold text-gray-900 dark:text-white mb-1">
+                            {step.title}
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-400">
+                            {step.description}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -475,7 +538,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
                         <ChevronDown className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0" />
                       </summary>
                       <div className="px-5 pb-5 pt-2">
-                        <p className="text-gray-600 dark:text-gray-400">{faq.answer}</p>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          {faq.answer}
+                        </p>
                       </div>
                     </details>
                   ))}
@@ -501,9 +566,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
               {/* Features */}
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {service.features.slice(0, 6).map((feature, index) => (
-                  <div key={index} className="flex items-start gap-2 p-3 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                  <div
+                    key={index}
+                    className="flex items-start gap-2 p-3 bg-gray-50 dark:bg-gray-800 rounded-xl"
+                  >
                     <CheckCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm text-gray-600 dark:text-gray-400">{feature}</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -516,7 +586,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="py-8 bg-gray-50 dark:bg-gray-800/50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <p className="text-sm text-gray-500 text-center mb-4">{service.name} in Ihrer Stadt</p>
+            <p className="text-sm text-gray-500 text-center mb-4">
+              {service.name} in Ihrer Stadt
+            </p>
             <div className="flex flex-wrap justify-center gap-2">
               {mainCities.map((city) => (
                 <Link
@@ -536,7 +608,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
       {relatedServices.length > 0 && (
         <section className="py-8 bg-white dark:bg-gray-900">
           <div className="container mx-auto px-4">
-            <p className="text-sm text-gray-500 text-center mb-4">Weitere Leistungen</p>
+            <p className="text-sm text-gray-500 text-center mb-4">
+              Weitere Leistungen
+            </p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-2xl mx-auto">
               {relatedServices.map((s) => (
                 <Link
@@ -544,8 +618,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   href={`/service/${s.slug}`}
                   className="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-all text-center"
                 >
-                  <p className="font-medium text-gray-900 dark:text-white text-sm">{s.name}</p>
-                  <p className="text-primary font-bold text-sm">ab {getServicePrice(s.slug)}€</p>
+                  <p className="font-medium text-gray-900 dark:text-white text-sm">
+                    {s.name}
+                  </p>
+                  <p className="text-primary font-bold text-sm">
+                    ab {getServicePrice(s.slug)}€
+                  </p>
                 </Link>
               ))}
             </div>
@@ -563,7 +641,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
             Kostenlose Diagnose • Festpreis vor Arbeit • Kein Start ohne Ihr OK
           </p>
           <Link href={`tel:${company.contact.phone}`}>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg shadow-primary/30">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg shadow-primary/30"
+            >
               <Phone className="w-5 h-5 mr-2" />
               Jetzt anrufen: {company.contact.phoneDisplay}
             </Button>
