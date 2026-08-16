@@ -185,13 +185,13 @@ export default function ContactForm() {
   return (
     <section
       id="kontakt"
-      className="py-6 md:py-16 bg-gray-50 dark:bg-gray-800/50"
+      className="py-12 md:py-16 soft-blue-section dark:bg-gray-800/50"
     >
       <div className="container mx-auto px-2 md:px-4">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-3 lg:gap-8">
             {/* Form */}
-            <div className="bg-white dark:bg-gray-900 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-xl border border-gray-100 dark:border-gray-700">
+            <div className="liquid-glass rounded-3xl p-5 md:p-6">
               {/* Urgency Header */}
               <div className="flex items-center justify-between mb-3 md:mb-4">
                 <div className="flex items-center gap-1.5 md:gap-2">
@@ -208,9 +208,14 @@ export default function ContactForm() {
                 </div>
               </div>
 
-              <h2 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white mb-1">
-                Kostenlose Anfrage
-              </h2>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-100 text-primary ring-1 ring-sky-200">
+                  <Send className="h-5 w-5" />
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                  Kostenlose Anfrage
+                </h2>
+              </div>
               <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 flex items-center gap-2">
                 <Zap className="w-4 h-4 text-primary" />
                 <span>Rückruf in {company.urgency.callbackTime} Minuten</span>
@@ -262,7 +267,7 @@ export default function ContactForm() {
                 </div>
 
                 {/* Phone & City - Grid */}
-                <div className="grid grid-cols-2 gap-2 md:gap-3">
+                <div className="grid grid-cols-1 min-[430px]:grid-cols-2 gap-3">
                   <div className="space-y-1">
                     <Label
                       htmlFor="phone"

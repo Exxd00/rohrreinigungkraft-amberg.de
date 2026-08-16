@@ -144,7 +144,7 @@ export default function CallConfirmModal({
         role="dialog"
         aria-modal="true"
         aria-labelledby="callback-dialog-title"
-        className="relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-900 sm:p-8"
+        className="liquid-glass relative w-full max-w-md overflow-hidden rounded-3xl p-6 dark:border-slate-700 dark:bg-slate-900 sm:p-8"
       >
         <button
           type="button"
@@ -208,7 +208,7 @@ export default function CallConfirmModal({
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
                   placeholder="+49 …"
-                  className="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                  className="h-12 w-full rounded-xl border border-sky-200 bg-white/85 px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
                 />
               </div>
               <div>
@@ -226,7 +226,7 @@ export default function CallConfirmModal({
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                   placeholder="Ihr Name"
-                  className="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                  className="h-12 w-full rounded-xl border border-sky-200 bg-white/85 px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
                 />
               </div>
 
@@ -242,7 +242,7 @@ export default function CallConfirmModal({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
+                className="liquid-button flex h-12 w-full items-center justify-center gap-2 rounded-xl px-5 font-bold text-white transition-all active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {isSubmitting ? (
                   <>

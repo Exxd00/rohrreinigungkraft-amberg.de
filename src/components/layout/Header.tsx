@@ -32,7 +32,6 @@ const navigation = [
 // Pages with dark/gradient hero sections that need light text when not scrolled
 // Note: /staedte has a LIGHT hero, so not included here
 const darkHeroPages = [
-  "/",
   "/kontakt",
   "/leistungen",
   "/service",

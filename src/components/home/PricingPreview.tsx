@@ -40,12 +40,12 @@ export default function PricingPreview() {
         source="pricing_preview"
       />
 
-      <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+      <section className="py-12 md:py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
             <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              <h2 className="mobile-section-title text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
                 Transparente Festpreise
               </h2>
               <p className="text-gray-600 dark:text-gray-400">
@@ -59,10 +59,10 @@ export default function PricingPreview() {
                 <button
                   key={item.service}
                   onClick={() => setIsCallModalOpen(true)}
-                  className={`relative p-4 md:p-5 rounded-xl border-2 transition-all hover:scale-[1.02] text-left ${
+                  className={`liquid-glass relative min-h-[128px] p-4 md:p-5 rounded-2xl transition-all hover:scale-[1.02] text-left ${
                     item.popular
-                      ? "border-primary bg-primary/5 dark:bg-primary/10"
-                      : "border-gray-200 dark:border-gray-700 hover:border-primary/50"
+                      ? "!border-primary bg-primary/5 dark:bg-primary/10"
+                      : "hover:!border-primary/50"
                   }`}
                 >
                   {item.popular && (
@@ -82,7 +82,7 @@ export default function PricingPreview() {
             </div>
 
             {/* Trust Points + CTA */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-5 md:p-6">
+            <div className="liquid-glass rounded-2xl p-5 md:p-6">
               <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
@@ -98,17 +98,17 @@ export default function PricingPreview() {
                     Kein Start ohne OK
                   </div>
                 </div>
-                <div className="flex gap-3">
+                <div className="grid grid-cols-2 md:flex gap-2 md:gap-3 w-full md:w-auto">
                   <button
                     onClick={() => setIsCallModalOpen(true)}
-                    className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl flex items-center gap-2 transition-all"
+                    className="liquid-button px-4 md:px-5 py-3 text-white font-semibold rounded-xl flex items-center justify-center gap-2 transition-all"
                   >
                     <Phone className="w-4 h-4" />
                     Jetzt anrufen
                   </button>
                   <Link
                     href="/preise"
-                    className="px-5 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-xl flex items-center gap-2 hover:border-primary hover:text-primary transition-all"
+                    className="px-4 md:px-5 py-3 border border-sky-200 bg-white/70 text-gray-700 font-medium rounded-xl flex items-center justify-center gap-2 hover:border-primary hover:text-primary transition-all"
                   >
                     Alle Preise
                     <ArrowRight className="w-4 h-4" />

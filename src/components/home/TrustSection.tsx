@@ -89,7 +89,7 @@ export default function TrustSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-white dark:bg-gray-900"
+      className="py-14 md:py-24 soft-blue-section dark:bg-gray-900"
     >
       <div className="container mx-auto px-4">
         {/* Section Header */}
@@ -97,7 +97,7 @@ export default function TrustSection() {
           <span className="inline-block px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 font-semibold text-sm rounded-full mb-4">
             Vertrauen, das man prüfen kann
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="mobile-section-title text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Zahlen statt Versprechen
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -107,7 +107,7 @@ export default function TrustSection() {
         </div>
 
         {/* Trust Points Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="mobile-card-rail grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 md:mb-12">
           {trustPoints.map((point, index) => {
             const Icon = point.icon;
             const colors =
@@ -115,7 +115,7 @@ export default function TrustSection() {
             return (
               <div
                 key={point.title}
-                className={`relative bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-500 ${
+                className={`liquid-glass relative rounded-2xl p-6 hover:shadow-lg transition-all duration-500 ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-10"
@@ -155,7 +155,7 @@ export default function TrustSection() {
         </div>
 
         {/* Google Reviews Highlight */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12">
+        <div className="relative overflow-hidden bg-gradient-to-br from-sky-700 via-sky-600 to-cyan-600 rounded-3xl p-6 md:p-12 shadow-2xl shadow-sky-200/60">
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="text-center md:text-left">

@@ -29,33 +29,33 @@ export default function HeroSection() {
       />
 
       {/* HERO SECTION */}
-      <section className="relative pt-24 md:pt-28 pb-8 md:pb-16 overflow-hidden">
+      <section className="relative pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden soft-blue-section">
         {/* Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
+        <div className="absolute -top-32 -right-28 h-80 w-80 rounded-full bg-sky-200/40 blur-3xl" />
+        <div className="absolute top-40 -left-24 h-64 w-64 rounded-full bg-cyan-100/60 blur-3xl" />
 
         {/* Subtle pattern overlay */}
         <div
-          className="absolute inset-0 opacity-5"
+          className="absolute inset-0 opacity-[0.035]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230c83c7' fill-opacity='0.45'%3E%3Ccircle cx='4' cy='4' r='2'/%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
 
         {/* Emergency accent line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-primary to-emerald-500" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-200 via-primary to-sky-200" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             {/* Availability Badge */}
             <div className="flex justify-center mb-4">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full">
+              <div className="liquid-glass inline-flex items-center gap-2 px-4 py-2 rounded-full">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span className="text-sm font-medium text-emerald-300">
-                  {availableTechnicians} Techniker jetzt
-                  verfügbar
+                <span className="text-sm font-semibold text-emerald-700">
+                  {availableTechnicians} Techniker jetzt verfügbar
                 </span>
               </div>
             </div>
@@ -63,46 +63,44 @@ export default function HeroSection() {
             {/* MAIN HEADLINE - Differentiating */}
             <div className="text-center mb-6">
               {/* Location Badge - Prominent Amberg */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-4 bg-white/10 border border-white/20 rounded-full">
+              <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 bg-sky-50/90 border border-sky-200 rounded-full shadow-sm">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm md:text-base font-semibold text-white">
+                <span className="text-sm md:text-base font-semibold text-slate-700">
                   Rohrreinigung <span className="text-primary">Amberg</span> &
                   Oberpfalz
                 </span>
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
-                <span className="text-white">Festpreis </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
-                  VOR
-                </span>
-                <span className="text-white"> dem ersten Handgriff.</span>
+                <span className="text-slate-900">Festpreis </span>
+                <span className="text-gradient">VOR</span>
+                <span className="text-slate-900"> dem ersten Handgriff.</span>
               </h1>
-              <p className="text-lg md:text-2xl text-white/90 font-medium mb-2">
+              <p className="text-lg md:text-2xl text-slate-700 font-semibold mb-2">
                 Ihr Rohrreiniger für Amberg – Klarheit, bevor Sie zahlen.
               </p>
-              <p className="text-sm md:text-base text-white/70 max-w-2xl mx-auto">
+              <p className="text-sm md:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
                 Wir kommen, schauen, erklären und nennen den Preis. Dann
-                entscheiden <strong className="text-white">SIE</strong>. Kein
-                Druck. Keine Überraschungen.
+                entscheiden <strong className="text-slate-900">SIE</strong>.
+                Kein Druck. Keine Überraschungen.
               </p>
             </div>
 
             {/* TRUST GUARANTEES BAR */}
-            <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-6">
-              <div className="flex items-center gap-2 text-white/90">
+            <div className="grid grid-cols-3 gap-2 md:flex md:justify-center md:gap-6 mb-7">
+              <div className="liquid-glass flex flex-col md:flex-row items-center gap-1.5 md:gap-2 rounded-2xl px-2 py-3 text-slate-700">
                 <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
                 <span className="text-xs md:text-sm font-medium">
                   Diagnose kostenlos
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-white/90">
+              <div className="liquid-glass flex flex-col md:flex-row items-center gap-1.5 md:gap-2 rounded-2xl px-2 py-3 text-slate-700">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                 <span className="text-xs md:text-sm font-medium">
                   Festpreis vor Arbeit
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-white/90">
+              <div className="liquid-glass flex flex-col md:flex-row items-center gap-1.5 md:gap-2 rounded-2xl px-2 py-3 text-slate-700">
                 <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
                 <span className="text-xs md:text-sm font-medium">
                   Kein Start ohne OK
@@ -114,12 +112,12 @@ export default function HeroSection() {
             <div className="max-w-md mx-auto mb-8">
               <button
                 onClick={() => setIsCallModalOpen(true)}
-                className="w-full bg-gradient-to-r from-primary to-cyan-500 rounded-2xl px-6 py-5 flex items-center justify-center gap-4 shadow-2xl shadow-primary/30 hover:shadow-primary/50 active:scale-[0.98] transition-all group"
+                className="liquid-button w-full rounded-2xl px-5 py-4 md:py-5 flex items-center justify-center gap-4 active:scale-[0.98] transition-all group"
               >
-                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="relative z-10 w-12 h-12 md:w-14 md:h-14 bg-white/25 border border-white/50 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Phone className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-left">
+                <div className="relative z-10 text-left">
                   <p className="text-white/80 text-sm font-medium">
                     Jetzt kostenlos anrufen
                   </p>
@@ -131,8 +129,8 @@ export default function HeroSection() {
 
               {/* Secondary CTA */}
               <Link href="/kontakt" className="block mt-3">
-                <div className="w-full h-12 bg-white/10 text-white border border-white/20 font-semibold rounded-xl flex items-center justify-center gap-2 text-sm hover:bg-white/20 transition-colors">
-                  <Zap className="w-4 h-4 text-yellow-400" />
+                <div className="liquid-glass w-full h-12 text-sky-800 font-semibold rounded-xl flex items-center justify-center gap-2 text-sm hover:border-sky-400 transition-colors">
+                  <Zap className="w-4 h-4 text-primary" />
                   Rückruf in 5 Minuten anfordern
                   <ArrowRight className="w-4 h-4" />
                 </div>
@@ -150,14 +148,14 @@ export default function HeroSection() {
                     />
                   ))}
                 </div>
-                <span className="text-white font-semibold text-sm md:text-base">
+                <span className="text-slate-800 font-semibold text-sm md:text-base">
                   {company.rating.displayText}
                 </span>
-                <span className="text-white/60 text-xs md:text-sm">
+                <span className="text-slate-500 text-xs md:text-sm">
                   ({company.rating.reviewCount} Bewertungen)
                 </span>
               </div>
-              <div className="flex items-center gap-2 text-white/80">
+              <div className="flex items-center gap-2 text-slate-600">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="text-sm">
                   Amberg • Kümmersbruck • Sulzbach-Rosenberg • Umgebung
@@ -165,7 +163,7 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-amber-400" />
-                <span className="text-white/80 text-sm">
+                <span className="text-slate-600 text-sm">
                   In {company.urgency.responseTime} Min vor Ort
                 </span>
               </div>
@@ -184,7 +182,6 @@ export default function HeroSection() {
             <path
               d="M0 30L60 28C120 26 240 22 360 22C480 22 600 26 720 30C840 34 960 38 1080 36C1200 34 1320 26 1380 22L1440 18V60H0V30Z"
               fill="white"
-              className="dark:fill-gray-900"
             />
           </svg>
         </div>

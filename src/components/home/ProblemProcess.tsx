@@ -74,24 +74,24 @@ export default function ProblemProcess() {
       />
 
       {/* PROBLEM SELECTION SECTION */}
-      <section className="py-8 md:py-12 bg-white dark:bg-gray-900">
+      <section className="py-10 md:py-14 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl md:text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">
+            <h2 className="mobile-section-title text-xl md:text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">
               Was ist Ihr Problem?
             </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            <div className="grid grid-cols-1 min-[430px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
               {problemCards.map((card) => {
                 const Icon = card.icon;
                 return (
                   <Link
                     key={card.title}
                     href={card.href}
-                    className={`relative group p-4 md:p-5 rounded-xl border-2 transition-all hover:shadow-lg hover:-translate-y-1 ${
+                    className={`liquid-glass relative group min-h-[78px] md:min-h-0 p-3.5 md:p-5 rounded-2xl transition-all hover:shadow-lg hover:-translate-y-1 flex md:block items-center gap-3 ${
                       card.urgent
-                        ? "border-red-200 dark:border-red-900 bg-red-50 dark:bg-red-950/30 hover:border-red-400"
-                        : "border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 hover:border-primary"
+                        ? "!border-red-200 bg-red-50/80 dark:bg-red-950/30 hover:!border-red-400"
+                        : "hover:!border-primary"
                     }`}
                   >
                     {card.urgent && (
@@ -100,7 +100,7 @@ export default function ProblemProcess() {
                       </span>
                     )}
                     <div
-                      className={`w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center mb-3 ${
+                      className={`w-11 h-11 md:w-12 md:h-12 rounded-xl flex shrink-0 items-center justify-center md:mb-3 ${
                         card.urgent
                           ? "bg-red-100 dark:bg-red-900/50"
                           : "bg-primary/10 dark:bg-primary/20"
@@ -115,7 +115,7 @@ export default function ProblemProcess() {
                     <h3 className="font-semibold text-sm md:text-base text-gray-900 dark:text-white group-hover:text-primary transition-colors">
                       {card.title}
                     </h3>
-                    <ArrowRight className="absolute bottom-4 right-4 w-4 h-4 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    <ArrowRight className="ml-auto md:absolute md:bottom-4 md:right-4 w-4 h-4 text-sky-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </Link>
                 );
               })}
@@ -125,11 +125,11 @@ export default function ProblemProcess() {
       </section>
 
       {/* HOW WE WORK - TRANSPARENCY SECTION */}
-      <section className="py-10 md:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="py-12 md:py-16 soft-blue-section dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="mobile-section-title text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
                 So wissen Sie <span className="text-primary">VORHER</span>, was
                 es kostet
               </h2>
@@ -138,9 +138,9 @@ export default function ProblemProcess() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-4 md:gap-6">
+            <div className="mobile-card-rail grid md:grid-cols-4 gap-4 md:gap-6">
               {/* Step 1 */}
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+              <div className="liquid-glass relative rounded-2xl p-6">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
                   1
                 </div>
@@ -160,7 +160,7 @@ export default function ProblemProcess() {
               </div>
 
               {/* Step 2 */}
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+              <div className="liquid-glass relative rounded-2xl p-6">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
                   2
                 </div>
@@ -180,7 +180,7 @@ export default function ProblemProcess() {
               </div>
 
               {/* Step 3 */}
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+              <div className="liquid-glass relative rounded-2xl p-6">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
                   3
                 </div>
@@ -200,7 +200,7 @@ export default function ProblemProcess() {
               </div>
 
               {/* Step 4 */}
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700">
+              <div className="liquid-glass relative rounded-2xl p-6">
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
                   4
                 </div>

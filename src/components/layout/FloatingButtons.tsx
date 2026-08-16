@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Phone, Home, Zap } from "lucide-react";
+import { Phone, Home, MessageSquareText } from "lucide-react";
 import { company } from "@/data/company";
 import { trackCTAClick } from "@/lib/tracking";
 import CallConfirmModal from "./CallConfirmModal";
@@ -50,26 +50,31 @@ export default function FloatingButtons() {
       )}
 
       {/* Right side buttons - Mobile optimized */}
-      <div className="fixed bottom-3 right-3 md:bottom-6 md:right-6 z-50 flex flex-col gap-2 md:gap-3">
-        {/* Soforthilfe Button */}
+      <div className="fixed bottom-4 right-3 md:bottom-6 md:right-6 z-50 flex flex-col items-end gap-2.5 md:gap-3">
+        {/* Clearly labelled request button */}
         <button
           type="button"
           onClick={handleContactClick}
-          className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 gradient-primary rounded-full shadow-lg shadow-primary/30 transition-colors active:scale-95"
-          aria-label="Soforthilfe anfordern"
+          className="liquid-glass group flex h-12 md:h-14 items-center gap-2 rounded-full px-3.5 md:px-5 text-sky-800 transition-all active:scale-95"
+          aria-label="Anfrageformular öffnen"
         >
-          <Zap className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 ring-1 ring-sky-200">
+            <MessageSquareText className="w-4.5 h-4.5 md:w-5 md:h-5 text-primary" />
+          </span>
+          <span className="text-xs md:text-sm font-bold">Anfrage</span>
         </button>
 
         {/* Phone Button */}
         <button
           type="button"
           onClick={handlePhoneClick}
-          className="flex items-center justify-center w-12 h-12 md:w-auto md:px-5 md:py-3 bg-[#3AB0FF] rounded-full shadow-lg shadow-[#3AB0FF]/30 transition-colors active:scale-95"
+          className="liquid-button flex h-14 items-center justify-center gap-2 rounded-full px-4 md:px-5 text-white transition-all active:scale-95"
           aria-label="Jetzt anrufen"
         >
-          <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
-          <span className="hidden md:inline text-white font-bold text-sm ml-2">
+          <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 ring-1 ring-white/35">
+            <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          </span>
+          <span className="relative z-10 text-xs md:text-sm font-bold">
             Anrufen
           </span>
         </button>
