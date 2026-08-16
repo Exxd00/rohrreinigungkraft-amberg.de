@@ -57,6 +57,6 @@ Internal Google Ads management tool for Rohrreinigung Kraft to manage campaigns,
 ## 7. Contact
 - Email: rohrreinigungkraft.de@gmail.com
 - Website: https://rohrreinigung-kraft.de
-- Phone: +49 911 892 186 82
+- Phone: +49 178 7401958
 
 Version 1.0 - May 2026

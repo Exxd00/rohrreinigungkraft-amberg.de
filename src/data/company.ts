@@ -19,10 +19,10 @@ export const company = {
   serviceRadius: 60, // km - Servicegebiet in der Oberpfalz
 
   contact: {
-    phone: "+49 911 89218682",
-    phoneDisplay: "0911 89218682",
+    phone: "+49 178 7401958",
+    phoneDisplay: "01787401958",
     email: "Info@Rohrreinigung-kraft.de",
-    whatsapp: "+4991189218682",
+    whatsapp: "+491787401958",
   },
 
   // ✅ ECHTE ADRESSE (Gelbe Seiten verifiziert)
@@ -348,7 +348,7 @@ export const company = {
     defaultTitle:
       "Rohrreinigung Kraft | 24/7 Notdienst Amberg, Kümmersbruck, Sulzbach-Rosenberg",
     defaultDescription:
-      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 70-100 Min ✓ 24/7 Notdienst ✓ Kostenlose Diagnose ✓ Festpreis vorab. Jetzt anrufen: 0911 89218682",
+      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 70-100 Min ✓ 24/7 Notdienst ✓ Kostenlose Diagnose ✓ Festpreis vorab. Jetzt anrufen: 01787401958",
     keywords: [
       "Rohrreinigung Amberg",
       "Rohrreinigung Kümmersbruck",

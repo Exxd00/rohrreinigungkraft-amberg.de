@@ -42,14 +42,14 @@
 Beschreibung 1: Professionelle Rohrreinigung rund um die Uhr. Faire Preise. Jetzt anrufen!
 Beschreibung 2: Etablierter Fachbetrieb ✓ Moderne Technik ✓ Keine versteckten Kosten ✓
 Finale URL: https://rohrreinigung-kraft-amberg.de
-Anruf-Erweiterung: 0911 89218682
+Anruf-Erweiterung: 01787401958
 ```
 
 **Anzeige 2:**
 ```
 Überschrift 1: Abfluss verstopft? Wir helfen!
 Überschrift 2: Notdienst 24/7 - Amberg
-Überschrift 3: ☎ 0911 89218682
+Überschrift 3: ☎ 01787401958
 Beschreibung 1: Rohrreinigung Notdienst - Schnelle Hilfe bei Verstopfungen. Professionell & zuverlässig.
 Beschreibung 2: 10+ Jahre Erfahrung ✓ 2000+ Einsätze ✓ 98% Kundenzufriedenheit ✓
 Finale URL: https://rohrreinigung-kraft-amberg.de/service/rohrreinigung-notdienst
@@ -186,7 +186,7 @@ Finale URL: https://rohrreinigung-kraft-amberg.de/sulzbach-rosenberg
 4. **Einsatzgebiete** → /staedte
 
 ### Anruf-Erweiterung
-- Telefon: 0911 89218682
+- Telefon: 01787401958
 - Anzeige: "Jetzt anrufen"
 
 ### Standort-Erweiterung

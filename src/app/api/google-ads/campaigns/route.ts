@@ -206,7 +206,7 @@ export async function POST(request: NextRequest) {
           headlines,
           descriptions,
           finalUrl: `https://rohrreinigung-kraft.de/${cityName.toLowerCase().replace("ü", "ue").replace("ä", "ae").replace("ö", "oe")}`,
-          phoneNumber: "+4991189218682",
+          phoneNumber: "+491787401958",
         });
 
         return NextResponse.json(result);
@@ -223,7 +223,7 @@ export async function POST(request: NextRequest) {
           headlines: data.headlines || [],
           descriptions: data.descriptions || [],
           finalUrl: data.finalUrl,
-          phoneNumber: data.phoneNumber || "+4991189218682",
+          phoneNumber: data.phoneNumber || "+491787401958",
         });
 
         return NextResponse.json(result);
