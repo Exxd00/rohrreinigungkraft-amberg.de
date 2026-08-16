@@ -20,7 +20,7 @@ export default function CTASection() {
         source="cta_section"
       />
 
-      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-[#16495A] via-[#26658C] to-[#103747] dark:from-[#0D3444] dark:via-[#16495A] dark:to-[#0B3040] relative overflow-hidden">
         {/* Background pattern */}
         <div
           className="absolute inset-0 opacity-5"
@@ -39,8 +39,7 @@ export default function CTASection() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
                 <span className="text-sm font-medium text-emerald-300">
-                  {availableTechnicians} Techniker jetzt
-                  verfügbar
+                  {availableTechnicians} Techniker jetzt verfügbar
                 </span>
               </div>
 

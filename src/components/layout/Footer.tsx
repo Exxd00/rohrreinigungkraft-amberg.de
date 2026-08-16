@@ -64,7 +64,7 @@ export default function Footer() {
         source="footer"
       />
 
-      <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white">
+      <footer className="bg-gradient-to-b from-[#16495A] via-[#123F50] to-[#0D3444] text-white">
         {/* Map Section */}
         <div className="border-b border-gray-800">
           <div className="container mx-auto px-4 py-8">

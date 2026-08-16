@@ -632,7 +632,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       {/* Final CTA */}
-      <section className="py-12 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+      <section className="py-12 bg-gradient-to-br from-[#16495A] via-[#26658C] to-[#103747] dark:from-[#0D3444] dark:via-[#16495A] dark:to-[#0B3040] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             {enhancedContent?.heroHeadline || `${service.name}?`}

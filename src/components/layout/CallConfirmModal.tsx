@@ -204,7 +204,7 @@ export default function CallConfirmModal({
                   value={phone}
                   onChange={(event) => setPhone(event.target.value)}
                   placeholder="+49 …"
-                  className="h-12 w-full rounded-xl border border-sky-200 bg-white/85 px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                  className="h-12 w-full rounded-xl border border-sky-200 bg-white/85 px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-[#54ACBF]/45 dark:bg-[#103B4C] dark:text-white"
                 />
               </div>
               <div>
@@ -222,7 +222,7 @@ export default function CallConfirmModal({
                   value={name}
                   onChange={(event) => setName(event.target.value)}
                   placeholder="Ihr Name"
-                  className="h-12 w-full rounded-xl border border-sky-200 bg-white/85 px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                  className="h-12 w-full rounded-xl border border-sky-200 bg-white/85 px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-[#54ACBF]/45 dark:bg-[#103B4C] dark:text-white"
                 />
               </div>
 
