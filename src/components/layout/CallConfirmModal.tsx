@@ -1,17 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import {
-  Phone,
-  X,
-  Clock,
-  CheckCircle,
-  AlertCircle,
-  Loader2,
-} from "lucide-react";
+import { FormEvent, useEffect, useRef, useState } from "react";
+import { Loader2, Phone, X } from "lucide-react";
 import { company } from "@/data/company";
-import { trackCallIntent, trackCallConfirmed } from "@/lib/tracking";
-import { getTrackingData, getGclid } from "@/lib/gclid";
+import {
+  trackCallConfirmed,
+  trackCallIntent,
+  trackFormConfirmed,
+} from "@/lib/tracking";
+import { getGclid, getTrackingData } from "@/lib/gclid";
 
 interface CallConfirmModalProps {
   isOpen: boolean;
@@ -24,48 +21,50 @@ export default function CallConfirmModal({
   onClose,
   source,
 }: CallConfirmModalProps) {
-  const [step, setStep] = useState<"intent" | "confirm">("intent");
-  const [isCallInProgress, setIsCallInProgress] = useState(false);
+  const phoneInputRef = useRef<HTMLInputElement>(null);
+  const [phone, setPhone] = useState("");
+  const [name, setName] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
-    if (isOpen) {
-      trackCallIntent(source);
-      setStep("intent");
-      setIsCallInProgress(false);
-    }
+    if (!isOpen) return;
+    trackCallIntent(source);
+    setPhone("");
+    setName("");
+    setError("");
+    setIsSubmitted(false);
+    setIsSubmitting(false);
+    const timer = window.setTimeout(() => phoneInputRef.current?.focus(), 80);
+    return () => window.clearTimeout(timer);
   }, [isOpen, source]);
 
-  const handleConfirmIntent = () => {
-    setStep("confirm");
-  };
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && !isSubmitting) onClose();
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [isOpen, isSubmitting, onClose]);
 
-  const handleCall = () => {
-    // Prevent double clicks
-    if (isCallInProgress) return;
-    setIsCallInProgress(true);
-
-    // Get tracking data for Google Sheets
-    const trackingData = getTrackingData();
-    const gclid = getGclid();
-
-    // 🎯 CONVERSION: Track call confirmed
-    trackCallConfirmed(source);
-
-    // Send to Google Sheets in background (fire and forget)
+  const logConfirmedCall = () => {
+    const tracking = getTrackingData();
     const payload = JSON.stringify({
       eventType: "call_confirmed",
-      source: source,
-      gclid: gclid,
-      utmSource: trackingData.source,
-      utmMedium: trackingData.medium,
-      utmCampaign: trackingData.campaign,
-      landingPage: trackingData.landingPage,
-      currentPage: trackingData.currentPage,
-      referrer: trackingData.referrer,
+      source,
+      gclid: getGclid(),
+      utmSource: tracking.source,
+      utmMedium: tracking.medium,
+      utmCampaign: tracking.campaign,
+      landingPage: tracking.landingPage,
+      currentPage: tracking.currentPage,
+      referrer: tracking.referrer,
       timestamp: new Date().toISOString(),
     });
 
-    // Use sendBeacon for reliable background sending
+    trackCallConfirmed(source);
     if (navigator.sendBeacon) {
       navigator.sendBeacon("/api/call-event", payload);
     } else {
@@ -76,157 +75,198 @@ export default function CallConfirmModal({
         keepalive: true,
       }).catch(() => {});
     }
-
-    // IMMEDIATELY make the call - no waiting!
-    window.location.href = `tel:${company.contact.phone}`;
-
-    // Close modal after short delay
-    setTimeout(() => {
-      onClose();
-      setIsCallInProgress(false);
-    }, 100);
   };
 
-  const handleClose = () => {
-    if (isCallInProgress) return;
-    onClose();
+  const handleCallbackRequest = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const normalizedPhone = phone.trim();
+    if (!normalizedPhone) {
+      setError("Bitte geben Sie Ihre Telefonnummer ein.");
+      phoneInputRef.current?.focus();
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError("");
+    const tracking = getTrackingData();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim() || "Rückruf gewünscht",
+          phone: normalizedPhone,
+          email: "",
+          city: "Amberg / Rückruf",
+          service: "Rückrufwunsch",
+          message: `Rückruf über das Anruf-Fenster angefordert (${source}).`,
+          images: [],
+          gclid: tracking.gclid,
+          source: tracking.source,
+          medium: tracking.medium,
+          campaign: tracking.campaign,
+          landingPage: tracking.landingPage,
+          currentPage: tracking.currentPage,
+          referrer: tracking.referrer,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.details || result.error);
+
+      trackFormConfirmed({ service: "Rückrufwunsch", city: "Amberg" });
+      setIsSubmitted(true);
+    } catch (submissionError) {
+      console.error("Callback request failed:", submissionError);
+      setError(
+        `Der Rückruf konnte nicht gesendet werden. Bitte rufen Sie uns direkt unter ${company.contact.phoneDisplay} an.`,
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={handleClose}
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      role="presentation"
+    >
+      <button
+        type="button"
+        className="absolute inset-0 bg-slate-950/65 backdrop-blur-sm"
+        onClick={onClose}
+        aria-label="Dialog schließen"
       />
 
-      {/* Modal - Fixed size for mobile */}
-      <div className="relative w-full max-w-[340px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden animate-scale-in">
-        {/* Close Button */}
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="callback-dialog-title"
+        className="relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl dark:border-slate-700 dark:bg-slate-900 sm:p-8"
+      >
         <button
-          onClick={handleClose}
-          disabled={isCallInProgress}
-          className="absolute top-3 right-3 p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors z-10 disabled:opacity-50"
+          type="button"
+          onClick={onClose}
+          disabled={isSubmitting}
+          className="absolute right-4 top-4 rounded-full p-2 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700 disabled:opacity-50 dark:hover:bg-slate-800 dark:hover:text-white"
           aria-label="Schließen"
         >
-          <X className="w-5 h-5" />
+          <X className="h-5 w-5" />
         </button>
 
-        {step === "intent" ? (
-          /* Step 1: Intent */
-          <div className="p-5 text-center">
-            {/* Icon - smaller on mobile */}
-            <div className="w-14 h-14 mx-auto mb-3 rounded-full bg-primary/10 flex items-center justify-center">
-              <Phone className="w-7 h-7 text-primary" />
+        {isSubmitted ? (
+          <div className="py-5 text-center" aria-live="polite">
+            <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400">
+              <Phone className="h-6 w-6" />
             </div>
-
-            {/* Title */}
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-              Möchten Sie uns anrufen?
-            </h3>
-
-            {/* Subtitle */}
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              Unser Team ist jetzt erreichbar
+            <h2 className="text-2xl font-bold text-slate-950 dark:text-white">
+              Rückruf ist angefordert
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+              Vielen Dank. Wir melden uns so schnell wie möglich bei Ihnen.
             </p>
-
-            {/* Availability */}
-            <div className="flex items-center justify-center gap-2 mb-4 text-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
-              <span className="text-green-600 dark:text-green-400 font-medium">
-                24/7 erreichbar
-              </span>
-            </div>
-
-            {/* Buttons */}
-            <div className="space-y-2">
-              <button
-                onClick={handleConfirmIntent}
-                className="w-full py-3.5 px-5 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2"
-              >
-                <Phone className="w-5 h-5" />
-                Ja, jetzt anrufen
-              </button>
-
-              <button
-                onClick={handleClose}
-                className="w-full py-2.5 px-5 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium rounded-xl transition-colors text-sm"
-              >
-                Später anrufen
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              className="mt-6 w-full rounded-xl bg-primary px-5 py-3 font-semibold text-white transition-colors hover:bg-primary/90"
+            >
+              Schließen
+            </button>
           </div>
         ) : (
-          /* Step 2: Confirm */
-          <div className="p-5 text-center">
-            {/* Header gradient */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent" />
-
-            {/* Phone Number */}
-            <div className="mb-4 pt-2">
-              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                Sie werden verbunden mit:
+          <>
+            <div className="pr-8">
+              <h2
+                id="callback-dialog-title"
+                className="text-2xl font-bold tracking-tight text-slate-950 dark:text-white"
+              >
+                Lieber einen Rückruf erhalten?
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                Hinterlassen Sie Ihre Nummer. Falls wir gerade im Einsatz sind,
+                rufen wir Sie schnellstmöglich zurück.
               </p>
-              <div className="text-2xl font-bold text-primary dark:text-[#3AB0FF]">
-                {company.contact.phoneDisplay}
-              </div>
             </div>
 
-            {/* Benefits - Compact */}
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3 mb-4 text-left">
-              <div className="flex items-center gap-2 mb-2">
-                <CheckCircle className="w-4 h-4 text-green-500 shrink-0" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">
-                  Kostenlose Beratung
-                </span>
+            <form onSubmit={handleCallbackRequest} className="mt-6 space-y-4">
+              <div>
+                <label
+                  htmlFor="callback-phone"
+                  className="mb-1.5 block text-sm font-semibold text-slate-800 dark:text-slate-200"
+                >
+                  Telefonnummer <span className="text-red-500">*</span>
+                </label>
+                <input
+                  ref={phoneInputRef}
+                  id="callback-phone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  required
+                  value={phone}
+                  onChange={(event) => setPhone(event.target.value)}
+                  placeholder="+49 …"
+                  className="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                />
               </div>
-              <div className="flex items-center gap-2 mb-2">
-                <Clock className="w-4 h-4 text-primary shrink-0" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">
-                  Anfahrtszeit ehrlich am Telefon
-                </span>
+              <div>
+                <label
+                  htmlFor="callback-name"
+                  className="mb-1.5 block text-sm font-semibold text-slate-800 dark:text-slate-200"
+                >
+                  Name{" "}
+                  <span className="font-normal text-slate-400">(optional)</span>
+                </label>
+                <input
+                  id="callback-name"
+                  type="text"
+                  autoComplete="name"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  placeholder="Ihr Name"
+                  className="h-12 w-full rounded-xl border border-slate-300 bg-white px-4 text-base text-slate-950 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                />
               </div>
-              <div className="flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-orange-500 shrink-0" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">
-                  24/7 Notdienst
-                </span>
-              </div>
-            </div>
 
-            {/* Call Button - With loading state */}
-            <button
-              onClick={handleCall}
-              disabled={isCallInProgress}
-              className="w-full py-4 px-5 gradient-primary text-white font-bold rounded-xl transition-all active:scale-[0.98] flex items-center justify-center gap-2 text-lg shadow-lg shadow-primary/30 disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isCallInProgress ? (
-                <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
-                  Verbinde...
-                </>
-              ) : (
-                <>
-                  <Phone className="w-5 h-5" />
-                  Jetzt anrufen
-                </>
+              {error && (
+                <p
+                  className="rounded-xl bg-red-50 px-3 py-2 text-sm text-red-700 dark:bg-red-950/40 dark:text-red-300"
+                  role="alert"
+                >
+                  {error}
+                </p>
               )}
-            </button>
 
-            {/* Back link */}
-            <button
-              onClick={() => setStep("intent")}
-              disabled={isCallInProgress}
-              className="mt-3 text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 disabled:opacity-50"
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Wird gesendet…
+                  </>
+                ) : (
+                  "Rückruf anfordern"
+                )}
+              </button>
+            </form>
+
+            <a
+              href={`tel:${company.contact.phone}`}
+              onClick={logConfirmedCall}
+              className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-xl border-2 border-primary px-5 font-bold text-primary transition-colors hover:bg-primary/5 dark:text-[#73A6DE]"
             >
-              ← Zurück
-            </button>
-          </div>
+              <Phone className="h-5 w-5" />
+              Jetzt direkt anrufen
+            </a>
+            <p className="mt-4 text-center text-xs leading-5 text-slate-500 dark:text-slate-400">
+              Ihre Nummer wird nur für diesen Rückruf verwendet.
+            </p>
+          </>
         )}
       </div>
     </div>
