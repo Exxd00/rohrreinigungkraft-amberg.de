@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,29 +28,14 @@ const navigation = [
   { name: "Kontakt", href: "/kontakt" },
 ];
 
-// Pages with dark/gradient hero sections that need light text when not scrolled
-// Note: /staedte has a LIGHT hero, so not included here
-const darkHeroPages = [
-  "/kontakt",
-  "/leistungen",
-  "/service",
-  "/preise",
-  "/hausverwaltung",
-  "/faq",
-];
-
 export default function Header() {
-  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [isCallModalOpen, setIsCallModalOpen] = useState(false);
 
-  // Check if current page has a dark hero
-  const hasDarkHero =
-    darkHeroPages.some((page) =>
-      page === "/" ? pathname === "/" : pathname.startsWith(page),
-    ) || pathname.match(/^\/[a-z-]+$/); // City pages like /amberg
+  // All page heroes use a light surface in day mode and near-black in dark mode.
+  const hasDarkHero = false;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -99,10 +83,10 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg py-2"
+            ? "bg-white/90 dark:bg-black/90 backdrop-blur-xl shadow-lg border-b border-sky-100/80 dark:border-white/10 py-2"
             : hasDarkHero
-              ? "bg-black/10 backdrop-blur-sm py-4"
-              : "bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm py-4"
+              ? "bg-black/15 backdrop-blur-md border-b border-white/5 py-4"
+              : "bg-white/55 dark:bg-black/50 backdrop-blur-xl border-b border-sky-100/70 dark:border-white/10 py-4"
         }`}
       >
         <div className="container mx-auto px-4">

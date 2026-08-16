@@ -25,12 +25,7 @@ import {
   formatFileSize,
   type CompressedImage,
 } from "@/lib/imageCompression";
-import {
-  trackFormConfirmed,
-  trackPhoneClick,
-  trackCTAClick,
-  getCompleteTrackingData,
-} from "@/lib/tracking";
+import { trackCTAClick, getCompleteTrackingData } from "@/lib/tracking";
 import { useAvailableTechnicians } from "@/lib/useAvailableTechnicians";
 
 interface FormData {
@@ -115,14 +110,6 @@ export default function ContactForm() {
     // Get complete tracking data including GCLID, source, etc.
     const trackingData = getCompleteTrackingData();
 
-    // 🎯 CONVERSION: Track form confirmed
-    trackFormConfirmed({
-      service: formData.service,
-      city: formData.city,
-      hasImages: images.length > 0,
-      imageCount: images.length,
-    });
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -141,6 +128,7 @@ export default function ContactForm() {
           landingPage: trackingData.landingPage,
           currentPage: trackingData.currentPage,
           referrer: trackingData.referrer,
+          requestType: "contact",
         }),
       });
 
@@ -164,10 +152,6 @@ export default function ContactForm() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handlePhoneClick = () => {
-    trackPhoneClick("contact_form");
   };
 
   const services = [
@@ -490,7 +474,7 @@ export default function ContactForm() {
                 </div>
                 <a
                   href={`tel:${company.contact.phone}`}
-                  onClick={handlePhoneClick}
+                  data-tracking-source="contact_form"
                   className="flex items-center gap-3 p-3 bg-white/10 backdrop-blur rounded-lg md:rounded-xl hover:bg-white/20 transition-colors mb-2 md:mb-3"
                 >
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-lg flex items-center justify-center shrink-0">

@@ -1,18 +1,3 @@
-// =====================================================
-// ROHRREINIGUNG KRAFT - CONVERSION TRACKING SYSTEM
-// 5 Main Conversion Events for Google Ads
-// =====================================================
-//
-// 🎯 MAIN CONVERSIONS (Mark these in GA4 → Import to Google Ads):
-//
-// 1. call_confirmed      - User confirmed phone call (Value: €25)
-// 2. email_confirmed     - User confirmed email contact (Value: €25)
-// 3. form_confirmed      - Form successfully submitted (Value: €50)
-// 4. thank_you_page      - Thank you page reached (Value: €50)
-// 5. generate_lead       - Lead generated (Primary conversion)
-//
-// =====================================================
-
 import { getGclid, getTrackingData } from "./gclid";
 
 declare global {
@@ -22,229 +7,76 @@ declare global {
   }
 }
 
-/**
- * Base event tracking function
- */
-export const trackEvent = (
-  eventName: string,
-  eventParams?: Record<string, unknown>,
+type ConversionEvent = "kraft_call" | "kraft_callback" | "kraft_thank_you";
+
+const trackConversion = (
+  eventName: ConversionEvent,
+  eventParams: Record<string, unknown>,
 ) => {
   if (typeof window === "undefined") return;
 
-  const trackingData = getTrackingData();
-
-  const enrichedParams = {
+  const tracking = getTrackingData();
+  const params = {
+    event_category: "lead",
+    currency: "EUR",
+    gclid: tracking.gclid || undefined,
+    traffic_source: tracking.source,
+    traffic_medium: tracking.medium,
+    traffic_campaign: tracking.campaign || undefined,
     ...eventParams,
-    gclid: trackingData.gclid || undefined,
-    traffic_source: trackingData.source,
-    traffic_medium: trackingData.medium,
-    traffic_campaign: trackingData.campaign || undefined,
   };
 
-  // Push to dataLayer for GTM
-  if (window.dataLayer) {
-    window.dataLayer.push({
-      event: eventName,
-      ...enrichedParams,
-    });
-  }
+  window.gtag?.("event", eventName, params);
 
-  // Direct gtag call for GA4
-  if (window.gtag) {
-    window.gtag("event", eventName, enrichedParams);
-  }
-
-  // Console log for debugging
   if (process.env.NODE_ENV === "development") {
-    console.log(`[Tracking] ${eventName}`, enrichedParams);
+    console.log(`[GA4] ${eventName}`, params);
   }
 };
 
-// =====================================================
-// 🎯 CONVERSION 1: CALL CONFIRMED
-// Triggered when user confirms phone call in modal
-// =====================================================
 export const trackCallConfirmed = (source: string) => {
-  const gclid = getGclid();
-
-  trackEvent("call_confirmed", {
-    event_category: "conversion",
+  trackConversion("kraft_call", {
     event_label: source,
+    lead_type: "phone_call",
     contact_method: "phone",
-    currency: "EUR",
     value: 25,
-    has_gclid: !!gclid,
+    has_gclid: !!getGclid(),
   });
-
-  // Also trigger generate_lead
-  trackGenerateLead("phone_call", source);
 };
 
-// =====================================================
-// 🎯 CONVERSION 2: EMAIL CONFIRMED
-// Triggered when user confirms email contact in modal
-// =====================================================
-export const trackEmailConfirmed = (source: string) => {
-  const gclid = getGclid();
-
-  trackEvent("email_confirmed", {
-    event_category: "conversion",
+export const trackCallbackSuccess = (source: string) => {
+  trackConversion("kraft_callback", {
     event_label: source,
-    contact_method: "email",
-    currency: "EUR",
-    value: 25,
-    has_gclid: !!gclid,
-  });
-
-  // Also trigger generate_lead
-  trackGenerateLead("email_click", source);
-};
-
-// =====================================================
-// 🎯 CONVERSION 3: FORM CONFIRMED
-// Triggered when contact form is successfully submitted
-// =====================================================
-export const trackFormConfirmed = (formData: {
-  service?: string;
-  city?: string;
-  hasImages?: boolean;
-  imageCount?: number;
-}) => {
-  const gclid = getGclid();
-  const trackingData = getTrackingData();
-
-  trackEvent("form_confirmed", {
-    event_category: "conversion",
-    event_label: "contact_form",
-    contact_method: "form",
-    currency: "EUR",
+    lead_type: "callback_request",
+    contact_method: "callback",
     value: 50,
-    has_gclid: !!gclid,
-    service_type: formData.service || "unknown",
-    city: formData.city || "unknown",
-    has_images: formData.hasImages || false,
-    image_count: formData.imageCount || 0,
-    landing_page: trackingData.landingPage,
-    current_page: trackingData.currentPage,
+    has_gclid: !!getGclid(),
   });
-
-  // Also trigger generate_lead
-  trackGenerateLead("contact_form", formData.city);
 };
 
-// =====================================================
-// 🎯 CONVERSION 4: THANK YOU PAGE
-// Triggered when user reaches thank you page
-// =====================================================
 export const trackThankYouPage = () => {
-  const gclid = getGclid();
-  const trackingData = getTrackingData();
-
-  trackEvent("thank_you_page", {
-    event_category: "conversion",
-    event_label: "form_success",
-    currency: "EUR",
+  const tracking = getTrackingData();
+  trackConversion("kraft_thank_you", {
+    event_label: "contact_form_success",
+    lead_type: "contact_form",
+    contact_method: "form",
     value: 50,
-    has_gclid: !!gclid,
-    source: trackingData.source,
-    medium: trackingData.medium,
+    landing_page: tracking.landingPage,
   });
 };
 
-// =====================================================
-// 🎯 CONVERSION 5: GENERATE LEAD (Primary)
-// Main conversion event - triggered by call, email & form
-// =====================================================
-export const trackGenerateLead = (leadSource: string, location?: string) => {
-  const gclid = getGclid();
-
-  trackEvent("generate_lead", {
-    event_category: "conversion",
-    lead_source: leadSource,
-    location: location || "unknown",
-    currency: "EUR",
-    value: 50,
-    has_gclid: !!gclid,
-  });
-};
-
-// =====================================================
-// ENGAGEMENT EVENTS (For analytics)
-// =====================================================
-
-// Call intent - when call modal opens
-export const trackCallIntent = (source: string) => {
-  trackEvent("call_intent", {
-    event_category: "engagement",
-    event_label: source,
-  });
-};
-
-// Email intent - when email modal opens
-export const trackEmailIntent = (source: string) => {
-  trackEvent("email_intent", {
-    event_category: "engagement",
-    event_label: source,
-  });
-};
-
-// City page view - track which cities users visit
-export const trackCityView = (cityName: string, citySlug: string) => {
-  trackEvent("city_view", {
-    event_category: "engagement",
-    city_name: cityName,
-    city_slug: citySlug,
-  });
-};
-
-// Service page view
-export const trackServiceView = (serviceName: string, serviceSlug: string) => {
-  trackEvent("service_view", {
-    event_category: "engagement",
-    service_name: serviceName,
-    service_slug: serviceSlug,
-  });
-};
-
-// Phone click - general phone clicks (without modal)
-export const trackPhoneClick = (source: string) => {
-  trackEvent("phone_click", {
-    event_category: "engagement",
-    event_label: source,
-    contact_method: "phone",
-  });
-};
-
-// WhatsApp click
-export const trackWhatsAppClick = (source: string) => {
-  trackEvent("whatsapp_click", {
-    event_category: "engagement",
-    event_label: source,
-    contact_method: "whatsapp",
-  });
-};
-
-// CTA click
-export const trackCTAClick = (ctaName: string, location?: string) => {
-  trackEvent("cta_click", {
-    event_category: "engagement",
-    event_label: ctaName,
-    cta_location: location,
-  });
-};
-
-// =====================================================
-// LEGACY EXPORTS (for backward compatibility)
-// =====================================================
+// Existing UI imports remain compatible, but only the three lead events above
+// are sent to GA4.
+export const trackPhoneClick = trackCallConfirmed;
+export const trackCallIntent = (_source: string) => {};
+export const trackEmailIntent = (_source: string) => {};
+export const trackEmailConfirmed = (_source: string) => {};
+export const trackFormConfirmed = (_data?: Record<string, unknown>) => {};
+export const trackGenerateLead = (_source: string, _location?: string) => {};
+export const trackCityView = (_name: string, _slug: string) => {};
+export const trackServiceView = (_name: string, _slug: string) => {};
+export const trackWhatsAppClick = (_source: string) => {};
+export const trackCTAClick = (_name: string, _location?: string) => {};
 export const trackFormSubmit = trackFormConfirmed;
-export const trackLead = (data?: Record<string, unknown>) => {
-  trackGenerateLead(
-    (data?.lead_source as string) || "unknown",
-    data?.city as string,
-  );
-};
+export const trackLead = (_data?: Record<string, unknown>) => {};
 
-// Get complete tracking data
-export const getCompleteTrackingData = () => {
-  return getTrackingData();
-};
+export const getCompleteTrackingData = () => getTrackingData();

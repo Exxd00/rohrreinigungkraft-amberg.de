@@ -8,8 +8,7 @@ import FloatingButtons from "@/components/layout/FloatingButtons";
 import TrackingInit from "@/components/layout/TrackingInit";
 import { company } from "@/data/company";
 
-// TODO: Platzhalter-ID — durch die echte GA4-Property für diese Domain ersetzen
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+const GA_MEASUREMENT_ID = "G-4YZB1PX342";
 
 const inter = Inter({
   subsets: ["latin"],

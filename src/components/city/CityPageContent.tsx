@@ -69,7 +69,7 @@ export default function CityPageContent({
       />
 
       {/* Hero Section - Emergency Style */}
-      <section className="relative pt-24 md:pt-28 pb-10 md:pb-14 overflow-hidden">
+      <section className="light-page-hero relative pt-24 md:pt-28 pb-10 md:pb-14 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-primary to-red-500" />
 

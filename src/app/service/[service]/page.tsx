@@ -186,7 +186,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-28 pb-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <section className="light-page-hero relative pt-24 md:pt-28 pb-12 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
         {/* Background pattern */}
         <div
           className="absolute inset-0 opacity-5"

@@ -32,7 +32,7 @@ export default function ThemeToggle() {
         className="w-9 h-9 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
         aria-label="Theme toggle"
       >
-        <Sun className="w-4 h-4 text-white/70" />
+        <Sun className="w-4 h-4 text-gray-600 dark:text-white/70" />
       </button>
     );
   }

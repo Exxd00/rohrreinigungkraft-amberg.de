@@ -23,6 +23,7 @@ interface ContactFormData {
   landingPage?: string;
   currentPage?: string;
   referrer?: string;
+  requestType?: "contact" | "callback";
 }
 
 interface ImageUploadResult {
@@ -475,7 +476,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    return NextResponse.json({
+    const response = NextResponse.json({
       success: true,
       message: "Anfrage erfolgreich gesendet",
       emailSent,
@@ -490,6 +491,18 @@ export async function POST(request: NextRequest) {
         source: formData.source || "direct",
       },
     });
+
+    if (formData.requestType === "contact") {
+      response.cookies.set("kraft_thank_you_access", "granted", {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 300,
+        path: "/thank-you",
+      });
+    }
+
+    return response;
   } catch (error) {
     console.error("Error processing contact form:", error);
     return NextResponse.json(

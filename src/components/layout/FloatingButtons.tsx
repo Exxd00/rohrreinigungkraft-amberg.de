@@ -50,32 +50,28 @@ export default function FloatingButtons() {
       )}
 
       {/* Right side buttons - Mobile optimized */}
-      <div className="fixed bottom-4 right-3 md:bottom-6 md:right-6 z-50 flex flex-col items-end gap-2.5 md:gap-3">
+      <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex flex-col items-center gap-3">
         {/* Clearly labelled request button */}
         <button
           type="button"
           onClick={handleContactClick}
-          className="liquid-glass group flex h-12 md:h-14 items-center gap-2 rounded-full px-3.5 md:px-5 text-sky-800 transition-all active:scale-95"
+          className="floating-liquid-orb group flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full text-sky-800 transition-all active:scale-95"
           aria-label="Anfrageformular öffnen"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-100 ring-1 ring-sky-200">
-            <MessageSquareText className="w-4.5 h-4.5 md:w-5 md:h-5 text-primary" />
+          <span className="floating-liquid-orb__core flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full">
+            <MessageSquareText className="w-6 h-6 text-sky-700" />
           </span>
-          <span className="text-xs md:text-sm font-bold">Anfrage</span>
         </button>
 
         {/* Phone Button */}
         <button
           type="button"
           onClick={handlePhoneClick}
-          className="liquid-button flex h-14 items-center justify-center gap-2 rounded-full px-4 md:px-5 text-white transition-all active:scale-95"
+          className="floating-liquid-orb group flex h-14 w-14 md:h-16 md:w-16 items-center justify-center rounded-full text-white transition-all active:scale-95"
           aria-label="Jetzt anrufen"
         >
-          <span className="relative z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/20 ring-1 ring-white/35">
-            <Phone className="w-5 h-5 md:w-6 md:h-6 text-white" />
-          </span>
-          <span className="relative z-10 text-xs md:text-sm font-bold">
-            Anrufen
+          <span className="floating-liquid-orb__core flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-full">
+            <Phone className="w-6 h-6 text-sky-700" />
           </span>
         </button>
       </div>

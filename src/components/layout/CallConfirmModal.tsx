@@ -3,11 +3,7 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { Loader2, Phone, X } from "lucide-react";
 import { company } from "@/data/company";
-import {
-  trackCallConfirmed,
-  trackCallIntent,
-  trackFormConfirmed,
-} from "@/lib/tracking";
+import { trackCallbackSuccess, trackCallIntent } from "@/lib/tracking";
 import { getGclid, getTrackingData } from "@/lib/gclid";
 
 interface CallConfirmModalProps {
@@ -64,7 +60,6 @@ export default function CallConfirmModal({
       timestamp: new Date().toISOString(),
     });
 
-    trackCallConfirmed(source);
     if (navigator.sendBeacon) {
       navigator.sendBeacon("/api/call-event", payload);
     } else {
@@ -109,12 +104,13 @@ export default function CallConfirmModal({
           landingPage: tracking.landingPage,
           currentPage: tracking.currentPage,
           referrer: tracking.referrer,
+          requestType: "callback",
         }),
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.details || result.error);
 
-      trackFormConfirmed({ service: "Rückrufwunsch", city: "Amberg" });
+      trackCallbackSuccess(source);
       setIsSubmitted(true);
     } catch (submissionError) {
       console.error("Callback request failed:", submissionError);
@@ -258,6 +254,7 @@ export default function CallConfirmModal({
             <a
               href={`tel:${company.contact.phone}`}
               onClick={logConfirmedCall}
+              data-tracking-source={source}
               className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-xl border-2 border-primary px-5 font-bold text-primary transition-colors hover:bg-primary/5 dark:text-[#73A6DE]"
             >
               <Phone className="h-5 w-5" />
