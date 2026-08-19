@@ -52,9 +52,9 @@ export const kostenFAQ: FAQItem[] = [
     id: "kosten-1",
     question: "Was kostet eine Rohrreinigung?",
     shortAnswer:
-      "Ab 79€ für einfache Verstopfungen. Der genaue Festpreis wird nach kostenloser Diagnose vor Ort genannt – bevor die Arbeit beginnt.",
+      "Die Kosten richten sich nach Ursache, Zugänglichkeit, benötigter Technik und tatsächlichem Arbeitsaufwand.",
     fullAnswer:
-      "Die Kosten hängen von der Art und Tiefe der Verstopfung ab. Einfache Verstopfungen (Toilette, Waschbecken) kosten ab 79€, typisch 80-150€. Tiefere Probleme (Kanalreinigung) ab 149€. Das Besondere: Wir machen eine kostenlose Diagnose vor Ort und nennen Ihnen dann den EXAKTEN Festpreis – bevor wir anfangen. Keine Überraschungen.",
+      "Die Kosten hängen von Art und Tiefe der Verstopfung, der Zugänglichkeit und der benötigten Technik ab. Vor Ort beurteilen wir die Ursache fachgerecht und rechnen die tatsächlich erforderliche Leistung nachvollziehbar ab.",
     category: "kosten",
     page: ["homepage", "preise", "faq"],
     keywords: [
@@ -71,7 +71,7 @@ export const kostenFAQ: FAQItem[] = [
     shortAnswer:
       "Ja, die Diagnose vor Ort ist immer kostenlos – auch wenn Sie unser Angebot danach ablehnen.",
     fullAnswer:
-      "Wir kommen zu Ihnen, schauen uns das Problem an und erklären, was nötig ist. Das kostet Sie nichts. Erst danach nennen wir den Festpreis. Wenn Ihnen der Preis nicht passt, fahren wir wieder – ohne Kosten für Sie. Das ist unser Versprechen.",
+      "Unser Techniker beurteilt Ursache, Zugänglichkeit und benötigte Technik vor Ort. Diese fachgerechte Einschätzung ist Bestandteil des beauftragten Einsatzes und ermöglicht eine gezielte Ausführung.",
     category: "kosten",
     page: ["homepage", "preise", "faq"],
     keywords: ["diagnose kostenlos", "kostenlose begutachtung"],
@@ -82,9 +82,9 @@ export const kostenFAQ: FAQItem[] = [
     id: "kosten-3",
     question: "Kann der Preis NACH der Arbeit steigen?",
     shortAnswer:
-      "Nein. Der Festpreis nach Diagnose ist der Endpreis. Keine Nachforderungen.",
+      "Die tatsächlich erbrachten Leistungen werden nachvollziehbar ausgewiesen.",
     fullAnswer:
-      "Der Festpreis, den wir nach der Diagnose nennen, ist verbindlich. Wenn während der Arbeit unerwartet mehr nötig ist, besprechen wir das mit Ihnen und Sie entscheiden. Wir machen NICHTS ohne Ihre Zustimmung. Der ursprüngliche Preis steigt nicht ohne Ihr OK.",
+      "Die Abrechnung richtet sich nach der tatsächlich erforderlichen Arbeit. Zeigt sich ein größerer Umfang, erklärt und dokumentiert der Techniker die zusätzlichen Maßnahmen nachvollziehbar.",
     category: "kosten",
     page: ["preise", "faq"],
     keywords: ["festpreis", "nachforderung", "preis steigt"],
@@ -147,7 +147,7 @@ export const kostenFAQ: FAQItem[] = [
     id: "kosten-8",
     question: "Was kostet eine Kamera-Inspektion?",
     shortAnswer:
-      "Festpreis 149€ inklusive HD-Videoaufnahme und schriftlichem Befundbericht.",
+      "Die Kosten richten sich nach Leitungsverlauf, Zugänglichkeit und Umfang der Dokumentation.",
     fullAnswer:
       "Eine Kamera-Inspektion kostet pauschal 149€ – unabhängig von der Dauer. Inklusive sind: HD-Kamerabefahrung, Video-/Fotodokumentation per E-Mail, schriftlicher Befundbericht und Handlungsempfehlung. Perfekt für Dokumentation oder wenn Sie die Ursache verstehen wollen.",
     category: "kosten",
@@ -160,9 +160,9 @@ export const kostenFAQ: FAQItem[] = [
     id: "kosten-9",
     question: "Was kostet Toilette entstopfen?",
     shortAnswer:
-      "Ab 79€, typisch 80-130€. Festpreis nach kostenloser Diagnose vor Ort.",
+      "Die Kosten hängen von Ursache, Tiefe und tatsächlichem Aufwand ab.",
     fullAnswer:
-      "Eine verstopfte Toilette zu entstopfen kostet ab 79€. Die meisten Fälle liegen bei 80-130€. Der genaue Preis hängt davon ab, wie tief die Verstopfung sitzt und was sie verursacht hat. Nach unserer kostenlosen Diagnose nennen wir den Festpreis.",
+      "Die Kosten hängen davon ab, wie tief die Verstopfung sitzt, wodurch sie verursacht wurde und welche Technik erforderlich ist. Abgerechnet wird die tatsächlich notwendige Leistung.",
     category: "kosten",
     page: ["preise", "service-toilette", "faq"],
     keywords: ["toilette verstopft kosten", "wc entstopfen preis"],
@@ -186,9 +186,9 @@ export const kostenFAQ: FAQItem[] = [
     id: "kosten-11",
     question: "Warum sind die Preise 'ab'?",
     shortAnswer:
-      "Weil jede Verstopfung anders ist. 'Ab' ist für einfache Fälle. Der exakte Festpreis folgt nach Diagnose.",
+      "Weil jede Verstopfung anders ist. Eine seriöse Abrechnung berücksichtigt Ursache, Zugänglichkeit, Technik und tatsächlichen Aufwand.",
     fullAnswer:
-      "Eine Toilette mit Feuchttuch-Problem ist in 15 Minuten gelöst. Eine tiefsitzende Wurzelverstopfung braucht Spezialequipment und 2 Stunden. Einen fixen Preis vorab zu nennen wäre entweder zu teuer für Sie (bei einfachen Fällen) oder unrealistisch für uns. Deshalb: Kostenlose Diagnose → Exakter Festpreis → Ihr OK.",
+      "Eine oberflächliche Verstopfung kann schnell gelöst sein, während eine tiefsitzende Wurzelverstopfung Spezialequipment und deutlich mehr Zeit benötigt. Deshalb rechnen wir leistungsgerecht nach dem tatsächlichen Aufwand ab.",
     category: "kosten",
     page: ["preise", "faq"],
     keywords: ["ab preis", "warum ab"],
@@ -201,7 +201,7 @@ export const kostenFAQ: FAQItem[] = [
     shortAnswer:
       "Hauptsächlich: Tiefe der Verstopfung, Art (Fett/Wurzeln/Fremdkörper), Zugänglichkeit und nötige Technik.",
     fullAnswer:
-      "Der Preis richtet sich nach dem Aufwand: Wie tief sitzt die Verstopfung? Was hat sie verursacht (Haare sind einfacher als Wurzeln)? Wie gut erreichbar ist die Stelle? Welche Technik brauchen wir? All das sehen wir bei der kostenlosen Diagnose und nennen dann den Festpreis.",
+      "Der Preis richtet sich nach dem Aufwand: Wie tief sitzt die Verstopfung, was hat sie verursacht, wie gut ist die Stelle erreichbar und welche Technik wird benötigt? Diese Faktoren werden beim Einsatz fachgerecht beurteilt.",
     category: "kosten",
     page: ["preise", "faq"],
     keywords: ["preis faktoren", "was bestimmt preis"],
@@ -225,9 +225,9 @@ export const kostenFAQ: FAQItem[] = [
     id: "kosten-14",
     question: "Gibt es versteckte Kosten?",
     shortAnswer:
-      "Nein. Der Festpreis ist der Endpreis. Keine Materialzuschläge, keine Extras.",
+      "Arbeitszeit, Technik und erforderliches Material werden nachvollziehbar ausgewiesen.",
     fullAnswer:
-      "Wir nennen Ihnen einen Festpreis – und das ist der Endpreis. Keine Materialkosten extra, keine 'da war noch was', keine Nachforderungen. Was wir sagen, das gilt. Das unterscheidet uns von vielen anderen Anbietern.",
+      "Wir stellen die tatsächlich erbrachten Leistungen, die eingesetzte Technik und erforderliches Material nachvollziehbar dar. So bleibt die Rechnung transparent.",
     category: "kosten",
     page: ["preise", "homepage", "faq"],
     keywords: ["versteckte kosten", "keine extras"],
@@ -257,9 +257,9 @@ export const ablaufFAQ: FAQItem[] = [
     id: "ablauf-1",
     question: "Wie läuft ein Einsatz ab?",
     shortAnswer:
-      "Anruf → Wir kommen (70-100 Min) → Kostenlose Diagnose → Festpreis nennen → Ihr OK → Arbeit → Fertig.",
+      "Anruf → Anfahrt (meist 70-100 Min) → fachgerechte Einschätzung → Ausführung → Funktionsprüfung → Rechnung.",
     fullAnswer:
-      "1. Sie rufen an und schildern das Problem. 2. Wir kommen, meist innerhalb von 70-100 Min. 3. Vor Ort schauen wir uns das Problem an (kostenlos). 4. Wir erklären, was zu tun ist und nennen den Festpreis. 5. Sie entscheiden. 6. Bei OK arbeiten wir und hinterlassen alles sauber. 7. Sie zahlen, wir gehen.",
+      "1. Sie rufen an und schildern das Problem. 2. Wir kommen meist innerhalb von 70-100 Min. 3. Vor Ort beurteilen wir Ursache und Umfang. 4. Wir führen die erforderlichen Arbeiten fachgerecht aus. 5. Nach Funktionsprüfung und Dokumentation erhalten Sie die Rechnung.",
     category: "ablauf",
     page: ["homepage", "faq"],
     keywords: ["wie läuft ab", "einsatz ablauf"],
@@ -772,9 +772,9 @@ export const serviceFAQ: FAQItem[] = [
     id: "service-2",
     question: "Machen Sie auch Kamera-Inspektionen?",
     shortAnswer:
-      "Ja. HD-Kamerabefahrung mit Video-Dokumentation. Festpreis 149€.",
+      "Ja. Eine HD-Kamerabefahrung mit Video-Dokumentation ist möglich; die Kosten richten sich nach Umfang und Zugänglichkeit.",
     fullAnswer:
-      "Unsere Kamera-Inspektion zeigt Ihnen genau, was im Rohr los ist: HD-Kamera fährt durch die Leitung, Sie sehen live auf dem Bildschirm. Inklusive Videoaufnahme und schriftlichem Befundbericht. Ideal bei wiederkehrenden Problemen oder vor Hauskauf. Festpreis: 149€.",
+      "Unsere Kamera-Inspektion zeigt, was im Rohr los ist: Die HD-Kamera fährt durch die Leitung und liefert auf Wunsch Videoaufnahme und Befundbericht. Die Kosten richten sich nach Leitungsverlauf, Zugänglichkeit und Dokumentationsumfang.",
     category: "service",
     page: ["service-kamera", "faq"],
     keywords: ["kamera inspektion", "rohr kamera"],
@@ -867,11 +867,11 @@ export const garantieFAQ: FAQItem[] = [
   },
   {
     id: "garantie-3",
-    question: "Was bedeutet 'Festpreis'?",
+    question: "Wie wird fair abgerechnet?",
     shortAnswer:
       "Der genannte Preis ist der Endpreis. Keine Materialzuschläge, keine Nachforderungen, keine Überraschungen.",
     fullAnswer:
-      "Festpreis bedeutet: Der Preis, den wir nach der Diagnose nennen, ist EXAKT der Preis, den Sie am Ende zahlen. Keine 'ach, Material war teurer', keine 'das war nicht eingerechnet'. Was wir sagen, das gilt. Punkt.",
+      "Fair bedeutet: Abgerechnet werden die tatsächlich erforderliche Arbeitszeit, eingesetzte Technik und benötigtes Material. Die Leistungen werden auf der Rechnung nachvollziehbar ausgewiesen.",
     category: "garantie",
     page: ["preise", "homepage", "faq"],
     keywords: ["was ist festpreis", "festpreis bedeutung"],

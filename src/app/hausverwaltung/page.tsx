@@ -24,9 +24,9 @@ import { company } from "@/data/company";
 
 export const metadata: Metadata = {
   title:
-    "Rohrreinigung für Hausverwaltungen & Gewerbe | Festpreise & Rahmenverträge",
+    "Rohrreinigung für Hausverwaltungen & Gewerbe | Rahmenverträge & Dokumentation",
   description:
-    "B2B-Service für Hausverwaltungen, WEG & Gewerbe. Wartungsverträge ab 29€/Einheit ✓ Prioritäts-Notdienst ✓ Transparente Festpreise ✓ Sammelrechnung ✓",
+    "B2B-Service für Hausverwaltungen, WEG & Gewerbe. Wartungsverträge ✓ Prioritäts-Notdienst ✓ Nachvollziehbare Abrechnung ✓ Sammelrechnung ✓",
 };
 
 const targetGroups = [
@@ -85,8 +85,8 @@ const b2bPackages = [
     icon: Zap,
     features: [
       "Keine Bindung",
-      "Kostenlose Diagnose vor Ort",
-      "Festpreis vor Arbeitsbeginn",
+      "Fachgerechte Einschätzung vor Ort",
+      "Nachvollziehbare Abrechnung nach Aufwand",
       "Dokumentation auf Wunsch",
       "Rechnung oder Sofortzahlung",
     ],
@@ -116,7 +116,7 @@ const b2bPackages = [
     features: [
       "Regelmäßige Wartungstermine",
       "Bis zu 80% weniger Notfälle",
-      "Festpreis pro Einheit/Monat",
+      "Individuelle Konditionen je Objekt",
       "Inklusive kleine Reparaturen",
       "Prioritäts-Notdienst 24/7",
     ],
@@ -204,7 +204,7 @@ export default function HausverwaltungPage() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 mb-4 max-w-2xl mx-auto">
-              Festpreise, die Sie VORHER kennen. Dokumentation, die Sie DIREKT
+              Nachvollziehbare Abrechnung. Dokumentation, die Sie DIREKT
               bekommen. Reaktionszeit, auf die Sie sich VERLASSEN können.
             </p>
             <p className="text-white/60 mb-8">
@@ -262,7 +262,7 @@ export default function HausverwaltungPage() {
             </h2>
             <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Wählen Sie das Modell, das zu Ihnen passt. Alle Preise sind
-              Festpreise.
+              klare Leistungsnachweise.
             </p>
           </div>
 

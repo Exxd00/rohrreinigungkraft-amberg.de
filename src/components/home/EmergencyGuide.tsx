@@ -103,7 +103,7 @@ const guideSteps: GuideStep[] = [
     description: "Was Sie bei unserem Einsatz erwarten können",
     dos: [
       "Unser Techniker analysiert zuerst das Problem – kostenlos",
-      "Sie erhalten einen verbindlichen Festpreis VOR Arbeitsbeginn",
+      "Die erforderlichen Arbeiten werden verständlich erklärt und nachvollziehbar abgerechnet",
       "Erst nach Ihrer Zustimmung beginnen wir mit der Arbeit",
       "Wir schützen Ihre Böden mit Abdeckungen",
       "Nach der Arbeit reinigen wir den Arbeitsbereich",
@@ -315,7 +315,7 @@ export default function EmergencyGuide() {
                 Problem jetzt? Wir helfen sofort!
               </h3>
               <p className="text-gray-300 mb-6 max-w-lg mx-auto">
-                Kostenlose Diagnose vor Ort. Festpreis vor Arbeitsbeginn. In{" "}
+                Fachgerechte Einschätzung vor Ort. Faire Abrechnung nach Aufwand. In{" "}
                 {company.urgency.responseTime} Min bei Ihnen.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">

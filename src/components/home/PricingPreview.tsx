@@ -46,10 +46,10 @@ export default function PricingPreview() {
             {/* Header */}
             <div className="text-center mb-8">
               <h2 className="mobile-section-title text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                Transparente Festpreise
+                Transparente Kostenstruktur
               </h2>
               <p className="text-gray-600 dark:text-gray-400">
-                Keine versteckten Kosten • Preis vor Arbeitsbeginn
+                Faire Abrechnung nach Art, Technik und tatsächlichem Aufwand
               </p>
             </div>
 
@@ -87,15 +87,15 @@ export default function PricingPreview() {
                 <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    Diagnose kostenlos
+                    Fachgerechte Einschätzung
                   </div>
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    Festpreis vorab
+                    Aufwandsgerechte Abrechnung
                   </div>
                   <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
                     <CheckCircle className="w-4 h-4 text-green-500" />
-                    Kein Start ohne OK
+                    Saubere Dokumentation
                   </div>
                 </div>
                 <div className="grid grid-cols-2 md:flex gap-2 md:gap-3 w-full md:w-auto">

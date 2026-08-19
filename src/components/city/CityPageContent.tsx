@@ -121,7 +121,7 @@ export default function CityPageContent({
                 {company.urgency.responseTime} Min
               </span>{" "}
               bei Ihnen •{" "}
-              <span className="text-green-400">Festpreis vorab</span> • 24/7
+              <span className="text-green-400">Faire Abrechnung</span> • 24/7
             </p>
 
             {/* MAIN CTA - Phone */}
@@ -162,7 +162,7 @@ export default function CityPageContent({
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <Shield className="w-4 h-4 text-primary" />
-                <span>Festpreis-Garantie</span>
+                <span>Abrechnung nach Aufwand</span>
               </div>
               <div className="flex items-center gap-2 text-white/80">
                 <Star className="w-4 h-4 text-amber-400" />
@@ -280,7 +280,7 @@ export default function CityPageContent({
                   <Shield className="w-7 h-7 text-green-500" />
                 </div>
                 <p className="text-2xl font-bold text-gray-900 dark:text-white">
-                  Festpreis
+                  Faire Kostenstruktur
                 </p>
                 <p className="text-sm text-gray-500">Garantie</p>
               </div>
@@ -317,13 +317,13 @@ export default function CityPageContent({
                 <li className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
                   <span>
-                    Kostenlose Diagnose vor Ort – Sie entscheiden erst danach
+                    Fachgerechte Einschätzung der Ursache vor Ort
                   </span>
                 </li>
                 <li className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
                   <span>
-                    Festpreis vor Arbeitsbeginn – keine Überraschungen
+                    Nachvollziehbare Abrechnung nach Leistung und Aufwand
                   </span>
                 </li>
                 <li className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
@@ -554,7 +554,7 @@ export default function CityPageContent({
           </h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto">
             Wir sind in {company.urgency.responseTime} Minuten bei Ihnen.
-            Kostenlose Diagnose, Festpreis vorab.
+            Fachgerechte Einschätzung und faire Abrechnung nach Aufwand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
             <button

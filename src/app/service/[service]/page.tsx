@@ -64,8 +64,8 @@ export async function generateMetadata({
   const price = getServicePrice(serviceSlug);
 
   return {
-    title: `${service.name} | Ab ${price}€ | Festpreis vor Arbeit | Rohrreinigung Kraft`,
-    description: `${service.name} ab ${price}€ ✓ Kostenlose Diagnose ✓ Festpreis VORHER ✓ ${company.urgency.responseTime} Min Anfahrt ✓ 24/7. ${company.contact.phoneDisplay}`,
+    title: `${service.name} | Faire Abrechnung nach Aufwand | Rohrreinigung Kraft`,
+    description: `${service.name} ✓ Fachgerechte Einschätzung ✓ Faire Abrechnung nach tatsächlichem Aufwand ✓ ${company.urgency.responseTime} Min Anfahrt ✓ 24/7. ${company.contact.phoneDisplay}`,
     openGraph: {
       title: `${service.name} | Rohrreinigung Kraft`,
       description: enhancedContent?.heroSubheadline || service.shortDescription,
@@ -139,7 +139,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         minPrice: price,
       },
     },
-    termsOfService: "Festpreis nach kostenloser Diagnose vor Ort",
+    termsOfService: "Abrechnung nach erforderlicher Leistung und tatsächlichem Aufwand",
     hoursAvailable: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
@@ -234,12 +234,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <div className="flex items-center gap-2 text-white/90">
                 <CheckCircle className="w-5 h-5 text-emerald-400" />
-                <span className="text-sm font-medium">Diagnose kostenlos</span>
+                <span className="text-sm font-medium">Fachgerechte Einschätzung</span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <Shield className="w-5 h-5 text-primary" />
                 <span className="text-sm font-medium">
-                  Festpreis vor Arbeit
+                  Faire Abrechnung nach Aufwand
                 </span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
@@ -254,7 +254,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 rounded-xl mb-8">
               <span className="text-white/70">Ab</span>
               <span className="text-3xl font-black text-white">{price}€</span>
-              <span className="text-white/70">• Festpreis nach Diagnose</span>
+              <span className="text-white/70">• abhängig von Art und Aufwand</span>
             </div>
 
             {/* CTA Buttons */}
@@ -638,7 +638,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
             {enhancedContent?.heroHeadline || `${service.name}?`}
           </h2>
           <p className="text-gray-300 mb-6 max-w-xl mx-auto">
-            Kostenlose Diagnose • Festpreis vor Arbeit • Kein Start ohne Ihr OK
+            Fachgerechte Einschätzung • Faire Abrechnung • Saubere Ausführung
           </p>
           <Link href={`tel:${company.contact.phone}`}>
             <Button

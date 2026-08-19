@@ -517,7 +517,7 @@ export default function ContactForm() {
                   <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
                     <CheckCircle className="w-4 h-4 text-primary shrink-0" />
                     <span>
-                      Festpreis <strong>vor</strong> Arbeitsbeginn
+                      Faire Abrechnung nach tatsächlichem Aufwand
                     </span>
                   </div>
                 </div>

@@ -154,7 +154,7 @@ export const packages: Package[] = [
 
     priceFrom: 149,
     priceTypical: "149",
-    pricingNote: "Festpreis – egal wie lange es dauert",
+    pricingNote: "Abrechnung nach tatsächlichem Aufwand",
 
     includes: [
       "HD-Kamerabefahrung",
@@ -220,10 +220,10 @@ export const packages: Package[] = [
 
     priceFrom: 79,
     priceTypical: "80-150",
-    pricingNote: "Festpreis nach Diagnose vor Ort",
+    pricingNote: "Abrechnung nach erforderlicher Leistung",
 
     includes: [
-      "Kostenlose Diagnose vor Ort",
+      "Fachgerechte Einschätzung vor Ort",
       "Mechanische oder Hochdruck-Reinigung",
       "Funktionsprüfung",
       "Sauberes Arbeiten",

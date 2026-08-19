@@ -35,22 +35,22 @@ const faqCategories = [
       {
         question: "Was kostet eine Rohrreinigung?",
         answer:
-          "Eine einfache Rohrreinigung (z.B. Toilette verstopft) kostet ab 79€. Der genaue Preis hängt von der Tiefe und Art der Verstopfung ab. Wichtig: Wir nennen Ihnen den GENAUEN Festpreis nach der kostenlosen Diagnose vor Ort – BEVOR wir mit der Arbeit beginnen.",
+          "Die Kosten hängen von Art und Tiefe der Verstopfung, der Zugänglichkeit und der benötigten Technik ab. Vor Ort beurteilen wir die Ursache fachgerecht und rechnen die tatsächlich erforderliche Leistung nachvollziehbar ab.",
         shortAnswer:
-          "Ab 79€. Der genaue Festpreis wird nach kostenloser Diagnose vor Ort genannt, bevor die Arbeit beginnt.",
+          "Die Kosten richten sich nach Ursache, Technik und tatsächlichem Arbeitsaufwand.",
       },
       {
-        question: "Ist die Diagnose wirklich kostenlos?",
+        question: "Wie wird der Aufwand festgestellt?",
         answer:
-          "Ja, die Diagnose ist immer kostenlos. Wir kommen zu Ihnen, untersuchen das Problem und erklären, was zu tun ist. Dann nennen wir den Festpreis. Erst wenn Sie JA sagen, beginnen wir. Wenn Sie ablehnen, entstehen keine Kosten.",
+          "Unser Techniker beurteilt Ursache, Zugänglichkeit und benötigte Technik direkt vor Ort. Diese fachgerechte Einschätzung ist Teil des Einsatzes und ermöglicht eine gezielte, effiziente Ausführung.",
         shortAnswer:
-          "Ja, 100% kostenlos. Auch wenn Sie das Angebot ablehnen, zahlen Sie nichts.",
+          "Die Einschätzung vor Ort ist Teil des beauftragten Einsatzes.",
       },
       {
         question: "Gibt es versteckte Kosten?",
         answer:
-          "Nein. Der Festpreis, den wir nach der Diagnose nennen, ist der Endpreis. Keine Materialzuschläge, keine Anfahrtskosten extra, keine Überraschungen auf der Rechnung. Was wir sagen, das gilt.",
-        shortAnswer: "Nein. Der genannte Festpreis ist der Endpreis. Punkt.",
+          "Wir rechnen nachvollziehbar nach den tatsächlich erforderlichen Arbeiten, der eingesetzten Technik und dem Material ab. Die einzelnen Leistungen werden transparent dargestellt.",
+        shortAnswer: "Die Rechnung weist die tatsächlich erbrachten Leistungen nachvollziehbar aus.",
       },
       {
         question: "Warum gibt es keine fixen Preise auf der Website?",
@@ -104,9 +104,9 @@ const faqCategories = [
       {
         question: "Wie läuft ein Einsatz ab?",
         answer:
-          "1) Sie rufen an und schildern das Problem. 2) Wir kommen zur kostenlosen Diagnose. 3) Wir erklären, was zu tun ist und nennen den Festpreis. 4) Sie entscheiden. Erst bei Ihrem JA beginnen wir. 5) Nach der Arbeit Funktionsprüfung und Rechnung.",
+          "1) Sie rufen an und schildern das Problem. 2) Wir planen die Anfahrt. 3) Vor Ort beurteilen wir Ursache und Umfang. 4) Wir führen die erforderlichen Arbeiten fachgerecht aus. 5) Nach Funktionsprüfung und Dokumentation erhalten Sie die Rechnung.",
         shortAnswer:
-          "Anruf → Diagnose (kostenlos) → Festpreis nennen → Ihre Entscheidung → Arbeit → Rechnung.",
+          "Anruf → Anfahrt → fachgerechte Einschätzung → Ausführung → Funktionsprüfung → Rechnung.",
       },
       {
         question: "Wie lange dauert eine Rohrreinigung?",
@@ -126,9 +126,9 @@ const faqCategories = [
         question:
           "Was passiert, wenn das Problem komplizierter ist als gedacht?",
         answer:
-          "Wir unterbrechen die Arbeit und erklären die neue Situation. Wenn sich der Aufwand erhöht, nennen wir einen neuen Festpreis. Sie entscheiden dann erneut. Wir machen nichts ohne Ihr OK.",
+          "Wenn sich während der Arbeit ein größerer Umfang zeigt, erklärt der Techniker die Ursache und dokumentiert die zusätzlich erforderlichen Maßnahmen nachvollziehbar.",
         shortAnswer:
-          "Wir stoppen, erklären, nennen neuen Preis. Sie entscheiden. Keine eigenmächtigen Mehrkosten.",
+          "Zusätzlicher Aufwand wird erklärt und nachvollziehbar dokumentiert.",
       },
     ],
   },

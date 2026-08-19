@@ -36,9 +36,9 @@ import { getFAQForPage } from "@/data/faq-database";
 
 export const metadata: Metadata = {
   title:
-    "Rohrreinigung Preise | Festpreis BEVOR wir anfangen | Keine Überraschungen",
+    "Rohrreinigung Kosten | Faire Abrechnung nach Aufwand",
   description:
-    "Was kostet Rohrreinigung? Ab 79€. Der EXAKTE Preis nach kostenloser Diagnose – BEVOR die Arbeit beginnt. Lehnen Sie ab? Kostet nichts. Jetzt informieren!",
+    "Was kostet eine Rohrreinigung? Die Kosten richten sich nach Ursache, Zugänglichkeit, Technik und tatsächlichem Aufwand. Jetzt informieren!",
 };
 
 // Icon mapping for packages
@@ -129,14 +129,13 @@ export default function PreisePage() {
               Was kostet Rohrreinigung?
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
-                Sie wissen es, BEVOR wir anfangen.
+                Fair nach tatsächlichem Aufwand.
               </span>
             </h1>
             <p className="text-lg text-white/80 mb-6 max-w-2xl mx-auto">
-              Jede Verstopfung ist anders. Deshalb: Wir kommen, schauen
-              kostenlos nach, nennen Ihnen den{" "}
-              <strong className="text-white">EXAKTEN Festpreis</strong> – und
-              Sie entscheiden. Kein Start ohne Ihr OK.
+              Jede Verstopfung ist anders. Wir beurteilen Ursache und Umfang
+              vor Ort, setzen die passende Technik ein und rechnen die
+              tatsächlich erforderliche Leistung nachvollziehbar ab.
             </p>
 
             {/* The Promise */}
@@ -144,14 +143,14 @@ export default function PreisePage() {
               <p className="text-sm text-white/60 mb-3">Unser Versprechen:</p>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-primary">0€</div>
-                  <p className="text-xs text-white/70">Diagnose kostet</p>
+                  <div className="text-2xl font-bold text-primary">Fachlich</div>
+                  <p className="text-xs text-white/70">Ursache einschätzen</p>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-emerald-400">
-                    100%
+                    Fair
                   </div>
-                  <p className="text-xs text-white/70">Festpreis vorab</p>
+                  <p className="text-xs text-white/70">Nach Aufwand</p>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">0</div>
@@ -165,7 +164,7 @@ export default function PreisePage() {
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
                 <CheckCircle className="w-4 h-4 text-emerald-400" />
                 <span className="text-sm font-medium">
-                  Lehnen Sie ab? Kostet nichts.
+                  Klare Leistungsübersicht
                 </span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
@@ -207,18 +206,18 @@ export default function PreisePage() {
                   3
                 </div>
                 <p className="text-sm font-medium text-gray-900 dark:text-white">
-                  Festpreis
+                  Ausführung
                 </p>
-                <p className="text-xs text-gray-500">BEVOR wir starten</p>
+                <p className="text-xs text-gray-500">Fachgerecht und sauber</p>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">
                   4
                 </div>
                 <p className="text-sm font-medium text-gray-900 dark:text-white">
-                  Sie entscheiden
+                  Abrechnung
                 </p>
-                <p className="text-xs text-gray-500">OK = Wir arbeiten</p>
+                <p className="text-xs text-gray-500">Nach tatsächlichem Aufwand</p>
               </div>
             </div>
           </div>
@@ -234,8 +233,8 @@ export default function PreisePage() {
                 Welches Paket passt zu Ihrer Situation?
               </h2>
               <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                Wählen Sie nach Ihrem Bedarf. Der finale Festpreis wird nach der
-                kostenlosen Diagnose genannt.
+                Wählen Sie nach Ihrem Bedarf. Der tatsächliche Aufwand hängt
+                von Ursache, Zugänglichkeit und benötigter Technik ab.
               </p>
             </div>
 
@@ -555,8 +554,7 @@ export default function PreisePage() {
                     <li className="flex items-start gap-2">
                       <span className="font-bold">1.</span>
                       <span>
-                        Wir kommen und schauen uns das Problem an{" "}
-                        <strong>(kostet Sie: 0€)</strong>
+                        Wir beurteilen die Ursache und den Umfang des Problems
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
@@ -569,15 +567,14 @@ export default function PreisePage() {
                     <li className="flex items-start gap-2">
                       <span className="font-bold">3.</span>
                       <span>
-                        Wir nennen den <strong>EXAKTEN Festpreis</strong> (nicht
-                        "ab" oder "ca.")
+                        Wir setzen die passende Technik gezielt und effizient ein
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-bold">4.</span>
                       <span>
-                        Sie entscheiden{" "}
-                        <strong>(Nein = wir gehen, kostet nichts)</strong>
+                        Sie erhalten eine nachvollziehbare Abrechnung der
+                        tatsächlich erbrachten Leistung
                       </span>
                     </li>
                   </ol>
@@ -672,9 +669,8 @@ export default function PreisePage() {
             Bereit für Klarheit?
           </h2>
           <p className="mb-6 opacity-90 max-w-xl mx-auto">
-            Rufen Sie an. Wir kommen, prüfen <strong>kostenlos</strong> und
-            nennen den <strong>Festpreis</strong> – bevor wir starten. Lehnen
-            Sie ab? Kostet nichts.
+            Rufen Sie an und schildern Sie das Problem. Wir planen den passenden
+            Einsatz, helfen fachgerecht und rechnen transparent nach Aufwand ab.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href={`tel:${company.contact.phone}`}>

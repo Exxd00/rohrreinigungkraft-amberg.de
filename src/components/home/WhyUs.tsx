@@ -13,10 +13,10 @@ import {
 const differentiators = [
   {
     icon: Euro,
-    title: "Preis VOR dem Handgriff",
+    title: "Faire Abrechnung nach Aufwand",
     description:
-      "Wir nennen den Festpreis bevor wir anfangen. Nicht erst auf der Rechnung.",
-    proof: "Andere sagen 'ab 79€'. Wir sagen genau, was SIE zahlen.",
+      "Jeder Einsatz ist anders. Berechnet werden die tatsächlich nötige Arbeit und Technik.",
+    proof: "Nachvollziehbare Leistungen statt pauschaler Versprechen.",
     color: "emerald",
   },
   {
@@ -29,18 +29,18 @@ const differentiators = [
   },
   {
     icon: FileCheck,
-    title: "Diagnose kostenlos. Immer.",
+    title: "Fachgerechte Einschätzung",
     description:
-      "Wir kommen, prüfen und erklären. Sie zahlen erst, wenn Sie JA sagen.",
-    proof: "Kein OK von Ihnen = Keine Kosten für Sie.",
+      "Wir prüfen die Ursache vor Ort und wählen die passende Vorgehensweise.",
+    proof: "Gezielte Arbeit spart Zeit und vermeidet unnötige Maßnahmen.",
     color: "amber",
   },
   {
     icon: Shield,
-    title: "Kein Druck. Ihre Entscheidung.",
+    title: "Klare Kommunikation",
     description:
-      "Wir empfehlen, was nötig ist. Nicht mehr. Sie entscheiden in Ruhe.",
-    proof: "Wir verdienen mit Vertrauen, nicht mit Tricks.",
+      "Wir erklären verständlich, welche Arbeiten für eine zuverlässige Lösung nötig sind.",
+    proof: "Sie wissen jederzeit, was gemacht wird und warum.",
     color: "blue",
   },
   {
@@ -117,7 +117,7 @@ export default function WhyUs() {
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Jeder sagt "schnell" und "günstig". Wir sagen:{" "}
             <strong className="text-gray-900 dark:text-white">
-              Klarheit vor dem ersten Handgriff.
+              zuverlässig lösen statt nur versprechen.
             </strong>
           </p>
         </div>

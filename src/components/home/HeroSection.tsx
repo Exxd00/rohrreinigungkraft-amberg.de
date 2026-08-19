@@ -73,22 +73,21 @@ export default function HeroSection() {
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
                 <span className="text-slate-900 dark:text-white">
-                  Festpreis{" "}
+                  Professionelle Hilfe{" "}
                 </span>
-                <span className="text-gradient">VOR</span>
+                <span className="text-gradient">genau</span>
                 <span className="text-slate-900 dark:text-white">
                   {" "}
-                  dem ersten Handgriff.
+                  für Ihr Problem.
                 </span>
               </h1>
               <p className="text-lg md:text-2xl text-slate-700 dark:text-slate-200 font-semibold mb-2">
-                Ihr Rohrreiniger für Amberg – Klarheit, bevor Sie zahlen.
+                Ihr Rohrreiniger für Amberg – schnell, fachgerecht und sauber.
               </p>
               <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                Wir kommen, schauen, erklären und nennen den Preis. Dann
-                entscheiden{" "}
-                <strong className="text-slate-900 dark:text-white">SIE</strong>.
-                Kein Druck. Keine Überraschungen.
+                Wir beurteilen die Situation vor Ort, wählen die passende
+                Technik und rechnen nachvollziehbar nach dem tatsächlichen
+                Aufwand ab.
               </p>
             </div>
 
@@ -97,19 +96,19 @@ export default function HeroSection() {
               <div className="liquid-glass flex flex-col md:flex-row items-center gap-1.5 md:gap-2 rounded-2xl px-2 py-3 text-slate-700 dark:text-slate-200">
                 <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
                 <span className="text-xs md:text-sm font-medium">
-                  Diagnose kostenlos
+                  Fachgerechte Einschätzung
                 </span>
               </div>
               <div className="liquid-glass flex flex-col md:flex-row items-center gap-1.5 md:gap-2 rounded-2xl px-2 py-3 text-slate-700 dark:text-slate-200">
                 <Shield className="w-4 h-4 md:w-5 md:h-5 text-primary" />
                 <span className="text-xs md:text-sm font-medium">
-                  Festpreis vor Arbeit
+                  Faire Abrechnung
                 </span>
               </div>
               <div className="liquid-glass flex flex-col md:flex-row items-center gap-1.5 md:gap-2 rounded-2xl px-2 py-3 text-slate-700 dark:text-slate-200">
                 <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
                 <span className="text-xs md:text-sm font-medium">
-                  Kein Start ohne OK
+                  Schnelle Ausführung
                 </span>
               </div>
             </div>

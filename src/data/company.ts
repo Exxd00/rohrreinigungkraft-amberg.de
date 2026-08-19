@@ -52,13 +52,13 @@ export const company = {
 
   pricing: {
     type: "quote",
-    text: "Festpreis nach kostenloser Diagnose vor Ort",
+    text: "Faire Abrechnung nach tatsächlichem Aufwand",
     transparent: true,
     guarantees: [
-      "Kostenlose Diagnose vor Ort",
-      "Festpreis vor Arbeitsbeginn",
+      "Fachgerechte Einschätzung vor Ort",
+      "Nachvollziehbare Abrechnung nach Aufwand",
       "Keine versteckten Kosten",
-      "Kein Start ohne Ihr OK",
+      "Klare Kommunikation zum Arbeitsumfang",
     ],
     services: {
       rohrreinigung: {
@@ -128,7 +128,7 @@ export const company = {
     localTeam: "Etablierter Fachbetrieb",
     region: "Oberpfalz",
     cities: "Amberg, Kümmersbruck, Sulzbach-Rosenberg",
-    guarantee: "Festpreis vorab",
+    guarantee: "Faire Abrechnung",
     yearsExperience: "10+",
     projectsCompleted: "2.000+",
     satisfactionRate: "98%",
@@ -209,13 +209,13 @@ export const company = {
       icon: "truck",
     },
     {
-      title: "Kostenlose Diagnose",
-      description: "Erst prüfen, dann entscheiden – ohne Kosten",
+      title: "Fachgerechte Einschätzung",
+      description: "Ursache prüfen und die passende Technik einsetzen",
       icon: "search",
     },
     {
-      title: "Festpreis vorab",
-      description: "Sie wissen den Preis, bevor wir starten",
+      title: "Faire Abrechnung",
+      description: "Nachvollziehbar nach Leistung und Aufwand",
       icon: "euro",
     },
     {
@@ -299,7 +299,7 @@ export const company = {
       {
         question: "Was kostet eine Rohrreinigung?",
         answer:
-          "Die Kosten hängen vom Umfang der Verstopfung ab. Wir bieten eine kostenlose Diagnose vor Ort und nennen Ihnen dann einen Festpreis – ohne versteckte Kosten. Einfache Verstopfungen starten ab 79€.",
+          "Die Kosten hängen von Art, Tiefe, Zugänglichkeit und benötigter Technik ab. Vor Ort beurteilen wir die Ursache fachgerecht und rechnen die tatsächlich erforderliche Leistung nachvollziehbar ab.",
       },
       {
         question: "Wie schnell können Sie da sein?",
@@ -331,7 +331,7 @@ export const company = {
       {
         question: "Kostet der Notdienst nachts mehr?",
         answer:
-          "Unser Notdienst hat faire Preise rund um die Uhr. Wir nennen Ihnen immer einen Festpreis vor Arbeitsbeginn – keine Überraschungen.",
+          "Unser Notdienst ist rund um die Uhr erreichbar. Die Abrechnung richtet sich transparent nach Einsatzzeit, erforderlicher Technik und tatsächlichem Arbeitsaufwand.",
       },
     ],
   },
@@ -348,7 +348,7 @@ export const company = {
     defaultTitle:
       "Rohrreinigung Kraft | 24/7 Notdienst Amberg, Kümmersbruck, Sulzbach-Rosenberg",
     defaultDescription:
-      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 70-100 Min ✓ 24/7 Notdienst ✓ Kostenlose Diagnose ✓ Festpreis vorab. Jetzt anrufen: 01787401958",
+      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 70-100 Min ✓ 24/7 Notdienst ✓ Fachgerechte Einschätzung ✓ Faire Abrechnung nach Aufwand. Jetzt anrufen: 01787401958",
     keywords: [
       "Rohrreinigung Amberg",
       "Rohrreinigung Kümmersbruck",
@@ -379,7 +379,7 @@ export const testimonials = [
     name: "Sandra K.",
     location: "Fürth-Innenstadt",
     rating: 5,
-    text: "Sonntag, 8 Uhr morgens, Keller unter Wasser. 40 Minuten später war das Team da. Das Beste: Bevor irgendjemand anfing, wurde mir der Festpreis genannt. Keine böse Überraschung. Das nenne ich fair!",
+    text: "Sonntagmorgen, Keller unter Wasser. Das Team war schnell da, erklärte die Ursache verständlich und löste das Problem sauber und professionell. Das nenne ich zuverlässige Hilfe!",
     date: "2026",
     service: "Notdienst",
     price: "189€",

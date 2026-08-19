@@ -360,7 +360,7 @@ const faqSchema = {
       name: "Was kostet eine Rohrreinigung in Amberg?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Die Kosten hängen vom Umfang der Verstopfung ab. Wir bieten eine kostenlose Diagnose vor Ort und nennen Ihnen dann einen Festpreis – ohne versteckte Kosten. Einfache Verstopfungen starten ab 79€, Rohrreinigung ab 89€, Kanalreinigung ab 149€.",
+        text: "Die Kosten hängen von Art und Tiefe der Verstopfung, der Zugänglichkeit und der benötigten Technik ab. Vor Ort beurteilen wir die Ursache fachgerecht und rechnen die tatsächlich erforderliche Leistung nachvollziehbar ab.",
       },
     },
     {
@@ -384,7 +384,7 @@ const faqSchema = {
       name: "Muss ich im Voraus bezahlen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Nein. Wir stellen erst nach erfolgreicher Arbeit eine Rechnung. Sie können bar, mit Karte oder auf Rechnung bezahlen. Wir nennen Ihnen immer einen Festpreis vor Arbeitsbeginn.",
+        text: "Wir stellen die Rechnung nach dem Einsatz. Sie können bar, mit Karte oder auf Rechnung bezahlen. Arbeitszeit, Technik und erforderliches Material werden nachvollziehbar ausgewiesen.",
       },
     },
     {

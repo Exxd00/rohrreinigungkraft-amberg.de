@@ -57,7 +57,7 @@ export default async function CityPage({ params }: CityPageProps) {
     "@type": "Service",
     "@id": `https://rohrreinigung-kraft-amberg.de/${city.slug}`,
     name: `Rohrreinigung ${city.name}`,
-    description: `Professionelle Rohrreinigung und Kanalreinigung in ${city.name}. 24/7 Notdienst, realistische Anfahrtszeit vorab am Telefon. Kostenlose Diagnose & Festpreis vorab.`,
+    description: `Professionelle Rohrreinigung und Kanalreinigung in ${city.name}. 24/7 Notdienst, realistische Anfahrtszeit am Telefon und faire Abrechnung nach tatsächlichem Aufwand.`,
     url: `https://rohrreinigung-kraft-amberg.de/${city.slug}`,
     provider: {
       "@type": "Plumber",

@@ -24,9 +24,9 @@ const trustPoints = [
   },
   {
     icon: Shield,
-    title: "Festpreis-Garantie",
-    subtitle: "Keine Überraschungen",
-    description: "Der genannte Preis ist der Endpreis. Punkt.",
+    title: "Faire Abrechnung",
+    subtitle: "Nach tatsächlichem Aufwand",
+    description: "Leistung, Technik und Aufwand werden nachvollziehbar abgerechnet.",
     color: "emerald",
   },
   {
@@ -258,7 +258,7 @@ export default function TrustSection() {
           <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">
             <CheckCircle className="w-4 h-4 text-emerald-500" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Kostenlose Diagnose
+              Fachgerechte Einschätzung
             </span>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full">

@@ -91,7 +91,7 @@ export default function ThankYouPage() {
                       Schnelle Hilfe vor Ort
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Anfahrtszeit ehrlich am Telefon - Festpreis vorab
+                      Anfahrtszeit ehrlich am Telefon – faire Abrechnung nach Aufwand
                     </p>
                   </div>
                 </div>

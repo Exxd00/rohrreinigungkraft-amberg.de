@@ -55,7 +55,7 @@ export const services: Service[] = [
       "Moderne Hochdruckreinigung",
       "Schonende Methoden für alle Rohrtypen",
       "24/7 Notdienst verfügbar",
-      "Festpreisgarantie nach Besichtigung",
+      "Nachvollziehbare Abrechnung nach Aufwand",
     ],
     "pipe",
   ),

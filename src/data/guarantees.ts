@@ -35,12 +35,12 @@ export const guaranteesBefore: Guarantee[] = [
   {
     id: "diagnose-kostenlos",
     phase: "before",
-    name: "Diagnose kostenlos",
-    headline: "Kostenlose Diagnose vor Ort",
+    name: "Fachgerechte Einschätzung",
+    headline: "Ursache fachgerecht beurteilen",
     shortDescription:
-      "Wir schauen uns das Problem an – ohne dass Sie etwas zahlen.",
+      "Wir beurteilen Ursache, Zugänglichkeit und benötigte Technik vor Ort.",
     fullDescription:
-      "Wir kommen zu Ihnen, untersuchen das Problem und erklären Ihnen, was los ist. Das kostet Sie nichts – auch wenn Sie danach ablehnen. Kein Risiko für Sie.",
+      "Unser Techniker beurteilt die Situation vor Ort und erklärt verständlich, welche Arbeiten für eine zuverlässige Lösung erforderlich sind. Die Einschätzung ist Bestandteil des beauftragten Einsatzes.",
     icon: "Search",
     badge: "Garantiert",
     color: "emerald",
@@ -59,19 +59,19 @@ export const guaranteesBefore: Guarantee[] = [
     ],
     linkedPages: ["/preise", "/", "/kontakt"],
     adCopy: {
-      short: "Kostenlose Diagnose",
-      medium: "Erst prüfen, dann entscheiden – Diagnose ist kostenlos",
+      short: "Fachgerechte Einschätzung",
+      medium: "Ursache prüfen und passende Technik einsetzen",
     },
   },
   {
     id: "festpreis-vorab",
     phase: "before",
-    name: "Festpreis vor Arbeitsbeginn",
-    headline: "Festpreis BEVOR wir anfangen",
+    name: "Faire Abrechnung nach Aufwand",
+    headline: "Nachvollziehbar und leistungsgerecht",
     shortDescription:
-      "Sie wissen den Preis, bevor wir mit der Arbeit beginnen.",
+      "Berechnet werden die tatsächlich erforderliche Arbeit und Technik.",
     fullDescription:
-      "Nach der Diagnose nennen wir Ihnen einen konkreten Festpreis. Nicht 'ab' oder 'ca.' – sondern den EXAKTEN Preis. Erst wenn Sie zustimmen, fangen wir an.",
+      "Da jede Verstopfung anders ist, richtet sich die Abrechnung nach Ursache, Zugänglichkeit, eingesetzter Technik und tatsächlichem Zeitaufwand. Die Leistungen werden nachvollziehbar ausgewiesen.",
     icon: "Euro",
     badge: "Schwarz auf Weiß",
     color: "primary",
@@ -90,8 +90,8 @@ export const guaranteesBefore: Guarantee[] = [
     ],
     linkedPages: ["/preise", "/", "/kontakt"],
     adCopy: {
-      short: "Festpreis vorab",
-      medium: "Preis vor Arbeitsbeginn – keine Überraschungen",
+      short: "Faire Abrechnung",
+      medium: "Nachvollziehbar nach Leistung und Aufwand",
     },
   },
   {
@@ -99,9 +99,9 @@ export const guaranteesBefore: Guarantee[] = [
     phase: "before",
     name: "Keine versteckten Kosten",
     headline: "Keine versteckten Kosten",
-    shortDescription: "Der Festpreis ist der Endpreis. Punkt.",
+    shortDescription: "Die erbrachten Leistungen werden nachvollziehbar ausgewiesen.",
     fullDescription:
-      "Keine Materialzuschläge, keine 'das war nicht im Angebot', keine Nachforderungen. Der Preis, den wir nennen, ist der Preis, den Sie zahlen.",
+      "Arbeitszeit, Technik und erforderliches Material werden transparent und nachvollziehbar abgerechnet.",
     icon: "Shield",
     color: "emerald",
     linkedPackages: ["notfall", "standard", "komplett", "wiederkehrend"],
@@ -109,17 +109,17 @@ export const guaranteesBefore: Guarantee[] = [
     linkedPages: ["/preise", "/"],
     adCopy: {
       short: "Keine versteckten Kosten",
-      medium: "Festpreis = Endpreis. Keine Nachforderungen.",
+      medium: "Klare Leistungsübersicht auf der Rechnung.",
     },
   },
   {
     id: "kein-start-ohne-ok",
     phase: "before",
-    name: "Kein Start ohne Ihr OK",
-    headline: "Wir starten erst mit Ihrer Zustimmung",
-    shortDescription: "Sie entscheiden – nicht wir.",
+    name: "Klare Kommunikation",
+    headline: "Sie wissen, was gemacht wird",
+    shortDescription: "Wir erklären die erforderlichen Arbeitsschritte verständlich.",
     fullDescription:
-      "Wir beginnen NICHT mit der Arbeit, bevor Sie dem Preis zugestimmt haben. Wenn Ihnen der Preis nicht passt, fahren wir wieder – ohne dass Ihnen Kosten entstehen.",
+      "Unser Techniker erklärt die festgestellte Ursache und die erforderlichen Maßnahmen. So bleibt der Arbeitsumfang während des Einsatzes nachvollziehbar.",
     icon: "CheckCircle",
     color: "blue",
     linkedPackages: [
@@ -132,8 +132,8 @@ export const guaranteesBefore: Guarantee[] = [
     linkedServices: ["rohrreinigung", "kanalreinigung", "abflussreinigung"],
     linkedPages: ["/preise", "/"],
     adCopy: {
-      short: "Ihr OK zählt",
-      medium: "Kein Start ohne Ihre Zustimmung zum Preis",
+      short: "Klare Kommunikation",
+      medium: "Verständlich erklärt und sauber dokumentiert",
     },
   },
   {
@@ -191,7 +191,7 @@ export const guaranteesDuring: Guarantee[] = [
     headline: "Änderung? Nur mit Ihrer Zustimmung",
     shortDescription: "Wenn mehr nötig ist als gedacht, fragen wir VORHER.",
     fullDescription:
-      "Manchmal ist ein Problem größer als erwartet. Wenn das passiert, stoppen wir und besprechen mit Ihnen die neue Situation und den neuen Preis. Wir machen NICHTS ohne Ihr OK.",
+      "Manchmal ist ein Problem größer als zunächst sichtbar. In diesem Fall erklärt der Techniker die neue Situation und dokumentiert die zusätzlich erforderlichen Maßnahmen.",
     icon: "MessageCircle",
     color: "amber",
     linkedPackages: ["notfall", "standard", "komplett", "wiederkehrend"],

@@ -125,7 +125,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 3,
-          title: "Festpreis",
+          title: "Faire Abrechnung",
           description:
             "Wir nennen den genauen Preis. Erst dann entscheiden Sie.",
         },
@@ -245,8 +245,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 4,
-          title: "Festpreis",
-          description: "Auch im Notfall: Preis vor Arbeitsbeginn.",
+          title: "Faire Abrechnung",
+          description: "Auch im Notfall nachvollziehbar nach tatsächlichem Aufwand.",
         },
         {
           step: 5,
@@ -278,7 +278,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
     slug: "kanalreinigung",
     heroHeadline: "Kanal verstopft?",
     heroSubheadline:
-      "Professionelle Kanalreinigung mit Hochdruck – Festpreis vor Arbeitsbeginn.",
+      "Professionelle Kanalreinigung mit Hochdruck – nachvollziehbar nach Aufwand abgerechnet.",
     consequences: {
       title: "Was passiert bei verstopftem Kanal?",
       items: [
@@ -352,7 +352,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 3,
-          title: "Festpreis",
+          title: "Faire Abrechnung",
           description: "Sie wissen den Preis, bevor wir starten.",
         },
         {
@@ -501,7 +501,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
     slug: "abflussreinigung",
     heroHeadline: "Abfluss verstopft?",
     heroSubheadline:
-      "Schnelle Hilfe für Küche, Bad und Dusche – Festpreis nach Diagnose.",
+      "Schnelle Hilfe für Küche, Bad und Dusche – fachgerecht und aufwandsgerecht abgerechnet.",
     consequences: {
       title: "Was passiert bei verstopftem Abfluss?",
       items: [
@@ -580,7 +580,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 2,
-          title: "Festpreis",
+          title: "Faire Abrechnung",
           description: "Sie erfahren den Preis vor der Arbeit.",
         },
         {
@@ -704,7 +704,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 3,
-          title: "Festpreis",
+          title: "Faire Abrechnung",
           description: "Sie kennen den Preis, bevor wir starten.",
         },
         {
@@ -719,7 +719,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
       {
         question: "Was kostet eine Rohrreinigung?",
         answer:
-          "Einfache Verstopfungen ab 79€. Der genaue Preis wird nach kostenloser Diagnose vor Ort genannt.",
+          "Die Kosten richten sich nach Tiefe, Ursache, Zugänglichkeit und benötigter Technik.",
       },
       {
         question: "Wie lange dauert eine Rohrreinigung?",
@@ -806,8 +806,8 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 2,
-          title: "Festpreis",
-          description: "Sie wissen den Preis vor Arbeitsbeginn.",
+          title: "Faire Abrechnung",
+          description: "Nachvollziehbar nach erforderlicher Leistung und Aufwand.",
         },
         {
           step: 3,
@@ -835,7 +835,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
       },
       {
         question: "Was kostet die Duschreinigung?",
-        answer: "Ab 79€. Der genaue Preis nach kostenloser Diagnose vor Ort.",
+        answer: "Die Kosten richten sich nach Ursache, Zugänglichkeit und tatsächlichem Aufwand.",
       },
     ],
   },
@@ -910,7 +910,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 2,
-          title: "Festpreis",
+          title: "Faire Abrechnung",
           description: "Sie erfahren den Preis vor der Arbeit.",
         },
         {
@@ -1021,7 +1021,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         },
         {
           step: 2,
-          title: "Festpreis",
+          title: "Faire Abrechnung",
           description: "Sie wissen den Preis vor der Arbeit.",
         },
         {
@@ -1054,7 +1054,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
       },
       {
         question: "Was kostet die Reinigung?",
-        answer: "Ab 79€. Der genaue Preis nach kostenloser Diagnose vor Ort.",
+        answer: "Die Kosten richten sich nach Ursache, Zugänglichkeit und tatsächlichem Aufwand.",
       },
     ],
   },

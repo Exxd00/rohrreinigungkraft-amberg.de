@@ -48,8 +48,8 @@ export default function CTASection() {
                 <span className="text-primary">Rufen Sie jetzt an.</span>
               </h2>
               <p className="text-gray-300 text-lg max-w-xl mx-auto">
-                Kostenlose Beratung. Kostenlose Diagnose vor Ort. Sie zahlen
-                erst, wenn Sie JA sagen.
+                Schildern Sie uns das Problem am Telefon. Wir planen den
+                passenden Einsatz und helfen vor Ort zügig weiter.
               </p>
             </div>
 
@@ -58,7 +58,7 @@ export default function CTASection() {
               <div className="flex items-center gap-2 text-white/90">
                 <Shield className="w-5 h-5 text-emerald-400" />
                 <span className="text-sm font-medium">
-                  Festpreis vor Arbeit
+                  Faire Abrechnung nach Aufwand
                 </span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
@@ -69,7 +69,7 @@ export default function CTASection() {
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <CheckCircle className="w-5 h-5 text-emerald-400" />
-                <span className="text-sm font-medium">Kein Start ohne OK</span>
+                <span className="text-sm font-medium">Fachgerechte Ausführung</span>
               </div>
             </div>
 

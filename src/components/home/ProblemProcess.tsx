@@ -188,7 +188,7 @@ export default function ProblemProcess() {
                   <Shield className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="font-bold text-gray-900 dark:text-white mb-2">
-                  Festpreis
+                  Faire Abrechnung
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   Wir nennen den genauen Preis. Sie wissen was kommt, bevor wir
