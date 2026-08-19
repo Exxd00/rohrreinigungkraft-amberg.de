@@ -73,16 +73,17 @@ export default function HeroSection() {
 
               <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
                 <span className="text-slate-900 dark:text-white">
-                  Professionelle Hilfe{" "}
+                  Ihr Abfluss wieder frei.
+                  <br />
                 </span>
-                <span className="text-gradient">genau</span>
+                <span className="text-gradient">Ihr Alltag</span>
                 <span className="text-slate-900 dark:text-white">
                   {" "}
-                  für Ihr Problem.
+                  läuft weiter.
                 </span>
               </h1>
               <p className="text-lg md:text-2xl text-slate-700 dark:text-slate-200 font-semibold mb-2">
-                Ihr Rohrreiniger für Amberg – schnell, fachgerecht und sauber.
+                Schnelle Hilfe für Ihr Zuhause in Amberg und der Oberpfalz.
               </p>
               <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
                 Wir beurteilen die Situation vor Ort, wählen die passende
