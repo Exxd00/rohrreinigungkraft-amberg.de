@@ -7,7 +7,10 @@ declare global {
   }
 }
 
-type ConversionEvent = "kraft_call" | "kraft_callback" | "kraft_thank_you";
+type ConversionEvent =
+  | "amberg_phone_click"
+  | "kraft_callback"
+  | "kraft_thank_you";
 
 const trackConversion = (
   eventName: ConversionEvent,
@@ -20,6 +23,8 @@ const trackConversion = (
     event_category: "lead",
     currency: "EUR",
     gclid: tracking.gclid || undefined,
+    gbraid: tracking.gbraid || undefined,
+    wbraid: tracking.wbraid || undefined,
     traffic_source: tracking.source,
     traffic_medium: tracking.medium,
     traffic_campaign: tracking.campaign || undefined,
@@ -33,40 +38,39 @@ const trackConversion = (
   }
 };
 
-export const trackCallConfirmed = (source: string) => {
-  trackConversion("kraft_call", {
+export const trackPhoneClick = (source: string) => {
+  trackConversion("amberg_phone_click", {
     event_label: source,
-    lead_type: "phone_call",
+    lead_type: "phone_click",
     contact_method: "phone",
-    value: 25,
     has_gclid: !!getGclid(),
   });
 };
 
-export const trackCallbackSuccess = (source: string) => {
+export const trackCallbackSuccess = (source: string, eventId?: string) => {
   trackConversion("kraft_callback", {
     event_label: source,
     lead_type: "callback_request",
     contact_method: "callback",
-    value: 50,
+    event_id: eventId,
     has_gclid: !!getGclid(),
   });
 };
 
-export const trackThankYouPage = () => {
+export const trackThankYouPage = (eventId?: string) => {
   const tracking = getTrackingData();
   trackConversion("kraft_thank_you", {
     event_label: "contact_form_success",
     lead_type: "contact_form",
     contact_method: "form",
-    value: 50,
+    event_id: eventId,
     landing_page: tracking.landingPage,
   });
 };
 
 // Existing UI imports remain compatible, but only the three lead events above
 // are sent to GA4.
-export const trackPhoneClick = trackCallConfirmed;
+export const trackCallConfirmed = trackPhoneClick;
 export const trackCallIntent = (_source: string) => {};
 export const trackEmailIntent = (_source: string) => {};
 export const trackEmailConfirmed = (_source: string) => {};
