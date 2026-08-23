@@ -117,7 +117,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       ],
     },
     responseInfo: {
-      typical: "70-100 Minuten",
+      typical: "20-40 Minuten",
       fastest: "ca. 60 Minuten bei freier A6",
       note: "Wir sagen Ihnen die realistische Anfahrtszeit bereits am Telefon – lieber ehrlich als ein falsches Versprechen.",
     },
@@ -125,7 +125,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       {
         question: "Wie schnell sind Sie in Amberg vor Ort?",
         answer:
-          "Realistisch meist in 70-100 Minuten – wir sagen Ihnen die voraussichtliche Ankunftszeit bereits am Telefon, damit Sie sich darauf einstellen können. Bei akuten Notfällen (Wasserschaden, Rückstau) priorisieren wir die Anfahrt.",
+          "Realistisch meist in 20-40 Minuten – wir sagen Ihnen die voraussichtliche Ankunftszeit bereits am Telefon, damit Sie sich darauf einstellen können. Bei akuten Notfällen (Wasserschaden, Rückstau) priorisieren wir die Anfahrt.",
       },
       {
         question: "Kennen Sie sich mit Altbauten in der Amberger Altstadt aus?",
@@ -181,7 +181,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       ],
     },
     responseInfo: {
-      typical: "70-100 Minuten",
+      typical: "20-40 Minuten",
       fastest: "ca. 60 Minuten",
       note: "Kurze Distanz zu Amberg – die Anfahrtszeit teilen wir Ihnen ehrlich am Telefon mit.",
     },
@@ -189,7 +189,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       {
         question: "Wie schnell sind Sie in Kümmersbruck?",
         answer:
-          "Meist in 70-100 Minuten. Wir nennen Ihnen die voraussichtliche Ankunftszeit bereits beim Anruf.",
+          "Meist in 20-40 Minuten. Wir nennen Ihnen die voraussichtliche Ankunftszeit bereits beim Anruf.",
       },
       {
         question: "Bedienen Sie auch Haselmühl?",
@@ -233,7 +233,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       ],
     },
     responseInfo: {
-      typical: "75-105 Minuten",
+      typical: "20-40 Minuten",
       fastest: "ca. 65 Minuten",
       note: "Wir sagen Ihnen die realistische Ankunftszeit bereits am Telefon.",
     },
@@ -241,7 +241,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       {
         question: "Wie schnell sind Sie in Ammerthal?",
         answer:
-          "Meist in 75-105 Minuten. Bei akuten Notfällen priorisieren wir die Anfahrt und informieren Sie über die voraussichtliche Ankunftszeit.",
+          "Meist in 20-40 Minuten. Bei akuten Notfällen priorisieren wir die Anfahrt und informieren Sie über die voraussichtliche Ankunftszeit.",
       },
     ],
   },
@@ -287,7 +287,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       ],
     },
     responseInfo: {
-      typical: "80-110 Minuten",
+      typical: "20-40 Minuten",
       fastest: "ca. 70 Minuten",
       note: "Wir sagen Ihnen die realistische Ankunftszeit bereits am Telefon.",
     },
@@ -295,7 +295,7 @@ export const enhancedCityContent: Record<string, EnhancedCityContent> = {
       {
         question: "Wie schnell sind Sie in Sulzbach-Rosenberg?",
         answer:
-          "Meist in 80-110 Minuten. Wir nennen Ihnen die voraussichtliche Ankunftszeit bereits beim Anruf, damit Sie sich darauf einstellen können.",
+          "Meist in 20-40 Minuten. Wir nennen Ihnen die voraussichtliche Ankunftszeit bereits beim Anruf, damit Sie sich darauf einstellen können.",
       },
       {
         question: "Reinigen Sie auch in Rosenberg und den Ortsteilen?",
