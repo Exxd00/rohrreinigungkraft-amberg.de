@@ -74,17 +74,17 @@ export default function DatenschutzPage() {
       content: (
         <div className="space-y-3">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Diese Website wird bei Netlify gehostet.
+            Diese Website wird bei Vercel gehostet.
           </p>
           <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
             <p className="text-gray-600 dark:text-gray-400 text-sm">
               <strong className="text-gray-900 dark:text-white">
-                Netlify Inc.
+                Vercel Inc.
               </strong>
               <br />
-              44 Montgomery Street, Suite 300
+              340 S Lemon Ave #4133
               <br />
-              San Francisco, California 94104, USA
+              Walnut, CA 91789, USA
             </p>
           </div>
         </div>
@@ -219,14 +219,16 @@ export default function DatenschutzPage() {
       content: (
         <div className="space-y-3">
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Diese Website kann Analyse-Tools verwenden, um das Nutzerverhalten
-            zu analysieren. Details zu den verwendeten Tools und Ihren
-            Opt-out-Möglichkeiten werden bei Bedarf ergänzt.
+            Diese Website verwendet Google Analytics 4 und Google Ads zur
+            Reichweitenmessung und zur Messung erfolgreicher Anfragen. Die
+            Dienste erhalten Analyse- und Werbespeicher erst, wenn Sie im
+            Einwilligungsbanner zustimmen (Google Consent Mode v2).
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Wir nutzen möglicherweise Google Analytics zur Websiteanalyse. Sie
-            können die Erfassung durch Google Analytics verhindern, indem Sie
-            das Browser-Add-on zur Deaktivierung installieren.
+            Bei Ablehnung bleiben die entsprechenden Speicherzugriffe
+            verweigert. Ihre Auswahl wird lokal im Browser gespeichert. Sie
+            können sie jederzeit löschen, indem Sie die Website-Daten in Ihrem
+            Browser entfernen und die Auswahl danach erneut treffen.
           </p>
         </div>
       ),
