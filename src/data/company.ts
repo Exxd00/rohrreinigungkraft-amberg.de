@@ -3,8 +3,8 @@
  * Focused on the Amberg region (Oberpfalz): Amberg, Kümmersbruck, Sulzbach-Rosenberg + 60km Umkreis
  *
  * ⚠️ WICHTIG: Alle Zeitangaben einheitlich halten!
- * Standard: "70-100 Min" (echte Anfahrtszeit ab dem Firmensitz Nürnberg-Glockenhof, ~65km entfernt —
- * NICHT die schnellere Nürnberg-Zeit wiederverwenden. Immer die realistische Zeit am Telefon nennen.)
+ * Standard: "20-40 Min". Die konkrete Ankunftszeit wird abhängig von
+ * Verkehr und Einsatzlage ehrlich am Telefon bestätigt.
  */
 
 // Firmenadresse - ECHT (von Gelbe Seiten verifiziert) — gleicher Fachbetrieb wie die Nürnberg-Seite,
@@ -56,6 +56,7 @@ export const company = {
     transparent: true,
     guarantees: [
       "Fachgerechte Einschätzung vor Ort",
+      "Startpreise; Endpreis nach Diagnose vor Arbeitsbeginn",
       "Nachvollziehbare Abrechnung nach Aufwand",
       "Keine versteckten Kosten",
       "Klare Kommunikation zum Arbeitsumfang",
@@ -110,11 +111,11 @@ export const company = {
   },
 
   // ⚠️ EINHEITLICHE ZEITANGABEN
-  // Standard: 70-100 Min (echte Anfahrtszeit ab Nürnberg-Glockenhof)
+  // Standard: 20-40 Min laut bestätigter Einsatzplanung
   urgency: {
-    responseTime: "70-100", // EINHEITLICH überall
-    responseTimeDisplay: "70-100 Min",
-    responseTimeShort: "Meist 70-100 Min",
+    responseTime: "20-40", // EINHEITLICH überall
+    responseTimeDisplay: "20-40 Min",
+    responseTimeShort: "Meist 20-40 Min",
     responseTimeNote: "Genaue Zeit sagen wir Ihnen ehrlich am Telefon",
     callbackTime: "wenigen", // "Rückruf in wenigen Minuten"
     totalTechnicians: 3, // Team-Gesamtgröße – fest. Angezeigt wird "X/3", X variiert pro Seitenaufruf.
@@ -123,7 +124,7 @@ export const company = {
   },
 
   stats: {
-    responseTime: "70-100 Min",
+    responseTime: "20-40 Min",
     availability: "24/7",
     localTeam: "Etablierter Fachbetrieb",
     region: "Oberpfalz",
@@ -204,7 +205,7 @@ export const company = {
       icon: "clock",
     },
     {
-      title: "Meist 70-100 Min",
+      title: "Meist 20-40 Min",
       description: "Realistische Anfahrtszeit – ehrlich am Telefon genannt",
       icon: "truck",
     },
@@ -252,7 +253,7 @@ export const company = {
         "Erfahrung mit der historischen Altstadt und Neubaugebieten",
         "Realistische Ankunftszeit bereits am Telefon",
       ],
-      responseTime: "70-100 Min", // EINHEITLICH
+      responseTime: "20-40 Min", // EINHEITLICH
       commonProblems: [
         "Altbau-Rohrsysteme in der Altstadt",
         "Wurzeleinwuchs in Wohngebieten",
@@ -263,13 +264,13 @@ export const company = {
       name: "Kümmersbruck",
       headline: "Rohrreinigung Kümmersbruck – Direkt nebenan",
       subheadline:
-        "Gleiche Anfahrtszeit wie Amberg – meist 70-100 Min bei Ihnen",
+        "Gleiche Anfahrtszeit wie Amberg – meist 20-40 Min bei Ihnen",
       localFacts: [
         "Direkte Nachbarschaft zu Amberg",
         "Kurze Anfahrtswege innerhalb der Gemeinde",
         "Erfahrung mit Wohnsiedlungen",
       ],
-      responseTime: "70-100 Min", // EINHEITLICH
+      responseTime: "20-40 Min", // EINHEITLICH
       commonProblems: [
         "Ältere Anschlussleitungen",
         "Fettablagerungen in Küchenabflüssen",
@@ -285,7 +286,7 @@ export const company = {
         "Service für Gewerbeflächen in Rosenberg",
         "Zusammenarbeit mit lokalen Hausverwaltungen",
       ],
-      responseTime: "80-110 Min", // EINHEITLICH
+      responseTime: "20-40 Min", // EINHEITLICH
       commonProblems: [
         "Alte Rohrsysteme in der Altstadt",
         "Gewerbliche Anforderungen in Rosenberg",
@@ -304,7 +305,7 @@ export const company = {
       {
         question: "Wie schnell können Sie da sein?",
         answer:
-          "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen. Die genaue Zeit sagen wir Ihnen ehrlich bereits am Telefon.",
+          "In Amberg und der Region sind wir meist innerhalb von 20-40 Minuten bei Ihnen. Die genaue Zeit sagen wir Ihnen ehrlich bereits am Telefon.",
       },
       {
         question: "Arbeiten Sie auch am Wochenende?",
@@ -348,7 +349,7 @@ export const company = {
     defaultTitle:
       "Rohrreinigung Kraft | 24/7 Notdienst Amberg, Kümmersbruck, Sulzbach-Rosenberg",
     defaultDescription:
-      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 70-100 Min ✓ 24/7 Notdienst ✓ Fachgerechte Einschätzung ✓ Faire Abrechnung nach Aufwand. Jetzt anrufen: 01787401958",
+      "Rohrreinigung & Kanalreinigung in der Amberg-Region ✓ Meist 20-40 Min ✓ 24/7 Notdienst ✓ Fachgerechte Einschätzung ✓ Faire Abrechnung nach Aufwand. Jetzt anrufen: 01787401958",
     keywords: [
       "Rohrreinigung Amberg",
       "Rohrreinigung Kümmersbruck",
@@ -360,7 +361,7 @@ export const company = {
       "24/7 Rohrreinigung",
     ],
     // TODO: Platzhalter-Domain — durch die echte Domain ersetzen, sobald registriert
-    domain: "https://rohrreinigung-kraft-amberg.de",
+    domain: "https://rohrreinigungkraft-amberg.de",
   },
 };
 
@@ -555,7 +556,7 @@ export const howItWorks = [
     step: 2,
     title: "Anfahrt",
     description:
-      "Unser Fachteam ist meist innerhalb von 70-100 Minuten bei Ihnen vor Ort – die genaue Zeit sagen wir ehrlich am Telefon.",
+      "Unser Fachteam ist meist innerhalb von 20-40 Minuten bei Ihnen vor Ort – die genaue Zeit sagen wir ehrlich am Telefon.",
     icon: "truck",
   },
   {
