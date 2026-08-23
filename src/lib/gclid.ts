@@ -10,6 +10,8 @@ const GCLID_EXPIRY_DAYS = 90; // Google Ads attribution window
 
 export interface SessionData {
   gclid: string | null;
+  gbraid: string | null;
+  wbraid: string | null;
   gclidTimestamp: number | null;
   firstPage: string;
   landingPage: string;
@@ -30,6 +32,8 @@ export function initGclidTracking(): void {
   // Capture GCLID from URL
   const urlParams = new URLSearchParams(window.location.search);
   const gclid = urlParams.get("gclid");
+  const gbraid = urlParams.get("gbraid");
+  const wbraid = urlParams.get("wbraid");
 
   // Always save GCLID if present (even if session exists)
   if (gclid) {
@@ -47,7 +51,8 @@ export function initGclidTracking(): void {
   const utmTerm = urlParams.get("utm_term");
 
   // If this is the first visit OR we have new UTM/GCLID parameters
-  const hasNewTrackingParams = gclid || utmSource || utmMedium || utmCampaign;
+  const hasNewTrackingParams =
+    gclid || gbraid || wbraid || utmSource || utmMedium || utmCampaign;
 
   if (!sessionData.firstPage || hasNewTrackingParams) {
     saveSessionData({
@@ -63,6 +68,12 @@ export function initGclidTracking(): void {
       utmCampaign: utmCampaign || sessionData.utmCampaign,
       utmContent: utmContent || sessionData.utmContent,
       utmTerm: utmTerm || sessionData.utmTerm,
+      gbraid: gbraid || sessionData.gbraid,
+      wbraid: wbraid || sessionData.wbraid,
+      gclidTimestamp:
+        gclid || gbraid || wbraid
+          ? Date.now()
+          : sessionData.gclidTimestamp,
     });
   }
 }
@@ -135,6 +146,8 @@ export function getSessionData(): SessionData {
   if (typeof window === "undefined") {
     return {
       gclid: null,
+      gbraid: null,
+      wbraid: null,
       gclidTimestamp: null,
       firstPage: "",
       landingPage: "",
@@ -155,6 +168,8 @@ export function getSessionData(): SessionData {
       return {
         ...parsed,
         gclid: getGclid(),
+        gbraid: parsed.gbraid || null,
+        wbraid: parsed.wbraid || null,
       };
     }
   } catch (e) {
@@ -163,6 +178,8 @@ export function getSessionData(): SessionData {
 
   return {
     gclid: getGclid(),
+    gbraid: null,
+    wbraid: null,
     gclidTimestamp: null,
     firstPage: "",
     landingPage: "",
@@ -200,6 +217,8 @@ export function saveSessionData(data: Partial<SessionData>): void {
  */
 export function getTrackingData(): {
   gclid: string | null;
+  gbraid: string | null;
+  wbraid: string | null;
   source: string;
   medium: string;
   campaign: string;
@@ -248,6 +267,8 @@ export function getTrackingData(): {
 
   return {
     gclid: currentGclid,
+    gbraid: session.gbraid,
+    wbraid: session.wbraid,
     source,
     medium,
     campaign: session.utmCampaign || "",
