@@ -6,7 +6,7 @@ import {
 } from "@/data/oberpfalz-cities";
 
 // TODO: Platzhalter-Domain — durch die echte Domain ersetzen, sobald registriert
-const baseUrl = "https://rohrreinigung-kraft-amberg.de";
+const baseUrl = "https://rohrreinigungkraft-amberg.de";
 
 // Important services to include in sitemap (high-traffic keywords)
 const importantServices = [
