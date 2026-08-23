@@ -175,7 +175,7 @@ export default function ProblemProcess() {
                   ist.
                 </p>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-medium">
-                  → Kostenlos. Immer.
+                  → Transparent vor Arbeitsbeginn.
                 </p>
               </div>
 
@@ -191,11 +191,11 @@ export default function ProblemProcess() {
                   Faire Abrechnung
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Wir nennen den genauen Preis. Sie wissen was kommt, bevor wir
-                  anfangen.
+                  Nach der Diagnose vor Ort erklären wir den nötigen Umfang und
+                  den Preis, bevor wir anfangen.
                 </p>
                 <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 font-medium">
-                  → Der Preis steht. Punkt.
+                  → Sie entscheiden vor Arbeitsbeginn.
                 </p>
               </div>
 
