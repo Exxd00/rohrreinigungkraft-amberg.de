@@ -94,13 +94,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `https://rohrreinigung-kraft-amberg.de/service/${service.slug}`,
+    "@id": `https://rohrreinigungkraft-amberg.de/service/${service.slug}`,
     name: service.name,
     description: service.longDescription,
-    url: `https://rohrreinigung-kraft-amberg.de/service/${service.slug}`,
+    url: `https://rohrreinigungkraft-amberg.de/service/${service.slug}`,
     provider: {
       "@type": "Plumber",
-      "@id": "https://rohrreinigung-kraft-amberg.de/#organization",
+      "@id": "https://rohrreinigungkraft-amberg.de/#organization",
       name: company.name,
       telephone: company.contact.phone,
       address: {
