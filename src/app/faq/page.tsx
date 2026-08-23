@@ -98,8 +98,8 @@ const faqCategories = [
       {
         question: "Wie schnell können Sie da sein?",
         answer:
-          "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen. Wir geben Ihnen am Telefon eine realistische Zeitangabe.",
-        shortAnswer: "Meist 70-100 Minuten in Amberg und der Region.",
+          "In Amberg und der Region sind wir meist innerhalb von 20-40 Minuten bei Ihnen. Wir geben Ihnen am Telefon eine realistische Zeitangabe.",
+        shortAnswer: "Meist 20-40 Minuten in Amberg und der Region.",
       },
       {
         question: "Wie läuft ein Einsatz ab?",
