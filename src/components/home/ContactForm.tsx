@@ -52,6 +52,7 @@ export default function ContactForm() {
   const [isCompressing, setIsCompressing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [website, setWebsite] = useState("");
   const availableTechnicians = useAvailableTechnicians();
 
   const handleChange = (
@@ -109,6 +110,7 @@ export default function ContactForm() {
 
     // Get complete tracking data including GCLID, source, etc.
     const trackingData = getCompleteTrackingData();
+    const eventId = crypto.randomUUID();
 
     try {
       const response = await fetch("/api/contact", {
@@ -122,6 +124,10 @@ export default function ContactForm() {
           images: images.map((img) => img.dataUrl),
           // Include tracking data for Google Sheets
           gclid: trackingData.gclid,
+          gbraid: trackingData.gbraid,
+          wbraid: trackingData.wbraid,
+          eventId,
+          website,
           source: trackingData.source,
           medium: trackingData.medium,
           campaign: trackingData.campaign,
@@ -136,6 +142,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         sessionStorage.setItem("form_submitted", "true");
+        sessionStorage.setItem("kraft_form_event_id", eventId);
         router.push("/thank-you");
       } else {
         console.error("Form submission failed:", result);
@@ -206,6 +213,18 @@ export default function ContactForm() {
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+                <div className="hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input
+                    id="website"
+                    name="website"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={website}
+                    onChange={(event) => setWebsite(event.target.value)}
+                  />
+                </div>
                 {/* Service Selection */}
                 <div className="space-y-1">
                   <Label
