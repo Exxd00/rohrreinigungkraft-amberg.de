@@ -55,13 +55,13 @@ export default async function CityPage({ params }: CityPageProps) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `https://rohrreinigung-kraft-amberg.de/${city.slug}`,
+    "@id": `https://rohrreinigungkraft-amberg.de/${city.slug}`,
     name: `Rohrreinigung ${city.name}`,
     description: `Professionelle Rohrreinigung und Kanalreinigung in ${city.name}. 24/7 Notdienst, realistische Anfahrtszeit am Telefon und faire Abrechnung nach tatsächlichem Aufwand.`,
-    url: `https://rohrreinigung-kraft-amberg.de/${city.slug}`,
+    url: `https://rohrreinigungkraft-amberg.de/${city.slug}`,
     provider: {
       "@type": "Plumber",
-      "@id": "https://rohrreinigung-kraft-amberg.de/#organization",
+      "@id": "https://rohrreinigungkraft-amberg.de/#organization",
       name: company.name,
       telephone: company.contact.phone,
       email: company.contact.email,
