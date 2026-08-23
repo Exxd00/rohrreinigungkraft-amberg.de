@@ -17,6 +17,10 @@ interface ContactFormData {
   images?: string[]; // base64 images
   // Tracking data
   gclid?: string | null;
+  gbraid?: string | null;
+  wbraid?: string | null;
+  eventId?: string;
+  website?: string;
   source?: string;
   medium?: string;
   campaign?: string;
@@ -321,10 +325,6 @@ async function sendToGoogleSheets(
   }
 
   console.log("[Google Sheets] Sending data to webhook...");
-  console.log(
-    "[Google Sheets] Webhook URL:",
-    GOOGLE_SHEETS_WEBHOOK_URL.substring(0, 50) + "...",
-  );
 
   try {
     // Build source info based on tracking data
@@ -361,13 +361,15 @@ async function sendToGoogleSheets(
       referrer: formData.referrer || "direct",
       // Extended tracking data (optional for Google Sheets)
       gclid: formData.gclid || null,
+      gbraid: formData.gbraid || null,
+      wbraid: formData.wbraid || null,
+      eventId: formData.eventId || null,
+      sourceSite: "rohrreinigungkraft-amberg.de",
       medium: formData.medium || null,
       campaign: formData.campaign || null,
       landingPage: formData.landingPage || null,
       currentPage: formData.currentPage || null,
     };
-
-    console.log("[Google Sheets] Payload:", JSON.stringify(payload));
 
     const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
       method: "POST",
@@ -401,6 +403,11 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const formData: ContactFormData = body;
 
+    // Quietly accept bot submissions caught by the hidden honeypot field.
+    if (formData.website?.trim()) {
+      return NextResponse.json({ success: true });
+    }
+
     // Validate required fields
     if (
       !formData.name ||
@@ -428,20 +435,6 @@ export async function POST(request: NextRequest) {
         { status: 500 },
       );
     }
-
-    // Log tracking data for debugging
-    if (formData.gclid) {
-      console.log(
-        "[Contact Form] Lead from Google Ads - GCLID:",
-        formData.gclid,
-      );
-    }
-    console.log(
-      "[Contact Form] Source:",
-      formData.source || "unknown",
-      "| Medium:",
-      formData.medium || "unknown",
-    );
 
     // Upload images to ImgBB if provided
     let imageResult: ImageUploadResult = {
