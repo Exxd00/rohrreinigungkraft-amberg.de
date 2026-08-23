@@ -4,7 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { Loader2, Phone, X } from "lucide-react";
 import { company } from "@/data/company";
 import { trackCallbackSuccess, trackCallIntent } from "@/lib/tracking";
-import { getGclid, getTrackingData } from "@/lib/gclid";
+import { getTrackingData } from "@/lib/gclid";
 
 interface CallConfirmModalProps {
   isOpen: boolean;
@@ -23,6 +23,7 @@ export default function CallConfirmModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [website, setWebsite] = useState("");
 
   useEffect(() => {
     if (!isOpen) return;
@@ -32,6 +33,7 @@ export default function CallConfirmModal({
     setError("");
     setIsSubmitted(false);
     setIsSubmitting(false);
+    setWebsite("");
     const timer = window.setTimeout(() => phoneInputRef.current?.focus(), 80);
     return () => window.clearTimeout(timer);
   }, [isOpen, source]);
@@ -45,33 +47,6 @@ export default function CallConfirmModal({
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen, isSubmitting, onClose]);
 
-  const logConfirmedCall = () => {
-    const tracking = getTrackingData();
-    const payload = JSON.stringify({
-      eventType: "call_confirmed",
-      source,
-      gclid: getGclid(),
-      utmSource: tracking.source,
-      utmMedium: tracking.medium,
-      utmCampaign: tracking.campaign,
-      landingPage: tracking.landingPage,
-      currentPage: tracking.currentPage,
-      referrer: tracking.referrer,
-      timestamp: new Date().toISOString(),
-    });
-
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon("/api/call-event", payload);
-    } else {
-      fetch("/api/call-event", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-        keepalive: true,
-      }).catch(() => {});
-    }
-  };
-
   const handleCallbackRequest = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const normalizedPhone = phone.trim();
@@ -84,6 +59,7 @@ export default function CallConfirmModal({
     setIsSubmitting(true);
     setError("");
     const tracking = getTrackingData();
+    const eventId = crypto.randomUUID();
 
     try {
       const response = await fetch("/api/contact", {
@@ -98,6 +74,10 @@ export default function CallConfirmModal({
           message: `Rückruf über das Anruf-Fenster angefordert (${source}).`,
           images: [],
           gclid: tracking.gclid,
+          gbraid: tracking.gbraid,
+          wbraid: tracking.wbraid,
+          eventId,
+          website,
           source: tracking.source,
           medium: tracking.medium,
           campaign: tracking.campaign,
@@ -110,7 +90,7 @@ export default function CallConfirmModal({
       const result = await response.json();
       if (!response.ok) throw new Error(result.details || result.error);
 
-      trackCallbackSuccess(source);
+      trackCallbackSuccess(source, eventId);
       setIsSubmitted(true);
     } catch (submissionError) {
       console.error("Callback request failed:", submissionError);
@@ -187,6 +167,18 @@ export default function CallConfirmModal({
             </div>
 
             <form onSubmit={handleCallbackRequest} className="mt-6 space-y-4">
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="callback-website">Website</label>
+                <input
+                  id="callback-website"
+                  name="website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(event) => setWebsite(event.target.value)}
+                />
+              </div>
               <div>
                 <label
                   htmlFor="callback-phone"
@@ -253,7 +245,6 @@ export default function CallConfirmModal({
 
             <a
               href={`tel:${company.contact.phone}`}
-              onClick={logConfirmedCall}
               data-tracking-source={source}
               className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-xl border-2 border-primary px-5 font-bold text-primary transition-colors hover:bg-primary/5 dark:text-[#73A6DE]"
             >
