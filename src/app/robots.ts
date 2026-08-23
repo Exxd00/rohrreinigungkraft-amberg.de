@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/thank-you", "/admin", "/upload", "/assets"],
     },
-    sitemap: "https://rohrreinigung-kraft-amberg.de/sitemap.xml",
+    sitemap: "https://rohrreinigungkraft-amberg.de/sitemap.xml",
   };
 }
