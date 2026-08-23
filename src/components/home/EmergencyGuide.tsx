@@ -82,7 +82,7 @@ const guideSteps: GuideStep[] = [
     iconBg: "bg-primary",
     description: "Was passiert nachdem Sie uns kontaktiert haben",
     dos: [
-      "Sie erhalten eine realistische Ankunftszeit (meist 70-100 Min)",
+      "Sie erhalten eine realistische Ankunftszeit (meist 20-40 Min)",
       "Bereiten Sie den Zugang zum betroffenen Bereich vor",
       "Räumen Sie den Bereich um den verstopften Abfluss frei",
       "Halten Sie ggf. Schlüssel für Keller oder Außenbereiche bereit",
