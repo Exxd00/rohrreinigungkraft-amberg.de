@@ -111,7 +111,7 @@ export const packages: Package[] = [
     },
 
     duration: "20-60 Min",
-    responseTime: "70-100 Min",
+    responseTime: "20-40 Min",
 
     popular: false,
     badge: "24/7",
