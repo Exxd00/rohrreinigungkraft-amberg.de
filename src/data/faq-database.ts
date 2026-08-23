@@ -67,14 +67,14 @@ export const kostenFAQ: FAQItem[] = [
   },
   {
     id: "kosten-2",
-    question: "Ist die Diagnose wirklich kostenlos?",
+    question: "Wann erfahre ich den genauen Preis?",
     shortAnswer:
-      "Ja, die Diagnose vor Ort ist immer kostenlos – auch wenn Sie unser Angebot danach ablehnen.",
+      "Nach der fachlichen Einschätzung vor Ort und vor Beginn der Arbeiten.",
     fullAnswer:
-      "Unser Techniker beurteilt Ursache, Zugänglichkeit und benötigte Technik vor Ort. Diese fachgerechte Einschätzung ist Bestandteil des beauftragten Einsatzes und ermöglicht eine gezielte Ausführung.",
+      "Unser Techniker beurteilt Ursache, Zugänglichkeit und benötigte Technik vor Ort. Danach erläutert er den erforderlichen Umfang und den Preis, bevor Sie die Arbeiten freigeben.",
     category: "kosten",
     page: ["homepage", "preise", "faq"],
-    keywords: ["diagnose kostenlos", "kostenlose begutachtung"],
+    keywords: ["preis vor arbeit", "diagnose vor ort"],
     priority: "high",
     schema: true,
   },
@@ -119,14 +119,14 @@ export const kostenFAQ: FAQItem[] = [
   },
   {
     id: "kosten-6",
-    question: "Muss ich bei Ablehnung etwas zahlen?",
+    question: "Was passiert vor Arbeitsbeginn?",
     shortAnswer:
-      "Nein. Wenn Sie nach der Diagnose ablehnen, entstehen keine Kosten.",
+      "Wir prüfen das Problem, erklären die nötigen Arbeiten und nennen den Preis.",
     fullAnswer:
-      "Die Diagnose ist komplett kostenlos und unverbindlich. Wenn Ihnen unser Angebot nicht zusagt, fahren wir einfach wieder. Sie zahlen nichts – weder Anfahrt noch Diagnose.",
+      "Nach der Einschätzung vor Ort erklären wir Ihnen Ursache, erforderliche Technik und Kosten. Erst nach Ihrer Freigabe beginnen wir mit der Arbeit.",
     category: "kosten",
     page: ["preise", "faq"],
-    keywords: ["ablehnung", "keine kosten"],
+    keywords: ["arbeitsfreigabe", "preis vor arbeitsbeginn"],
     priority: "medium",
     schema: true,
   },
@@ -257,9 +257,9 @@ export const ablaufFAQ: FAQItem[] = [
     id: "ablauf-1",
     question: "Wie läuft ein Einsatz ab?",
     shortAnswer:
-      "Anruf → Anfahrt (meist 70-100 Min) → fachgerechte Einschätzung → Ausführung → Funktionsprüfung → Rechnung.",
+      "Anruf → Anfahrt (meist 20-40 Min) → fachgerechte Einschätzung → Ausführung → Funktionsprüfung → Rechnung.",
     fullAnswer:
-      "1. Sie rufen an und schildern das Problem. 2. Wir kommen meist innerhalb von 70-100 Min. 3. Vor Ort beurteilen wir Ursache und Umfang. 4. Wir führen die erforderlichen Arbeiten fachgerecht aus. 5. Nach Funktionsprüfung und Dokumentation erhalten Sie die Rechnung.",
+      "1. Sie rufen an und schildern das Problem. 2. Wir kommen meist innerhalb von 20-40 Min. 3. Vor Ort beurteilen wir Ursache und Umfang. 4. Wir führen die erforderlichen Arbeiten fachgerecht aus. 5. Nach Funktionsprüfung und Dokumentation erhalten Sie die Rechnung.",
     category: "ablauf",
     page: ["homepage", "faq"],
     keywords: ["wie läuft ab", "einsatz ablauf"],
@@ -269,9 +269,9 @@ export const ablaufFAQ: FAQItem[] = [
   {
     id: "ablauf-2",
     question: "Wie schnell können Sie da sein?",
-    shortAnswer: "In Amberg und Umgebung meist in 70-100 Minuten.",
+    shortAnswer: "In Amberg und Umgebung meist in 20-40 Minuten.",
     fullAnswer:
-      "Wir sind ehrlich zu Ihnen: Da wir nicht direkt vor Ort sitzen, sind wir in Amberg und der näheren Umgebung meist in 70-100 Minuten vor Ort – das sagen wir Ihnen bereits am Telefon. Auch nachts und am Wochenende – unser 24/7 Notdienst ist immer einsatzbereit.",
+      "Wir sind ehrlich zu Ihnen: Da wir nicht direkt vor Ort sitzen, sind wir in Amberg und der näheren Umgebung meist in 20-40 Minuten vor Ort – das sagen wir Ihnen bereits am Telefon. Auch nachts und am Wochenende – unser 24/7 Notdienst ist immer einsatzbereit.",
     category: "ablauf",
     page: ["homepage", "city-amberg", "faq"],
     keywords: ["wie schnell", "anfahrtszeit", "reaktionszeit"],
@@ -442,9 +442,9 @@ export const notfallFAQ: FAQItem[] = [
   {
     id: "notfall-5",
     question: "Wie schnell sind Sie beim Notdienst da?",
-    shortAnswer: "In Amberg und Umgebung meist in 70-100 Minuten.",
+    shortAnswer: "In Amberg und Umgebung meist in 20-40 Minuten.",
     fullAnswer:
-      "Wir sind ehrlich zu Ihnen: Die Anfahrt nach Amberg und in die Region dauert meist 70-100 Minuten. Wir sagen Ihnen am Telefon eine realistische Zeit – keine falschen Versprechen, auch nicht im Notfall.",
+      "Wir sind ehrlich zu Ihnen: Die Anfahrt nach Amberg und in die Region dauert meist 20-40 Minuten. Wir sagen Ihnen am Telefon eine realistische Zeit – keine falschen Versprechen, auch nicht im Notfall.",
     category: "notfall",
     page: ["service-notdienst", "city-amberg", "faq"],
     keywords: ["wie schnell notdienst", "anfahrt notdienst"],
@@ -688,9 +688,9 @@ export const regionFAQ: FAQItem[] = [
     id: "region-3",
     question: "Wie schnell sind Sie in Kümmersbruck?",
     shortAnswer:
-      "Meist in 70-100 Minuten. Kümmersbruck liegt direkt neben Amberg.",
+      "Meist in 20-40 Minuten. Kümmersbruck liegt direkt neben Amberg.",
     fullAnswer:
-      "Kümmersbruck erreichen wir mit der gleichen Anfahrtszeit wie Amberg selbst – meist 70-100 Minuten. Wir sagen Ihnen die voraussichtliche Ankunftszeit bereits am Telefon, bei gutem Verkehr auch schneller.",
+      "Kümmersbruck erreichen wir mit der gleichen Anfahrtszeit wie Amberg selbst – meist 20-40 Minuten. Wir sagen Ihnen die voraussichtliche Ankunftszeit bereits am Telefon, bei gutem Verkehr auch schneller.",
     category: "region",
     page: ["city-kuemmersbruck", "faq"],
     keywords: ["kümmersbruck anfahrt", "rohrreinigung kümmersbruck"],
@@ -700,9 +700,9 @@ export const regionFAQ: FAQItem[] = [
   {
     id: "region-4",
     question: "Wie schnell sind Sie in Sulzbach-Rosenberg?",
-    shortAnswer: "Meist in 80-110 Minuten.",
+    shortAnswer: "Meist in 20-40 Minuten.",
     fullAnswer:
-      "Sulzbach-Rosenberg gehört zu unserem erweiterten Servicegebiet: Anfahrt meist in 80-110 Minuten, plus 25€ Anfahrtspauschale. Wir kennen die Stadt gut – von der historischen Altstadt bis zu den Gewerbegebieten in Rosenberg.",
+      "Sulzbach-Rosenberg gehört zu unserem erweiterten Servicegebiet: Anfahrt meist in 20-40 Minuten, plus 25€ Anfahrtspauschale. Wir kennen die Stadt gut – von der historischen Altstadt bis zu den Gewerbegebieten in Rosenberg.",
     category: "region",
     page: ["city-sulzbach-rosenberg", "faq"],
     keywords: [
@@ -869,7 +869,7 @@ export const garantieFAQ: FAQItem[] = [
     id: "garantie-3",
     question: "Wie wird fair abgerechnet?",
     shortAnswer:
-      "Der genannte Preis ist der Endpreis. Keine Materialzuschläge, keine Nachforderungen, keine Überraschungen.",
+      "Der Preis wird nach der Diagnose vor Arbeitsbeginn erklärt; die Rechnung weist die tatsächlich erforderlichen Leistungen nachvollziehbar aus.",
     fullAnswer:
       "Fair bedeutet: Abgerechnet werden die tatsächlich erforderliche Arbeitszeit, eingesetzte Technik und benötigtes Material. Die Leistungen werden auf der Rechnung nachvollziehbar ausgewiesen.",
     category: "garantie",
