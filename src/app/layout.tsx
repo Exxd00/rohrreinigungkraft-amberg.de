@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import TrackingInit from "@/components/layout/TrackingInit";
+import ConsentBanner from "@/components/layout/ConsentBanner";
 import { company } from "@/data/company";
 
 const GA_MEASUREMENT_ID = "G-4YZB1PX342";
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://rohrreinigung-kraft-amberg.de",
+    canonical: "https://rohrreinigungkraft-amberg.de",
   },
 };
 
@@ -90,12 +91,12 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://rohrreinigung-kraft-amberg.de/#organization",
+              "@id": "https://rohrreinigungkraft-amberg.de/#organization",
               name: "Rohrreinigung Kraft",
               description:
                 "Professionelle Rohrreinigung & Kanalreinigung in der Region Amberg. 24/7 Notdienst.",
-              url: "https://rohrreinigung-kraft-amberg.de",
-              logo: "https://rohrreinigung-kraft-amberg.de/logo.png",
+              url: "https://rohrreinigungkraft-amberg.de",
+              logo: "https://rohrreinigungkraft-amberg.de/logo.png",
               telephone: "+491787401958",
               email: "Info@Rohrreinigung-kraft.de",
               address: {
@@ -134,6 +135,25 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased`}
       >
+        {/* Consent Mode v2 defaults before Google tags load. */}
+        <Script id="google-consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            var consentChoice = null;
+            try { consentChoice = localStorage.getItem('rk_amberg_consent'); } catch (e) {}
+            var consentValue = consentChoice === 'accepted' ? 'granted' : 'denied';
+            gtag('consent', 'default', {
+              analytics_storage: consentValue,
+              ad_storage: consentValue,
+              ad_user_data: consentValue,
+              ad_personalization: consentValue,
+              wait_for_update: 500
+            });
+            gtag('set', 'ads_data_redaction', true);
+            gtag('set', 'url_passthrough', true);
+          `}
+        </Script>
         {/* Google tag (gtag.js) */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -153,6 +173,7 @@ export default function RootLayout({
         <main className="min-h-screen">{children}</main>
         <Footer />
         <FloatingButtons />
+        <ConsentBanner />
       </body>
     </html>
   );
