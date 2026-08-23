@@ -2,13 +2,13 @@
 
 Professionelle Rohrreinigung & Kanalreinigung in der Oberpfalz (Amberg-Region).
 
-**Website:** rohrreinigung-kraft-amberg.de _(Platzhalter-Domain — noch nicht registriert)_
+**Website:** [rohrreinigungkraft-amberg.de](https://rohrreinigungkraft-amberg.de)
 
 ## Über das Projekt
 
-Diese Seite ist eine geografisch retargetierte Kopie der [rohrreinigung-kraft.de](https://rohrreinigung-kraft.de) Nürnberg-Seite, ausgerichtet auf **Amberg und Umgebung** (Oberpfalz) statt auf Mittelfranken. Design, Leistungskatalog, Preisstruktur und Tracking-Infrastruktur sind identisch — nur die geografische Ausrichtung wurde angepasst.
+Diese Seite ist auf **Amberg und Umgebung** (Oberpfalz) ausgerichtet. Tracking, Webhook und Analytics sind für dieses Projekt separat konfiguriert.
 
-Firmensitz und rechtliche Angaben (Adresse, Handelsregister, USt-ID) bleiben unverändert die echten Angaben aus Nürnberg-Glockenhof — das ist derselbe Fachbetrieb, der jetzt zusätzlich die Amberg-Region bedient. Da die reale Anfahrt von dort ca. 65 km beträgt, wurden alle Anfahrtszeiten-Angaben ehrlich neu berechnet (ca. 70-100 Min statt der schnelleren Nürnberg-Zeiten) — siehe Kommentar in `src/data/company.ts`.
+Firmensitz und rechtliche Angaben bleiben die echten Angaben aus Nürnberg-Glockenhof. Für die Amberg-Region gilt laut bestätigter Einsatzplanung eine übliche Ankunftszeit von 20–40 Minuten; die konkrete Zeit wird abhängig von Verkehr und Einsatzlage am Telefon bestätigt.
 
 ### Hauptstädte
 
@@ -22,10 +22,10 @@ Firmensitz und rechtliche Angaben (Adresse, Handelsregister, USt-ID) bleiben unv
 
 ## Technologie
 
-- **Framework:** Next.js 15 (Turbopack)
+- **Framework:** Next.js 15.5 (Turbopack)
 - **Styling:** Tailwind CSS + shadcn/ui
 - **Sprache:** TypeScript
-- **Hosting:** Vercel / Netlify
+- **Hosting:** Vercel
 
 ## Entwicklung
 
@@ -40,12 +40,12 @@ bun run dev
 bun run build
 ```
 
-## Offene Punkte vor dem Go-Live
+## Tracking
 
-- [ ] Echte Domain registrieren und Platzhalter `rohrreinigung-kraft-amberg.de` überall ersetzen (grep danach suchen)
-- [ ] Eigene GA4-Property anlegen und Platzhalter-ID `G-XXXXXXXXXX` in `src/app/layout.tsx` ersetzen
-- [ ] Google Ads Geo-Target-IDs in `src/app/api/google-ads/campaigns/route.ts` über die Google Ads API nachschlagen (aktuell leer, siehe TODO-Kommentar dort)
-- [ ] Google Ads Konto/Zugangsdaten für die Amberg-Kampagnen konfigurieren (`.env`)
+- GA4 Measurement ID: projektspezifisch in `src/app/layout.tsx`
+- Consent Mode v2: standardmäßig verweigert, bis der Besucher zustimmt
+- Erfolgsereignisse: Kontaktformular und Rückruf erst nach Server-Erfolg
+- Telefonklick: sekundäres Analyseereignis, kein bestätigter Anruf
 
 ## Kontakt
 
@@ -56,8 +56,4 @@ bun run build
 
 ## Google Ads
 
-Die Google Ads Kampagnen-Dateien befinden sich im Ordner `google_ads_editor/` und sind für den Import in Google Ads Editor vorbereitet:
-
-- Targeting: Amberg + 60 km Umkreis
-- Fokus: Oberpfalz
-- Kampagnen: Notdienst, Rohrreinigung Amberg, Kümmersbruck/Sulzbach-Rosenberg, High-Value Services
+Die vorhandenen Dateien in `google_ads_editor/` sind ein alter Entwurf für ein anderes Konto und dürfen **nicht importiert** werden. Die aktuelle Kampagne wird direkt im dedizierten Amberg-Konto angelegt und bleibt bis zur Freigabe pausiert.
