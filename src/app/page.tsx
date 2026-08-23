@@ -17,15 +17,15 @@ import { company, testimonials } from "@/data/company";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Plumber",
-  "@id": "https://rohrreinigung-kraft-amberg.de/#organization",
+  "@id": "https://rohrreinigungkraft-amberg.de/#organization",
   name: company.name,
   alternateName: "Rohrreinigung Kraft Amberg",
   description: company.seo.defaultDescription,
-  url: "https://rohrreinigung-kraft-amberg.de",
-  logo: "https://rohrreinigung-kraft-amberg.de/logo.png",
+  url: "https://rohrreinigungkraft-amberg.de",
+  logo: "https://rohrreinigungkraft-amberg.de/logo.png",
   image: [
-    "https://rohrreinigung-kraft-amberg.de/og-image.jpg",
-    "https://rohrreinigung-kraft-amberg.de/logo.png",
+    "https://rohrreinigungkraft-amberg.de/og-image.jpg",
+    "https://rohrreinigungkraft-amberg.de/logo.png",
   ],
   telephone: company.contact.phone,
   email: company.contact.email,
@@ -242,7 +242,7 @@ const jsonLd = {
           name: "Rohrreinigung",
           description:
             "Professionelle Beseitigung von Rohrverstopfungen aller Art",
-          url: "https://rohrreinigung-kraft-amberg.de/service/rohrreinigung",
+          url: "https://rohrreinigungkraft-amberg.de/service/rohrreinigung",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
@@ -257,7 +257,7 @@ const jsonLd = {
           name: "Kanalreinigung",
           description:
             "Komplette Reinigung von Kanalsystemen mit Hochdruck-Spültechnik",
-          url: "https://rohrreinigung-kraft-amberg.de/service/kanalreinigung",
+          url: "https://rohrreinigungkraft-amberg.de/service/kanalreinigung",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
@@ -271,7 +271,7 @@ const jsonLd = {
           "@type": "Service",
           name: "Toilette verstopft",
           description: "Schnelle Soforthilfe bei verstopfter Toilette",
-          url: "https://rohrreinigung-kraft-amberg.de/service/toilette-verstopft",
+          url: "https://rohrreinigungkraft-amberg.de/service/toilette-verstopft",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
@@ -286,7 +286,7 @@ const jsonLd = {
           name: "Notdienst 24/7",
           description:
             "Rund um die Uhr erreichbar für Notfälle - auch nachts und am Wochenende",
-          url: "https://rohrreinigung-kraft-amberg.de/service/rohrreinigung-notdienst",
+          url: "https://rohrreinigungkraft-amberg.de/service/rohrreinigung-notdienst",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
@@ -300,7 +300,7 @@ const jsonLd = {
           "@type": "Service",
           name: "TV-Kamerainspektion",
           description: "Professionelle Rohrinspektion mit HD-Kamera",
-          url: "https://rohrreinigung-kraft-amberg.de/service/kamera-inspektion",
+          url: "https://rohrreinigungkraft-amberg.de/service/kamera-inspektion",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
@@ -314,7 +314,7 @@ const jsonLd = {
           "@type": "Service",
           name: "Abflussreinigung",
           description: "Reinigung von Abflüssen in Küche, Bad und Dusche",
-          url: "https://rohrreinigung-kraft-amberg.de/service/abflussreinigung",
+          url: "https://rohrreinigungkraft-amberg.de/service/abflussreinigung",
         },
         priceSpecification: {
           "@type": "PriceSpecification",
@@ -368,7 +368,7 @@ const faqSchema = {
       name: "Wie schnell können Sie bei einer Rohrverstopfung da sein?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "In Amberg und der Region sind wir meist innerhalb von 70-100 Minuten bei Ihnen – die genaue Zeit sagen wir Ihnen ehrlich am Telefon. Unser 24/7 Notdienst ist rund um die Uhr verfügbar.",
+        text: "In Amberg und der Region sind wir meist innerhalb von 20-40 Minuten bei Ihnen – die genaue Zeit sagen wir Ihnen ehrlich am Telefon. Unser 24/7 Notdienst ist rund um die Uhr verfügbar.",
       },
     },
     {
@@ -392,7 +392,7 @@ const faqSchema = {
       name: "Was soll ich tun, bis Sie bei mir ankommen?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Drehen Sie wenn möglich den Hauptwasserhahn ab und vermeiden Sie weitere Wassernutzung. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Wir sind meist in 70-100 Minuten bei Ihnen.",
+        text: "Drehen Sie wenn möglich den Hauptwasserhahn ab und vermeiden Sie weitere Wassernutzung. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Wir sind meist in 20-40 Minuten bei Ihnen.",
       },
     },
     {
