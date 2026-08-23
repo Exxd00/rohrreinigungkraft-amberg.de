@@ -170,7 +170,7 @@ export default function PreisePage() {
               <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full">
                 <Euro className="w-4 h-4 text-primary" />
                 <span className="text-sm font-medium">
-                  Ab 79€ für einfache Fälle
+                  Startpreise ab 79€
                 </span>
               </div>
             </div>
@@ -206,18 +206,18 @@ export default function PreisePage() {
                   3
                 </div>
                 <p className="text-sm font-medium text-gray-900 dark:text-white">
-                  Ausführung
+                  Diagnose & Preis
                 </p>
-                <p className="text-xs text-gray-500">Fachgerecht und sauber</p>
+                <p className="text-xs text-gray-500">Vor Ort vor Arbeitsbeginn</p>
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold mb-2">
                   4
                 </div>
                 <p className="text-sm font-medium text-gray-900 dark:text-white">
-                  Abrechnung
+                  Ausführung
                 </p>
-                <p className="text-xs text-gray-500">Nach tatsächlichem Aufwand</p>
+                <p className="text-xs text-gray-500">Nur nach Ihrer Freigabe</p>
               </div>
             </div>
           </div>
