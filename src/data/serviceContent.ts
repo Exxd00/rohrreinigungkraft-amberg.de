@@ -121,7 +121,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
         {
           step: 2,
           title: "Diagnose",
-          description: "Vor Ort prüfen wir die Situation – kostenlos.",
+          description: "Vor Ort prüfen wir Ursache, Umfang und nötige Technik.",
         },
         {
           step: 3,
@@ -264,7 +264,7 @@ export const enhancedServiceContent: Record<string, EnhancedServiceContent> = {
       {
         question: "Wie schnell können Sie da sein?",
         answer:
-          "In Amberg und Umgebung in der Regel 70-100 Minuten. Wir nennen Ihnen die realistische Ankunftszeit bereits am Telefon.",
+          "In Amberg und Umgebung in der Regel 20-40 Minuten. Wir nennen Ihnen die realistische Ankunftszeit bereits am Telefon.",
       },
       {
         question: "Zahlt meine Versicherung?",
