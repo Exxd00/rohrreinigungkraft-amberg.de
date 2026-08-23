@@ -17,9 +17,12 @@ import { trackThankYouPage } from "@/lib/tracking";
 export default function ThankYouPage() {
   useEffect(() => {
     if (sessionStorage.getItem("kraft_thank_you_tracked") !== "true") {
-      trackThankYouPage();
+      trackThankYouPage(
+        sessionStorage.getItem("kraft_form_event_id") || undefined,
+      );
       sessionStorage.setItem("kraft_thank_you_tracked", "true");
     }
+    sessionStorage.removeItem("kraft_form_event_id");
     sessionStorage.removeItem("form_submitted");
   }, []);
 
