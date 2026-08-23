@@ -7,10 +7,15 @@
  */
 const SPREADSHEET_URL = "PASTE_DEDICATED_AMBERG_SHEET_URL_HERE";
 const SHEET_NAME = "📞 Alle Anfragen";
-const CAMPAIGN_PREFIX = "AM |";
+const ACCOUNT_ID = "3817334700";
+const CAMPAIGN_NAME = "AM | Search | Rohrreinigung | 24-7";
 const TIME_ZONE = "Europe/Berlin";
 
 function main() {
+  const accountId = AdsApp.currentAccount().getCustomerId().replace(/-/g, "");
+  if (accountId !== ACCOUNT_ID) {
+    throw new Error("Safety stop: wrong Google Ads account " + accountId);
+  }
   if (SPREADSHEET_URL.indexOf("PASTE_") === 0) {
     throw new Error("Set the dedicated Amberg spreadsheet URL first.");
   }
@@ -21,6 +26,9 @@ function main() {
   if (!sheet) throw new Error("Sheet not found: " + SHEET_NAME);
 
   const processedIds = getProcessedCallIds(sheet);
+  const oldestCallDate = new Date();
+  oldestCallDate.setDate(oldestCallDate.getDate() - 30);
+  const startDate = Utilities.formatDate(oldestCallDate, TIME_ZONE, "yyyy-MM-dd");
   const query = [
     "SELECT",
     "call_view.resource_name,",
@@ -34,12 +42,13 @@ function main() {
     "campaign.name,",
     "ad_group.name",
     "FROM call_view",
-    "WHERE segments.date DURING LAST_7_DAYS",
-    "AND campaign.name LIKE '" + CAMPAIGN_PREFIX + "%'",
+    "WHERE call_view.start_call_date_time >= '" + startDate + "'",
+    "AND campaign.name = '" + CAMPAIGN_NAME + "'",
     "ORDER BY call_view.start_call_date_time ASC",
   ].join(" ");
 
   const rows = AdsApp.search(query);
+  let appended = 0;
   for (const row of rows) {
     const call = row.callView;
     const callId = call.resourceName;
@@ -50,11 +59,7 @@ function main() {
     const callerArea = [call.callerCountryCode, call.callerAreaCode]
       .filter(Boolean)
       .join(" ");
-    const timestamp = Utilities.formatDate(
-      new Date(call.startCallDateTime),
-      TIME_ZONE,
-      "dd.MM.yyyy HH:mm:ss",
-    );
+    const timestamp = formatCallTime(call.startCallDateTime);
 
     sheet.appendRow([
       timestamp, // A Datum
@@ -78,7 +83,16 @@ function main() {
     ]);
 
     processedIds.add(callId);
+    appended += 1;
   }
+  console.log("Amberg call sync finished. New rows: " + appended);
+}
+
+function formatCallTime(value) {
+  const raw = String(value || "");
+  const parsed = new Date(raw.replace(" ", "T"));
+  if (isNaN(parsed.getTime())) return raw || "Zeit nicht übermittelt";
+  return Utilities.formatDate(parsed, TIME_ZONE, "dd.MM.yyyy HH:mm:ss");
 }
 
 function getProcessedCallIds(sheet) {
