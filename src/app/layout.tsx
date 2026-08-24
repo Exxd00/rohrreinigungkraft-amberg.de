@@ -54,6 +54,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://rohrreinigungkraft-amberg.de",
   },
+  verification: {
+    google: "jJ-zCjXbYtyFYBZ3FYZi43oeqLcCJYWHmC8X3vQhQjo",
+  },
 };
 
 // Script to prevent theme flash - DEFAULT TO LIGHT MODE
