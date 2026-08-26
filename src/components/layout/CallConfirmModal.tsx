@@ -246,6 +246,7 @@ export default function CallConfirmModal({
             <a
               href={`tel:${company.contact.phone}`}
               data-tracking-source={source}
+              data-tracking-event="direct_call_click"
               className="mt-3 flex h-12 w-full items-center justify-center gap-2 rounded-xl border-2 border-primary px-5 font-bold text-primary transition-colors hover:bg-primary/5 dark:text-[#73A6DE]"
             >
               <Phone className="h-5 w-5" />

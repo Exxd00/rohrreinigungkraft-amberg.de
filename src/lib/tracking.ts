@@ -38,6 +38,61 @@ const trackConversion = (
   }
 };
 
+const postDirectCallClickToSheets = (source: string) => {
+  if (typeof window === "undefined") return;
+
+  const tracking = getTrackingData();
+  const body = JSON.stringify({
+    eventType: "direct_call_click",
+    eventId: crypto.randomUUID(),
+    source,
+    utmSource: tracking.source,
+    utmMedium: tracking.medium,
+    utmCampaign: tracking.campaign,
+    landingPage: tracking.landingPage,
+    currentPage: tracking.currentPage,
+    referrer: tracking.referrer,
+  });
+
+  if (
+    typeof navigator.sendBeacon === "function" &&
+    navigator.sendBeacon(
+      "/api/call-event",
+      new Blob([body], { type: "application/json" }),
+    )
+  ) {
+    return;
+  }
+
+  void fetch("/api/call-event", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body,
+    keepalive: true,
+  }).catch((error) => {
+    if (process.env.NODE_ENV === "development") {
+      console.error("[Sheets] direct_call_click", error);
+    }
+  });
+};
+
+// Basic engagement event for "Jetzt direkt anrufen". It is deliberately kept
+// outside the conversion event helper, with no Google Ads send_to target.
+export const trackDirectCallClick = (source: string) => {
+  if (typeof window === "undefined") return;
+
+  window.gtag?.("event", "direct_call_click", {
+    event_category: "engagement",
+    event_label: source,
+    interaction_type: "direct_call",
+    interaction_location: "floating_call_modal",
+    contact_method: "phone",
+    site: "amberg",
+  });
+
+  postDirectCallClickToSheets(source);
+};
+
 export const trackPhoneClick = (source: string) => {
   trackConversion("amberg_phone_click", {
     event_label: source,
