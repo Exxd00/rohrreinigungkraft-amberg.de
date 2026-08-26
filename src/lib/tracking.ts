@@ -77,11 +77,12 @@ const postDirectCallClickToSheets = (source: string) => {
 };
 
 // Basic engagement event for "Jetzt direkt anrufen". It is deliberately kept
-// outside the conversion event helper, with no Google Ads send_to target.
+// outside the conversion helper and routed only to GA4.
 export const trackDirectCallClick = (source: string) => {
   if (typeof window === "undefined") return;
 
   window.gtag?.("event", "direct_call_click", {
+    send_to: "G-4YZB1PX342",
     event_category: "engagement",
     event_label: source,
     interaction_type: "direct_call",
