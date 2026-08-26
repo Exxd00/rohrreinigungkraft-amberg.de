@@ -2,7 +2,10 @@
 
 import { useEffect } from "react";
 import { initGclidTracking } from "@/lib/gclid";
-import { trackCallConfirmed } from "@/lib/tracking";
+import {
+  trackCallConfirmed,
+  trackDirectCallClick,
+} from "@/lib/tracking";
 
 /**
  * TrackingInit Component
@@ -21,9 +24,15 @@ export default function TrackingInit() {
         target?.closest<HTMLAnchorElement>('a[href^="tel:"]');
       if (!telephoneLink) return;
 
-      trackCallConfirmed(
-        telephoneLink.dataset.trackingSource || window.location.pathname,
-      );
+      const source =
+        telephoneLink.dataset.trackingSource || window.location.pathname;
+
+      if (telephoneLink.dataset.trackingEvent === "direct_call_click") {
+        trackDirectCallClick(source);
+        return;
+      }
+
+      trackCallConfirmed(source);
     };
 
     document.addEventListener("click", handleTelephoneClick);
