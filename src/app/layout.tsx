@@ -100,7 +100,7 @@ export default function RootLayout({
                 "Professionelle Rohrreinigung & Kanalreinigung in der Region Amberg. 24/7 Notdienst.",
               url: "https://rohrreinigungkraft-amberg.de",
               logo: "https://rohrreinigungkraft-amberg.de/logo.png",
-              telephone: "+491787401958",
+              telephone: "+4917634674545",
               email: "Info@Rohrreinigung-kraft.de",
               address: {
                 "@type": "PostalAddress",
