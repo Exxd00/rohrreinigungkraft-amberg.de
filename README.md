@@ -49,7 +49,7 @@ bun run build
 
 ## Kontakt
 
-- **Telefon:** 01787401958
+- **Telefon:** 0176 34674545
 - **E-Mail:** Info@Rohrreinigung-kraft.de
 - **Firmensitz:** Nürnberg-Glockenhof (echte Adresse, siehe Impressum)
 - **Servicegebiet dieser Seite:** Amberg-Region, Oberpfalz
