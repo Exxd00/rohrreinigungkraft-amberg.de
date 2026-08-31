@@ -391,7 +391,7 @@ export const notfallFAQ: FAQItem[] = [
     id: "notfall-1",
     question: "Was tun wenn die Toilette überläuft?",
     shortAnswer:
-      "1. Nicht mehr spülen. 2. Hauptwasserhahn zudrehen wenn möglich. 3. Rufen Sie uns an: 01787401958.",
+      "1. Nicht mehr spülen. 2. Hauptwasserhahn zudrehen wenn möglich. 3. Rufen Sie uns an: 0176 34674545.",
     fullAnswer:
       "Bei überlaufender Toilette: Sofort aufhören zu spülen! Wenn möglich, drehen Sie den Eckventil an der Toilette oder den Hauptwasserhahn zu. Legen Sie Handtücher aus, um Wasserschäden zu minimieren. Rufen Sie uns an – wir nennen Ihnen die Anfahrtszeit ehrlich am Telefon.",
     category: "notfall",
