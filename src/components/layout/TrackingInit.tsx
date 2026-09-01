@@ -11,6 +11,7 @@ import {
   syncAnalyticsConsentState,
 } from "@/lib/analytics-consent";
 import { initGclidTracking } from "@/lib/gclid";
+import { ensureGoogleTagQueue } from "@/lib/google-tag";
 import { trackCallConfirmed, trackDirectCallClick } from "@/lib/tracking";
 
 const GA_MEASUREMENT_ID = "G-4YZB1PX342";
@@ -30,20 +31,15 @@ export default function TrackingInit() {
     const enableAnalytics = () => {
       if (!hasAnalyticsConsent()) return;
 
-      window.dataLayer = window.dataLayer || [];
-      window.gtag =
-        window.gtag ||
-        ((...args: unknown[]) => {
-          window.dataLayer?.push(args);
-        });
-      window.gtag("consent", "update", {
+      const gtag = ensureGoogleTagQueue(window);
+      gtag("consent", "update", {
         analytics_storage: "granted",
         ad_storage: "granted",
         ad_user_data: "granted",
         ad_personalization: "granted",
       });
-      window.gtag("js", new Date());
-      window.gtag("config", GA_MEASUREMENT_ID);
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
 
       initGclidTracking();
       setAnalyticsEnabled(true);
