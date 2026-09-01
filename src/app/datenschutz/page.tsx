@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Datenschutz | Rohrreinigung Kraft",
   description:
     "Datenschutzerklärung von Rohrreinigung Kraft. Erfahren Sie, wie wir Ihre Daten schützen.",
+  alternates: {
+    canonical: "/datenschutz",
+  },
 };
 
 interface PrivacySection {

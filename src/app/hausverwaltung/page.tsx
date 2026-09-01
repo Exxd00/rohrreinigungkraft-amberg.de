@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     "Rohrreinigung für Hausverwaltungen & Gewerbe | Rahmenverträge & Dokumentation",
   description:
     "B2B-Service für Hausverwaltungen, WEG & Gewerbe. Wartungsverträge ✓ Prioritäts-Notdienst ✓ Nachvollziehbare Abrechnung ✓ Sammelrechnung ✓",
+  alternates: {
+    canonical: "/hausverwaltung",
+  },
 };
 
 const targetGroups = [
@@ -233,20 +236,22 @@ export default function HausverwaltungPage() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/kontakt?type=b2b">
-                <Button
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg"
-                >
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg"
+              >
+                <Link href="/kontakt?type=b2b">
                   <MessageSquare className="w-5 h-5 mr-2" />
                   Angebot anfragen
-                </Button>
-              </Link>
-              <Link href={`tel:${company.contact.phone}`}>
-                <button className="h-14 px-8 border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center font-semibold">
-                  <Phone className="w-5 h-5 mr-2" />
-                  {company.contact.phoneDisplay}
-                </button>
+                </Link>
+              </Button>
+              <Link
+                href={`tel:${company.contact.phone}`}
+                className="h-14 px-8 border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center font-semibold"
+              >
+                <Phone className="w-5 h-5 mr-2" />
+                {company.contact.phoneDisplay}
               </Link>
             </div>
           </div>
@@ -324,18 +329,19 @@ export default function HausverwaltungPage() {
                     ))}
                   </ul>
 
-                  <Link href="/kontakt?type=b2b">
-                    <Button
-                      className={`w-full ${
-                        pkg.recommended
-                          ? "bg-primary hover:bg-primary/90 text-white"
-                          : "bg-gray-100 hover:bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white"
-                      }`}
-                    >
+                  <Button
+                    asChild
+                    className={`w-full ${
+                      pkg.recommended
+                        ? "bg-primary hover:bg-primary/90 text-white"
+                        : "bg-gray-100 hover:bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white"
+                    }`}
+                  >
+                    <Link href="/kontakt?type=b2b">
                       Mehr erfahren
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
               );
             })}
@@ -581,20 +587,22 @@ export default function HausverwaltungPage() {
             Angebot innerhalb von 24 Stunden.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/kontakt?type=b2b">
-              <Button
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg"
-              >
+            <Button
+              asChild
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg"
+            >
+              <Link href="/kontakt?type=b2b">
                 <MessageSquare className="w-5 h-5 mr-2" />
                 Angebot anfragen
-              </Button>
-            </Link>
-            <Link href={`tel:${company.contact.phone}`}>
-              <button className="h-14 px-8 border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center font-semibold">
-                <Phone className="w-5 h-5 mr-2" />
-                Direkt anrufen: {company.contact.phoneDisplay}
-              </button>
+              </Link>
+            </Button>
+            <Link
+              href={`tel:${company.contact.phone}`}
+              className="h-14 px-8 border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center font-semibold"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              Direkt anrufen: {company.contact.phoneDisplay}
             </Link>
           </div>
         </div>

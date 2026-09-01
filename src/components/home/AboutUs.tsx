@@ -178,11 +178,12 @@ export default function AboutUs() {
                   Kostenlose Beratung – ohne Verpflichtung.
                 </p>
               </div>
-              <Link href={`tel:${company.contact.phone}`}>
-                <button className="flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30">
-                  <Phone className="w-5 h-5" />
-                  {company.contact.phoneDisplay}
-                </button>
+              <Link
+                href={`tel:${company.contact.phone}`}
+                className="flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
+              >
+                <Phone className="w-5 h-5" />
+                {company.contact.phoneDisplay}
               </Link>
             </div>
           </div>

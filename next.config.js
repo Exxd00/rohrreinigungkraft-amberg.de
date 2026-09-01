@@ -1,6 +1,30 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   allowedDevOrigins: ["*.preview.same-app.com"],
+  async redirects() {
+    return [
+      {
+        source: "/service",
+        destination: "/leistungen",
+        permanent: true,
+      },
+      {
+        source: "/abfluss/amberg",
+        destination: "/service/abflussreinigung",
+        permanent: true,
+      },
+      {
+        source: "/amberg/notdienst",
+        destination: "/service/rohrreinigung-notdienst",
+        permanent: true,
+      },
+      {
+        source: "/kanal/kamera",
+        destination: "/service/kamera-inspektion",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     unoptimized: true,
     domains: [

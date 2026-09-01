@@ -31,6 +31,9 @@ export async function generateMetadata({
   return {
     title: `Rohrreinigung ${city.name} | 24/7 Notdienst ab ${company.pricing.services.rohrreinigung.from}€ | Rohrreinigung Kraft`,
     description: `Rohrreinigung in ${city.name} ✓ ${company.urgency.responseTime} Min Anfahrt ✓ 24/7 Notdienst ✓ Ab ${company.pricing.services.rohrreinigung.from}€ ✓ Rückruf in ${company.urgency.callbackTime} Min. Jetzt anrufen: ${company.contact.phoneDisplay}`,
+    alternates: {
+      canonical: `/${city.slug}`,
+    },
     openGraph: {
       title: `Rohrreinigung ${city.name} | Rohrreinigung Kraft`,
       description: `Ihr Experte für Rohrreinigung & Kanalreinigung in ${city.name}. 24/7 Notdienst verfügbar.`,

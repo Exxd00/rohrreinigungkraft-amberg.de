@@ -163,12 +163,12 @@ export default function Gallery() {
                 Stockbilder.
               </p>
             </div>
-            <Link href="/arbeiten">
-              <Button variant="outline" className="group">
+            <Button asChild variant="outline" className="group">
+              <Link href="/arbeiten">
                 Alle ansehen
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6 items-start">

@@ -281,25 +281,27 @@ export default function VideoShowcase() {
               los ist.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href={`tel:${company.contact.phone}`}>
-                <Button
-                  size="lg"
-                  className="h-14 px-8 gradient-primary text-white w-full sm:w-auto"
-                >
+              <Button
+                asChild
+                size="lg"
+                className="h-14 px-8 gradient-primary text-white w-full sm:w-auto"
+              >
+                <Link href={`tel:${company.contact.phone}`}>
                   <Phone className="w-5 h-5 mr-2" />
                   {company.contact.phoneDisplay}
-                </Button>
-              </Link>
-              <Link href="/arbeiten">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="h-14 px-8 border-white/20 text-white hover:bg-white/10 hover:text-white bg-transparent w-full sm:w-auto"
-                >
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-14 px-8 border-white/20 text-white hover:bg-white/10 hover:text-white bg-transparent w-full sm:w-auto"
+              >
+                <Link href="/arbeiten">
                   Alle Arbeiten ansehen
                   <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

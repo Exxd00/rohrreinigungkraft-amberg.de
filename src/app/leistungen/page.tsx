@@ -155,15 +155,16 @@ export default function LeistungenPage() {
             <p className="text-gray-600 dark:text-gray-400 mb-6">
               Rufen Sie uns an - wir beraten Sie kostenlos und unverbindlich!
             </p>
-            <Link href={`tel:${company.contact.phone}`}>
-              <Button
-                size="lg"
-                className="gradient-primary text-white h-14 px-8"
-              >
+            <Button
+              asChild
+              size="lg"
+              className="gradient-primary text-white h-14 px-8"
+            >
+              <Link href={`tel:${company.contact.phone}`}>
                 <Phone className="w-5 h-5 mr-2" />
                 {company.contact.phoneDisplay}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -286,7 +286,7 @@ test("shares one event ID between consented GA4 and Sheets without Ads routing",
   const { gtagCalls, fetchCalls } = installBrowser("accepted");
   initGclidTracking();
 
-  assert.equal(trackDirectCallClick("hero"), EVENT_ID);
+  assert.equal(trackDirectCallClick("city_page_amberg_hero"), EVENT_ID);
   assert.equal(gtagCalls.length, 1);
   assert.equal(gtagCalls[0]?.[0], "event");
   assert.equal(gtagCalls[0]?.[1], "direct_call_click");
@@ -294,6 +294,8 @@ test("shares one event ID between consented GA4 and Sheets without Ads routing",
   const gaParams = gtagCalls[0]?.[2] as Record<string, unknown>;
   assert.equal(gaParams.event_id, EVENT_ID);
   assert.equal(gaParams.send_to, "G-4YZB1PX342");
+  assert.equal(gaParams.event_label, "city_page_amberg_hero");
+  assert.equal(gaParams.interaction_location, "city_page_amberg_hero");
   assert.equal(JSON.stringify(gaParams).includes("AW-"), false);
 
   assert.equal(fetchCalls.length, 1);
@@ -301,10 +303,12 @@ test("shares one event ID between consented GA4 and Sheets without Ads routing",
     analyticsConsent: boolean;
     eventId: string;
     eventType: string;
+    source: string;
   };
   assert.equal(sheetsBody.analyticsConsent, true);
   assert.equal(sheetsBody.eventId, EVENT_ID);
   assert.equal(sheetsBody.eventType, "direct_call_click");
+  assert.equal(sheetsBody.source, "city_page_amberg_hero");
 
   await new Promise((resolve) => setTimeout(resolve, 0));
 });

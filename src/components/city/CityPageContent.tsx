@@ -126,9 +126,11 @@ export default function CityPageContent({
 
             {/* MAIN CTA - Phone */}
             <div className="max-w-md mx-auto mb-6">
-              <button
-                onClick={() => setIsCallModalOpen(true)}
-                className="w-full group relative"
+              <a
+                href={`tel:${company.contact.phone}`}
+                data-tracking-source={`city_page_${city.slug}_hero`}
+                data-tracking-event="direct_call_click"
+                className="block w-full group relative"
               >
                 <div className="absolute inset-0 bg-primary blur-xl opacity-40 group-hover:opacity-60 transition-opacity" />
                 <div className="relative bg-gradient-to-r from-primary to-cyan-500 rounded-2xl px-6 py-5 flex items-center justify-center gap-4 transition-transform group-hover:scale-[1.02] shadow-2xl">
@@ -144,7 +146,7 @@ export default function CityPageContent({
                     </p>
                   </div>
                 </div>
-              </button>
+              </a>
 
               <Link href="/kontakt" className="block mt-3">
                 <div className="w-full h-12 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold rounded-xl backdrop-blur-sm flex items-center justify-center gap-2 transition-all">
@@ -234,7 +236,7 @@ export default function CityPageContent({
               return (
                 <Link
                   key={service.slug}
-                  href={`/${city.slug}/${service.slug}`}
+                  href={`/service/${service.slug}`}
                   className="group bg-white dark:bg-gray-900 rounded-xl p-4 hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700 hover:border-primary/30"
                 >
                   <h3 className="text-base md:text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
@@ -557,18 +559,21 @@ export default function CityPageContent({
             Fachgerechte Einschätzung und faire Abrechnung nach Aufwand.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <button
-              onClick={() => setIsCallModalOpen(true)}
+            <a
+              href={`tel:${company.contact.phone}`}
+              data-tracking-source={`city_page_${city.slug}_final`}
+              data-tracking-event="direct_call_click"
               className="flex-1 h-14 bg-primary hover:bg-primary/90 text-white font-bold text-lg rounded-xl flex items-center justify-center gap-2 transition-all"
             >
               <Phone className="w-5 h-5" />
               Jetzt anrufen
-            </button>
-            <Link href="/kontakt" className="flex-1">
-              <button className="w-full h-14 border-2 border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl flex items-center justify-center gap-2 transition-all">
-                <Zap className="w-5 h-5 text-yellow-400" />
-                Rückruf anfordern
-              </button>
+            </a>
+            <Link
+              href="/kontakt"
+              className="flex-1 h-14 border-2 border-white/40 text-white hover:bg-white/10 font-semibold rounded-xl flex items-center justify-center gap-2 transition-all"
+            >
+              <Zap className="w-5 h-5 text-yellow-400" />
+              Rückruf anfordern
             </Link>
           </div>
         </div>

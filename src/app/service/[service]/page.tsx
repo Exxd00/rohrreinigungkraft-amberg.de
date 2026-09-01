@@ -66,6 +66,9 @@ export async function generateMetadata({
   return {
     title: `${service.name} | Faire Abrechnung nach Aufwand | Rohrreinigung Kraft`,
     description: `${service.name} ✓ Fachgerechte Einschätzung ✓ Faire Abrechnung nach tatsächlichem Aufwand ✓ ${company.urgency.responseTime} Min Anfahrt ✓ 24/7. ${company.contact.phoneDisplay}`,
+    alternates: {
+      canonical: `/service/${service.slug}`,
+    },
     openGraph: {
       title: `${service.name} | Rohrreinigung Kraft`,
       description: enhancedContent?.heroSubheadline || service.shortDescription,
@@ -259,19 +262,24 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-              <Link href={`tel:${company.contact.phone}`} className="flex-1">
-                <Button
-                  size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-white h-14 text-lg font-bold shadow-lg shadow-primary/30"
+              <Button
+                asChild
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-white h-14 text-lg font-bold shadow-lg shadow-primary/30"
+              >
+                <Link
+                  href={`tel:${company.contact.phone}`}
+                  className="flex-1"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   {company.contact.phoneDisplay}
-                </Button>
-              </Link>
-              <Link href="/kontakt" className="flex-1">
-                <button className="w-full h-14 text-lg font-semibold border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center">
-                  Rückruf anfordern
-                </button>
+                </Link>
+              </Button>
+              <Link
+                href="/kontakt"
+                className="flex-1 w-full h-14 text-lg font-semibold border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center"
+              >
+                Rückruf anfordern
               </Link>
             </div>
 
@@ -640,15 +648,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <p className="text-gray-300 mb-6 max-w-xl mx-auto">
             Fachgerechte Einschätzung • Faire Abrechnung • Saubere Ausführung
           </p>
-          <Link href={`tel:${company.contact.phone}`}>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg shadow-primary/30"
-            >
+          <Button
+            asChild
+            size="lg"
+            className="bg-primary hover:bg-primary/90 text-white h-14 px-8 shadow-lg shadow-primary/30"
+          >
+            <Link href={`tel:${company.contact.phone}`}>
               <Phone className="w-5 h-5 mr-2" />
               Jetzt anrufen: {company.contact.phoneDisplay}
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </>
