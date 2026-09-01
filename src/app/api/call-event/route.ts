@@ -3,6 +3,10 @@ import {
   isValidEventId,
   sendToLeadSheet,
 } from "@/lib/sheets-webhook";
+import {
+  ANALYTICS_CONSENT_COOKIE,
+  isAnalyticsConsentCookieAccepted,
+} from "@/lib/analytics-consent-policy";
 import { type NextRequest, NextResponse } from "next/server";
 
 type TelephoneEventType = "amberg_phone_click" | "direct_call_click";
@@ -10,6 +14,7 @@ type TelephoneEventType = "amberg_phone_click" | "direct_call_click";
 interface TelephoneEventData {
   eventType: TelephoneEventType;
   eventId: string;
+  analyticsConsent?: boolean;
   source?: string;
   gclid?: string | null;
   gbraid?: string | null;
@@ -51,6 +56,20 @@ export async function POST(request: NextRequest) {
           error: "invalid_event_id",
         },
         { status: 400 },
+      );
+    }
+
+    const analyticsConsentAccepted = isAnalyticsConsentCookieAccepted(
+      request.cookies.get(ANALYTICS_CONSENT_COOKIE)?.value,
+    );
+    if (body.analyticsConsent !== true || !analyticsConsentAccepted) {
+      return NextResponse.json(
+        {
+          success: false,
+          recorded: false,
+          error: "analytics_consent_required",
+        },
+        { status: 403 },
       );
     }
 

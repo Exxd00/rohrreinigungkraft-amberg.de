@@ -2,12 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import {
+  type AnalyticsConsentChoice,
+  ANALYTICS_SETTINGS_EVENT,
+  clearAnalyticsAttributionData,
+  persistAnalyticsConsent,
+  syncAnalyticsConsentState,
+} from "@/lib/analytics-consent";
 
-type ConsentChoice = "accepted" | "rejected";
+const updateConsent = (choice: AnalyticsConsentChoice) => {
+  if (!persistAnalyticsConsent(choice)) return false;
 
-const CONSENT_KEY = "rk_amberg_consent";
-
-const updateConsent = (choice: ConsentChoice) => {
   const granted = choice === "accepted" ? "granted" : "denied";
   window.gtag?.("consent", "update", {
     analytics_storage: granted,
@@ -15,21 +20,26 @@ const updateConsent = (choice: ConsentChoice) => {
     ad_user_data: granted,
     ad_personalization: granted,
   });
-  localStorage.setItem(CONSENT_KEY, choice);
+  return true;
 };
 
 export default function ConsentBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(!localStorage.getItem(CONSENT_KEY));
+    const consentChoice = syncAnalyticsConsentState();
+    if (consentChoice !== "accepted") clearAnalyticsAttributionData();
+    setIsVisible(consentChoice === null);
+    const openSettings = () => setIsVisible(true);
+    window.addEventListener(ANALYTICS_SETTINGS_EVENT, openSettings);
+    return () =>
+      window.removeEventListener(ANALYTICS_SETTINGS_EVENT, openSettings);
   }, []);
 
   if (!isVisible) return null;
 
-  const choose = (choice: ConsentChoice) => {
-    updateConsent(choice);
-    setIsVisible(false);
+  const choose = (choice: AnalyticsConsentChoice) => {
+    if (updateConsent(choice)) setIsVisible(false);
   };
 
   return (
@@ -43,9 +53,12 @@ export default function ConsentBanner() {
         </p>
         <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">
           Wir verwenden Google Analytics und Google Ads nur mit Ihrer
-          Zustimmung. Notwendige Funktionen der Website bleiben immer aktiv. Mehr
-          dazu in unserer{" "}
-          <Link href="/datenschutz" className="font-medium text-primary underline">
+          Zustimmung. Notwendige Funktionen der Website bleiben immer aktiv.
+          Mehr dazu in unserer{" "}
+          <Link
+            href="/datenschutz"
+            className="font-medium text-primary underline"
+          >
             Datenschutzerklärung
           </Link>
           .

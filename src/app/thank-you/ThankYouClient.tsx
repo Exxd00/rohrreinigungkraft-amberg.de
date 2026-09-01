@@ -13,17 +13,22 @@ import {
 import { Button } from "@/components/ui/button";
 import { company } from "@/data/company";
 import { trackThankYouPage } from "@/lib/tracking";
+import { ANALYTICS_READY_EVENT } from "@/lib/analytics-consent";
+import { trackPendingThankYouEvent } from "@/lib/thank-you-tracking";
 
 export default function ThankYouPage() {
   useEffect(() => {
-    if (sessionStorage.getItem("kraft_thank_you_tracked") !== "true") {
-      trackThankYouPage(
-        sessionStorage.getItem("kraft_form_event_id") || undefined,
+    const sendThankYouEvent = () => {
+      trackPendingThankYouEvent(sessionStorage, (eventId) =>
+        trackThankYouPage(eventId),
       );
-      sessionStorage.setItem("kraft_thank_you_tracked", "true");
-    }
-    sessionStorage.removeItem("kraft_form_event_id");
+    };
+
+    sendThankYouEvent();
+    window.addEventListener(ANALYTICS_READY_EVENT, sendThankYouEvent);
     sessionStorage.removeItem("form_submitted");
+    return () =>
+      window.removeEventListener(ANALYTICS_READY_EVENT, sendThankYouEvent);
   }, []);
 
   return (
@@ -94,7 +99,8 @@ export default function ThankYouPage() {
                       Schnelle Hilfe vor Ort
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Anfahrtszeit ehrlich am Telefon – faire Abrechnung nach Aufwand
+                      Anfahrtszeit ehrlich am Telefon – faire Abrechnung nach
+                      Aufwand
                     </p>
                   </div>
                 </div>

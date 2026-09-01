@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,8 +7,6 @@ import FloatingButtons from "@/components/layout/FloatingButtons";
 import TrackingInit from "@/components/layout/TrackingInit";
 import ConsentBanner from "@/components/layout/ConsentBanner";
 import { company } from "@/data/company";
-
-const GA_MEASUREMENT_ID = "G-4YZB1PX342";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -138,39 +135,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} font-sans antialiased`}
       >
-        {/* Consent Mode v2 defaults before Google tags load. */}
-        <Script id="google-consent-default" strategy="beforeInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            var consentChoice = null;
-            try { consentChoice = localStorage.getItem('rk_amberg_consent'); } catch (e) {}
-            var consentValue = consentChoice === 'accepted' ? 'granted' : 'denied';
-            gtag('consent', 'default', {
-              analytics_storage: consentValue,
-              ad_storage: consentValue,
-              ad_user_data: consentValue,
-              ad_personalization: consentValue,
-              wait_for_update: 500
-            });
-            gtag('set', 'ads_data_redaction', true);
-            gtag('set', 'url_passthrough', true);
-          `}
-        </Script>
-        {/* Google tag (gtag.js) */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
-        {/* Initialize GCLID and UTM tracking */}
+        {/* Google tags and attribution storage initialize only after consent. */}
         <TrackingInit />
         <Header />
         <main className="min-h-screen">{children}</main>

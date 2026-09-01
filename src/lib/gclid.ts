@@ -3,6 +3,11 @@
  * Captures Google Click ID from URL and stores for conversion tracking
  */
 
+import {
+  clearAnalyticsAttributionData,
+  hasAnalyticsConsent,
+} from "./analytics-consent.ts";
+
 const GCLID_KEY = "rk_gclid";
 const GCLID_TIMESTAMP_KEY = "rk_gclid_ts";
 const SESSION_DATA_KEY = "rk_session";
@@ -23,11 +28,26 @@ export interface SessionData {
   utmTerm: string | null;
 }
 
+const emptySessionData = (): SessionData => ({
+  gclid: null,
+  gbraid: null,
+  wbraid: null,
+  gclidTimestamp: null,
+  firstPage: "",
+  landingPage: "",
+  referrer: "",
+  utmSource: null,
+  utmMedium: null,
+  utmCampaign: null,
+  utmContent: null,
+  utmTerm: null,
+});
+
 /**
  * Initialize GCLID tracking - call on page load
  */
 export function initGclidTracking(): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
 
   // Capture GCLID from URL
   const urlParams = new URLSearchParams(window.location.search);
@@ -61,7 +81,7 @@ export function initGclidTracking(): void {
       landingPage: hasNewTrackingParams
         ? window.location.href
         : sessionData.landingPage || window.location.href,
-      referrer: sessionData.referrer || document.referrer || "direct",
+      referrer: sessionData.referrer || window.document.referrer || "direct",
       // Update UTM params if new ones are present
       utmSource: utmSource || sessionData.utmSource,
       utmMedium: utmMedium || sessionData.utmMedium,
@@ -71,9 +91,7 @@ export function initGclidTracking(): void {
       gbraid: gbraid || sessionData.gbraid,
       wbraid: wbraid || sessionData.wbraid,
       gclidTimestamp:
-        gclid || gbraid || wbraid
-          ? Date.now()
-          : sessionData.gclidTimestamp,
+        gclid || gbraid || wbraid ? Date.now() : sessionData.gclidTimestamp,
     });
   }
 }
@@ -82,11 +100,11 @@ export function initGclidTracking(): void {
  * Save GCLID to localStorage
  */
 export function saveGclid(gclid: string): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
 
   try {
-    localStorage.setItem(GCLID_KEY, gclid);
-    localStorage.setItem(GCLID_TIMESTAMP_KEY, Date.now().toString());
+    window.localStorage.setItem(GCLID_KEY, gclid);
+    window.localStorage.setItem(GCLID_TIMESTAMP_KEY, Date.now().toString());
 
     // Also update session data with new GCLID
     const session = getSessionData();
@@ -104,11 +122,11 @@ export function saveGclid(gclid: string): void {
  * Get stored GCLID (if not expired)
  */
 export function getGclid(): string | null {
-  if (typeof window === "undefined") return null;
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) return null;
 
   try {
-    const gclid = localStorage.getItem(GCLID_KEY);
-    const timestamp = localStorage.getItem(GCLID_TIMESTAMP_KEY);
+    const gclid = window.localStorage.getItem(GCLID_KEY);
+    const timestamp = window.localStorage.getItem(GCLID_TIMESTAMP_KEY);
 
     if (!gclid || !timestamp) return null;
 
@@ -132,8 +150,8 @@ export function clearGclid(): void {
   if (typeof window === "undefined") return;
 
   try {
-    localStorage.removeItem(GCLID_KEY);
-    localStorage.removeItem(GCLID_TIMESTAMP_KEY);
+    window.localStorage.removeItem(GCLID_KEY);
+    window.localStorage.removeItem(GCLID_TIMESTAMP_KEY);
   } catch (e) {
     // Ignore
   }
@@ -143,25 +161,12 @@ export function clearGclid(): void {
  * Get session data
  */
 export function getSessionData(): SessionData {
-  if (typeof window === "undefined") {
-    return {
-      gclid: null,
-      gbraid: null,
-      wbraid: null,
-      gclidTimestamp: null,
-      firstPage: "",
-      landingPage: "",
-      referrer: "",
-      utmSource: null,
-      utmMedium: null,
-      utmCampaign: null,
-      utmContent: null,
-      utmTerm: null,
-    };
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) {
+    return emptySessionData();
   }
 
   try {
-    const stored = localStorage.getItem(SESSION_DATA_KEY);
+    const stored = window.localStorage.getItem(SESSION_DATA_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
       // Always get fresh GCLID (might have been updated)
@@ -176,27 +181,14 @@ export function getSessionData(): SessionData {
     // Ignore
   }
 
-  return {
-    gclid: getGclid(),
-    gbraid: null,
-    wbraid: null,
-    gclidTimestamp: null,
-    firstPage: "",
-    landingPage: "",
-    referrer: "",
-    utmSource: null,
-    utmMedium: null,
-    utmCampaign: null,
-    utmContent: null,
-    utmTerm: null,
-  };
+  return emptySessionData();
 }
 
 /**
  * Save session data
  */
 export function saveSessionData(data: Partial<SessionData>): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
 
   try {
     const existing = getSessionData();
@@ -206,7 +198,7 @@ export function saveSessionData(data: Partial<SessionData>): void {
       ...data,
       gclid: data.gclid || currentGclid,
     };
-    localStorage.setItem(SESSION_DATA_KEY, JSON.stringify(updated));
+    window.localStorage.setItem(SESSION_DATA_KEY, JSON.stringify(updated));
   } catch (e) {
     console.warn("Failed to save session data:", e);
   }
@@ -226,6 +218,20 @@ export function getTrackingData(): {
   currentPage: string;
   referrer: string;
 } {
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) {
+    return {
+      gclid: null,
+      gbraid: null,
+      wbraid: null,
+      source: "direct",
+      medium: "none",
+      campaign: "",
+      landingPage: "",
+      currentPage: "",
+      referrer: "",
+    };
+  }
+
   const session = getSessionData();
   const currentGclid = getGclid(); // Always get fresh GCLID
 
@@ -283,4 +289,9 @@ export function getTrackingData(): {
  */
 export function isFromGoogleAds(): boolean {
   return !!getGclid();
+}
+
+/** Remove all optional attribution data after analytics consent is rejected. */
+export function clearTrackingData(): void {
+  clearAnalyticsAttributionData();
 }

@@ -6,8 +6,8 @@
     "dev": "next dev -H 0.0.0.0 --turbopack",
     "build": "next build",
     "start": "next start",
-    "test": "node --test src/lib/sheets-webhook.test.ts",
-    "lint": "bunx tsc --noEmit && next lint",
+    "test": "node --test src/lib/*.test.ts",
+    "lint": "tsc --noEmit && eslint src",
     "format": "bunx biome format --write"
   },
   "dependencies": {

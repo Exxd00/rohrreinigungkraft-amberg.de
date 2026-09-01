@@ -1,8 +1,9 @@
-import { getGclid, getTrackingData } from "./gclid";
+import { getGclid, getTrackingData } from "./gclid.ts";
+import { hasAnalyticsConsent } from "./analytics-consent.ts";
 
 declare global {
   interface Window {
-    dataLayer?: Record<string, unknown>[];
+    dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
   }
 }
@@ -18,7 +19,13 @@ const trackConversion = (
   eventName: ConversionEvent,
   eventParams: Record<string, unknown>,
 ) => {
-  if (typeof window === "undefined") return;
+  if (
+    typeof window === "undefined" ||
+    !hasAnalyticsConsent() ||
+    typeof window.gtag !== "function"
+  ) {
+    return false;
+  }
 
   const tracking = getTrackingData();
   const params = {
@@ -38,6 +45,7 @@ const trackConversion = (
   if (process.env.NODE_ENV === "development") {
     console.log(`[GA4] ${eventName}`, params);
   }
+  return true;
 };
 
 const postTelephoneClickToSheets = (
@@ -45,12 +53,13 @@ const postTelephoneClickToSheets = (
   source: string,
   eventId: string,
 ) => {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) return;
 
   const tracking = getTrackingData();
   const body = JSON.stringify({
     eventType,
     eventId,
+    analyticsConsent: true,
     source,
     gclid: tracking.gclid,
     gbraid: tracking.gbraid,
@@ -63,12 +72,13 @@ const postTelephoneClickToSheets = (
     referrer: tracking.referrer,
   });
 
-  void fetch("/api/call-event", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body,
-    keepalive: true,
-  })
+  void window
+    .fetch("/api/call-event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body,
+      keepalive: true,
+    })
     .then(async (response) => {
       const receipt = (await response.json().catch(() => null)) as {
         success?: boolean;
@@ -102,9 +112,15 @@ const postTelephoneClickToSheets = (
 // Basic engagement event for "Jetzt direkt anrufen". It is deliberately kept
 // outside the conversion helper and routed to GA4 (not Ads) plus Sheets.
 export const trackDirectCallClick = (source: string) => {
-  if (typeof window === "undefined") return;
+  if (
+    typeof window === "undefined" ||
+    !hasAnalyticsConsent() ||
+    typeof window.gtag !== "function"
+  ) {
+    return;
+  }
 
-  const eventId = crypto.randomUUID();
+  const eventId = window.crypto.randomUUID();
   const tracking = getTrackingData();
 
   window.gtag?.("event", "direct_call_click", {
@@ -129,9 +145,15 @@ export const trackDirectCallClick = (source: string) => {
 };
 
 export const trackPhoneClick = (source: string) => {
-  if (typeof window === "undefined") return;
+  if (
+    typeof window === "undefined" ||
+    !hasAnalyticsConsent() ||
+    typeof window.gtag !== "function"
+  ) {
+    return;
+  }
 
-  const eventId = crypto.randomUUID();
+  const eventId = window.crypto.randomUUID();
   trackConversion("amberg_phone_click", {
     event_id: eventId,
     event_label: source,
@@ -145,7 +167,7 @@ export const trackPhoneClick = (source: string) => {
 };
 
 export const trackCallbackSuccess = (source: string, eventId?: string) => {
-  trackConversion("kraft_callback", {
+  return trackConversion("kraft_callback", {
     event_label: source,
     lead_type: "callback_request",
     contact_method: "callback",
@@ -155,8 +177,10 @@ export const trackCallbackSuccess = (source: string, eventId?: string) => {
 };
 
 export const trackThankYouPage = (eventId?: string) => {
+  if (typeof window === "undefined" || !hasAnalyticsConsent()) return false;
+
   const tracking = getTrackingData();
-  trackConversion("kraft_thank_you", {
+  return trackConversion("kraft_thank_you", {
     event_label: "contact_form_success",
     lead_type: "contact_form",
     contact_method: "form",
