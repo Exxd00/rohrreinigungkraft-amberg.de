@@ -20,6 +20,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rohrreinigungkraft-amberg.de"),
   title: company.seo.defaultTitle,
   description: company.seo.defaultDescription,
   keywords: company.seo.keywords.join(", "),
@@ -47,9 +48,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  alternates: {
-    canonical: "https://rohrreinigungkraft-amberg.de",
   },
   verification: {
     google: "jJ-zCjXbYtyFYBZ3FYZi43oeqLcCJYWHmC8X3vQhQjo",

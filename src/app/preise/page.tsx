@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     "Rohrreinigung Kosten | Faire Abrechnung nach Aufwand",
   description:
     "Was kostet eine Rohrreinigung? Die Kosten richten sich nach Ursache, Zugänglichkeit, Technik und tatsächlichem Aufwand. Jetzt informieren!",
+  alternates: {
+    canonical: "/preise",
+  },
 };
 
 // Icon mapping for packages
@@ -327,18 +330,19 @@ export default function PreisePage() {
                       <span>Dauer: {pkg.duration}</span>
                     </div>
 
-                    <Link href={`tel:${company.contact.phone}`}>
-                      <Button
-                        className={`w-full ${
-                          pkg.popular
-                            ? "bg-emerald-600 hover:bg-emerald-700"
-                            : "gradient-primary"
-                        } text-white`}
-                      >
+                    <Button
+                      asChild
+                      className={`w-full ${
+                        pkg.popular
+                          ? "bg-emerald-600 hover:bg-emerald-700"
+                          : "gradient-primary"
+                      } text-white`}
+                    >
+                      <Link href={`tel:${company.contact.phone}`}>
                         <Phone className="w-4 h-4 mr-2" />
                         {pkg.cta.text}
-                      </Button>
-                    </Link>
+                      </Link>
+                    </Button>
                     <p className="text-xs text-center text-gray-500 mt-2">
                       {pkg.cta.urgency}
                     </p>
@@ -603,15 +607,16 @@ export default function PreisePage() {
                   weniger Notfälle.
                 </p>
               </div>
-              <Link href="/hausverwaltung">
-                <Button
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary/10"
-                >
+              <Button
+                asChild
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10"
+              >
+                <Link href="/hausverwaltung">
                   B2B-Konditionen
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -648,15 +653,16 @@ export default function PreisePage() {
             </div>
 
             <div className="text-center mt-8">
-              <Link href="/faq">
-                <Button
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary/10"
-                >
+              <Button
+                asChild
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10"
+              >
+                <Link href="/faq">
                   Alle Fragen ansehen
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -673,17 +679,21 @@ export default function PreisePage() {
             Einsatz, helfen fachgerecht und rechnen transparent nach Aufwand ab.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href={`tel:${company.contact.phone}`}>
-              <Button className="bg-white text-primary hover:bg-gray-100 h-12 px-8 font-semibold shadow-lg">
+            <Button
+              asChild
+              className="bg-white text-primary hover:bg-gray-100 h-12 px-8 font-semibold shadow-lg"
+            >
+              <Link href={`tel:${company.contact.phone}`}>
                 <Phone className="w-5 h-5 mr-2" />
                 {company.contact.phoneDisplay}
-              </Button>
-            </Link>
-            <Link href="/kontakt">
-              <button className="h-12 px-8 border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center font-semibold">
-                Rückruf anfordern
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </button>
+              </Link>
+            </Button>
+            <Link
+              href="/kontakt"
+              className="h-12 px-8 border-2 border-white/30 text-white hover:bg-white/10 rounded-xl transition-colors flex items-center justify-center font-semibold"
+            >
+              Rückruf anfordern
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </div>
         </div>

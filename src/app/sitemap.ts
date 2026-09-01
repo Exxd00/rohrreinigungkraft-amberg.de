@@ -3,13 +3,14 @@ import {
   getOberpfalzCitySlugs,
   priorityOneCities,
   priorityTwoCities,
-} from "@/data/oberpfalz-cities";
+} from "../data/oberpfalz-cities.ts";
+import { getAllServiceSlugs } from "../data/services.ts";
 
-// TODO: Platzhalter-Domain — durch die echte Domain ersetzen, sobald registriert
+// Canonical production domain for every generated sitemap URL.
 const baseUrl = "https://rohrreinigungkraft-amberg.de";
 
 // Important services to include in sitemap (high-traffic keywords)
-const importantServices = [
+export const importantServices = [
   // Hauptkategorien
   { slug: "rohrreinigung", priority: 0.9 },
   { slug: "kanalreinigung", priority: 0.9 },
@@ -51,6 +52,10 @@ const importantServices = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const allCitySlugs = getOberpfalzCitySlugs();
+  const allServiceSlugs = getAllServiceSlugs();
+  const importantServicePriorities = new Map(
+    importantServices.map((service) => [service.slug, service.priority]),
+  );
 
   // Priority cities for city+service combinations
   const topCitySlugs = [
@@ -134,15 +139,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   });
 
-  // صفحات الخدمات المهمة
-  const servicePages: MetadataRoute.Sitemap = importantServices.map(
-    (service) => ({
-      url: `${baseUrl}/service/${service.slug}`,
+  // Every indexable service route appears exactly once. High-traffic services
+  // keep their explicit priorities; the long tail receives a lower baseline.
+  const servicePages: MetadataRoute.Sitemap = allServiceSlugs.map((slug) => {
+    const importantPriority = importantServicePriorities.get(slug);
+    return {
+      url: `${baseUrl}/service/${slug}`,
       lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: service.priority,
-    }),
-  );
+      changeFrequency:
+        importantPriority !== undefined ? "weekly" : "monthly",
+      priority: importantPriority ?? 0.5,
+    };
+  });
 
   return [...staticPages, ...cityPages, ...servicePages];
 }

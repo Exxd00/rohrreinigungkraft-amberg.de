@@ -152,15 +152,16 @@ export default function StaedtePage() {
               Wir sind in der gesamten Amberg-Region (60 km Umkreis von Amberg)
               tätig. Rufen Sie uns an - wir kommen auch zu Ihnen!
             </p>
-            <Link href={`tel:${company.contact.phone}`}>
-              <Button
-                size="lg"
-                className="gradient-primary text-white h-14 px-8"
-              >
+            <Button
+              asChild
+              size="lg"
+              className="gradient-primary text-white h-14 px-8"
+            >
+              <Link href={`tel:${company.contact.phone}`}>
                 <Phone className="w-5 h-5 mr-2" />
                 {company.contact.phoneDisplay}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -5,6 +5,9 @@ import { company } from "@/data/company";
 export const metadata: Metadata = {
   title: "Kontakt | Rohrreinigung Kraft - 24/7 Notdienst",
   description: `Kontaktieren Sie Rohrreinigung Kraft für professionelle Rohrreinigung in Amberg. 24/7 Notdienst: ${company.contact.phoneDisplay}`,
+  alternates: {
+    canonical: "/kontakt",
+  },
 };
 
 export default function KontaktPage() {

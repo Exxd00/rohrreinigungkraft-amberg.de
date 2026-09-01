@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HeroSection from "@/components/home/HeroSection";
 import ProblemProcess from "@/components/home/ProblemProcess";
 import PricingPreview from "@/components/home/PricingPreview";
@@ -470,3 +471,8 @@ export default function Home() {
     </>
   );
 }
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};

@@ -84,11 +84,12 @@ export default function CTASection() {
                 {company.contact.phoneDisplay}
               </Button>
 
-              <Link href="/kontakt" className="flex-1">
-                <button className="border-2 border-white/30 text-white hover:bg-white/10 h-14 px-8 text-lg font-semibold w-full rounded-xl transition-colors flex items-center justify-center">
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Rückruf anfordern
-                </button>
+              <Link
+                href="/kontakt"
+                className="flex-1 border-2 border-white/30 text-white hover:bg-white/10 h-14 px-8 text-lg font-semibold w-full rounded-xl transition-colors flex items-center justify-center"
+              >
+                <MessageCircle className="w-5 h-5 mr-2" />
+                Rückruf anfordern
               </Link>
             </div>
 

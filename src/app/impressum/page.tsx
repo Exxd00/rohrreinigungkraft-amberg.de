@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Impressum | Rohrreinigung Kraft",
   description:
     "Impressum und rechtliche Informationen von Rohrreinigung Kraft - Ihr Rohrreinigungsservice für Amberg und die Oberpfalz.",
+  alternates: {
+    canonical: "/impressum",
+  },
 };
 
 export default function ImpressumPage() {

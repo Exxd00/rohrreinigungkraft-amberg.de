@@ -7,6 +7,7 @@ import {
   ANALYTICS_CONSENT_COOKIE,
   isAnalyticsConsentCookieAccepted,
 } from "@/lib/analytics-consent-policy";
+import { getDirectCallSheetMessage } from "@/lib/direct-call-source";
 import { type NextRequest, NextResponse } from "next/server";
 
 type TelephoneEventType = "amberg_phone_click" | "direct_call_click";
@@ -88,11 +89,9 @@ export async function POST(request: NextRequest) {
       email: "",
       city: "Amberg",
       service: "Telefonischer Kontakt",
-      message: `${
-        isDirectCall
-          ? 'Klick auf "Jetzt direkt anrufen" im Anruf-Dialog ('
-          : "Klick auf einen Telefonlink ("
-      }${source}).`,
+      message: isDirectCall
+        ? getDirectCallSheetMessage(source)
+        : `Klick auf einen Telefonlink (${source}).`,
       images: 0,
       source: attribution,
       referrer: clean(body.referrer, 500) || "direct",

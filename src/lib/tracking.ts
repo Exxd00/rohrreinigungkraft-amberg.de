@@ -1,5 +1,6 @@
 import { getGclid, getTrackingData } from "./gclid.ts";
 import { hasAnalyticsConsent } from "./analytics-consent.ts";
+import { getDirectCallInteractionLocation } from "./direct-call-source.ts";
 
 declare global {
   interface Window {
@@ -129,7 +130,7 @@ export const trackDirectCallClick = (source: string) => {
     event_category: "engagement",
     event_label: source,
     interaction_type: "direct_call",
-    interaction_location: "floating_call_modal",
+    interaction_location: getDirectCallInteractionLocation(source),
     contact_method: "phone",
     site: "amberg",
     gclid: tracking.gclid || undefined,

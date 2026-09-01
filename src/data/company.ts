@@ -19,10 +19,9 @@ export const company = {
   serviceRadius: 60, // km - Servicegebiet in der Oberpfalz
 
   contact: {
-    phone: "+49 176 34674545",
+    phone: "+4917634674545",
     phoneDisplay: "0176 34674545",
     email: "Info@Rohrreinigung-kraft.de",
-    whatsapp: "+491787401958",
   },
 
   // ✅ ECHTE ADRESSE (Gelbe Seiten verifiziert)
