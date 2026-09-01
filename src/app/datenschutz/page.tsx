@@ -221,14 +221,17 @@ export default function DatenschutzPage() {
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
             Diese Website verwendet Google Analytics 4 und Google Ads zur
             Reichweitenmessung und zur Messung erfolgreicher Anfragen. Die
-            Dienste erhalten Analyse- und Werbespeicher erst, wenn Sie im
-            Einwilligungsbanner zustimmen (Google Consent Mode v2).
+            Google-Tags werden erst geladen, wenn Sie im Einwilligungsbanner
+            zustimmen. Erst dann speichern wir auch GCLID- oder UTM-Daten und
+            übermitteln optionale Klickereignisse.
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-            Bei Ablehnung bleiben die entsprechenden Speicherzugriffe
-            verweigert. Ihre Auswahl wird lokal im Browser gespeichert. Sie
-            können sie jederzeit löschen, indem Sie die Website-Daten in Ihrem
-            Browser entfernen und die Auswahl danach erneut treffen.
+            Bei Ablehnung werden die Google-Tags nicht geladen. Lokal
+            gespeicherte GCLID-/UTM-Daten und für diese Website erreichbare
+            Google-Analyse-Cookies werden gelöscht. Ihre Auswahl wird lokal im
+            Browser gespeichert. Über „Cookie-Einstellungen“ im Footer können
+            Sie Ihre Auswahl jederzeit ändern oder eine erteilte Einwilligung
+            widerrufen.
           </p>
         </div>
       ),

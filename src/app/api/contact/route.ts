@@ -4,6 +4,11 @@ import {
   isValidEventId,
   sendToLeadSheet,
 } from "@/lib/sheets-webhook";
+import {
+  ANALYTICS_CONSENT_COOKIE,
+  isAnalyticsConsentCookieAccepted,
+  stripAnalyticsAttribution,
+} from "@/lib/analytics-consent-policy";
 import { type NextRequest, NextResponse } from "next/server";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -378,7 +383,13 @@ async function sendToGoogleSheets(
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const formData: ContactFormData = body;
+    const submittedFormData: ContactFormData = body;
+    const analyticsConsentAccepted = isAnalyticsConsentCookieAccepted(
+      request.cookies.get(ANALYTICS_CONSENT_COOKIE)?.value,
+    );
+    const formData = analyticsConsentAccepted
+      ? submittedFormData
+      : stripAnalyticsAttribution(submittedFormData);
 
     // Quietly accept bot submissions caught by the hidden honeypot field.
     if (formData.website?.trim()) {

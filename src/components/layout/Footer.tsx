@@ -11,8 +11,10 @@ import {
   Shield,
   FileText,
   Scale,
+  Cookie,
 } from "lucide-react";
 import { company } from "@/data/company";
+import { requestAnalyticsSettings } from "@/lib/analytics-consent";
 import AnimatedLogo from "./AnimatedLogo";
 import CallConfirmModal from "./CallConfirmModal";
 
@@ -72,7 +74,9 @@ export default function Footer() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20">
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="mt-5 text-2xl font-bold">Für Amberg & Umgebung</h3>
+                <h3 className="mt-5 text-2xl font-bold">
+                  Für Amberg & Umgebung
+                </h3>
                 <p className="mt-3 leading-7 text-gray-300">
                   24/7 erreichbar. Je nach Verkehr und Einsatzlage sind wir in
                   der Region meist innerhalb von 20–40 Minuten bei Ihnen. Die
@@ -102,7 +106,9 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="font-semibold text-white">Amberg & Region</p>
-                    <p className="text-gray-400 text-sm">Meist 20–40 Min Anfahrt</p>
+                    <p className="text-gray-400 text-sm">
+                      Meist 20–40 Min Anfahrt
+                    </p>
                   </div>
                 </div>
 
@@ -227,6 +233,18 @@ export default function Footer() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <button
+                    type="button"
+                    onClick={requestAnalyticsSettings}
+                    className="text-sm text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="text-gray-500 group-hover:text-primary transition-colors">
+                      <Cookie className="w-4 h-4" />
+                    </span>
+                    Cookie-Einstellungen
+                  </button>
+                </li>
               </ul>
 
               {/* Legal Info */}
