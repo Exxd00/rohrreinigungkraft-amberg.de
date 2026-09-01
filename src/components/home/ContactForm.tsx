@@ -1,32 +1,32 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import {
-  Send,
-  Phone,
-  Clock,
-  Users,
-  Loader2,
-  CheckCircle,
-  Zap,
-  Upload,
-  X,
-  Camera,
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { company } from "@/data/company";
 import {
+  type CompressedImage,
   compressImage,
   formatFileSize,
-  type CompressedImage,
 } from "@/lib/imageCompression";
-import { trackCTAClick, getCompleteTrackingData } from "@/lib/tracking";
+import { getCompleteTrackingData, trackCTAClick } from "@/lib/tracking";
 import { useAvailableTechnicians } from "@/lib/useAvailableTechnicians";
+import {
+  Camera,
+  CheckCircle,
+  Clock,
+  Loader2,
+  Phone,
+  Send,
+  Upload,
+  Users,
+  X,
+  Zap,
+} from "lucide-react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback, useRef, useState } from "react";
 
 interface FormData {
   name: string;
@@ -40,6 +40,10 @@ const MAX_IMAGES = 3;
 
 export default function ContactForm() {
   const router = useRouter();
+  const pendingSubmissionRef = useRef<{
+    fingerprint: string;
+    eventId: string;
+  } | null>(null);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     phone: "",
@@ -110,7 +114,20 @@ export default function ContactForm() {
 
     // Get complete tracking data including GCLID, source, etc.
     const trackingData = getCompleteTrackingData();
-    const eventId = crypto.randomUUID();
+    const fingerprint = JSON.stringify({
+      formData,
+      images: images.map((image) => ({
+        name: image.file.name,
+        size: image.compressedSize,
+        lastModified: image.file.lastModified,
+      })),
+      website,
+    });
+    const eventId =
+      pendingSubmissionRef.current?.fingerprint === fingerprint
+        ? pendingSubmissionRef.current.eventId
+        : crypto.randomUUID();
+    pendingSubmissionRef.current = { fingerprint, eventId };
 
     try {
       const response = await fetch("/api/contact", {
@@ -139,14 +156,25 @@ export default function ContactForm() {
       });
 
       const result = await response.json();
+      const sheetConfirmed =
+        result?.success === true &&
+        result?.sheet === "📞 Alle Anfragen" &&
+        Number.isSafeInteger(result?.row) &&
+        result.row >= 3 &&
+        result?.eventId === eventId &&
+        typeof result?.deduplicated === "boolean";
 
-      if (response.ok) {
+      if (response.ok && sheetConfirmed) {
+        pendingSubmissionRef.current = null;
         sessionStorage.setItem("form_submitted", "true");
         sessionStorage.setItem("kraft_form_event_id", eventId);
         router.push("/thank-you");
       } else {
         console.error("Form submission failed:", result);
-        const errorMsg = result.details || result.error || "Unbekannter Fehler";
+        const errorMsg =
+          result.details ||
+          result.error ||
+          "Google Sheets hat die Anfrage nicht bestätigt";
         alert(
           `Fehler: ${errorMsg}\n\nBitte rufen Sie uns direkt an: ${company.contact.phoneDisplay}`,
         );

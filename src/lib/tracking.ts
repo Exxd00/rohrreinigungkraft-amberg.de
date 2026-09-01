@@ -12,6 +12,8 @@ type ConversionEvent =
   | "kraft_callback"
   | "kraft_thank_you";
 
+type TelephoneEvent = "amberg_phone_click" | "direct_call_click";
+
 const trackConversion = (
   eventName: ConversionEvent,
   eventParams: Record<string, unknown>,
@@ -38,14 +40,21 @@ const trackConversion = (
   }
 };
 
-const postDirectCallClickToSheets = (source: string) => {
+const postTelephoneClickToSheets = (
+  eventType: TelephoneEvent,
+  source: string,
+  eventId: string,
+) => {
   if (typeof window === "undefined") return;
 
   const tracking = getTrackingData();
   const body = JSON.stringify({
-    eventType: "direct_call_click",
-    eventId: crypto.randomUUID(),
+    eventType,
+    eventId,
     source,
+    gclid: tracking.gclid,
+    gbraid: tracking.gbraid,
+    wbraid: tracking.wbraid,
     utmSource: tracking.source,
     utmMedium: tracking.medium,
     utmCampaign: tracking.campaign,
@@ -54,53 +63,85 @@ const postDirectCallClickToSheets = (source: string) => {
     referrer: tracking.referrer,
   });
 
-  if (
-    typeof navigator.sendBeacon === "function" &&
-    navigator.sendBeacon(
-      "/api/call-event",
-      new Blob([body], { type: "application/json" }),
-    )
-  ) {
-    return;
-  }
-
   void fetch("/api/call-event", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body,
     keepalive: true,
-  }).catch((error) => {
-    if (process.env.NODE_ENV === "development") {
-      console.error("[Sheets] direct_call_click", error);
-    }
-  });
+  })
+    .then(async (response) => {
+      const receipt = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        sheet?: string;
+        row?: number;
+        eventId?: string;
+        deduplicated?: boolean;
+      } | null;
+
+      if (
+        !response.ok ||
+        receipt?.success !== true ||
+        receipt.sheet !== "📞 Alle Anfragen" ||
+        typeof receipt.row !== "number" ||
+        !Number.isSafeInteger(receipt.row) ||
+        receipt.row < 3 ||
+        receipt.eventId !== eventId ||
+        typeof receipt.deduplicated !== "boolean"
+      ) {
+        console.error(`[Sheets] ${eventType} was not recorded`, {
+          status: response.status,
+          eventId,
+        });
+      }
+    })
+    .catch((error) => {
+      console.error(`[Sheets] ${eventType} request failed`, error);
+    });
 };
 
 // Basic engagement event for "Jetzt direkt anrufen". It is deliberately kept
-// outside the conversion helper and routed only to GA4.
+// outside the conversion helper and routed to GA4 (not Ads) plus Sheets.
 export const trackDirectCallClick = (source: string) => {
   if (typeof window === "undefined") return;
 
+  const eventId = crypto.randomUUID();
+  const tracking = getTrackingData();
+
   window.gtag?.("event", "direct_call_click", {
     send_to: "G-4YZB1PX342",
+    event_id: eventId,
     event_category: "engagement",
     event_label: source,
     interaction_type: "direct_call",
     interaction_location: "floating_call_modal",
     contact_method: "phone",
     site: "amberg",
+    gclid: tracking.gclid || undefined,
+    gbraid: tracking.gbraid || undefined,
+    wbraid: tracking.wbraid || undefined,
+    traffic_source: tracking.source,
+    traffic_medium: tracking.medium,
+    traffic_campaign: tracking.campaign || undefined,
   });
 
-  postDirectCallClickToSheets(source);
+  postTelephoneClickToSheets("direct_call_click", source, eventId);
+  return eventId;
 };
 
 export const trackPhoneClick = (source: string) => {
+  if (typeof window === "undefined") return;
+
+  const eventId = crypto.randomUUID();
   trackConversion("amberg_phone_click", {
+    event_id: eventId,
     event_label: source,
     lead_type: "phone_click",
     contact_method: "phone",
     has_gclid: !!getGclid(),
   });
+
+  postTelephoneClickToSheets("amberg_phone_click", source, eventId);
+  return eventId;
 };
 
 export const trackCallbackSuccess = (source: string, eventId?: string) => {

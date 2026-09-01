@@ -1,11 +1,19 @@
-import { NextRequest, NextResponse } from "next/server";
+import {
+  SheetsWebhookError,
+  isValidEventId,
+  sendToLeadSheet,
+} from "@/lib/sheets-webhook";
+import { type NextRequest, NextResponse } from "next/server";
 
-const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+type TelephoneEventType = "amberg_phone_click" | "direct_call_click";
 
-interface DirectCallEventData {
-  eventType: "direct_call_click";
-  eventId?: string;
+interface TelephoneEventData {
+  eventType: TelephoneEventType;
+  eventId: string;
   source?: string;
+  gclid?: string | null;
+  gbraid?: string | null;
+  wbraid?: string | null;
   utmSource?: string | null;
   utmMedium?: string | null;
   utmCampaign?: string | null;
@@ -19,31 +27,41 @@ const clean = (value: unknown, maxLength = 240) =>
 
 export async function POST(request: NextRequest) {
   try {
-    const body = (await request.json()) as DirectCallEventData;
+    const body = (await request.json()) as TelephoneEventData;
 
-    if (body.eventType !== "direct_call_click") {
-      return NextResponse.json({
-        success: true,
-        recorded: false,
-        reason: "unsupported_event",
-      });
+    if (
+      body.eventType !== "direct_call_click" &&
+      body.eventType !== "amberg_phone_click"
+    ) {
+      return NextResponse.json(
+        {
+          success: false,
+          recorded: false,
+          error: "unsupported_event",
+        },
+        { status: 400 },
+      );
     }
 
-    if (!GOOGLE_SHEETS_WEBHOOK_URL) {
-      return NextResponse.json({
-        success: true,
-        recorded: false,
-        reason: "sheets_webhook_not_configured",
-      });
+    if (!isValidEventId(body.eventId)) {
+      return NextResponse.json(
+        {
+          success: false,
+          recorded: false,
+          error: "invalid_event_id",
+        },
+        { status: 400 },
+      );
     }
 
     const source = clean(body.source, 120) || "floating_call_modal";
     const trafficSource = clean(body.utmSource, 80) || "Website";
     const trafficMedium = clean(body.utmMedium, 80);
     const attribution = trafficMedium
-      ? trafficSource + " / " + trafficMedium
+      ? `${trafficSource} / ${trafficMedium}`
       : trafficSource;
 
+    const isDirectCall = body.eventType === "direct_call_click";
     const payload = {
       timestamp: new Date().toISOString(),
       name: "📞 Website-Telefonklick",
@@ -51,50 +69,55 @@ export async function POST(request: NextRequest) {
       email: "",
       city: "Amberg",
       service: "Telefonischer Kontakt",
-      message:
-        'Klick auf "Jetzt direkt anrufen" im schwebenden Anruf-Dialog (' +
-        source +
-        ").",
+      message: `${
+        isDirectCall
+          ? 'Klick auf "Jetzt direkt anrufen" im Anruf-Dialog ('
+          : "Klick auf einen Telefonlink ("
+      }${source}).`,
       images: 0,
       source: attribution,
       referrer: clean(body.referrer, 500) || "direct",
-      gclid: null,
+      gclid: clean(body.gclid, 200) || null,
+      gbraid: clean(body.gbraid, 200) || null,
+      wbraid: clean(body.wbraid, 200) || null,
       medium: trafficMedium || null,
       campaign: clean(body.utmCampaign, 160) || null,
       landingPage: clean(body.landingPage, 500) || null,
       currentPage: clean(body.currentPage, 500) || null,
-      eventId: clean(body.eventId, 100) || null,
-      eventName: "direct_call_click",
+      eventId: body.eventId,
+      eventName: body.eventType,
       eventType: "call",
-      callStatus: "not_confirmed",
+      callStatus: isDirectCall
+        ? "direct_click_not_confirmed"
+        : "phone_click_not_confirmed",
       sourceSite: "rohrreinigungkraft-amberg.de",
     };
 
-    const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-      cache: "no-store",
-    });
-    const responseText = await response.text();
+    const receipt = await sendToLeadSheet(
+      process.env.GOOGLE_SHEETS_WEBHOOK_URL,
+      payload,
+    );
 
-    if (!response.ok) {
-      console.error(
-        "[Direct call event] Google Sheets webhook failed:",
-        response.status,
-        responseText.slice(0, 300),
-      );
+    return NextResponse.json({
+      success: true,
+      ...receipt,
+    });
+  } catch (error) {
+    console.error("[Direct call event] Error:", error);
+
+    if (error instanceof SheetsWebhookError) {
       return NextResponse.json(
-        { success: false, recorded: false },
-        { status: 502 },
+        {
+          success: false,
+          recorded: false,
+          error: error.code,
+        },
+        { status: error.code === "not_configured" ? 503 : 502 },
       );
     }
 
-    return NextResponse.json({ success: true, recorded: true });
-  } catch (error) {
-    console.error("[Direct call event] Error:", error);
     return NextResponse.json(
-      { success: false, recorded: false },
+      { success: false, recorded: false, error: "invalid_request" },
       { status: 400 },
     );
   }

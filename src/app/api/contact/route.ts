@@ -1,7 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
+import {
+  type SheetsReceipt,
+  SheetsWebhookError,
+  isValidEventId,
+  sendToLeadSheet,
+} from "@/lib/sheets-webhook";
+import { type NextRequest, NextResponse } from "next/server";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
 const IMGBB_API_KEY = process.env.IMGBB_API_KEY;
 const FROM_EMAIL = process.env.FROM_EMAIL || "info@rohrreinigung-kraft.de";
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || FROM_EMAIL;
@@ -19,7 +24,7 @@ interface ContactFormData {
   gclid?: string | null;
   gbraid?: string | null;
   wbraid?: string | null;
-  eventId?: string;
+  eventId: string;
   website?: string;
   source?: string;
   medium?: string;
@@ -316,86 +321,58 @@ async function sendEmailViaResend(
 async function sendToGoogleSheets(
   formData: ContactFormData,
   imageCount: number,
-): Promise<{ success: boolean; error?: string }> {
-  if (!GOOGLE_SHEETS_WEBHOOK_URL) {
-    console.log(
-      "[Google Sheets] GOOGLE_SHEETS_WEBHOOK_URL not configured - skipping",
-    );
-    return { success: true }; // Don't fail if not configured
-  }
-
-  console.log("[Google Sheets] Sending data to webhook...");
-
-  try {
-    // Build source info based on tracking data
-    let sourceInfo = "Website";
-    if (formData.gclid) {
-      sourceInfo = "Google Ads";
-    } else if (formData.source) {
-      sourceInfo = formData.source;
-      if (formData.medium) {
-        sourceInfo += ` / ${formData.medium}`;
-      }
-    } else if (formData.referrer) {
-      if (formData.referrer.includes("google")) {
-        sourceInfo = "Google (Organic)";
-      } else if (formData.referrer.includes("facebook")) {
-        sourceInfo = "Facebook";
-      } else if (formData.referrer !== "direct" && formData.referrer !== "") {
+): Promise<SheetsReceipt> {
+  // Build source info based on tracking data
+  let sourceInfo = "Website";
+  if (formData.gclid) {
+    sourceInfo = "Google Ads";
+  } else if (formData.source) {
+    sourceInfo = formData.source;
+    if (formData.medium) {
+      sourceInfo += ` / ${formData.medium}`;
+    }
+  } else if (formData.referrer) {
+    if (formData.referrer.includes("google")) {
+      sourceInfo = "Google (Organic)";
+    } else if (formData.referrer.includes("facebook")) {
+      sourceInfo = "Facebook";
+    } else if (formData.referrer !== "direct" && formData.referrer !== "") {
+      try {
         sourceInfo = `Referral: ${new URL(formData.referrer).hostname}`;
+      } catch {
+        sourceInfo = "Referral";
       }
     }
-
-    // Payload matching the Google Sheets script expected format
-    const payload = {
-      timestamp: new Date().toISOString(),
-      name: formData.name,
-      phone: formData.phone,
-      email: formData.email || "",
-      city: formData.city,
-      service: formData.service,
-      message: formData.message || "",
-      // Additional tracking fields for Google Sheets
-      images: imageCount,
-      source: sourceInfo,
-      referrer: formData.referrer || "direct",
-      // Extended tracking data (optional for Google Sheets)
-      gclid: formData.gclid || null,
-      gbraid: formData.gbraid || null,
-      wbraid: formData.wbraid || null,
-      eventId: formData.eventId || null,
-      sourceSite: "rohrreinigungkraft-amberg.de",
-      medium: formData.medium || null,
-      campaign: formData.campaign || null,
-      landingPage: formData.landingPage || null,
-      currentPage: formData.currentPage || null,
-    };
-
-    const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const responseText = await response.text();
-    console.log("[Google Sheets] Response status:", response.status);
-    console.log("[Google Sheets] Response:", responseText);
-
-    if (response.ok) {
-      console.log("[Google Sheets] Data sent successfully!");
-      return { success: true };
-    } else {
-      const error = `Status ${response.status}: ${responseText}`;
-      console.error("[Google Sheets] Error:", error);
-      return { success: false, error };
-    }
-  } catch (error) {
-    const errorMsg = error instanceof Error ? error.message : String(error);
-    console.error("[Google Sheets] Error:", errorMsg);
-    return { success: false, error: errorMsg };
   }
+
+  const eventName =
+    formData.requestType === "callback" ? "kraft_callback" : "kraft_thank_you";
+
+  const payload = {
+    timestamp: new Date().toISOString(),
+    name: formData.name,
+    phone: formData.phone,
+    email: formData.email || "",
+    city: formData.city,
+    service: formData.service,
+    message: formData.message || "",
+    images: imageCount,
+    source: sourceInfo,
+    referrer: formData.referrer || "direct",
+    gclid: formData.gclid || null,
+    gbraid: formData.gbraid || null,
+    wbraid: formData.wbraid || null,
+    eventId: formData.eventId,
+    eventName,
+    eventType: formData.requestType === "callback" ? "callback" : "form",
+    sourceSite: "rohrreinigungkraft-amberg.de",
+    medium: formData.medium || null,
+    campaign: formData.campaign || null,
+    landingPage: formData.landingPage || null,
+    currentPage: formData.currentPage || null,
+  };
+
+  return sendToLeadSheet(process.env.GOOGLE_SHEETS_WEBHOOK_URL, payload);
 }
 
 export async function POST(request: NextRequest) {
@@ -419,6 +396,29 @@ export async function POST(request: NextRequest) {
         {
           error: "Pflichtfelder fehlen",
           details: "Name, Telefon, Ort und Service sind erforderlich",
+        },
+        { status: 400 },
+      );
+    }
+
+    if (!isValidEventId(formData.eventId)) {
+      return NextResponse.json(
+        {
+          error: "Ungültige Anfrage-ID",
+          details: "Eine gültige eventId ist erforderlich",
+        },
+        { status: 400 },
+      );
+    }
+
+    if (
+      formData.requestType !== "contact" &&
+      formData.requestType !== "callback"
+    ) {
+      return NextResponse.json(
+        {
+          error: "Ungültiger Anfragetyp",
+          details: "requestType muss contact oder callback sein",
         },
         { status: 400 },
       );
@@ -449,14 +449,15 @@ export async function POST(request: NextRequest) {
       imageResult = await uploadAllImages(formData.images);
     }
 
-    // Send email via Resend
-    const emailSent = await sendEmailViaResend(formData, imageResult);
-
-    // Send to Google Sheets (with tracking data)
-    const sheetsResult = await sendToGoogleSheets(
+    // Google Sheets is the source of truth. Do not report success until the
+    // webhook confirms the exact sheet, row, eventId and dedupe state.
+    const sheetsReceipt = await sendToGoogleSheets(
       formData,
       imageResult.uploadedUrls.length,
     );
+
+    // Send email only after the lead is durably recorded in Google Sheets.
+    const emailSent = await sendEmailViaResend(formData, imageResult);
 
     if (!emailSent) {
       return NextResponse.json(
@@ -473,8 +474,8 @@ export async function POST(request: NextRequest) {
       success: true,
       message: "Anfrage erfolgreich gesendet",
       emailSent,
-      sheetsSent: sheetsResult.success,
-      sheetsError: sheetsResult.error || null,
+      sheetsSent: true,
+      ...sheetsReceipt,
       imagesUploaded: imageResult.uploadedUrls.length,
       imagesFailed: imageResult.failedCount,
       imageErrors: imageResult.errors,
@@ -498,6 +499,17 @@ export async function POST(request: NextRequest) {
     return response;
   } catch (error) {
     console.error("Error processing contact form:", error);
+
+    if (error instanceof SheetsWebhookError) {
+      return NextResponse.json(
+        {
+          error: "Google Sheets konnte die Anfrage nicht bestätigen",
+          details: error.code,
+        },
+        { status: error.code === "not_configured" ? 503 : 502 },
+      );
+    }
+
     return NextResponse.json(
       { error: "Ein Fehler ist aufgetreten", details: String(error) },
       { status: 500 },

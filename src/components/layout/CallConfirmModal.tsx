@@ -1,10 +1,10 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
-import { Loader2, Phone, X } from "lucide-react";
 import { company } from "@/data/company";
-import { trackCallbackSuccess, trackCallIntent } from "@/lib/tracking";
 import { getTrackingData } from "@/lib/gclid";
+import { trackCallIntent, trackCallbackSuccess } from "@/lib/tracking";
+import { Loader2, Phone, X } from "lucide-react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 
 interface CallConfirmModalProps {
   isOpen: boolean;
@@ -18,6 +18,10 @@ export default function CallConfirmModal({
   source,
 }: CallConfirmModalProps) {
   const phoneInputRef = useRef<HTMLInputElement>(null);
+  const pendingSubmissionRef = useRef<{
+    fingerprint: string;
+    eventId: string;
+  } | null>(null);
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,7 +63,17 @@ export default function CallConfirmModal({
     setIsSubmitting(true);
     setError("");
     const tracking = getTrackingData();
-    const eventId = crypto.randomUUID();
+    const fingerprint = JSON.stringify({
+      name: name.trim(),
+      phone: normalizedPhone,
+      source,
+      website,
+    });
+    const eventId =
+      pendingSubmissionRef.current?.fingerprint === fingerprint
+        ? pendingSubmissionRef.current.eventId
+        : crypto.randomUUID();
+    pendingSubmissionRef.current = { fingerprint, eventId };
 
     try {
       const response = await fetch("/api/contact", {
@@ -88,8 +102,22 @@ export default function CallConfirmModal({
         }),
       });
       const result = await response.json();
-      if (!response.ok) throw new Error(result.details || result.error);
+      const sheetConfirmed =
+        result?.success === true &&
+        result?.sheet === "📞 Alle Anfragen" &&
+        Number.isSafeInteger(result?.row) &&
+        result.row >= 3 &&
+        result?.eventId === eventId &&
+        typeof result?.deduplicated === "boolean";
+      if (!response.ok || !sheetConfirmed) {
+        throw new Error(
+          result.details ||
+            result.error ||
+            "Google Sheets hat die Anfrage nicht bestätigt",
+        );
+      }
 
+      pendingSubmissionRef.current = null;
       trackCallbackSuccess(source, eventId);
       setIsSubmitted(true);
     } catch (submissionError) {
